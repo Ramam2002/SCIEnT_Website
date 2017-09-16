@@ -5,7 +5,7 @@ This is a simple website for SCIEnT Lab NITT.
 ## Getting Started
 Clone this project to your local system using the following command on your terminal .
   ```
-  $ git clone https://github.com/palpriyanka16/ScientLab.git
+  $ git clone https://github.com/palpriyanka16/ScientLabPhaseTwo.git
   ```
 ### Prerequisites
   * Install NodeJS and npm

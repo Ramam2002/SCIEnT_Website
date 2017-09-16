@@ -1,0 +1,28 @@
+#schemes {
+	margin-top:50px;
+}
+.scheme-pill {
+	background-color: #D3D3D3;
+	color:black;
+	cursor: pointer;
+}
+#scheme-pills {
+	margin-left:22%;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a.scheme-pill:hover,
+.nav-pills > li.active > a.scheme-pill:focus {
+  	background-color: #E0BB24;
+	color: black;
+}
+.registration {
+    background-color: #333;
+    /*box-shadow: 10px 10px 5px #888888;*/
+    color: white;
+}
+
+.register-links {
+    color: #E0BB24;
+    font-size: 16px;
+}

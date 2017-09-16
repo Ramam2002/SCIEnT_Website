@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Scient lab</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link rel="icon" href="images/scient-logo.png">
+
+    <!-- Custom CSS -->
+    <link href="/css/ScientLab.css" rel="stylesheet">
+    <link href="/css/register.css" rel="stylesheet">
+    <link href="/css/tools.css" rel="stylesheet">
+    <link href="/css/carousel.css" rel="stylesheet">
+    <link href="/css/projects.css" rel="stylesheet">
+    
+    <!-- <link rel="stylesheet" href="/css/templatemo_misc.css">
+    <link rel="stylesheet" href="/css/templatemo_style.css">  -->
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet"> 
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- script src="/js/angular.min.js"></script>
+    <script src="/js/angular-route.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+    <style>
+       /* .site-slider
+        {
+            margin-top:-10%;
+        }*/
+        #image1
+        {
+            height:30%;
+        }
+        #header img{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #header{
+            text-align: center;
+        }
+    </style>
+    
+
+</head>
+
+<body ng-app="ScientLab" ng-controller="ScientLabCtrl" ng-init="fetchResources()">
+<!-- <div id="loader"></div> -->
+<div id="page-contents">
+    <!-- Header -->
+    <div id="header">
+        <div class="row">
+            <!-- <div class="col-md-12">
+                <a href="#!home"><img class="img-responsive" id="scient-logo" src="images/scient-logo.png" height="130" width="130" /></a>
+                <img class="img-responsive" id="nitt-logo" src="images/nitt-logo.png" height="100.5" width="100" />
+                <h2 id="nitt-header">National Institute of Technology Tiruchchirapalli</h2>
+            </div> -->
+            <div class="col-md-2">
+                <div style="text-align: center;">
+                    <a href="#!home"><img class="img-responsive" id="scient-logo" src="images/scient-logo.png" height="130" width="130" /></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <h2 id="scient-header">Students' Centre For Innovation and Engineering Technology</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <h2 id="nitt-header">National Institute of Technology Tiruchchirapalli</h2>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div style="text-align: center;">
+                    <img class="img-responsive" id="nitt-logo" src="images/nitt-logo.png" height="100.5" width="100" />
+                </div>
+            </div>   
+        </div>
+    </div> 
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-static-top" style="margin-top: 10px;" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- <li class = "menu-item">
+                        <a href="#!home">Home</a> -->
+                    <li class="menu-item dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#!home" ng-class="getClass('/home')">Home<span class="caret"></span></a>
+                            <ul class="menu-item dropdown-menu" style="left:0;">
+                                <li><a id="aboutUsLink" href="#about">About Us</a></li>
+                            </ul>
+                    </li>
+                    <!-- <li class = "menu-item">
+                        <a id ="aboutUsLink" href="#about">About Us</a>
+                    </li> -->
+                    <li class = "menu-item">
+                        <a href="#!Register" ng-class="getClass('/Register')">Register</a>
+                    </li>
+                    <li class = "menu-item" id="resources-main">
+                        <a href="#!Tools" id="resources-tab" ng-class="getClass('/Tools')">Resources</a>
+                    </li>
+                    <!-- <li class = "menu-item">
+                        <a href="#!Facilities">Facilities</a>
+                    </li> -->
+                    <li class = "menu-item">
+                        <a href="#!Projects" ng-class="getClass('/Projects')">Projects</a>
+                    </li>
+                    <!-- <li class = "menu-item">
+                        <a href="#!FAQ">FAQ</a>
+                    </li> -->
+                    <li class = "menu-item">
+                        <a href="#!Contacts" ng-class="getClass('/Contacts')">Contact Us</a>
+                    </li>
+                    <!-- <li class = "menu-item">
+                        <form class="navbar-form" role="search">
+                            <div class="input-group add-on">
+                                <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="contents" ng-view onload="viewLoaded()" style="height:auto;"></div>
+</div>
+    <script>
+        var app = angular.module("ScientLab", ["ngRoute"]);
+        app.filter('split', function() {
+            return function(input, splitChar, splitIndex) {
+                // do some bounds checking here to ensure it has that index
+                return input.split(splitChar)[splitIndex];
+            }
+        });
+
+        app.filter('changeHyphen', function () {
+            return function (input) {
+                return input.replace(/-/g, ' ');
+            };
+        });
+
+
+        app.controller('ScientLabCtrl', function($scope, $http, $location) {
+            $scope.tronixFileNames = [];
+            $scope.mechFileNames = [];
+            $scope.viewLoaded = function () {
+                $('.carousel').carousel({
+                    interval: 4000 //changes the speed
+                });
+                
+                    
+                
+            };
+            $scope.fetchResources = function() {
+                $http({
+                    method : "GET",
+                    url : "/electronics/images"
+                }).then(function mySuccess(response) {
+                    
+                    $scope.tronixFileNames = response.data;
+                }, function myError(response) {
+                });
+                $http({
+                    method : "GET",
+                    url : "/mechanical/images"
+                }).then(function mySuccess(response) {
+                   
+                    $scope.mechFileNames = response.data;
+                }, function myError(response) {
+                });
+            }; 
+            $scope.getClass = function (path) {
+                return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+            }
+        });
+
+        app.config(function ($routeProvider,$locationProvider) {
+            // $locationProvider.hashPrefix('');
+            $routeProvider
+            .when("/home", {
+                templateUrl : "home.html"
+            })
+            .when("/Register", {
+               templateUrl : "register.html"
+            })
+            .when("/Tools", {
+                templateUrl : "tools.html",
+            })
+            .when("/Facilities", {
+                templateUrl : "facilities.html"
+            })
+            .when("/Projects", {
+                templateUrl : "projects.html"
+            })
+            .when("/FAQ", {
+                templateUrl : "faq.html"
+            })
+            .when("/Contacts", {
+                templateUrl : "contacts.html"
+            })
+            .otherwise({
+                redirectTo: '/home'
+            });
+        });
+    </script>
+    
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    
+    <script>
+        $(document).ready(function(){
+            // Add smooth scrolling to all links
+          $("#aboutUsLink").on('click', function(event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+
+              // Store hash
+              var hash = this.hash;
+
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 1500, function(){
+           
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+        });
+        $(document).on('click','.navbar-collapse.in',function(e) {
+            if( $(e.target).is('a') ) {
+                $(this).collapse('hide');
+            }
+        });
+    </script>
+    <!-- <script>
+        document.onreadystatechange = function () {
+        var state = document.readyState
+            if (state == 'interactive') {
+               // document.getElementById('page-contents').style.visibility="hidden";
+            } else if (state == 'complete') {
+                setTimeout(function(){
+                document.getElementById('interactive');
+                document.getElementById('loader').style.visibility="hidden";
+                document.getElementById('page-contents').style.visibility="visible";
+            },1000);
+          }
+        }
+    </script> -->    
+
+    <!-- <script type="text/javascript">
+        // Function to render the images in tools sections. This could get a little ugly.
+        var dataTargetId = 13; 
+        function RenderToolsImages(tool_id, data){
+            var code = '';
+           $.map(data["file_names"],function(file_name, index){
+            var id = "#"+(dataTargetId+1); 
+            var html = '\
+                <div class="col-md-4 col-sm-6 co-xs-12 gal-item">\
+                <div class="box">\
+                  <a data-toggle="modal" data-target="'+id+'">\
+                    <img src="images/tools/'+tool_id+'/'+file_name+'">\
+                  </a>\
+                  <div class="modal fade" id="'+(dataTargetId+1)+'" tabindex="-1" role="dialog">\
+                    <div class="modal-dialog" role="document">\
+                      <div class="modal-content">\
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
+                        <div class="modal-body">\
+                          <img src="images/tools/'+tool_id+'/'+file_name+'">\
+                        </div>\
+                          <div class="col-md-12 description">\
+                            <h4>'+file_name+'</h4>\
+                          </div>\
+                      </div>\
+                    </div>\
+                  </div>\
+                </div>\
+              </div>';
+              console.log(html);
+              code =  code +'<br/>'+html;            
+            $($("#"+tool_id).children()).append(html);
+            dataTargetId++;
+           });
+        }
+        
+        function FetchImages(){
+            var toolType = ["mechanical"];
+            $.map(toolType,function(val, i){
+                $.ajax({
+                url: "/"+val+"/images",
+                type: "GET",
+                success: function(data){RenderToolsImages(val,data);},
+                error: function(err){console.log(err);}
+               });                
+            });
+        }
+        $(document).ready(function(){
+            FetchImages();
+            $("#resources-tab").click(function(){FetchImages();});
+        });
+
+    </script> -->
+</body>
+
+</html>

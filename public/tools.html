@@ -1,0 +1,84 @@
+<div class="container">
+  <div class = "row">
+    <div class = "col-lg-12 text-center">
+      <h1>Resources</h1>
+    </div> 
+  </div>
+    <div class="row" style="margin-top:20px;">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <ul class="nav nav-pills" id="resources-pills">
+                <li class="active"><a class="resources-pill" data-toggle="pill" data-target="#electronics">Electronics Tools</a></li>
+                <li><a class="resources-pill" data-toggle="pill" data-target="#mechanical">Mechanical tools</a></li>
+                <!-- <li><a class="resources-pill" data-toggle="pill" data-target="#rooms">Rooms</a></li> -->
+            </ul>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+<div class="tab-content" id="resources">
+    <section class="tab-pane fade in active row" id="electronics">
+      <div class="container gal-container">
+      <!-- <ul>
+          <li ng-repeat="x in fileNames">
+            {{ x }}
+          </li>
+      </ul> -->
+        <div ng-repeat="x in tronixFileNames" class="col-md-4 col-sm-6 co-xs-12 gal-item">
+            <div class="box">
+                <a data="{{x | split:'.':0 | changeHyphen }}" data-toggle="modal" data-target="#{{x |split:'.':0}}"><img src="images/tools/electronics/{{ x }}"></a>
+                <div class="modal fade" id="{{x |split:'.':0}}" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#215;</span></button>
+                            <div class="modal-body"><img src="images/tools/electronics/{{ x }}" /></div>
+                            <div class="col-md-12 description">
+                                <h4>{{x | split:'.':0 | changeHyphen }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
+      </div>    
+    </section>
+
+    <section class="tab-pane fade row" id="mechanical">
+    <div class="container gal-container">
+        <div ng-repeat="x in mechFileNames" class="col-md-4 col-sm-6 co-xs-12 gal-item">
+            <div class="box">
+                <a data="{{x | split:'.':0 | changeHyphen }}" data-toggle="modal" data-target="#{{x |split:'.':0}}"><img src="images/tools/mechanical/{{ x }}"></a>
+                <div class="modal fade" id="{{x |split:'.':0}}" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#215;</span></button>
+                            <div class="modal-body"><img src="images/tools/mechanical/{{ x }}" /></div>
+                            <div class="col-md-12 description">
+                                <h4>{{x | split:'.':0 | changeHyphen }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>          
+    </div>          
+    </section>
+
+</div>
+
+<!-- Footer -->
+<!-- <div class="footer" class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <p>Copyright &copy; ScientLab website 2017</p>
+        </div>
+        <div class="col-md-4">
+            <img class="img-responsive" id="scient_logo_footer" src="images/scient-logo.png" height="130" width="130" />
+        </div>
+        <div class="col-md-4">
+            <img class="img-responsive" id="recal_logo_footer" src="images/recal.png" height="200" width="200" />
+        </div>
+    </div>
+</div> -->
+
+

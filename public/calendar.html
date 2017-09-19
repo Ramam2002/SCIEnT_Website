@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Calendar Javascript Library - Example</title>
-        <link href="css/calendar.css" rel="stylesheet">
+        <link href="css\calendar.css" rel="stylesheet">
     </head>
     <body>
         <style>
@@ -14,7 +14,7 @@
             <div id="eventsContainer" style="margin-left: 8px;"></div>
         </div>
  
-        <script src="js/calendar.js"></script>
+        <script src="js\calendar.js"></script>
         <script>
 		var k;
             calendar = new Calendar("calendarContainer", "small", [ "Sunday", "3" ], [ "#ffc107", "#ffa000", "#ffffff", "#ffecb3" ]); // calendar container, size, array of first day of the week, and the number of letters for the week days ( max of 3 min of 1 ), colors... i would suggest using materialpalette.com
@@ -147,17 +147,45 @@
                 }
             ]
             };*/
+			var days_left,days_left1,no_of_days_in_the_month,days_left2,today,month;
+	function myFunction() {
+    today = new Date();
+    month = today.getMonth();
+   var no_of_days_in_the_month=daysInMonth(month + 1, today.getFullYear());
+   var current_date=new Date().getDate();
+   days_left=no_of_days_in_the_month-current_date+1;
+  
+	}
+
+	function daysInMonth(month,year) {
+	return new Date(year, month, 0).getDate();
+}
+myFunction();
 			data = {
 				years: [{
 					int: (new Date().getFullYear()),
 					months: [{
 						int: (new Date().getMonth() + 1),
 						days: []
+					},{
+						int: (new Date().getMonth() + 2),
+						days: []
 					}]
-				}]
+				},{
+					int: (new Date().getFullYear()+1),
+					months: [{
+						int: (1),
+						days: []
+					}]
+				}
+				]
 			};
 			var no_of_days;
-			for ( no_of_days = 0; no_of_days < 15; no_of_days++ ) {
+			if (month!=12)
+			{
+			if(days_left>=15)
+			{
+			for ( no_of_days =0; no_of_days < 15; no_of_days++ ) {
 				data.years[0].months[0].days.push(
 							{
 							int: (new Date().getDate() + no_of_days),
@@ -172,6 +200,101 @@
 							}
 						);
 			}
+			}
+			else
+				{
+			for ( no_of_days =0; no_of_days < days_left; no_of_days++ ) {
+				data.years[0].months[0].days.push(
+							{
+							int: (new Date().getDate() + no_of_days),
+							events: [
+								{
+								startTime: "10:00",
+								endTime: "11:00",
+								mTime: "pm",
+								text: "Probably won't fix that (time width)"
+								}
+							]
+							}
+						);
+			}
+				for ( var date =1; date <=15- days_left; date++ ) {
+				data.years[0].months[1].days.push(
+							{
+							int: (date),
+							events: [
+								{
+								startTime: "10:00",
+								endTime: "11:00",
+								mTime: "pm",
+								text: "Probably won't fix that (time width)"
+								}
+							]
+							}
+			
+			);
+
+			}
+			}
+			}
+			if (month==12)
+			{
+			if(days_left>=15)
+			{
+			for ( no_of_days =0; no_of_days < 15; no_of_days++ ) {
+				data.years[0].months[0].days.push(
+							{
+							int: (new Date().getDate() + no_of_days),
+							events: [
+								{
+								startTime: "10:00",
+								endTime: "11:00",
+								mTime: "pm",
+								text: "Probably won't fix that (time width)"
+								}
+							]
+							}
+						);
+			}
+			}
+			else
+				{
+			for ( no_of_days =0; no_of_days < days_left; no_of_days++ ) {
+				data.years[0].months[0].days.push(
+							{
+							int: (new Date().getDate() + no_of_days),
+							events: [
+								{
+								startTime: "10:00",
+								endTime: "11:00",
+								mTime: "pm",
+								text: "Probably won't fix that (time width)"
+								}
+							]
+							}
+						);
+			}
+				for ( var date =1; date <=15- days_left; date++ ) {
+				data.years[1].months[0].days.push(
+							{
+							int: (date),
+							events: [
+								{
+								startTime: "10:00",
+								endTime: "11:00",
+								mTime: "pm",
+								text: "Probably won't fix that (time width)"
+								}
+							]
+							}
+			
+			);
+
+			}
+			}
+			}
+			
+			
 			
 
 
@@ -187,10 +310,12 @@
             organizer.setOnClickListener('year-slider', callback, callback); // first callback is for the back slider, second is for the next slider
 
             // a way to show the events of a date after retrieving the data from the database
-            function showEvents() {
+            function showEvents() 
+			{
             theYear = -1, theMonth = -1, theDay = -1;
 
-            for (i = 0; i < data.years.length; i++) {
+            for (i = 0; i < data.years.length; i++) 
+			{
                 if (calendar.date.getFullYear() == data.years[i].int) {
                 theYear = i;
                 break;
@@ -199,28 +324,29 @@
 
             if (theYear == -1) return;
 
-            for (i = 0; i < data.years[theYear].months.length; i++) {
-                if ((calendar.date.getMonth() + 1) == data.years[theYear].months[i].int) {
+            for (i = 0; i < data.years[theYear].months.length; i++) 
+			{
+                if ((calendar.date.getMonth() + 1) == data.years[theYear].months[i].int)
+				{
                 theMonth = i;
                 break;
                 }
             }
 
             if (theMonth == -1) return;
-
             for (i = 0; i < data.years[theYear].months[theMonth].days.length; i++) {
                 if (calendar.date.getDate() == data.years[theYear].months[theMonth].days[i].int) {
+				console.log(data.years[theYear].months[theMonth].days[i].int);
                 theDay = i;
                 break;
                 }
             }
-			console.log(data.years[theYear]);
-
-            if (theDay == -1) return;
 			
+            if (theDay == -1) return;
+		
             theEvents = data.years[theYear].months[theMonth].days[theDay].events; 
             organizer.list(theEvents);
-         
+			
 			}
         </script>
     </body>

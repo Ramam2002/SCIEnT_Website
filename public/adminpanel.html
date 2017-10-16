@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/scheme1.css">
+<link rel="stylesheet" href="css/adminstyle.css">
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Scheme1 Table</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      
+
+  
+</head>
+<style>
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+#scheme1
+    {   margin-top: 0%;
+        width:40%;
+        float:left;
+        margin-left:5%;
+    
+       
+    }
+    #scheme2
+    {   
+        width:40%;
+        float:right
+        margin-left:5%;
+      
+    }
+    
+   #scheme3
+    {   
+        width:40%;
+        
+        margin-top:5%;
+    }
+</style>
+<script>
+ function openmodal()
+{
+    // alert("hey Pratiksha"); 
+    document.getElementById('id01').style.display='block';
+  }
+</script>
+<body>
+  <div class="table-users" id="scheme1" >
+   <div class="header">SCHEME 1</div>
+   
+   <table cellspacing="0">
+      <tr>
+         <th width="70%"style="padding-left:25%">PROJECT NAME</th>
+         <th width="15%">APPROVE</th>
+         <th width="15%">REJECT</th>
+      </tr>
+
+      <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td>
+        
+       </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70% ">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td>
+        
+      </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
+        
+      </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70% ">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
+        
+      </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
+        
+      </tr>
+
+   </table>  
+</div>
+    <!-- My first scheme is above-->
+    
+<div class="table-users" id="scheme2" >
+   <div class="header">SCHEME 2</div>
+   
+   <table cellspacing="0">
+      <tr>
+         <th width="70%"style="padding-left:25%">PROJECT NAME</th>
+         <th width="15%">APPROVE</th>
+         <th width="15%">REJECT</th>
+      </tr>
+
+      <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td>
+        
+       </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70% ">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td>
+        
+      </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
+        
+      </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70% ">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
+        
+      </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
+        
+      </tr>
+
+   </table>  
+</div>
+<!-- my second scheme is above-->
+    
+    
+<div class="table-users" id="scheme3" >
+   <div class="header">SCHEME 3</div>
+   
+   <table cellspacing="0">
+      <tr>
+         <th width="70%"style="padding-left:25%">PROJECT NAME</th>
+         <th width="15%">APPROVE</th>
+         <th width="15%">REJECT</th>
+      </tr>
+
+      <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td>
+        
+       </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70% ">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td>
+        
+      </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
+        
+      </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70% ">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
+        
+      </tr>
+       
+       <tr>
+         
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
+        
+      </tr>
+
+   </table>  
+</div>
+    
+  
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-teal" > 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Modal Header</h2>
+      </header>
+      <div class="w3-container">
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+        <p>Some text..</p>
+          <p>Some text..</p>
+        <p>Some text..</p>
+          <p>Some text..</p>
+        <p>Some text..</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

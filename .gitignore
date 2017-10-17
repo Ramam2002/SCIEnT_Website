@@ -1,6 +1,8 @@
 # Logs
 logs
 *.log
+npm-debug.log
+
 #config files
 env.js
 bin/config.js

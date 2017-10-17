@@ -4,7 +4,7 @@ logs
 #config files
 env.js
 bin/config.js
-config/config.json
+config
 
 # Runtime data
 pids

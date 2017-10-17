@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
 		contactNumber: {
 			type: DataTypes.STRING,
 			allowNull: false
-		}
+		},
 		emailID: {
 			type: DataTypes.STRING,
 			unique: true,

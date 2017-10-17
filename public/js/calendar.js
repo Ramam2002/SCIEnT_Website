@@ -302,7 +302,7 @@ Organizer.prototype.list = function (data) {
 
   document.getElementById(this.id + "-list").innerHTML = content;
 document.getElementById(this.id + "-list").addEventListener('click', function(e) {
-    window.location.href = 'conferancehallbooking.html';
+    window.location.href = 'conferenceHallBooking.html';
 }, false);
 }
 

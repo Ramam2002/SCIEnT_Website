@@ -19,6 +19,12 @@
   
 </head>
 <style>
+  .scrollbar
+{
+    max-height: 250px;
+    overflow-y: scroll;
+	overflow-x: scroll;
+}
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -131,14 +137,14 @@
 <body>
   <div class="table-users" id="scheme1" >
    <div class="header">SCHEME 1</div>
-   
-   <table cellspacing="0">
+   <div class="scrollbar">
+   <table  cellspacing="0">
       <tr>
          <th width="70%"style="padding-left:25%">PROJECT NAME</th>
          <th width="15%">APPROVE</th>
          <th width="15%">REJECT</th>
       </tr>
-
+		
       <tr>
          
          <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
@@ -181,12 +187,15 @@
 
    </table>  
 </div>
+</div>
+
     <!-- My first scheme is above-->
     
 <div class="table-users" id="scheme2" >
    <div class="header">SCHEME 2</div>
+   <div class="scrollbar">
    
-   <table cellspacing="0">
+   <table class="scrollbar" cellspacing="0">
       <tr>
          <th width="70%"style="padding-left:25%">PROJECT NAME</th>
          <th width="15%">APPROVE</th>
@@ -235,13 +244,15 @@
 
    </table>  
 </div>
+</div>
+
 <!-- my second scheme is above-->
     
     
 <div class="table-users" id="scheme3" >
    <div class="header">SCHEME 3</div>
-   
-   <table cellspacing="0">
+   <div class="scrollbar">
+   <table  class="scrollbar"cellspacing="0">
       <tr>
          <th width="70%"style="padding-left:25%">PROJECT NAME</th>
          <th width="15%">APPROVE</th>
@@ -287,8 +298,10 @@
          <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
         
       </tr>
-
+	
    </table>  
+</div>
+
 </div>
     
   

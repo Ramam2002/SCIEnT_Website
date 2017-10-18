@@ -35,13 +35,13 @@ router.get('/', function(req, res, next) {
 */ 
 router.get('/:type/images',function(req, res, next){
 	res.setHeader("Content-Type", "application/json");
-	fs.readdir("./public/images/tools/"+req.params["type"],function(err, files) {
+	fs.readdir("./public/images/tools/" + req.params["type"],function(err, files) {
 		console.log(files);
 		res.send(files);
 	});
 });
 
-router.post('/sendMessage',function(req,res,next) {
+router.post('/sendMessage', function(req, res, next) {
 	console.log(req.body.name);
 	console.log(req.body.phone);
 	console.log(req.body.email);
@@ -56,7 +56,7 @@ router.post('/sendMessage',function(req,res,next) {
 				
 			]
 		};
-		server.send(message,function(err,message){
+		server.send(message, function(err, message){
 			console.log(err||message);
 			if(!err)
 			{	

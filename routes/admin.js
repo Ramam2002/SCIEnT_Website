@@ -7,6 +7,8 @@ var bcrypt = require('bcryptjs');
 
 var models  = require(path.join(__dirname, '/../' ,'models'));
 var Admins = models.Admins;
+var Facilities = models.Facilities;
+var Projects = models.Projects;
 
 
 router.get('/', function(req, res, next) {
@@ -20,10 +22,18 @@ router.post('/adminLogin', function(req, res, next) {
 		if (bcrypt.compareSync(req.body.adminPassword, admin.password) && admin.adminLevel == 'One') {
 			// req.session.user = 'admin';
 			// Render admin operations page
-			res.render('adminPanelOne');
+			var schemeOneRows, schemeTwoRows;
+			Facilities.findAll().then(function(facilities) {
+				schemeTwoRows = facilities;
+				Projects.findAll().then(function(projects) {
+					schemeOneRows = projects;
+					res.render('adminPanelOne',{ schemeOneRows: schemeOneRows, schemeTwoRows: schemeTwoRows});
+				});
+			});
+
 		} else {
 			// Render login page 
-			res.render('adminLogin', { msg: 'Wrong Username or Password' });
+			res.render('adminLogin', { msg: 'Wrong Password' });
 		}
 	}).catch(function (err) {
 		console.log(err);

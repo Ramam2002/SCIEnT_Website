@@ -4,144 +4,150 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1 shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <title>PROJECTS</title>
+    <title>Projects</title>
     <link rel="stylesheet" href="css/register1.css">
-    
 </head>
-  <script>
-    function fileUpload()
-      {
-    $("#file-upload").click();
-    
-      }
-      
-      function add_field()
-      {
-          $("#new_field").append('<br><span><input type="text" name="mytext[]" placeholder="Name" class="mem-name" /><input type="text" name="mytext[]" placeholder="Roll Number" class="mem-roll"/></span>');
 
-      }
+<script>
+    function fileUpload () {
+        $("#file-upload").click();
+    }
       
-      function add_material()
-      {
-          $("#material_field").append('<br><div><input type="text" name="mytext[]" placeholder="Name" class="material_name"/><input type="text" name="mytext[]" placeholder="Specification" class="material_specs"/><input type="text" name="mytext[]" placeholder="Quantity" class="material_quantity"/><input type="text" name="mytext[]" placeholder="Price" class="material_price" /><input type="text" name="mytext[]" placeholder="Purpose" class="material_purpose"/><input type="text" name="mytext[]" placeholder="Link/Vendor" class="material_vendor"/></div>');
-      }
+    function addField () {
+        $("#new_field").append('<br><span><input type="text" name="mytext[]" placeholder="Name" class="mem-name" /><input type="text" name="mytext[]" placeholder="Roll Number" class="mem-roll"/></span>');
+    }
+    function addMaterial () {
+        $("#material_field").append('<br><div><input type="text" name="mytext[]" placeholder="Name" class="material_name"/><input type="text" name="mytext[]" placeholder="Specification" class="material_specs"/><input type="text" name="mytext[]" placeholder="Quantity" class="material_quantity"/><input type="text" name="mytext[]" placeholder="Price" class="material_price" /><input type="text" name="mytext[]" placeholder="Purpose" class="material_purpose"/><input type="text" name="mytext[]" placeholder="Link/Vendor" class="material_vendor"/></div>');
+    }
       
-      function add_service()
-      {
-          $("#service_field").append('<br><div><input type="text" name="mytext[]" placeholder="Name" class="sname" /><input type="text" name="mytext[]" placeholder="Specification" class="service_specs"/><input type="text" name="mytext[]" placeholder="Price" class="service_price"/></div>');
-      }
-      
-    
-     
-  </script>
+    function addService () {
+        $("#service_field").append('<br><div><input type="text" name="mytext[]" placeholder="Name" class="sname" /><input type="text" name="mytext[]" placeholder="Specification" class="service_specs"/><input type="text" name="mytext[]" placeholder="Price" class="service_price"/></div>');
+    } 
+</script>
+
 <style>
-    #file-upload
-    {
+    #file-upload {
         display: none;
     }
     
-    .sname,.service_specs,.service_price,.material_name,.material_specs,.material_quantity,.material_price,.material_vendor,.material_purpose,.mem-name,.mem-roll
-    {
+    .sname,.service_specs,.service_price,.material_name,.material_specs,.material_quantity,.material_price,.material_vendor,.material_purpose,.mem-name,.mem-roll {
         width: 30%;
     }
     
-    body
-    {
+    body {
         margin: 0px;
     }
+
 </style>
+
 <body>
-<form method="post" action="/applyForProject">
- <div class="container" style="width:100%" id = "form-projects">
-     <h1 class="jumbotron text-center" id="form-title">PROJECTS</h1>
-  <div class="from-group">
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" required placeholder="Name">
-  </div>
-  <div class="from-group">
-      <label for="roll-no">Roll Number:</label>
-      <input type="text" class="form-control" id="roll-no" required placeholder="Roll Number">
-  </div>
-  <div class="from-group">
-      <label for="department">Department:</label>
-      <input type="text" class="form-control" id="department" placeholder="Department" required>
-  </div>
-  <div class="from-group">
-      <label for="projectName">Project Title:</label>
-      <input type="text" class="form-control" id="department" placeholder="Project Title" required>
-  </div>
-  <div class="from-group">
-      <label for="memberName">Team Members :</label>
-      <!--<table><tr><th>Member Name </th><td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td><th>Roll Number</th></tr></table>-->
-      <span id="new_field"></span>
-      <input type="button" value="ADD MEMEBER" onclick="add_field()" id="add-mem">
-  </div>
-  <div class="from-group">
-      <label for="contact">Contact Number:</label>
-      <input type="tel" class="form-control" id="department" required placeholder="Contact">
-  </div>
-  <div class="from-group">
-      <label for="email">Email address:</label>
-      <input type="email" class="form-control" id="email" required placeholder="Email Id">
-  </div>
+    <form method="post" action="/applyForProjects">
+        <div class="container" style="width:100%" id="form-projects">
+            <h1 class="jumbotron text-center" id="form-title">PROJECTS</h1>
+            <div class="from-group">
+                <label for="name">Name :</label>
+                <input type="text" class="form-control" name="name" required placeholder="Name">
+            </div>
+            <div class="from-group">
+                <label for="roll-no">Roll Number :</label>
+                <input type="text" class="form-control" name="rollNo" required placeholder="Roll Number">
+            </div>
+            <div class="from-group">
+                <label for="department">Department :</label>
+                <input type="text" class="form-control" name="dept" placeholder="Department" required>
+            </div>
+            <div class="from-group">
+                <label for="projectName">Project Title :</label>
+                <input type="text" class="form-control" name="title" placeholder="Project Title" required>
+            </div>
+            <div class="from-group">
+                <label for="memberName">Team Members :</label>
+                <span id="new_field"></span>
+                <input type="button" value="Add Member" onclick="addField()" id="add-mem">
+            </div>
+            <div class="from-group">
+                <label for="contact">Contact Number :</label>
+                <input type="tel" class="form-control" name="contact" required placeholder="Contact">
+            </div>
+            <div class="from-group">
+                <label for="email">Email address :</label>
+                <input type="email" class="form-control" name="email" required placeholder="Email Id">
+            </div>
 
-  <div class="from-group">
-      <label for="project-type">Is your Project Open or closed ?<br><span class="head-def">In an open project, other students can register to work on the project.</span></label>
-      <table><tr><th><div class="radio">
-  <label><input type="radio" name="optradio" checked="checked">Open</label>
-</div></th>
-<td><div class="radio">
-  <label><input type="radio" name="optradio">Closed</label>
-</div></td></tr></table>
-</div>
-<div class="from-group">
-      <label for="abstract">Abstract :<br><span class="head-def">In 150 words</span></label>
-      <div id ="abs-writeup">
-          <span id = "project-abstract" contenteditable="true" name="abstaract"></span>
-      </div>
-      <span id ="error"></span>
-  </div>
- <div class="from-group">
-      <label for="budget">Approximate Budget:</label>
-      <input type="text" class="form-control" id="budget" required placeholder="Enter Required Budget">
-  </div>
- <div class="from-group">
-      <label for="material">Materials :</label>
-      <!--<table><tr><th>Name</th>&nbsp;<th>Specification</th><th>Quantity</th><th>Price</th><th>Purpose</th><th>Link/Vendor</th></tr></table>-->
-      <span id="material_field"></span>
-      <input type="button" value="ADD MATERIAL" onclick="add_material()" id="add-m">
-      
-  </div>
-  <div class="from-group">
-      <label for="services">Services :</label>
-      <!--<table><tr><th>Name</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th><th>Specification</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th><th>Price</th></tr></table>-->
-      <div id="service_field"></div>
-      <input type="button" value="ADD SERVICE" onclick="add_service()" id="add-s">
-      
-  </div>
- <div class="from-group">
-      <label for="timeline">Timeline Of Project:</label>
-      <input type="text" class="form-control" id="timeline" required placeholder="Timeline Of Project">
-  </div>
- <div class="from-group">
-      <label for="bill-detail">Sample Format of bill is given below<br></label><br>
-     <div class="row">
-       <a href="form.png"> <img src="form.png" alt="Format of the form" class="image" id ="format-image"></a><br>
-     </div>
-     <!--<input type="button" id = "file-link" value="ADD FILE" onclick="fileUpload()">
-     <input id="file-upload" type="file" >
-     <span id="file-new"></span>-->
-    </div>
-  <br>
-<div class="wrapper" style="text-align:center"><button type="submit" class="btn btn-default" style="width:50%" id="submit-button" onClick="ValidateForm(this.form)">Submit</button> </div>
+            <div class="from-group">
+                <label for="project-type">Is your Project Open or closed ?<br>
+                    <span class="head-def">In an open project, other students can register to work on the project.</span>
+                </label>
+                <table>
+                    <tr>
+                        <th>
+                            <div class="radio">
+                            <label>
+                                <input type="radio" name="optradio" checked="checked">Open
+                            </label>
+                            </div>
+                        </th>
+                        <td>
+                            <div class="radio">
+                            <label>
+                            <input type="radio" name="optradio">Closed
+                            </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="from-group">
+                <label for="abstract">Abstract :<br>
+                    <span class="head-def">In 150 words</span>
+                </label>
+                <!-- <div id="abs-writeup">
+                    <span id="project-abstract" contenteditable="true" name="abstract"></span>
+                </div>
+                <span id="error"></span> -->
+                <br>
+                <textarea class="form-control" name="abstract" required placeholder="Write Abstract here"></textarea>
+            </div>
+            <div class="from-group">
+                <label for="budget">Approximate Budget :</label>
+                <input type="text" class="form-control" name="budget" required placeholder="Enter Required Budget">
+            </div>
+            <div class="from-group">
+                <label for="material">Materials :</label>
+                <span id="material_field"></span>
+                <input type="button" value="Add Material" onclick="addMaterial()" id="add-m">
+            </div>
+            <div class="from-group">
+                <label for="services">Services :</label>
+                <span id="service_field"></span>
+                <input type="button" value="Add Service" onclick="addService()" id="add-s">
+            </div>
+            <div class="from-group">
+                <label for="timeline">Timeline Of Project :</label>
+                <input type="text" class="form-control" name="timeline" required placeholder="Timeline Of Project">
+            </div>
+            <div class="from-group">
+                <label for="bill-detail">Sample Format of bill is given below<br></label><br>
+                <div class="row">
+                    <a href="form.png">
+                        <img src="form.png" alt="Format of the form" class="image" id ="format-image">
+                    </a>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <div class="wrapper" style="text-align:center">
+                <button type="submit" class="btn btn-default" style="width:50%" id="submit-button" onClick="ValidateForm(this.form)">Submit</button>
+            </div>
+        </div>
+    </form>  
 
- </div>
-  </form>  
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
-    
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>  
-<script src="js/register1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>  
+
+    <script src="js/register1.js"></script>
 </body>
 </html>

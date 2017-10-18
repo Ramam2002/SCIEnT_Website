@@ -6,7 +6,7 @@ npm-debug.log
 #config files
 env.js
 bin/config.js
-config
+config/config.json
 
 # Runtime data
 pids

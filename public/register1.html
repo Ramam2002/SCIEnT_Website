@@ -8,9 +8,51 @@
     <link rel="stylesheet" href="css/register1.css">
     
 </head>
+  <script>
+    function fileUpload()
+      {
+    $("#file-upload").click();
+    
+      }
+      
+      function add_field()
+      {
+          $("#new_field").append('<br><span><input type="text" name="mytext[]" placeholder="Name" class="mem-name" /><input type="text" name="mytext[]" placeholder="Roll Number" class="mem-roll"/></span>');
+
+      }
+      
+      function add_material()
+      {
+          $("#material_field").append('<br><div><input type="text" name="mytext[]" placeholder="Name" class="material_name"/><input type="text" name="mytext[]" placeholder="Specification" class="material_specs"/><input type="text" name="mytext[]" placeholder="Quantity" class="material_quantity"/><input type="text" name="mytext[]" placeholder="Price" class="material_price" /><input type="text" name="mytext[]" placeholder="Purpose" class="material_purpose"/><input type="text" name="mytext[]" placeholder="Link/Vendor" class="material_vendor"/></div>');
+      }
+      
+      function add_service()
+      {
+          $("#service_field").append('<br><div><input type="text" name="mytext[]" placeholder="Name" class="sname" /><input type="text" name="mytext[]" placeholder="Specification" class="service_specs"/><input type="text" name="mytext[]" placeholder="Price" class="service_price"/></div>');
+      }
+      
+    
+     
+  </script>
+<style>
+    #file-upload
+    {
+        display: none;
+    }
+    
+    .sname,.service_specs,.service_price,.material_name,.material_specs,.material_quantity,.material_price,.material_vendor,.material_purpose,.mem-name,.mem-roll
+    {
+        width: 30%;
+    }
+    
+    body
+    {
+        margin: 0px;
+    }
+</style>
 <body>
-<form>
- <div class="container" style="width:50%" id = "form-projects">
+<form method="post" action="/applyForProject">
+ <div class="container" style="width:100%" id = "form-projects">
      <h1 class="jumbotron text-center" id="form-title">PROJECTS</h1>
   <div class="from-group">
       <label for="name">Name:</label>
@@ -22,7 +64,17 @@
   </div>
   <div class="from-group">
       <label for="department">Department:</label>
-      <input type="text" class="form-control" id="department" placeholder="Department">
+      <input type="text" class="form-control" id="department" placeholder="Department" required>
+  </div>
+  <div class="from-group">
+      <label for="projectName">Project Title:</label>
+      <input type="text" class="form-control" id="department" placeholder="Project Title" required>
+  </div>
+  <div class="from-group">
+      <label for="memberName">Team Members :</label>
+      <!--<table><tr><th>Member Name </th><td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td><th>Roll Number</th></tr></table>-->
+      <span id="new_field"></span>
+      <input type="button" value="ADD MEMEBER" onclick="add_field()" id="add-mem">
   </div>
   <div class="from-group">
       <label for="contact">Contact Number:</label>
@@ -54,16 +106,32 @@
       <input type="text" class="form-control" id="budget" required placeholder="Enter Required Budget">
   </div>
  <div class="from-group">
+      <label for="material">Materials :</label>
+      <!--<table><tr><th>Name</th>&nbsp;<th>Specification</th><th>Quantity</th><th>Price</th><th>Purpose</th><th>Link/Vendor</th></tr></table>-->
+      <span id="material_field"></span>
+      <input type="button" value="ADD MATERIAL" onclick="add_material()" id="add-m">
+      
+  </div>
+  <div class="from-group">
+      <label for="services">Services :</label>
+      <!--<table><tr><th>Name</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th><th>Specification</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th><th>Price</th></tr></table>-->
+      <div id="service_field"></div>
+      <input type="button" value="ADD SERVICE" onclick="add_service()" id="add-s">
+      
+  </div>
+ <div class="from-group">
       <label for="timeline">Timeline Of Project:</label>
       <input type="text" class="form-control" id="timeline" required placeholder="Timeline Of Project">
   </div>
  <div class="from-group">
-      <label for="bill-detail">Details And Bill Of Materials :<br><span class="head-def">Upload an Excel Sheet or Word Document. Format:</span></label><br>
+      <label for="bill-detail">Sample Format of bill is given below<br></label><br>
      <div class="row">
        <a href="form.png"> <img src="form.png" alt="Format of the form" class="image" id ="format-image"></a><br>
      </div>
-     <a href="#" id ="file-link"><span style="color:blue">ADD FILE</span></a>
-  </div>
+     <!--<input type="button" id = "file-link" value="ADD FILE" onclick="fileUpload()">
+     <input id="file-upload" type="file" >
+     <span id="file-new"></span>-->
+    </div>
   <br>
 <div class="wrapper" style="text-align:center"><button type="submit" class="btn btn-default" style="width:50%" id="submit-button" onClick="ValidateForm(this.form)">Submit</button> </div>
 

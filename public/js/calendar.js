@@ -301,6 +301,9 @@ Organizer.prototype.list = function (data) {
   }
 
   document.getElementById(this.id + "-list").innerHTML = content;
+document.getElementById(this.id + "-list").addEventListener('click', function(e) {
+    window.location.href = 'conferenceHallBooking.html';
+}, false);
 }
 
 Organizer.prototype.setupBlock = function (blockId, theOrganizer, callback) {

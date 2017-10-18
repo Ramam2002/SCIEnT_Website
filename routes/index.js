@@ -36,21 +36,6 @@ router.get('/', function(req, res, next) {
 router.get('/:type/images',function(req, res, next){
 	res.setHeader("Content-Type", "application/json");
 	fs.readdir("./public/images/tools/" + req.params["type"],function(err, files) {
-		// if (err) {
-		// 	console.log(err);
-		// 	res.json({
-		// 		status:"500 ERROR",
-		// 		message:"Internal Server Error",
-		// 		err:err,
-		// 	});
-		// 	return;		
-		// }
-		// res.json({
-		// 	status:"200 OK",
-		// 	message:"Files found successfully",
-		// 	file_count:files.len,
-		// 	file_names:files,
-		// });
 		console.log(files);
 		res.send(files);
 	});

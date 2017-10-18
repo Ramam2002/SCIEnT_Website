@@ -35,6 +35,9 @@ module.exports = function(sequelize, DataTypes){
 		abstract: {
 			type: DataTypes.STRING
 		},
+		budget: {
+			type: DataTypes.INTEGER
+		},
 		timeline: {
 			type: DataTypes.STRING
 		}

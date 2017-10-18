@@ -31,5 +31,19 @@ router.post('/applyForFacilities', function(req,res,next) {
     });
 });
 
+router.post('/applyForProjects', function(req, res, next) {
+	var record = {
+		name: req.body.name,
+		rollNo: req.body.rollNo,
+		department: req.body.dept,
+		contactNumber: req.body.contact,
+		emailID: req.body.email,
+		abstract: req.body.abstract,
+		budget: req.body.budget,
+		timeline: req.body.timeline
+	};
+	console.log(record);
+});
+
 
 module.exports = router;

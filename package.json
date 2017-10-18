@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "bcryptjs": "^2.3.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
@@ -18,7 +18,7 @@
     "mysql": "^2.11.1",
     "mysql2": "^1.4.2",
     "sequelize": "^4.14.0",
-    "serve-favicon": "~2.3.0",
+    "serve-favicon": "^2.3.2",
     "socket.io": "^1.4.8"
   }
 }

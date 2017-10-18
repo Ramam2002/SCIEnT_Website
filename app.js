@@ -4,12 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var bcrypt = require('bcryptjs');
 var models = require('./models');
 var sequelize = require('sequelize');
-
+var Admins = models.Admins; 
 
 var index = require('./routes/index');
-var register = require('./routes/register'); 
+var register = require('./routes/register');
+var admin = require('./routes/admin'); 
 
 var app = express();
 
@@ -27,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/', register);
+app.use('/admin',admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -48,6 +51,22 @@ app.use(function(err, req, res, next) {
 
 models.sequelize.sync().then(function () {
   console.log('Tables are created');
+});
+
+var adminName = 'levelOneAdmin';
+var adminPwd = 'scientAdmin';
+var salt=bcrypt.genSaltSync(1);
+var hash=bcrypt.hashSync(adminPwd,salt);
+adminPwd = hash;
+var adminDetails = {
+    adminName: adminName,
+    password: adminPwd,
+    adminLevel: 'One'
+};
+Admins.sync({force: true})
+.then( function() {
+    return Admins.create(adminDetails);
+    console.log('Demo level one admin added');
 });
 
 module.exports = app;

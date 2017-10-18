@@ -29,9 +29,16 @@ module.exports = function(sequelize, DataTypes) {
 			unique: true,
 			allowNull: false
 		},
-		heavyMachinery: {
+		purpose: {
 			type: DataTypes.STRING,
 			allowNull: false
+		},
+		duration: {
+			type: DataTypes.INTEGER,
+			allowNull: false
+		},
+		heavyMachinery: {
+			type: DataTypes.TEXT
 		},
 		approved: {
 			type: DataTypes.STRING,

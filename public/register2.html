@@ -85,59 +85,68 @@
     
 </head>
 <body>
-<form >
+<form method="post" action="/applyForFacilities">
  <div class="container" style="width:50%" id = "form-projects">
      <h1 class="jumbotron text-center" id="form-title">FACILITIES/TOOLS</h1>
   <div class="from-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name"  required>
+      <input type="text" class="form-control" name="name" id="name"  required>
   </div>
   <div class="from-group">
       <label for="roll-no">Roll Number:</label>
-      <input type="text" class="form-control" id="roll-no"  required >
+      <input type="text" class="form-control" name="roll" id="roll-no"  required >
   </div>
   <div class="from-group">
       <label for="department">Department:</label>
-      <input type="text" class="form-control" id="department" required>
+      <input type="text" class="form-control" name="department" id="department" required>
   </div>
   <div class="from-group">
       <label for="contact">Contact Number:</label>
-      <input type="tel" class="form-control" id="department" required>
+      <input type="tel" class="form-control" name="contactNumber" id="department" required>
   </div>
   <div class="from-group">
       <label for="email">Email address:</label>
-      <input type="email" class="form-control" id="email" required>
+      <input type="email" class="form-control" name="emailID" id="email" required>
   </div>
  <div class="from-group">
       <label for="purpose">Purpose :</label>
-      <input type="text" class="form-control" id="purpose" required>
+      <input type="text" class="form-control" name="purpose" id="purpose" required>
   </div>
   <div class="from-group">
       <label for="access-time">Access Required for (Months) ?<br></label>
-      <div class="radio">
-  <label><input type="radio" name="optradio" checked="checked">1</label>
+      <!-- <div class="radio">
+  <label><input type="radio" name="duration" checked="checked">1</label>
 </div>
 <div class="radio">
-  <label><input type="radio" name="optradio">2</label>
+  <label><input type="radio" name="duration">2</label>
 </div>
 <div class="radio">
-  <label><input type="radio" name="optradio">3</label>
+  <label><input type="radio" name="duration">3</label>
 </div>
 <div class="radio">
-  <label><input type="radio" name="optradio">4</label>
+  <label><input type="radio" name="duration">4</label>
 </div>
 <div class="radio">
-  <label><input type="radio" name="optradio">5</label>
+  <label><input type="radio" name="duration">5</label>
 </div>
 <div class="radio">
-  <label><input type="radio" name="optradio">6</label>
-</div>
+  <label><input type="radio" name="duration">6</label>
+</div> -->
+    <select name="duration" id="duration">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select>
 </div>
 <div class="from-group">
       <label for="abstract">Heavy Machinery Required  :<br><span class="head-def">If Yes name them</span></label>
-      <div id ="abs-writeup">
+      <!-- <div id ="abs-writeup">
           <span id = "project-abstract" contenteditable="true"></span>
-      </div>
+      </div> -->
+      <input type="text" id="form-control" name="heavyMachinery">
      <span id ="error"></span>
   </div>
   <br>

@@ -6,14 +6,14 @@ module.exports = function(sequelize, DataTypes){
 			allowNull: false
 		},
 		rollNo: {
-			type: DataTypes.STRING
+			type: DataTypes.STRING,
 			allowNull: false
 		}
 	}, {
 	freezeTableName: true
 	});
 	Teams.associate = function(models) {
-		Teams.belongTo(models.Projects, {
+		Teams.belongsTo(models.Projects, {
 			onDelete: "CASCADE",
 			foreignKey: {
 				allowNull: false

@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes){
 	freezeTableName: true
 	});
 	Services.associate = function(models) {
-		Services.belongTo(models.Projects, {
+		Services.belongsTo(models.Projects, {
 			onDelete: "CASCADE",
 			foreignKey: {
 				allowNull: false

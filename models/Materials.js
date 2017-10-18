@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes){
 	freezeTableName: true
 	});
 	Materials.associate = function(models) {
-		Materials.belongTo(models.Projects, {
+		Materials.belongsTo(models.Projects, {
 			onDelete: "CASCADE",
 			foreignKey: {
 				allowNull: false

@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes){
 		rollNo: {
 			type: DataTypes.STRING,
 			allowNull: false
-		}
+		},
 		department: {
 			type: DataTypes.STRING,
 			allowNull: false

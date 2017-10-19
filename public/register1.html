@@ -18,27 +18,27 @@
             + '<span>'
             + '<input type="text" name="teamMembersNames" placeholder="Name" class="mem-name" />'
             + '<input type="text" name="teamMembersRoll" placeholder="Roll Number" class="mem-roll"/>'
-            + '</span>');
+            + '</span><br>');
     }
     function addMaterial () {
         $("#material_field").append('<br>'
-            + '<div>'
+            + '<span>'
             + '<input type="text" name="materialNames" placeholder="Name" class="material_name"/>'
             + '<input type="text" name="materialSpecs" placeholder="Specification" class="material_specs"/>'
             + '<input type="text" name="materialQuantity" placeholder="Quantity" class="material_quantity"/>'
             + '<input type="text" name="materialPrice" placeholder="Price" class="material_price" />'
             + '<input type="text" name="purpose" placeholder="Purpose" class="material_purpose"/>'
             + '<input type="text" name="vendors" placeholder="Link/Vendor" class="material_vendor"/>'
-            + '</div>');
+            + '</span><br>');
     }
       
     function addService () {
         $("#service_field").append('<br>'
-            + '<div>'
+            + '<span>'
             + '<input type="text" name="serviceNames" placeholder="Name" class="sname" />'
             + '<input type="text" name="serviceSpecs" placeholder="Specification" class="service_specs"/>'
             + '<input type="text" name="servicePrice" placeholder="Price" class="service_price"/>'
-            + '</div>');
+            + '</span><br>');
     } 
 </script>
 
@@ -49,12 +49,21 @@
     
     .sname, .service_specs, .service_price {
         width: 30%;
+        margin-left: 10px;
+        margin-top: 5px;
     }
     .material_name, .material_specs, .material_quantity, .material_price, .material_vendor, .material_purpose{
         width: 30%;
+        margin-left: 10px;
+        margin-top: 5px;
     } 
     .mem-name, .mem-roll {
         width: 30%;
+        margin-left: 10px;
+    }
+
+    #add-mem, #add-s, #add-m{
+        margin-top: 10px;
     }
     
     body {

@@ -43,12 +43,12 @@ module.exports = function(sequelize, DataTypes) {
 		approved: {
 			type: DataTypes.STRING,
 			allowNull: false,
-			default: "No"
+			defaultValue: 'false' 
 		},
 		mailSent: {
 			type: DataTypes.STRING,
 			allowNull: false,
-			default: "No"
+			defaultValue: 'false'
 		}
 	},{
     freezeTableName: true

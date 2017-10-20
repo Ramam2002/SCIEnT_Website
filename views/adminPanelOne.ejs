@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="/css/adminstyle.css">
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/font-awesome-admin_login.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <html >
@@ -185,19 +187,18 @@
            <table class="scrollbar" cellspacing="0">
                 <tr>
                     <th width="25%">APPLICATION ID</th>
-                    <th width="30%">APPLICANT ROLL</th>
+                    <th width="45%">APPLICANT ROLL</th>
                     <th width="15%">APPROVE</th>
-                    <th width="15%">REJECT</th>
-                    <th width="15%">DELETE</th>
+                    <th width="15%">REMOVE</th>
                 </tr>
 
                 <% schemeTwoRows.forEach(function(item) { %>
                 <tr>
                     <td ><a href="#"><span class="applicantId"><%= item.id %></span></a></td>
-                    <td ><span class="proname"><%= item.roll %></span></td>
-                    <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
-                    <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td>
-                    <td><span>&times;</span>
+                    <td ><span class="applicantRoll"><%= item.roll %></span></td>
+                    <td><button id="approveForFacilities" type="button" class="btn btn-success">APPROVE </button></td>
+                    <!-- <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td> -->
+                    <td><span id="removeForFacilities"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span>
                 </tr>
                 <% }); %>
                

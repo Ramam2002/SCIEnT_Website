@@ -80,7 +80,7 @@ $(document).ready (function () {
             hideMsg(msgBody);
             return;
         }
-        else{
+        else {
             $.ajax( {
                 url: '/admin/addAdmin',
                 method: 'POST',
@@ -91,8 +91,14 @@ $(document).ready (function () {
                 }),
                 contentType: "application/json",
                 dataType: "json",
-                success: function(data,status) {
+                success: function(data, status) {
+                    alert(data.msg);
+                    var msgBody = document.getElementById('addAdminMsg');
                     msgBody.innerHTML = data.msg;
+                    $('#userName').val('');
+                    $('#adminPassword').val('');
+                    $('#confirmPassword').val('');
+                    $('#adminLevel').val('');
                     hideMsg(msgBody);
                 }
             });

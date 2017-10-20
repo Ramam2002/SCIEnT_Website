@@ -41,5 +41,18 @@ router.post('/adminLogin', function(req, res, next) {
 	});
 });
 
+
+router.post('/getFacilitiesDetails', function(req, res, next) {
+	console.log(req.body.applicantId);
+	Facilities.findOne({where: {id: req.body.applicantId}})
+	.then(function(facilitiesRecord) {
+		console.log(JSON.stringify(facilitiesRecord));
+		res.send(JSON.stringify(facilitiesRecord));
+	}).catch(function(err) {
+		console.log(err);
+	});
+});
+
+
 module.exports = router;
 

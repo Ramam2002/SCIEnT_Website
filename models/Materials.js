@@ -5,6 +5,10 @@ module.exports = function(sequelize, DataTypes){
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
+		specification: {
+			type: DataTypes.STRING,
+			allowNull: true
+		},
 		quantity: {
 			type: DataTypes.INTEGER,
 			default: 1

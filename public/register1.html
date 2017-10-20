@@ -13,15 +13,32 @@
         $("#file-upload").click();
     }
       
-    function addField () {
-        $("#new_field").append('<br><span><input type="text" name="mytext[]" placeholder="Name" class="mem-name" /><input type="text" name="mytext[]" placeholder="Roll Number" class="mem-roll"/></span>');
+    function addTeamMembers () {
+        $("#new_field").append('<br>' 
+            + '<span>'
+            + '<input type="text" name="teamMembersNames" placeholder="Name" class="mem-name" />'
+            + '<input type="text" name="teamMembersRoll" placeholder="Roll Number" class="mem-roll"/>'
+            + '</span><br>');
     }
     function addMaterial () {
-        $("#material_field").append('<br><div><input type="text" name="mytext[]" placeholder="Name" class="material_name"/><input type="text" name="mytext[]" placeholder="Specification" class="material_specs"/><input type="text" name="mytext[]" placeholder="Quantity" class="material_quantity"/><input type="text" name="mytext[]" placeholder="Price" class="material_price" /><input type="text" name="mytext[]" placeholder="Purpose" class="material_purpose"/><input type="text" name="mytext[]" placeholder="Link/Vendor" class="material_vendor"/></div>');
+        $("#material_field").append('<br>'
+            + '<span>'
+            + '<input type="text" name="materialNames" placeholder="Name" class="material_name"/>'
+            + '<input type="text" name="materialSpecs" placeholder="Specification" class="material_specs"/>'
+            + '<input type="text" name="materialQuantity" placeholder="Quantity" class="material_quantity"/>'
+            + '<input type="text" name="materialPrice" placeholder="Price" class="material_price" />'
+            + '<input type="text" name="purpose" placeholder="Purpose" class="material_purpose"/>'
+            + '<input type="text" name="vendors" placeholder="Link/Vendor" class="material_vendor"/>'
+            + '</span><br>');
     }
       
     function addService () {
-        $("#service_field").append('<br><div><input type="text" name="mytext[]" placeholder="Name" class="sname" /><input type="text" name="mytext[]" placeholder="Specification" class="service_specs"/><input type="text" name="mytext[]" placeholder="Price" class="service_price"/></div>');
+        $("#service_field").append('<br>'
+            + '<span>'
+            + '<input type="text" name="serviceNames" placeholder="Name" class="sname" />'
+            + '<input type="text" name="serviceSpecs" placeholder="Specification" class="service_specs"/>'
+            + '<input type="text" name="servicePrice" placeholder="Price" class="service_price"/>'
+            + '</span><br>');
     } 
 </script>
 
@@ -30,8 +47,23 @@
         display: none;
     }
     
-    .sname,.service_specs,.service_price,.material_name,.material_specs,.material_quantity,.material_price,.material_vendor,.material_purpose,.mem-name,.mem-roll {
+    .sname, .service_specs, .service_price {
         width: 30%;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+    .material_name, .material_specs, .material_quantity, .material_price, .material_vendor, .material_purpose{
+        width: 30%;
+        margin-left: 10px;
+        margin-top: 5px;
+    } 
+    .mem-name, .mem-roll {
+        width: 30%;
+        margin-left: 10px;
+    }
+
+    #add-mem, #add-s, #add-m{
+        margin-top: 10px;
     }
     
     body {
@@ -63,7 +95,7 @@
             <div class="from-group">
                 <label for="memberName">Team Members :</label>
                 <span id="new_field"></span>
-                <input type="button" value="Add Member" onclick="addField()" id="add-mem">
+                <input type="button" value="Add Member" onclick="addTeamMembers()" id="add-mem">
             </div>
             <div class="from-group">
                 <label for="contact">Contact Number :</label>
@@ -83,14 +115,14 @@
                         <th>
                             <div class="radio">
                             <label>
-                                <input type="radio" name="optradio" checked="checked">Open
+                                <input type="radio" name="optradio" value="open" checked="checked">Open
                             </label>
                             </div>
                         </th>
                         <td>
                             <div class="radio">
                             <label>
-                            <input type="radio" name="optradio">Closed
+                            <input type="radio" name="optradio" value="closed">Closed
                             </label>
                             </div>
                         </td>

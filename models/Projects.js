@@ -20,15 +20,15 @@ module.exports = function(sequelize, DataTypes){
 			type: DataTypes.STRING,
 			allowNull: false
 		},
+		projectTitle: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
 		contactNumber: {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
 		emailID: {
-			type: DataTypes.STRING,
-			allowNull: false
-		},
-		projectTitle: {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
@@ -44,6 +44,21 @@ module.exports = function(sequelize, DataTypes){
 		},
 		timeline: {
 			type: DataTypes.TEXT
+		},
+		approvedByL1: {
+			type: DataTypes.ENUM('No', 'Yes'),
+			allowNull: false,
+			default: 'No'
+		},
+		approvedByL2: {
+			type: DataTypes.ENUM('No', 'Yes'),
+			allowNull: false,
+			default: 'No'
+		},
+		mailSent: {
+			type: DataTypes.ENUM('No', 'Yes'),
+			allowNull: false,
+			default: 'No'
 		}
 	}, {
 	freezeTableName: true

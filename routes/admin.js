@@ -88,6 +88,18 @@ router.post('/removeForFacilities', function(req, res, next) {
 	});
 });
 
+router.post('/addAdmin', function(req, res, next) {
+	var adminRecord = {
+		adminName: req.body.adminName,
+		password: req.body.password,
+		adminLevel: req.body.adminLevel
+	};
+	return Admins.create(adminRecord);
+	res.send(JSON.stringify({msg: 'You have added an admin of level ' + req.body.adminLevel + ' successfully!' }));
+
+});
+
+
 router.post('/logout', function(req, res, next) {
 	req.session.access = null;
 	res.render('adminLogin', {msg:''});

@@ -55,12 +55,13 @@
                     <td ><span class="projectName"><%= item.projectTitle %></span></td>
                     <td><button id="approveForProjectsByL1" type="button" class="btn btn-success">APPROVE </button></td>
                     <!-- <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td> -->
-                    <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span>
+                    <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
                 </tr>
                 <% }); %>
             </table>  
         </div>
     </div>
+    
 
     <!-- My first scheme is above-->
     
@@ -82,13 +83,15 @@
                     <td ><span class="applicantRoll"><%= item.roll %></span></td>
                     <td><button id="approveForFacilities" type="button" class="btn btn-success">APPROVE </button></td>
                     <!-- <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td> -->
-                    <td><span id="removeForFacilities"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span>
+                    <td><span id="removeForFacilities"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
                 </tr>
                 <% }); %>
                
            </table>  
         </div>
     </div>
+    
+
 
 <!-- my second scheme is above-->
     
@@ -132,7 +135,7 @@
                     <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
                     <td ><span class="proname"><%= item.projectTitle %></span></td>
                     <!-- <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td> -->
-                    <td><span id="removeForFinalisedProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span>
+                    <td><span id="removeForFinalisedProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
                 </tr>
                 <% }); %>
             
@@ -153,9 +156,21 @@
     </form>
     </div>
 
-    <!-- <div id="addAdmins">
-
-    </div> -->
+    <div id="addAdminForm">
+        <label>Enter username for admin:</label><br>
+        <input type="text" id="userName" name="userName" autocomplete="off">
+        <label>Enter password for admin:</label><br>
+        <input type="password" id="adminPassword" name="adminPassword" autocomplete="off">
+        <label>Confirm password by re-entering</label><br>
+        <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off">
+        <label>Select the level of admin:</label><br>
+        <select id="adminLevel" name="adminLevel">
+            <option value="One">One</option>
+            <option value="Two">Two</option>
+        </select>
+        <span id="addAdminMsg"></span>
+        <button id="addAdmin" class="btn btn-warning btn-lg">Add Admin</button>
+    </div>
     
   
     <div id="infoModal" class="w3-modal">
@@ -171,5 +186,6 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

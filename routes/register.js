@@ -24,8 +24,8 @@ router.post('/applyForFacilities', function(req, res, next) {
 		purpose: req.body.purpose,
 		duration: req.body.duration,
 		heavyMachinery: req.body.heavyMachinery,
-		approved: 'false',
-		mailSent: 'false'
+		approved: 'No',
+		mailSent: 'No'
 	};
 	Facilities.sync({ force: false }).then(function() {
         return Facilities.create(record);

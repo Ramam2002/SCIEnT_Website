@@ -1,7 +1,6 @@
-function showModal() {
+function showModal () {
     document.getElementById('infoModal').style.display='block';   
 }
-
 
 $(document).ready (function () {
 	$(document).on ('click', '.applicantId', function() {
@@ -56,14 +55,18 @@ $(document).ready (function () {
                     alert(data.msg);
 
                 }
-
             });
-            $(this).parent().parent().remove();
+             $(this).parent().parent().remove();
         }
     });
 
+    $("#closeModal").click(function () {
+        var infoModal = document.getElementById('infoModal');
+        $("#infoList").empty();
+        infoModal.style.display='none';
+    });
 
-    $(document).on('click', '#addAdmin', function() {
+    $(document).on('click', '#addAdmin', function () {
         var adminName = document.getElementById('userName').value;
         var adminPassword = document.getElementById('adminPassword').value;
         var confirmPassword = document.getElementById('confirmPassword').value;
@@ -105,6 +108,7 @@ $(document).ready (function () {
     });
 
 });
+
 function hideMsg(msgBody) {
     setTimeout(function() {
         msgBody.innerHTML = '';

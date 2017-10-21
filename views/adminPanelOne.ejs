@@ -10,6 +10,8 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="/js/adminPanel.js"></script>
+    <script src="/js/adminPanelFacilities.js"></script>
+    <script src="/js/adminPanelProjects.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
     <link rel="stylesheet" href="/css/adminPanelOne.css">
@@ -53,8 +55,12 @@
                             <% schemeOneRows.forEach(function(item) { %>
                                 <tr>
                                     <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
-                                    <td ><span class="projectName">item.projectTitle</span></td>
-                                    <td><button id="approveForProjectsByL1" type="button" class="btn btn-success">APPROVE </button></td>
+                                    <td ><span class="projectName"><%= item.projectTitle %></span></td>
+                                    <% if (item.approvedByL1 == 'Yes') { %>
+                                        <td><button id="approveForProjectsByL1" type="button" class="btn btn-success" disabled >APPROVE </button></td>
+                                    <% } else { %> 
+                                        <td><button id="approveForProjectsByL1" type="button" class="btn btn-success">APPROVE </button></td>
+                                    <% } %>
                                     <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
                                 </tr>
                             <% }); %>
@@ -78,8 +84,8 @@
      
                         <thead>
                              <tr>
-                                <th>PROJECT ID</th>
-                                <th>PROJECT NAME</th>
+                                <th>APPLICANT ID</th>
+                                <th>APPLICANT NAME</th>
                                 <th>APPROVE</th>
                                 <th>REMOVE</th>  
                             </tr>
@@ -89,7 +95,11 @@
                                 <tr>
                                     <td ><a href="#"><span class="applicantId"><%= item.id %></span></a></td>
                                     <td ><span class="applicantRoll"><%= item.roll %></span></td>
-                                    <td><button id="approveForFacilities" type="button" class="btn btn-success">APPROVE </button></td>
+                                    <% if (item.approved == 'Yes') { %>
+                                        <td><button id="approveForFacilities" type="button" class="btn btn-success" disabled>APPROVE </button></td>
+                                    <% } else { %> 
+                                        <td><button id="approveForFacilities" type="button" class="btn btn-success">APPROVE </button></td>
+                                    <% } %>
                                     <td><span id="removeForFacilities"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
                                 </tr>
                             <% }); %>
@@ -153,11 +163,13 @@
                         </thead>
                         <tbody>
                             <% schemeOneRows.forEach(function(item) { %>
-                                <tr>
-                                    <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
-                                    <td ><span class="projectName">item.projectTitle</span></td>
-                                    <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
-                                </tr>
+                                <% if (item.approvedByL2 == 'Yes') { %>
+                                    <tr>
+                                        <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                                        <td ><span class="projectName"><%= item.projectTitle %></span></td>
+                                        <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                    </tr>
+                                <% } %>
                             <% }); %>
                         </tbody>
                     </table>
@@ -213,8 +225,7 @@
     <div id="infoModal" class="w3-modal">
         <div class="w3-modal-content">
             <header class="w3-container w3-teal" > 
-                <span onclick="document.getElementById('infoModal').style.display='none'" 
-                class="w3-button w3-display-topright">&times;</span>
+                <span id="closeModal" class="w3-button w3-display-topright">&times;</span>
                 <h2>Request Details</h2>
             </header>
             <div class="w3-container">

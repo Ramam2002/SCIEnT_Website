@@ -12,6 +12,8 @@ var Admins = models.Admins;
 var index = require('./routes/index');
 var register = require('./routes/register');
 var admin = require('./routes/admin'); 
+var facilities = require('./routes/facilities');
+var projects = require('./routes/projects');
 
 var app = express();
 
@@ -29,7 +31,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/', register);
-app.use('/admin',admin);
+app.use('/admin', admin);
+app.use('/admin', facilities);
+app.use('/admin', projects);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,8 +59,8 @@ models.sequelize.sync().then(function () {
 
 var adminName = 'levelOneAdmin';
 var adminPwd = 'scientAdmin';
-var salt=bcrypt.genSaltSync(1);
-var hash=bcrypt.hashSync(adminPwd,salt);
+var salt = bcrypt.genSaltSync(1);
+var hash = bcrypt.hashSync(adminPwd, salt);
 adminPwd = hash;
 var adminDetails = {
     adminName: adminName,

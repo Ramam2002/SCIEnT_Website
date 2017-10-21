@@ -59,6 +59,7 @@ router.post('/adminLogin', function(req, res, next) {
 			Projects.findAll({where: {approvedByL1: 'Yes'}})
 			.then(function(projects) {
 				projectsApprovedByL1 = projects;
+				console.log(projectsApprovedByL1);
 				res.render('adminPanelTwo', {projectsApprovedByL1: projectsApprovedByL1});
 			});
 		} else {

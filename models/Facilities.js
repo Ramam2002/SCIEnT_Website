@@ -41,14 +41,14 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.TEXT
 		},
 		approved: {
-			type: DataTypes.ENUM('No', 'Yes'),
+			type: DataTypes.STRING,
 			allowNull: false,
-			default: 'No'
+			defaultValue: 'false' 
 		},
 		mailSent: {
-			type: DataTypes.ENUM('No', 'Yes'),
+			type: DataTypes.STRING,
 			allowNull: false,
-			default: 'No'
+			defaultValue: 'false'
 		}
 	},{
     freezeTableName: true

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="adminpanel.css">
+  <link rel="stylesheet" href="scheme1.css">
+</head>
+<style>
+
+.table-responsive {
+    max-height:300px;
+}
+
+</style>
+<script>
+    function openmodal() {
+        document.getElementById('infoModal').style.display='block';
+    }
+</script>
+<body>
+
+<div class="container">
+  <!-- first row begins -->
+    <div class="row" style="margin-top:10%;">
+        <div class="col-md-6">              
+            <div class="table-responsive">          
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="header"></th>
+                            <th class="header">SCHEME1</th>
+                            <th class="header"></th>
+                            <th class="header"></th>
+                        </tr>
+                    </thead>
+
+                    <thead>
+                        <tr>
+                            <th class="subheader">PROJECT ID</th>
+                            <th class="subheader">PROJECT NAME</th>
+                            <th class="subheader">APPROVE</th>
+                            <th class="subheader">REMOVE</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                         <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+                         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+                         <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                        </tr>
+                    </tbody>
+                 </div>
+                </table>
+            </div>
+        </div>
+   <!--second table of first row-->  
+        <div class="col-md-6">                
+            <div class="table-responsive">          
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="header"></th>
+                            <th class="header">SCHEME1</th>
+                            <th class="header"></th>
+                            <th class="header"></th>
+                      </tr>
+                    </thead>
+ 
+                    <thead>
+                         <tr>
+                            <th>PROJECT ID</th>
+                            <th>PROJECT NAME</th>
+                            <th>APPROVE</th>
+                            <th>REMOVE</th>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                          <tr>
+                            <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                             <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+                             <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+                             <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                            </tr>
+                     </tbody>
+   
+                 </table>
+            </div>
+        </div>
+
+    </div>
+     
+<!-- second row begins-->
+        <div class="row" style="margin-top: 10%;">
+            <div class="col-md-6">                 
+                <div class="table-responsive">          
+                    <table class="table table-bordered">
+    
+                    <thead>
+                        <tr>
+                            <th class="header"></th>
+                            <th class="header">SCHEME1</th>
+                            <th class="header"></th>
+                            <th class="header"></th>
+                      </tr>
+                    </thead>
+
+                    <thead>
+                      <tr>
+                        <th>PROJECT ID</th>
+                        <th>PROJECT NAME</th>
+                        <th>APPROVE</th>
+                        <th>REMOVE</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                         <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+                         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+                         <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                        </tr>
+                      
+                    </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                     
+                 <div class="table-responsive">          
+                <table class="table table-bordered">
+    
+                    <thead>
+                        <tr>
+                            <th class="header"></th>
+                            <th class="header">SCHEME1</th>
+                            <th class="header"></th>
+                            <th class="header"></th>
+                         </tr>
+                    </thead>
+                  
+                    <thead>
+                      <tr>
+                        <th>PROJECT ID</th>
+                        <th>PROJECT NAME</th>
+                        <th>APPROVE</th>
+                        <th>REMOVE</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                         <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+                         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+                         <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                        </tr>
+                      
+                    </tbody>
+   
+   
+
+                </table>
+             </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4" id="box"> hello
+            </div>
+            <div class="col-lg-4">
+            </div>
+        </div>
+<!--<div class="row" style="margin-top: 10%;">
+<div class="col-md-4">
+                     
+  <div class="table-responsive">          
+  <table class="table table-bordered">
+    
+  <thead>
+    <tr>
+        <th class="header"></th>
+        <th class="header">SCHEME1</th>
+        <th class="header"></th>
+        <th class="header"></th>
+  </tr>
+</thead>
+
+    <thead>
+      <tr>
+        <th>PROJECT ID</th>
+        <th>PROJECT NAME</th>
+        <th>APPROVE</th>
+        <th>REMOVE</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+         <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+         <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span>
+        </tr>
+      
+    </tbody>
+   
+    </div>
+
+  </table>
+ 
+  </div>
+
+</div>
+<div class="col-md-6">
+                     
+  <div class="table-responsive">          
+  <table class="table table-bordered">
+    
+  <thead>
+    <tr>
+        <th class="header"></th>
+        <th class="header">SCHEME1</th>
+        <th class="header"></th>
+        <th class="header"></th>
+  </tr>
+</thead>
+  
+    <thead>
+      <tr>
+        <th>PROJECT ID</th>
+        <th>PROJECT NAME</th>
+        <th>APPROVE</th>
+        <th>REMOVE</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+         <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
+         <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span>
+        </tr>
+      
+    </tbody>
+   
+    </div>
+
+  </table>
+ 
+  </div>
+
+</div>-->
+        <div class="row" style="margin-top:10%;">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                     <div class="col-md-3">
+                        <button type="button" class="btn btn-success btn-lg">Mail for Projects</button>
+                    </div>
+                  <div class="col-md-3">
+                    <button type="button" class="btn btn-success btn-lg">Mail for Facilities</button>
+                  </div>
+      
+                  <div class="col-md-3">
+                    <button type="button" class="btn btn-success btn-lg">Mail for Hall Booking</button>
+                  </div>
+      
+                  <div class="col-md-3">
+                     <button type="submit" class="btn btn-warning btn-lg">Logout</button>
+                  </div>
+      
+
+                 </div>
+
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+
+    </div>
+
+    <div id="infoModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span onclick="document.getElementById('infoModal').style.display='none'" 
+                class="w3-button w3-display-topright">&times;</span>
+                <h2>Request Details</h2>
+            </header>
+            <div class="w3-container">
+                <ul id="infoList">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

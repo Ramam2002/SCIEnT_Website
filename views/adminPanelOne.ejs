@@ -1,263 +1,227 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/scheme1.css">
-<link rel="stylesheet" href="/css/adminstyle.css">
-<html >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Scheme1 Table</title>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-  
-      
-
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery-1.10.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/adminPanel.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+    <link rel="stylesheet" href="/css/adminPanelOne.css">
+    <link rel="stylesheet" href="/css/scheme1.css">
 </head>
 <style>
-  .scrollbar
-{
-    max-height: 250px;
-    overflow-y: scroll;
-	overflow-x: scroll;
-}
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    -webkit-animation-name: fadeIn; /* Fade in the background */
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s
+
+.table-responsive {
+    max-height:300px;
 }
 
-/* Modal Content */
-.modal-content {
-    position: fixed;
-    bottom: 0;
-    background-color: #fefefe;
-    width: 100%;
-    -webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: slideIn;
-    animation-duration: 0.4s
-}
-
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-/* Add Animation */
-@-webkit-keyframes slideIn {
-    from {bottom: -300px; opacity: 0} 
-    to {bottom: 0; opacity: 1}
-}
-
-@keyframes slideIn {
-    from {bottom: -300px; opacity: 0}
-    to {bottom: 0; opacity: 1}
-}
-
-@-webkit-keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
-}
-
-@keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
-}
-#scheme1
-    {   margin-top: 0%;
-        width:40%;
-        float:left;
-        margin-left:5%;
-    
-       
-    }
-    #scheme2
-    {   
-        width:40%;
-        float:right
-        margin-left:5%;
-      
-    }
-    
-   #scheme3
-    {   
-        width:40%;
-        
-        margin-top:5%;
-    }
 </style>
-<script>
- function openmodal()
-{
-    // alert("hey Pratiksha"); 
-    document.getElementById('id01').style.display='block';
-  }
-</script>
 <body>
-    <div class="table-users" id="scheme1" >
-        <div class="header">PROJECTS (SCHEME ONE)</div>
-        <div class="scrollbar">
-            <table  cellspacing="0">
-                <tr>
-                    <th width="70%"style="padding-left:25%">PROJECT NAME</th>
-                    <th width="15%">APPROVE</th>
-                    <th width="15%">REJECT</th>
-                </tr>
-        		
-                <% schemeOneRows.forEach(function(item) { %>
-                <tr>
-                    <td ><a href="#"><span class="proname" onclick="openmodal()"><%= item.projectTitle %></span></a></td>
-                    <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
-                    <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td>
-                </tr>
-                <% }); %>
-            </table>  
+
+    <div class="container">
+        <h1 style="font-family: 'Vollkorn', serif;text-align: center;">ADMIN PANEL</h1>
+      <!-- first row begins -->
+        <div class="row" style="margin-top:3%;">
+
+            <div class="col-md-6">              
+                <div class="table-responsive" id="projectsTable">          
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="header"></th>
+                                <th class="header">PROJECTS (SCHEME ONE)</th>
+                                <th class="header"></th>
+                                <th class="header"></th>
+                            </tr>
+                        </thead>
+
+                        <thead>
+                            <tr>
+                                <th class="subheader">PROJECT ID</th>
+                                <th class="subheader">PROJECT NAME</th>
+                                <th class="subheader">APPROVE</th>
+                                <th class="subheader">REMOVE</th>
+                             </tr>
+                        </thead>
+                        <tbody>
+                            <% schemeOneRows.forEach(function(item) { %>
+                                <tr>
+                                    <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                                    <td ><span class="projectName">item.projectTitle</span></td>
+                                    <td><button id="approveForProjectsByL1" type="button" class="btn btn-success">APPROVE </button></td>
+                                    <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        <!--second table of first row-->  
+            <div class="col-md-6">                
+                <div class="table-responsive" id="facilitiesTable">          
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="header"></th>
+                                <th class="header">FACILITIES/TOOLS (SCHEME 2)</th>
+                                <th class="header"></th>
+                                <th class="header"></th>
+                          </tr>
+                        </thead>
+     
+                        <thead>
+                             <tr>
+                                <th>PROJECT ID</th>
+                                <th>PROJECT NAME</th>
+                                <th>APPROVE</th>
+                                <th>REMOVE</th>  
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% schemeTwoRows.forEach(function(item) { %>
+                                <tr>
+                                    <td ><a href="#"><span class="applicantId"><%= item.id %></span></a></td>
+                                    <td ><span class="applicantRoll"><%= item.roll %></span></td>
+                                    <td><button id="approveForFacilities" type="button" class="btn btn-success">APPROVE </button></td>
+                                    <td><span id="removeForFacilities"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+       
+                     </table>
+                </div>
+            </div>
+
+        </div>
+         
+    <!-- second row begins-->
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-md-6">                 
+                <div class="table-responsive" id="hallBookingRequests">          
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="header"></th>
+                                <th class="header">HALL BOOKING</th>
+                                <th class="header"></th>
+                                <th class="header"></th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th>REQUEST ID</th>
+                                <th>PERSON ROLL</th>
+                                <th>APPROVE</th>
+                                <th>REMOVE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td ><a href="#"><span class="projectId">Id</span></a></td>
+                                <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+                                <td><button type="button" class="btn btn-success">APPROVE </button></td>
+                                <td><span id="removeForRoomRequest"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="table-responsive" id="projectsApprovedByL2">          
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="header"></th>
+                                <th class="header">PROJECTS APPROVED BY ALUMNI</th>
+                                <th class="header"></th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th>PROJECT ID</th>
+                                <th>PROJECT NAME</th>
+                                <th>REMOVE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% schemeOneRows.forEach(function(item) { %>
+                                <tr>
+                                    <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                                    <td ><span class="projectName">item.projectTitle</span></td>
+                                    <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4" id="addAdminForm">
+                <h2 style="font-family: 'Vollkorn',serif;">ADD ADMINS</h2>
+                <label>Enter username for admin:</label><br>
+                <input type="text" id="userName" name="userName" autocomplete="off">
+                <label>Enter password for admin:</label><br>
+                <input type="password" id="adminPassword" name="adminPassword" autocomplete="off">
+                <label>Confirm password by re-entering</label><br>
+                <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off">
+                <label>Select the level of admin:</label><br>
+                <select id="adminLevel" name="adminLevel">
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                </select><br><br>
+                <span id="addAdminMsg"></span>
+                <button id="addAdmin" class="btn btn-warning btn-lg">Add Admin</button>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+
+        <div class="row" style="margin-top:5%;">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-success btn-lg">Mail for Projects</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-success btn-lg">Mail for Facilities</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-success btn-lg">Mail for Hall Booking</button>
+                    </div>
+                    <div class="col-md-3">
+                        <form method="post" action="/admin/logout">
+                            <button type="submit" class="btn btn-warning btn-lg">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
         </div>
     </div>
 
-    <!-- My first scheme is above-->
-    
-<div class="table-users" id="scheme2" >
-   <div class="header">FACILITIES/TOOLS (SCHEME TWO)</div>
-   <div class="scrollbar">
-   
-   <table class="scrollbar" cellspacing="0">
-        <tr>
-            <th width="70%"style="padding-left:25%">APPLICANT ROLL</th>
-            <th width="15%">APPROVE</th>
-            <th width="15%">REJECT</th>
-        </tr>
-
-        <% schemeTwoRows.forEach(function(item) { %>
-        <tr>
-            <td ><a href="#"><span class="proname" onclick="openmodal()"><%= item.roll %></span></a></td>
-            <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
-            <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td>
-        </tr>
-        <% }); %>
-       
-   </table>  
-</div>
-</div>
-
-<!-- my second scheme is above-->
-    
-    
-<div class="table-users" id="scheme3" >
-   <div class="header">SCHEME 3</div>
-   <div class="scrollbar">
-   <table  class="scrollbar"cellspacing="0">
-      <tr>
-         <th width="70%"style="padding-left:25%">PROJECT NAME</th>
-         <th width="15%">APPROVE</th>
-         <th width="15%">REJECT</th>
-      </tr>
-
-      <tr>
-         
-         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
-         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
-         <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td>
-        
-       </tr>
-       
-       <tr>
-         
-         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
-         <td><button type="button" class="btn btn-success" style="font-size:70% ">APPROVE </button></td>
-         <td><button type="button" class="btn btn-danger" style="font-size:70% ">REJECT  </button></td>
-        
-      </tr>
-       
-       <tr>
-         
-         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
-         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
-         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
-        
-      </tr>
-       
-       <tr>
-         
-         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
-         <td><button type="button" class="btn btn-success" style="font-size:70% ">APPROVE </button></td>
-         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
-        
-      </tr>
-       
-       <tr>
-         
-         <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
-         <td><button type="button" class="btn btn-success" style="font-size:70%">APPROVE </button></td>
-         <td><button type="button" class="btn btn-danger" style="font-size:70%">REJECT  </button></td>
-        
-      </tr>
-	
-   </table>  
-</div>
-
-</div>
-    
-  
-  <div id="id01" class="w3-modal">
-    <div class="w3-modal-content">
-      <header class="w3-container w3-teal" > 
-        <span onclick="document.getElementById('id01').style.display='none'" 
-        class="w3-button w3-display-topright">&times;</span>
-        <h2>Modal Header</h2>
-      </header>
-      <div class="w3-container">
-        <p>Some text..</p>
-        <p>Some text..</p>
-        <p>Some text..</p>
-        <p>Some text..</p>
-          <p>Some text..</p>
-        <p>Some text..</p>
-          <p>Some text..</p>
-        <p>Some text..</p>
-      </div>
+    <div id="infoModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span onclick="document.getElementById('infoModal').style.display='none'" 
+                class="w3-button w3-display-topright">&times;</span>
+                <h2>Request Details</h2>
+            </header>
+            <div class="w3-container">
+                <ul id="infoList">
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
 </body>
 </html>

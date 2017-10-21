@@ -16,7 +16,7 @@ $(document).ready (function () {
 	        success: function (data, status) {
                 $('#infoList').append('<li>Applicant id: ' + data.id + '</li><li>Applicant Name: ' + data.name + '</li><li>Department: ' + 
                     data.department + '</li><li>Contact Number: ' + data.contactNumber + '</li><li>Email Id: ' + data.emailID + '</li><li>Duration :' +
-                    data.duration + '</li><li>Purpose: ' + data.purpose + '</li>');
+                    data.duration + ' month(s)</li><li>Purpose: ' + data.purpose + '</li>');
                 showModal();
             }
         });
@@ -98,7 +98,6 @@ $(document).ready (function () {
                     $('#userName').val('');
                     $('#adminPassword').val('');
                     $('#confirmPassword').val('');
-                    $('#adminLevel').val('');
                     hideMsg(msgBody);
                 }
             });

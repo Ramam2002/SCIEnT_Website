@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery-1.10.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/adminPanel.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+    <link rel="stylesheet" href="/css/adminPanelOne.css">
+    <link rel="stylesheet" href="/css/scheme1.css">
+</head>
+<style>
+
+.table-responsive {
+    max-height:300px;
+}
+
+</style>
+<body>
+
+    <div class="container">
+        <h1 style="font-family: 'Vollkorn', serif;text-align: center;">ADMIN PANEL</h1>
+      <!-- first row begins -->
+        <div class="row" style="margin-top:3%;">
+
+            <div class="col-md-6">              
+                <div class="table-responsive" id="projectsTable">          
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="header"></th>
+                                <th class="header">PROJECTS APPROVED BY STUDENTS</th>
+                                <th class="header"></th>
+                                <th class="header"></th>
+                            </tr>
+                        </thead>
+
+                        <thead>
+                            <tr>
+                                <th class="subheader">PROJECT ID</th>
+                                <th class="subheader">PROJECT NAME</th>
+                                <th class="subheader">APPROVE</th>
+                                <!-- <th class="subheader">REMOVE</th> -->
+                             </tr>
+                        </thead>
+                        <tbody>
+                            <% projectsApprovedByL1.forEach(function(item) { %>
+                                <tr>
+                                    <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                                    <td ><span class="projectName">item.projectTitle</span></td>
+                                    <td><button id="approveForProjectsByL2" type="button" class="btn btn-success">APPROVE </button></td>
+                                    <!-- <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td> -->
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <form method="post" action="/admin/logout">
+                    <button type="submit" class="btn btn-warning btn-lg">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="infoModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span onclick="document.getElementById('infoModal').style.display='none'" 
+                class="w3-button w3-display-topright">&times;</span>
+                <h2>Request Details</h2>
+            </header>
+            <div class="w3-container">
+                <ul id="infoList">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

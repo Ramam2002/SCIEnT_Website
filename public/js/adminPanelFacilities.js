@@ -18,21 +18,24 @@ $(document).ready (function () {
     });
 
     $(document).on('click', '#approveForFacilities', function() {
-        $(this).prop('disabled',true);
         var applicantId = $(this).closest("tr").find(".applicantId").text();
-        $.ajax({
-            url: '/admin/approveForFacilities',
-            method: 'POST',
-            data: JSON.stringify({
-                applicantId: applicantId
-            }),
-            contentType: 'application/json',
-            dataType: 'json',
-            success: function (data, status) {
-                alert(data.msg);
-            }
+        var confirmation = confirm('Are you sure you want to approve request corresponding to id ' + applicantId + '?');
+        if(confirmation == true) {
+            $(this).prop('disabled',true);
+            $.ajax({
+                url: '/admin/approveForFacilities',
+                method: 'POST',
+                data: JSON.stringify({
+                    applicantId: applicantId
+                }),
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (data, status) {
+                    alert(data.msg);
+                }
 
-        });
+            });
+        }
     });
 
     $(document).on('click', '#removeForFacilities', function() {
@@ -55,5 +58,20 @@ $(document).ready (function () {
             });
             $(this).parent().parent().remove();
         }
+    });
+
+    $(document).on('click', '#mailForFacilities', function() {
+        $.ajax({
+            url: '/admin/mailForFacilities',
+            method: 'POST',
+            data: JSON.stringify({
+                msg: 'SendMailForFacilities'
+            }),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function (data, status) {
+                alert(data.msg);
+            }
+        });
     });
 });

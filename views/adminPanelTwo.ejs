@@ -54,7 +54,11 @@
                                 <tr>
                                     <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
                                     <td ><span class="projectName"><%= item.projectTitle %></span></td>
-                                    <td><button id="approveForProjectsByL2" type="button" class="btn btn-success">APPROVE </button></td>
+                                    <% if (item.approvedByL2 == 'Yes') { %>
+                                        <td><button id="approveForProjectsByL2" type="button" class="btn btn-success" disabled >APPROVE </button></td>
+                                    <% } else { %> 
+                                        <td><button id="approveForProjectsByL2" type="button" class="btn btn-success">APPROVE </button></td>
+                                    <% } %>
                                     <!-- <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td> -->
                                 </tr>
                             <% }); %>

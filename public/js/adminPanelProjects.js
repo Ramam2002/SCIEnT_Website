@@ -65,26 +65,50 @@ $(document).ready (function () {
     });
 
     $(document).on('click', '#approveForProjectsByL1', function() {
-        $(this).prop('disabled',true);
         var projectId = $(this).closest("tr").find(".projectId").text();
-        $.ajax({
-            url: '/admin/approveForProjectsByL1',
-            method: 'POST',
-            data: JSON.stringify({
-                projectId: projectId
-            }),
-            contentType: 'application/json',
-            dataType: 'json',
-            success: function (data, status) {
-                alert(data.msg);
-            }
-        });
+        var confirmation = confirm('Are you sure you want to approve project request corresponding to id ' 
+            + projectId + '?');
+        if(confirmation == true) {
+            $(this).prop('disabled',true);
+            $.ajax({
+                url: '/admin/approveForProjectsByL1',
+                method: 'POST',
+                data: JSON.stringify({
+                    projectId: projectId
+                }),
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (data, status) {
+                    alert(data.msg);
+                }
+            });
+        }
+    });
+
+    $(document).on('click', '#approveForProjectsByL2', function() {
+        var projectId = $(this).closest("tr").find(".projectId").text();
+        var confirmation = confirm('Are you sure you want to approve project request corresponding to id ' 
+            + projectId + '?');
+        if(confirmation == true) {
+            $(this).prop('disabled',true);
+            $.ajax({
+                url: '/admin/approveForProjectsByL2',
+                method: 'POST',
+                data: JSON.stringify({
+                    projectId: projectId
+                }),
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (data, status) {
+                    alert(data.msg);
+                }
+            });
+        }
     });
 
     $(document).on('click', '#removeForProjects', function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
-        var confirmation = 
-        confirm('Are you sure you want to delete project request corresponding to id ' 
+        var confirmation = confirm('Are you sure you want to delete project request corresponding to id ' 
             + projectId + '?');
         if(confirmation == true) {
             $.ajax({
@@ -102,5 +126,18 @@ $(document).ready (function () {
             $(this).parent().parent().remove();
         }
     });
-
+    $(document).on('click', '#mailForProjects', function() {
+        $.ajax({
+            url: '/admin/mailForProjects',
+            method: 'POST',
+            data: JSON.stringify({
+                msg: 'SendMailForProjects'
+            }),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function (data, status) {
+                alert(data.msg);
+            }
+        });
+    });
 });    

@@ -17,22 +17,24 @@ router.use(bodyParser.urlencoded({extended: false }));
 router.get('/', function(req, res, next) {
 	
 	if(req.session.access == 'levelOneAdmin') {
-		var schemeOneRows, schemeTwoRows;
+		var projectsRows, facilitiesRows;
 			Facilities.findAll().then(function(facilities) {
-				schemeTwoRows = facilities;
+				facilitiesRows = facilities;
 				Projects.findAll().then(function(projects) {
-					schemeOneRows = projects;
-					res.render('adminPanelOne',{ schemeOneRows: schemeOneRows, schemeTwoRows: schemeTwoRows});
+					projectsRows = projects;
+					res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows});
 				});
 		});
-	} else if(req.session.access == 'levelTwoAdmin') {
-		var projectsApprovedByL1;
-		Projects.findAll({where: {approvedByL1: 'Yes'}})
-		.then(function(projects) {
-			projectsApprovedByL1 = projects;
-			res.render('adminPanelTwo',{projectsApprovedByL1: projectsApprovedByL1});
-		});
-	} else {
+	} 
+	// else if(req.session.access == 'levelTwoAdmin') {
+	// 	var projectsApprovedByL1;
+	// 	Projects.findAll({where: {approvedByL1: 'Yes'}})
+	// 	.then(function(projects) {
+	// 		projectsApprovedByL1 = projects;
+	// 		res.render('adminPanelTwo',{projectsApprovedByL1: projectsApprovedByL1});
+	// 	});
+	// } 
+	else {
 		res.render('adminLogin', {msg: ''});
 	}
 });
@@ -44,25 +46,27 @@ router.post('/adminLogin', function(req, res, next) {
 		if (bcrypt.compareSync(req.body.adminPassword, admin.password) && admin.adminLevel == 'One') {
 			// Render admin operations page
 			req.session.access = 'levelOneAdmin';
-			var schemeOneRows, schemeTwoRows;
+			var projectsRows, facilitiesRows;
 			Facilities.findAll().then(function(facilities) {
-				schemeTwoRows = facilities;
+				facilitiesRows = facilities;
 				Projects.findAll().then(function(projects) {
-					schemeOneRows = projects;
-					res.render('adminPanelOne', {schemeOneRows: schemeOneRows, schemeTwoRows: schemeTwoRows});
+					projectsRows = projects;
+					res.render('adminPanelOne', {projectsRows: projectsRows, facilitiesRows: facilitiesRows});
 				});
 			});
 
-		} else if(bcrypt.compareSync(req.body.adminPassword, admin.password) && admin.adminLevel == 'Two') {
-			req.session.access = 'levelTwoAdmin';
-			var projectsApprovedByL1;
-			Projects.findAll({where: {approvedByL1: 'Yes'}})
-			.then(function(projects) {
-				projectsApprovedByL1 = projects;
-				console.log(projectsApprovedByL1);
-				res.render('adminPanelTwo', {projectsApprovedByL1: projectsApprovedByL1});
-			});
-		} else {
+		} 
+		// else if(bcrypt.compareSync(req.body.adminPassword, admin.password) && admin.adminLevel == 'Two') {
+		// 	req.session.access = 'levelTwoAdmin';
+		// 	var projectsApprovedByL1;
+		// 	Projects.findAll({where: {approvedByL1: 'Yes'}})
+		// 	.then(function(projects) {
+		// 		projectsApprovedByL1 = projects;
+		// 		console.log(projectsApprovedByL1);
+		// 		res.render('adminPanelTwo', {projectsApprovedByL1: projectsApprovedByL1});
+		// 	});
+		// } 
+		else {
 			// Render login page 
 			res.render('adminLogin', { msg: 'Wrong Password' });
 		}

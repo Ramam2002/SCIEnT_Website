@@ -26,7 +26,6 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		emailID: {
 			type: DataTypes.STRING,
-			unique: true,
 			allowNull: false
 		},
 		purpose: {

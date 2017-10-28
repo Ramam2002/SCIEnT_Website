@@ -1,5 +1,10 @@
 function showModal () {
-    document.getElementById('infoModal').style.display='block';   
+    document.getElementById('infoModal').style.display ='block';   
+}
+
+function showRemarksModal (projectId) {
+    document.getElementById('projectIdForRemark').innerHTML = projectId;
+    document.getElementById('remarksModal').style.display = 'block';
 }
 
 $(document).ready (function () {
@@ -8,7 +13,12 @@ $(document).ready (function () {
         $("#infoList").empty();
         infoModal.style.display='none';
     });
-
+    $("#closeRemarksModal").click(function () {
+        var remarksModal = document.getElementById('remarksModal');
+        $("#remarksByAdmin").val('');
+        $('#projectIdForRemark').html('');
+        remarksModal.style.display='none';
+    });
     $(document).on('click', '#addAdmin', function () {
         var adminName = document.getElementById('userName').value;
         var adminPassword = document.getElementById('adminPassword').value;

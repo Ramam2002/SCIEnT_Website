@@ -27,198 +27,219 @@
 <body>
 
     <div class="container">
-        <h1 style="font-family: 'Vollkorn', serif;text-align: center;">ADMIN PANEL</h1>
-      <!-- first row begins -->
-        <div class="row" style="margin-top:3%;">
-
-            <div class="col-md-6">              
-                <div class="table-responsive" id="projectsTable">          
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th class="header"></th>
-                                <th class="header">PROJECTS (SCHEME ONE)</th>
-                                <th class="header"></th>
-                                <th class="header"></th>
-                            </tr>
-                        </thead>
-
-                        <thead>
-                            <tr>
-                                <th class="subheader">PROJECT ID</th>
-                                <th class="subheader">PROJECT NAME</th>
-                                <th class="subheader">APPROVE</th>
-                                <th class="subheader">REMOVE</th>
-                             </tr>
-                        </thead>
-                        <tbody>
-                            <% schemeOneRows.forEach(function(item) { %>
-                                <tr>
-                                    <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
-                                    <td ><span class="projectName"><%= item.projectTitle %></span></td>
-                                    <% if (item.approvedByL1 == 'Yes') { %>
-                                        <td><button id="approveForProjectsByL1" type="button" class="btn btn-success" disabled >APPROVE </button></td>
-                                    <% } else { %> 
-                                        <td><button id="approveForProjectsByL1" type="button" class="btn btn-success">APPROVE </button></td>
-                                    <% } %>
-                                    <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
-                                </tr>
-                            <% }); %>
-                        </tbody>
-                    </table>
-                </div>
+        <div class="row" style="margin-top:2%;">
+            <div class="col-md-9">
+                <h1 style="font-family: 'Vollkorn', serif;text-align: center;">ADMIN PANEL</h1>
             </div>
-
-        <!--second table of first row-->  
-            <div class="col-md-6">                
-                <div class="table-responsive" id="facilitiesTable">          
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th class="header"></th>
-                                <th class="header">FACILITIES/TOOLS (SCHEME 2)</th>
-                                <th class="header"></th>
-                                <th class="header"></th>
-                          </tr>
-                        </thead>
-     
-                        <thead>
-                             <tr>
-                                <th>APPLICANT ID</th>
-                                <th>APPLICANT NAME</th>
-                                <th>APPROVE</th>
-                                <th>REMOVE</th>  
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% schemeTwoRows.forEach(function(item) { %>
-                                <tr>
-                                    <td ><a href="#"><span class="applicantId"><%= item.id %></span></a></td>
-                                    <td ><span class="applicantRoll"><%= item.roll %></span></td>
-                                    <% if (item.approved == 'Yes') { %>
-                                        <td><button id="approveForFacilities" type="button" class="btn btn-success" disabled>APPROVE </button></td>
-                                    <% } else { %> 
-                                        <td><button id="approveForFacilities" type="button" class="btn btn-success">APPROVE </button></td>
-                                    <% } %>
-                                    <td><span id="removeForFacilities"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
-                                </tr>
-                            <% }); %>
-                        </tbody>
-       
-                     </table>
-                </div>
+            <div class="col-md-3">
+                <form method="post" action="/admin/logout">
+                    <button type="submit" class="btn btn-warning btn-lg">Logout</button>
+                </form>
             </div>
-
         </div>
-         
-    <!-- second row begins-->
-        <div class="row" style="margin-top: 5%;">
-            <div class="col-md-6">                 
-                <div class="table-responsive" id="hallBookingRequests">          
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th class="header"></th>
-                                <th class="header">HALL BOOKING</th>
-                                <th class="header"></th>
-                                <th class="header"></th>
-                            </tr>
-                        </thead>
-                        <thead>
-                            <tr>
-                                <th>REQUEST ID</th>
-                                <th>PERSON ROLL</th>
-                                <th>APPROVE</th>
-                                <th>REMOVE</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td ><a href="#"><span class="projectId">Id</span></a></td>
-                                <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
-                                <td><button type="button" class="btn btn-success">APPROVE </button></td>
-                                <td><span id="removeForRoomRequest"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="table-responsive" id="projectsApprovedByL2">          
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th class="header"></th>
-                                <th class="header">PROJECTS APPROVED BY ALUMNI</th>
-                                <th class="header"></th>
-                            </tr>
-                        </thead>
-                        <thead>
-                            <tr>
-                                <th>PROJECT ID</th>
-                                <th>PROJECT NAME</th>
-                                <th>REMOVE</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% schemeOneRows.forEach(function(item) { %>
-                                <% if (item.approvedByL2 == 'Yes') { %>
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#completedOrOngoingProjects">Completed/Ongoing Projects</a></li>
+            <li><a data-toggle="tab" href="#pendingProjects">Pending Projects</a></li>
+            <li><a data-toggle="tab" href="#facilitiesOrTools">Facilities/Tools</a></li>
+            <li><a data-toggle="tab" href="#conferenceHallBooking">Hall Booking Requests</a></li>
+            <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="completedOrOngoingProjects" class="tab-pane fade in active">
+                <div class="row" style="margin-top:3%;">
+                    <div class="col-md-12">              
+                        <div class="table-responsive" id="projectsTable">          
+                            <table class="table table-bordered">
+                                <thead>
                                     <tr>
-                                        <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
-                                        <td ><span class="projectName"><%= item.projectTitle %></span></td>
-                                        <td><span id="removeForProjects"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                        <th class="header"></th>
+                                        <th class="header">Completed or ongoing Projects</th>
+                                        <th class="header"></th>
+                                        <th class="header"><button type="button" id="mailForProjects" class="btn btn-success">Mail for Projects</button></th>
                                     </tr>
-                                <% } %>
-                            <% }); %>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+                                </thead>
 
-        <div class="row" style="margin-top: 5%;">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4" id="addAdminForm">
-                <h2 style="font-family: 'Vollkorn',serif;">ADD ADMINS</h2>
-                <label>Enter username for admin:</label><br>
-                <input type="text" id="userName" name="userName" autocomplete="off">
-                <label>Enter password for admin:</label><br>
-                <input type="password" id="adminPassword" name="adminPassword" autocomplete="off">
-                <label>Confirm password by re-entering</label><br>
-                <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off">
-                <label>Select the level of admin:</label><br>
-                <select id="adminLevel" name="adminLevel">
-                    <option value="One">One</option>
-                    <option value="Two">Two</option>
-                </select><br><br>
-                <span id="addAdminMsg"></span>
-                <button id="addAdmin" class="btn btn-warning btn-lg">Add Admin</button>
-            </div>
-            <div class="col-lg-4"></div>
-        </div>
-
-        <div class="row" style="margin-top:5%;">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <div class="row">
-                    <div class="col-md-3">
-                        <button type="button" id="mailForProjects" class="btn btn-success btn-lg">Mail for Projects</button>
-                    </div>
-                    <div class="col-md-3">
-                        <button type="button" id="mailForFacilities" class="btn btn-success btn-lg">Mail for Facilities</button>
-                    </div>
-                    <div class="col-md-3">
-                        <button type="button" class="btn btn-success btn-lg">Mail for Hall Booking</button>
-                    </div>
-                    <div class="col-md-3">
-                        <form method="post" action="/admin/logout">
-                            <button type="submit" class="btn btn-warning btn-lg">Logout</button>
-                        </form>
+                                <thead>
+                                    <tr>
+                                        <th class="subheader">PROJECT ID</th>
+                                        <th class="subheader">PROJECT NAME</th>
+                                        <th class="subheader">MARK AS COMPLETE</th>
+                                        <th class="subheader">STATUS</th>
+                                     </tr>
+                                </thead>
+                                <tbody>
+                                    <% projectsRows.forEach(function(item) { %>
+                                        <% if (item.status == 'Completed' || item.status == 'Ongoing') { %>
+                                            <tr>
+                                                <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                                                <td ><span class="projectName"><%= item.projectTitle %></span></td>
+                                                <% if (item.status == 'Completed') { %>
+                                                    <td><button id="markAsComplete" type="button" class="btn btn-success" disabled >MARK</button></td>
+                                                <% } else { %> 
+                                                    <td><button id="approveForProjectsByL1" type="button" class="btn btn-success">MARK</button></td>
+                                                <% } %>
+                                                <td><span id="status"><%= item.status %></span></td>
+                                            </tr>
+                                        <% } %>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-1"></div>
+            <div id="pendingProjects" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-12">
+                        <div class="table-responsive" id="projectsApprovedByL2">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header">PENDING PROJECTS</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th>PROJECT ID</th>
+                                        <th>PROJECT NAME</th>
+                                        <th>APPROVE</th>
+                                        <th>REJECT</th>
+                                        <th>STATUS</th>
+                                        <th>ENTER REMARKS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% projectsRows.forEach(function(item) { %>
+                                        <% if (item.status != 'Completed' &&item.status != 'Ongoing') { %>
+                                            <tr>
+                                                <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                                                <td ><span class="projectName"><%= item.projectTitle %></span></td>
+                                                <% if (item.status == 'Approved by L1' || item.status == 'Rejected by L2') { %>
+                                                    <td><button type="button" id="approveForProjectsByL1" class="btn btn-success" disabled>APPROVE</button></td>
+                                                <% } else { %>
+                                                    <td><button type="button" id="approveForProjectsByL1" class="btn btn-success">APPROVE</button></td>
+                                                <% } %>
+                                                <% if (item.status == 'Rejected by L1' || item.status == 'Rejected by L2') { %>
+                                                    <td><button type="button" id="rejectForProjectsByL1" class="btn btn-danger" disabled>REJECT</button></td>
+                                                <% } else { %>
+                                                    <td><button id="rejectForProjectsByL1" type="button" class="btn btn-danger">REJECT</button></td>
+                                                <% } %>
+                                                <td><span id="status"><%= item.status %></span></td>
+                                                <td><button id="enterRemarksByL1" type="button" class="btn btn-warning">REMARK</button></td>
+                                            </tr>
+                                        <% } %>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="facilitiesOrTools" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">  
+                    <div class="col-md-12">                
+                        <div class="table-responsive" id="facilitiesTable">          
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header">FACILITIES/TOOLS (SCHEME 2)</th>
+                                        <th class="header"></th>
+                                        <th class="header"><button type="button" id="mailForFacilities" class="btn btn-success">Mail for Facilities</button></th>
+                                  </tr>
+                                </thead>
+             
+                                <thead>
+                                     <tr>
+                                        <th>APPLICANT ID</th>
+                                        <th>APPLICANT NAME</th>
+                                        <th>APPROVE</th>
+                                        <th>REMOVE</th>  
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% facilitiesRows.forEach(function(item) { %>
+                                        <tr>
+                                            <td ><a href="#"><span class="applicantId"><%= item.id %></span></a></td>
+                                            <td ><span class="applicantRoll"><%= item.roll %></span></td>
+                                            <% if (item.approved == 'Yes') { %>
+                                                <td><button id="approveForFacilities" type="button" class="btn btn-success" disabled>APPROVE </button></td>
+                                            <% } else { %> 
+                                                <td><button id="approveForFacilities" type="button" class="btn btn-success">APPROVE </button></td>
+                                            <% } %>
+                                            <td><span id="removeForFacilities"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                        </tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="conferenceHallBooking" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-12">                 
+                        <div class="table-responsive" id="hallBookingRequests">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header">HALL BOOKING</th>
+                                        <th class="header"></th>
+                                        <th class="header"><button type="button" class="btn btn-success">Mail for Hall Booking</button></th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th>REQUEST ID</th>
+                                        <th>PERSON ROLL</th>
+                                        <th>APPROVE</th>
+                                        <th>REMOVE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td ><a href="#"><span class="projectId">Id</span></a></td>
+                                        <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
+                                        <td><button type="button" class="btn btn-success">APPROVE </button></td>
+                                        <td><span id="removeForRoomRequest"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="addAdmins" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4" id="addAdminForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">ADD ADMINS</h2>
+                        <label>Enter username for admin:</label><br>
+                        <input type="text" id="userName" name="userName" autocomplete="off">
+                        <label>Enter password for admin:</label><br>
+                        <input type="password" id="adminPassword" name="adminPassword" autocomplete="off">
+                        <label>Confirm password by re-entering:</label><br>
+                        <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off">
+                        <label>Select the level of admin:</label><br>
+                        <select id="adminLevel" name="adminLevel">
+                            <option value="One">One</option>
+                            <option value="Two">Two</option>
+                        </select><br><br>
+                        <span id="addAdminMsg"></span>
+                        <button id="addAdmin" class="btn btn-warning btn-lg">Add Admin</button>
+                    </div>
+                    <div class="col-lg-4"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -234,5 +255,25 @@
             </div>
         </div>
     </div>
+
+    <div id="remarksModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeRemarksModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Remarks</h2>
+            </header>
+            <div class="w3-container">
+                <p>Enter your remarks:</p>
+                <textarea id="remarksByAdmin">
+                </textarea><br>
+                Project Id:<span id="projectIdForRemark"></span><br><br>
+                <button id="submitRemarks" type="button" class="btn btn-primary">REMARK</button>
+            </div>
+        </div>
+    </div>
+
+    
+  
+
 </body>
 </html>

@@ -47,8 +47,7 @@ router.post('/applyForProjects', function(req, res, next) {
 		abstract: req.body.abstract,
 		budget: req.body.budget,
 		timeline: req.body.timeline,
-		approvedByL1: 'No',
-		approvedByL2: 'No',
+		status: 'Not yet approved by L1',
 		mailSent: 'No'
 	};
 	Projects.sync({ force: false }).then(function() {

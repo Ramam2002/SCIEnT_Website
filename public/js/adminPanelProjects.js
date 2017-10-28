@@ -1,7 +1,3 @@
-// function showModal() {
-//     document.getElementById('infoModal').style.display='block';   
-// }
-
 $(document).ready (function () {
 	$(document).on ('click', '.projectId', function() {
 		$.ajax({
@@ -59,6 +55,21 @@ $(document).ready (function () {
                             + '</ul></li>')
                     }
                 }
+                if (data.remarksByLevelOne) {
+                    remarksByLevelOne = data.remarksByLevelOne;
+                    $("#infoList").append('<li>Remarks by L1 <ul id="remarksByL1"></ul></li>');
+                    for (i = 0; i < remarksByLevelOne.length; i++) {
+                        $("#remarksByL1").append('<li>' + remarksByLevelOne[i].remark + '</li>');
+                    }
+                }
+                if (data.remarksByLevelTwo) {
+                    remarksByLevelTwo = data.remarksByLevelTwo;
+                    $("#infoList").append('<li>Remarks by L2 <ul id="remarksByL2"></ul></li>');
+                    for (i = 0; i < remarksByLevelTwo.length; i++) {
+                        $("#remarksByL2").append('<li>' + remarksByLevelTwo[i].remark + '</li>');
+                    }
+                }
+
                 showModal();
             }
         });
@@ -66,10 +77,14 @@ $(document).ready (function () {
 
     $(document).on('click', '#approveForProjectsByL1', function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
+        var rejectButton = $(this).closest("tr").find("#rejectForProjectsByL1");
+        var status = $(this).closest("tr").find("#status");
         var confirmation = confirm('Are you sure you want to approve project request corresponding to id ' 
             + projectId + '?');
         if(confirmation == true) {
-            $(this).prop('disabled',true);
+            $(this).prop('disabled', true);
+            $(rejectButton).prop('disabled', false);
+            $(status).html('Approved by L1');
             $.ajax({
                 url: '/admin/approveForProjectsByL1',
                 method: 'POST',
@@ -82,7 +97,13 @@ $(document).ready (function () {
                     alert(data.msg);
                 }
             });
+            showRemarksModal(projectId);
         }
+        
+    });
+    $(document).on('click', '#enterRemarksByL1', function() {
+        var projectId = $(this).closest("tr").find(".projectId").text();
+        showRemarksModal(projectId);
     });
 
     $(document).on('click', '#approveForProjectsByL2', function() {
@@ -106,13 +127,17 @@ $(document).ready (function () {
         }
     });
 
-    $(document).on('click', '#removeForProjects', function() {
+    $(document).on('click', '#rejectForProjectsByL1', function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
-        var confirmation = confirm('Are you sure you want to delete project request corresponding to id ' 
-            + projectId + '?');
+        var approveButton = $(this).closest("tr").find("#approveForProjectsByL1");
+        var confirmation = confirm('Are you sure you want to delete project request corresponding to id ' + projectId + '?');
+        var status = $(this).closest("tr").find("#status");
         if(confirmation == true) {
+            $(this).prop('disabled', true);
+            $(approveButton).prop('disabled', false);
+            $(status).html('Rejected by L1');
             $.ajax({
-                url: '/admin/removeForProjects',
+                url: '/admin/rejectForProjectsByL1',
                 method: 'POST',
                 data: JSON.stringify({
                     projectId: projectId
@@ -123,9 +148,32 @@ $(document).ready (function () {
                     alert(data.msg);
                 }
             });
-            $(this).parent().parent().remove();
+            showRemarksModal(projectId);
         }
     });
+
+    $(document).on('click', '#submitRemarks', function() {
+        var remark = document.getElementById('remarksByAdmin').value;
+        var projectId = document.getElementById('projectIdForRemark').innerHTML;
+        $.ajax({
+            url: '/admin/enterRemarksForProjects',
+            method: 'POST',
+            data: JSON.stringify({
+                remark: remark,
+                projectId: projectId
+            }),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function (data, status) {
+                
+            }
+        });
+        var remarksModal = document.getElementById('remarksModal');
+        $("#remarksByAdmin").val('');
+        $('#projectIdForRemark').html('');
+        remarksModal.style.display='none';
+    });
+
     $(document).on('click', '#mailForProjects', function() {
         $.ajax({
             url: '/admin/mailForProjects',

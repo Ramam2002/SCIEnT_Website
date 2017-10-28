@@ -45,15 +45,9 @@ module.exports = function(sequelize, DataTypes){
 		timeline: {
 			type: DataTypes.TEXT
 		},
-		approvedByL1: {
-			type: DataTypes.ENUM('No', 'Yes'),
-			allowNull: false,
-			default: 'No'
-		},
-		approvedByL2: {
-			type: DataTypes.ENUM('No', 'Yes'),
-			allowNull: false,
-			default: 'No'
+		status: {
+			type: DataTypes.ENUM('Completed', 'Ongoing', 'Approved by L1', 'Not yet approved by L1', 'Rejected by L1', 'Rejected by L2'),
+			allowNull: false
 		},
 		mailSent: {
 			type: DataTypes.ENUM('No', 'Yes'),

@@ -21,6 +21,8 @@ var Projects = models.Projects;
 var Teams = models.Teams;
 var Materials = models.Materials;
 var Services = models.Services;
+var RemarksByLevelOne = models.RemarksByLevelOne;
+var RemarksByLevelTwo = models.RemarksByLevelTwo;
 
 router.use(session({secret: 'ssshhhhh'}));
 router.use(bodyParser.urlencoded({extended: false }));
@@ -34,15 +36,26 @@ router.post('/getProjectsDetails', function (req, res, next) {
 			.then(function (services) {
 				Materials.findAll({where: {ProjectId: req.body.projectId}})
 				.then(function (materials) {
-					data = {};
-					data.project = projectsRecord;
-					if (teamMembers.length > 0)
-						data.teamMembers = teamMembers;
-					if (services.length > 0)
-						data.services = services;
-					if (materials.length > 0)
-						data.materials = materials; 
-					res.send(JSON.stringify(data));
+					RemarksByLevelOne.findAll({ where: {ProjectId: req.body.projectId}})
+					.then(function (remarksByLevelOne) {
+						RemarksByLevelTwo.findAll({ where: {ProjectId: req.body.projectId}})
+						.then(function (remarksByLevelTwo) {
+							console.log(remarksByLevelOne[0].remark);
+							data = {};
+							data.project = projectsRecord;
+							if (teamMembers.length > 0)
+								data.teamMembers = teamMembers;
+							if (services.length > 0)
+								data.services = services;
+							if (materials.length > 0)
+								data.materials = materials;
+							if (remarksByLevelOne.length > 0)
+								data.remarksByLevelOne = remarksByLevelOne;
+							if (remarksByLevelTwo.length > 0)
+								data.remarksByLevelTwo = remarksByLevelTwo; 
+							res.send(JSON.stringify(data));
+						});
+					});
 				});
 			});
 		});
@@ -53,7 +66,7 @@ router.post('/getProjectsDetails', function (req, res, next) {
 
 router.post('/approveForProjectsByL1', function(req, res, next) {
 	Projects.update({
-        approvedByL1: 'Yes' 
+        status: 'Approved by L1' 
     }, {
         where: {id: req.body.projectId }
     }).then(function() {
@@ -73,12 +86,40 @@ router.post('/approveForProjectsByL2', function(req, res, next) {
     });
 });
 
-router.post('/removeForProjects', function(req, res, next) {
-	Projects.destroy({where: {id: req.body.projectId}})
-	.then(function(data) {
-		res.send(JSON.stringify({msg: 'You have deleted the request corresponding to id ' + req.body.projectId}));
-	});
+router.post('/rejectForProjectsByL1', function(req, res, next) {
+	Projects.update({
+        status: 'Rejected by L1' 
+    }, {
+        where: {id: req.body.projectId }
+    }).then(function() {
+    	res.send(JSON.stringify({msg: 'You have rejected the project request corresponding to id '
+    		+ req.body.projectId}));
+    });
 });
+router.post('/enterRemarksForProjects', function(req, res, next) {
+	console.log("hi there remarks");
+	var remarkRecord = {
+		remark: req.body.remark,
+		ProjectId: req.body.projectId
+	}
+	if (req.session.access == 'levelOneAdmin') {
+		RemarksByLevelOne.create(remarkRecord).then( function() {
+			console.log('Remark by L1 entered successfully');
+		}).catch(function(err) {
+			console.log(err);
+		});
+
+	} else if(req.session.access == 'levelTwoAdmin') {
+		RemarksByLevelTwo.create(remarkRecord).then( function() {
+			console.log('Remark by L2 entered successfully');
+		}).catch(function(err) {
+			console.log(err);
+		});
+	}
+
+});
+
+
 
 router.post('/mailForProjects', function(req, res, next) {
 	console.log('request received');
@@ -121,11 +162,13 @@ router.post('/mailForProjects', function(req, res, next) {
 
 		});	
 	});
-	console.log("hello");
 	if( flag == 0 ) {
 		res.send(JSON.stringify({msg:'Mail sent successfully to all applicants'}));
 	}
 	else res.send(JSON.stringify({msg: 'All mails were not sent. Send again :('}));
 });
+
+
+
 
 module.exports = router;

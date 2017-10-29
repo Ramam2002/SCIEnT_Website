@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <title>Projects</title>
     <link rel="stylesheet" href="css/register1.css">
+    <script type="text/javascript" src="js/validateProjects.js" ></script>
 </head>
 
 <script>
@@ -23,21 +24,21 @@
     function addMaterial () {
         $("#material_field").append('<br>'
             + '<span>'
-            + '<input type="text" name="materialNames" placeholder="Name" class="material_name"/>'
-            + '<input type="text" name="materialSpecs" placeholder="Specification" class="material_specs"/>'
-            + '<input type="text" name="materialQuantity" placeholder="Quantity" class="material_quantity"/>'
-            + '<input type="text" name="materialPrice" placeholder="Price" class="material_price" />'
-            + '<input type="text" name="purpose" placeholder="Purpose" class="material_purpose"/>'
-            + '<input type="text" name="vendors" placeholder="Link/Vendor" class="material_vendor"/>'
+            + '<input type="text" name="materialNames" placeholder="Name" class="material-name"/>'
+            + '<input type="text" name="materialSpecs" placeholder="Specification" class="material-specs"/>'
+            + '<input type="text" name="materialQuantity" placeholder="Quantity" class="material-quantity"/>'
+            + '<input type="text" name="materialPrice" placeholder="Price" class="material-price" />'
+            + '<input type="text" name="purpose" placeholder="Purpose" class="material-purpose"/>'
+            + '<input type="text" name="vendors" placeholder="Link/Vendor" class="material-vendor"/>'
             + '</span><br>');
     }
       
     function addService () {
         $("#service_field").append('<br>'
             + '<span>'
-            + '<input type="text" name="serviceNames" placeholder="Name" class="sname" />'
-            + '<input type="text" name="serviceSpecs" placeholder="Specification" class="service_specs"/>'
-            + '<input type="text" name="servicePrice" placeholder="Price" class="service_price"/>'
+            + '<input type="text" name="serviceNames" placeholder="Name" class="service-name" />'
+            + '<input type="text" name="serviceSpecs" placeholder="Specification" class="service-specs"/>'
+            + '<input type="text" name="servicePrice" placeholder="Price" class="service-price"/>'
             + '</span><br>');
     } 
 </script>
@@ -52,7 +53,7 @@
         margin-left: 10px;
         margin-top: 5px;
     }
-    .material_name, .material_specs, .material_quantity, .material_price, .material_vendor, .material_purpose{
+    .material_name, .material_specs, .material_quantity, .material_price, .material_vendor, .material_purpose {
         width: 30%;
         margin-left: 10px;
         margin-top: 5px;
@@ -62,7 +63,7 @@
         margin-left: 10px;
     }
 
-    #add-mem, #add-s, #add-m{
+    #add-mem, #add-s, #add-m {
         margin-top: 10px;
     }
     
@@ -78,19 +79,19 @@
             <h1 class="jumbotron text-center" id="form-title">PROJECTS</h1>
             <div class="from-group">
                 <label for="name">Name :</label>
-                <input type="text" class="form-control" name="name" required placeholder="Name">
+                <input type="text" class="form-control" id="name" name="name" required placeholder="Name">
             </div>
             <div class="from-group">
                 <label for="roll-no">Roll Number :</label>
-                <input type="text" class="form-control" name="rollNo" required placeholder="Roll Number">
+                <input type="text" class="form-control" id="rollNo" name="rollNo" required placeholder="Roll Number">
             </div>
             <div class="from-group">
                 <label for="department">Department :</label>
-                <input type="text" class="form-control" name="dept" placeholder="Department" required>
+                <input type="text" class="form-control" id="dept" name="dept" placeholder="Department" required>
             </div>
             <div class="from-group">
                 <label for="projectName">Project Title :</label>
-                <input type="text" class="form-control" name="title" placeholder="Project Title" required>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Project Title" required>
             </div>
             <div class="from-group">
                 <label for="memberName">Team Members :</label>
@@ -99,11 +100,11 @@
             </div>
             <div class="from-group">
                 <label for="contact">Contact Number :</label>
-                <input type="tel" class="form-control" name="contact" required placeholder="Contact">
+                <input type="tel" class="form-control" id="contact" name="contact" required placeholder="Contact">
             </div>
             <div class="from-group">
                 <label for="email">Email address :</label>
-                <input type="email" class="form-control" name="email" required placeholder="Email Id">
+                <input type="email" class="form-control" id="email" name="email" required placeholder="Email Id">
             </div>
 
             <div class="from-group">
@@ -142,7 +143,7 @@
             </div>
             <div class="from-group">
                 <label for="budget">Approximate Budget :</label>
-                <input type="text" class="form-control" name="budget" required placeholder="Enter Required Budget">
+                <input type="text" class="form-control" id="budget" name="budget" required placeholder="Enter Required Budget">
             </div>
             <div class="from-group">
                 <label for="material">Materials :</label>
@@ -156,7 +157,7 @@
             </div>
             <div class="from-group">
                 <label for="timeline">Timeline Of Project :</label>
-                <input type="text" class="form-control" name="timeline" required placeholder="Timeline Of Project">
+                <input type="text" class="form-control" id="timeline" name="timeline" required placeholder="Timeline Of Project">
             </div>
             <div class="from-group">
                 <label for="bill-detail">Sample Format of bill is given below<br></label><br>
@@ -169,7 +170,7 @@
             </div>
             <br>
             <div class="wrapper" style="text-align:center">
-                <button type="submit" class="btn btn-default" style="width:50%" id="submit-button" onClick="ValidateForm(this.form)">Submit</button>
+                <button type="submit" class="btn btn-default" style="width:50%" id="submit-button" onclick="return validateForm()" >Submit</button>
             </div>
         </div>
     </form>  

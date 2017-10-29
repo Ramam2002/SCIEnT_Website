@@ -101,17 +101,22 @@ $(document).ready (function () {
         }
         
     });
-    $(document).on('click', '#enterRemarksByL1', function() {
+    $(document).on('click', '#enterRemarksByL1',  function() {
+        var projectId = $(this).closest("tr").find(".projectId").text();
+        showRemarksModal(projectId);
+    });
+    $(document).on('click', '#enterRemarksByL2',  function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
         showRemarksModal(projectId);
     });
 
     $(document).on('click', '#approveForProjectsByL2', function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
+        var projectName = $(this).closest('tr').find('.projectName').text();
         var confirmation = confirm('Are you sure you want to approve project request corresponding to id ' 
             + projectId + '?');
         if(confirmation == true) {
-            $(this).prop('disabled',true);
+            var flag = 0;
             $.ajax({
                 url: '/admin/approveForProjectsByL2',
                 method: 'POST',
@@ -124,13 +129,17 @@ $(document).ready (function () {
                     alert(data.msg);
                 }
             });
+            $('#completedOngoingTable tbody').append('<tr><td><a href="#"><span class="projectId">' + projectId +
+                '</span></a></td><td><span class="projectName">' + projectName + '</span></td><td><span id="status">Ongoing</span></td></tr>');
+            $(this).parent().parent().remove();
+            showRemarksModal(projectId);
         }
     });
 
     $(document).on('click', '#rejectForProjectsByL1', function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
         var approveButton = $(this).closest("tr").find("#approveForProjectsByL1");
-        var confirmation = confirm('Are you sure you want to delete project request corresponding to id ' + projectId + '?');
+        var confirmation = confirm('Are you sure you want to reject project request corresponding to id ' + projectId + '?');
         var status = $(this).closest("tr").find("#status");
         if(confirmation == true) {
             $(this).prop('disabled', true);
@@ -138,6 +147,30 @@ $(document).ready (function () {
             $(status).html('Rejected by L1');
             $.ajax({
                 url: '/admin/rejectForProjectsByL1',
+                method: 'POST',
+                data: JSON.stringify({
+                    projectId: projectId
+                }),
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (data, status) {
+                    alert(data.msg);
+                }
+            });
+            showRemarksModal(projectId);
+        }
+    });
+    $(document).on('click', '#rejectForProjectsByL2', function() {
+        var projectId = $(this).closest("tr").find(".projectId").text();
+        var approveButton = $(this).closest("tr").find("#approveForProjectsByL2");
+        var confirmation = confirm('Are you sure you want to reject project request corresponding to id ' + projectId + '?');
+        var status = $(this).closest("tr").find("#status");
+        if(confirmation == true) {
+            $(this).prop('disabled', true);
+            $(approveButton).prop('disabled', false);
+            $(status).html('Rejected by L2');
+            $.ajax({
+                url: '/admin/rejectForProjectsByL2',
                 method: 'POST',
                 data: JSON.stringify({
                     projectId: projectId
@@ -187,5 +220,27 @@ $(document).ready (function () {
                 alert(data.msg);
             }
         });
+    });
+
+    $(document).on('click', '#markAsComplete', function () {
+        var projectId = $(this).closest('tr').find('.projectId').text();
+        var status = $(this).closest('tr').find('#status');
+        var confirmation = confirm('Are ypu sure you want to mark the project with id ' + projectId + ' as Completed?');
+        if(confirmation == true) {
+            $(this).prop('disabled', true);
+            $(status).html('Completed');
+            $.ajax({
+                url: '/admin/markAsComplete',
+                method: 'POST',
+                data: JSON.stringify({
+                    projectId: projectId
+                }),
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (data, status) {
+                    alert(data.msg);
+                }
+            });
+        }
     });
 });    

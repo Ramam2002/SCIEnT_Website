@@ -77,7 +77,7 @@ router.post('/approveForProjectsByL1', function(req, res, next) {
 
 router.post('/approveForProjectsByL2', function(req, res, next) {
 	Projects.update({
-        approvedByL2: 'Yes' 
+       status: 'Ongoing' 
     }, {
         where: {id: req.body.projectId }
     }).then(function() {
@@ -96,6 +96,18 @@ router.post('/rejectForProjectsByL1', function(req, res, next) {
     		+ req.body.projectId}));
     });
 });
+
+router.post('/rejectForProjectsByL2', function(req, res, next) {
+	Projects.update({
+        status: 'Rejected by L2' 
+    }, {
+        where: {id: req.body.projectId }
+    }).then(function() {
+    	res.send(JSON.stringify({msg: 'You have rejected the project request corresponding to id '
+    		+ req.body.projectId}));
+    });
+});
+
 router.post('/enterRemarksForProjects', function(req, res, next) {
 	console.log("hi there remarks");
 	var remarkRecord = {
@@ -120,11 +132,10 @@ router.post('/enterRemarksForProjects', function(req, res, next) {
 });
 
 
-
 router.post('/mailForProjects', function(req, res, next) {
 	console.log('request received');
 	var flag = 0;
-	Projects.findAll({where: {approvedByL1: 'Yes', approvedByL2: 'Yes', mailSent: 'No'}})
+	Projects.findAll({where: {status: 'Ongoing', mailSent: 'No'}})
 	.then(function (rows) {
 		rows.forEach(function (item) {
 			var mailBody = 'Your request for your project' + item.projectTitle+ 'has been granted';
@@ -166,6 +177,20 @@ router.post('/mailForProjects', function(req, res, next) {
 		res.send(JSON.stringify({msg:'Mail sent successfully to all applicants'}));
 	}
 	else res.send(JSON.stringify({msg: 'All mails were not sent. Send again :('}));
+});
+
+
+router.post('/markAsComplete', function(req, res, next) {
+	var projectId = req.body.projectId;
+	Projects.update({
+		status: 'Completed'
+	}, {
+		where: {id: projectId}
+	}).then( function () {
+		res.send(JSON.stringify({msg: 'You have successfuly marked the project as completed'}));
+	}).catch( function (err) {
+		console.log(err);
+	});
 });
 
 

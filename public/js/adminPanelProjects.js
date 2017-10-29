@@ -75,9 +75,9 @@ $(document).ready (function () {
         });
     });
 
-    $(document).on('click', '#approveForProjectsByL1', function() {
+    $(document).on('click', '.approveForProjectsByL1', function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
-        var rejectButton = $(this).closest("tr").find("#rejectForProjectsByL1");
+        var rejectButton = $(this).closest("tr").find(".rejectForProjectsByL1");
         var status = $(this).closest("tr").find("#status");
         var confirmation = confirm('Are you sure you want to approve project request corresponding to id ' 
             + projectId + '?');
@@ -101,16 +101,16 @@ $(document).ready (function () {
         }
         
     });
-    $(document).on('click', '#enterRemarksByL1',  function() {
+    $(document).on('click', '.enterRemarksByL1',  function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
         showRemarksModal(projectId);
     });
-    $(document).on('click', '#enterRemarksByL2',  function() {
+    $(document).on('click', '.enterRemarksByL2',  function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
         showRemarksModal(projectId);
     });
 
-    $(document).on('click', '#approveForProjectsByL2', function() {
+    $(document).on('click', '.approveForProjectsByL2', function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
         var projectName = $(this).closest('tr').find('.projectName').text();
         var confirmation = confirm('Are you sure you want to approve project request corresponding to id ' 
@@ -136,9 +136,9 @@ $(document).ready (function () {
         }
     });
 
-    $(document).on('click', '#rejectForProjectsByL1', function() {
+    $(document).on('click', '.rejectForProjectsByL1', function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
-        var approveButton = $(this).closest("tr").find("#approveForProjectsByL1");
+        var approveButton = $(this).closest("tr").find(".approveForProjectsByL1");
         var confirmation = confirm('Are you sure you want to reject project request corresponding to id ' + projectId + '?');
         var status = $(this).closest("tr").find("#status");
         if(confirmation == true) {
@@ -160,9 +160,9 @@ $(document).ready (function () {
             showRemarksModal(projectId);
         }
     });
-    $(document).on('click', '#rejectForProjectsByL2', function() {
+    $(document).on('click', '.rejectForProjectsByL2', function() {
         var projectId = $(this).closest("tr").find(".projectId").text();
-        var approveButton = $(this).closest("tr").find("#approveForProjectsByL2");
+        var approveButton = $(this).closest("tr").find(".approveForProjectsByL2");
         var confirmation = confirm('Are you sure you want to reject project request corresponding to id ' + projectId + '?');
         var status = $(this).closest("tr").find("#status");
         if(confirmation == true) {
@@ -222,7 +222,7 @@ $(document).ready (function () {
         });
     });
 
-    $(document).on('click', '#markAsComplete', function () {
+    $(document).on('click', '.markAsComplete', function () {
         var projectId = $(this).closest('tr').find('.projectId').text();
         var status = $(this).closest('tr').find('#status');
         var confirmation = confirm('Are ypu sure you want to mark the project with id ' + projectId + ' as Completed?');

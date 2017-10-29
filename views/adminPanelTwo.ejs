@@ -110,18 +110,18 @@
                                             <tr>
                                                 <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
                                                 <td ><span class="projectName"><%= item.projectTitle %></span></td>
-                                                <% if (item.status == 'Not yet approved by L1') { %>
-                                                    <td><button type="button" id="approveForProjectsByL2" class="btn btn-success" disabled>APPROVE</button></td>
+                                                <% if (item.status == 'Not yet approved by L1' || item.status == 'Rejected by L1') { %>
+                                                    <td><button type="button" class="approveForProjectsByL2 btn btn-success" disabled>APPROVE</button></td>
                                                 <% } else { %>
-                                                    <td><button type="button" id="approveForProjectsByL2" class="btn btn-success">APPROVE</button></td>
+                                                    <td><button type="button" class="approveForProjectsByL2 btn btn-success">APPROVE</button></td>
                                                 <% } %>
                                                 <% if (item.status == 'Rejected by L1' || item.status == 'Rejected by L2' || item.status == 'Not yet approved by L1') { %>
-                                                    <td><button type="button" id="rejectForProjectsByL2" class="btn btn-danger" disabled>REJECT</button></td>
+                                                    <td><button type="button" class="rejectForProjectsByL2 btn btn-danger" disabled>REJECT</button></td>
                                                 <% } else { %>
-                                                    <td><button id="rejectForProjectsByL2" type="button" class="btn btn-danger">REJECT</button></td>
+                                                    <td><button type="button" class="rejectForProjectsByL2 btn btn-danger">REJECT</button></td>
                                                 <% } %>
                                                 <td><span id="status"><%= item.status %></span></td>
-                                                <td><button id="enterRemarksByL2" type="button" class="btn btn-warning">REMARK</button></td>
+                                                <td><button type="button" class="enterRemarksByL2 btn btn-warning">REMARK</button></td>
                                             </tr>
                                         <% } %>
                                     <% }); %>

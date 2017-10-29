@@ -17,7 +17,7 @@ $(document).ready (function () {
         });
     });
 
-    $(document).on('click', '#approveForFacilities', function() {
+    $(document).on('click', '.approveForFacilities', function() {
         var applicantId = $(this).closest("tr").find(".applicantId").text();
         var confirmation = confirm('Are you sure you want to approve request corresponding to id ' + applicantId + '?');
         if(confirmation == true) {
@@ -38,7 +38,7 @@ $(document).ready (function () {
         }
     });
 
-    $(document).on('click', '#removeForFacilities', function() {
+    $(document).on('click', '.removeForFacilities', function() {
         var applicantId = $(this).closest("tr").find(".applicantId").text();
         var confirmation = confirm('Are you sure you want to delete request corresponding to id ' + applicantId + '?');
         if(confirmation == true) {

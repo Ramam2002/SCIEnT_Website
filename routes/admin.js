@@ -10,6 +10,8 @@ var models  = require(path.join(__dirname, '/../' ,'models'));
 var Admins = models.Admins;
 var Facilities = models.Facilities;
 var Projects = models.Projects;
+var HallBooking = models.HallBooking;
+var Admins = models.Admins;
 
 router.use(session({secret: 'ssshhhhh'}));
 router.use(bodyParser.urlencoded({extended: false }));
@@ -17,13 +19,19 @@ router.use(bodyParser.urlencoded({extended: false }));
 router.get('/', function(req, res, next) {
 	
 	if(req.session.access == 'levelOneAdmin') {
-		var projectsRows, facilitiesRows;
-			Facilities.findAll().then(function(facilities) {
-				facilitiesRows = facilities;
-				Projects.findAll().then(function(projects) {
-					projectsRows = projects;
-					res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows});
+		var projectsRows, facilitiesRows, hallBookingRows, adminsRows;
+		Facilities.findAll().then( function(facilities) {
+			facilitiesRows = facilities;
+			Projects.findAll().then( function(projects) {
+				projectsRows = projects;
+				HallBooking.findAll().then( function(bookings) {
+					hallBookingRows = bookings;
+					Admins.findAll().then( function(admins) {
+						adminsRows = admins;
+						res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows, adminsRows: adminsRows});
+					});
 				});
+			});
 		});
 	} 
 	else if(req.session.access == 'levelTwoAdmin') {
@@ -46,15 +54,20 @@ router.post('/adminLogin', function(req, res, next) {
 		if (bcrypt.compareSync(req.body.adminPassword, admin.password) && admin.adminLevel == 'One') {
 			// Render admin operations page
 			req.session.access = 'levelOneAdmin';
-			var projectsRows, facilitiesRows;
+			var projectsRows, facilitiesRows, hallBookingRows, adminsRows;
 			Facilities.findAll().then(function(facilities) {
 				facilitiesRows = facilities;
 				Projects.findAll().then(function(projects) {
 					projectsRows = projects;
-					res.render('adminPanelOne', {projectsRows: projectsRows, facilitiesRows: facilitiesRows});
+					HallBooking.findAll().then( function(bookings) {
+						hallBookingRows = bookings;
+						Admins.findAll().then(function(admins) {
+							adminsRows = admins;
+							res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows, adminsRows: adminsRows});
+						});
+					});
 				});
 			});
-
 		} 
 		else if(bcrypt.compareSync(req.body.adminPassword, admin.password) && admin.adminLevel == 'Two') {
 			req.session.access = 'levelTwoAdmin';

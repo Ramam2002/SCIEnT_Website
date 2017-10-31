@@ -12,6 +12,7 @@
     <script src="/js/adminPanel.js"></script>
     <script src="/js/adminPanelFacilities.js"></script>
     <script src="/js/adminPanelProjects.js"></script>
+    <script src="/js/adminPanelHallBooking.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
     <link rel="stylesheet" href="/css/adminPanelOne.css">
@@ -195,24 +196,30 @@
                                         <th class="header"></th>
                                         <th class="header">HALL BOOKING</th>
                                         <th class="header"></th>
-                                        <th class="header"><button type="button" class="btn btn-success">Mail for Hall Booking</button></th>
+                                        <th class="header"><button type="button" class="mailForHallBooking btn btn-success">Mail for Hall Booking</button></th>
                                     </tr>
                                 </thead>
                                 <thead>
                                     <tr>
-                                        <th>REQUEST ID</th>
+                                        <th>BOOKING ID</th>
                                         <th>PERSON ROLL</th>
                                         <th>APPROVE</th>
                                         <th>REMOVE</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td ><a href="#"><span class="projectId">Id</span></a></td>
-                                        <td ><a href="#"><span class="proname" onclick="openmodal()">ALPHA GO 4rtgvTNYnyrrvtrvgb</span></a></td>
-                                        <td><button type="button" class="btn btn-success">APPROVE </button></td>
-                                        <td><span id="removeForRoomRequest"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
-                                    </tr>
+                                    <% hallBookingRows.forEach(function(item) { %>
+                                        <tr>
+                                            <td ><a href="#"><span class="bookingId"><%= item.id %></span></a></td>
+                                            <td ><span class="applicantRoll"><%= item.roll %></span></td>
+                                            <% if (item.approved == 'Yes') { %>
+                                                <td><button type="button" class="approveForHallBooking btn btn-success" disabled>APPROVE </button></td>
+                                            <% } else { %> 
+                                                <td><button type="button" class="approveForHallBooking btn btn-success">APPROVE </button></td>
+                                            <% } %>
+                                            <td><span class="removeForHallBooking"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                        </tr>
+                                    <% }); %>
                                 </tbody>
                             </table>
                         </div>
@@ -221,15 +228,14 @@
             </div>
             <div id="addAdmins" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4" id="addAdminForm">
+                    <div class="col-md-4" id="addAdminForm">
                         <h2 style="font-family: 'Vollkorn',serif;">ADD ADMINS</h2>
                         <label>Enter username for admin:</label><br>
-                        <input type="text" id="userName" name="userName" autocomplete="off">
+                        <input type="text" id="userName" name="userName" autocomplete="off"><br>
                         <label>Enter password for admin:</label><br>
-                        <input type="password" id="adminPassword" name="adminPassword" autocomplete="off">
+                        <input type="password" id="adminPassword" name="adminPassword" autocomplete="off"><br>
                         <label>Confirm password by re-entering:</label><br>
-                        <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off">
+                        <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off"><br>
                         <label>Select the level of admin:</label><br>
                         <select id="adminLevel" name="adminLevel">
                             <option value="One">One</option>
@@ -238,7 +244,30 @@
                         <span id="addAdminMsg"></span>
                         <button id="addAdmin" class="btn btn-warning btn-lg">Add Admin</button>
                     </div>
-                    <div class="col-lg-4"></div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-6">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Present Scient Admins</div>
+                            <div class="panel-body">
+                                <h6>Level one admins</h6>
+                                <ul id="levelOneAdminsList">
+                                <% adminsRows.forEach(function(item) { %>
+                                    <% if ( item.adminLevel == 'One') { %>
+                                        <li><%= item.adminName %></li>
+                                    <% } %>
+                                <% }); %>
+                                </ul>
+                                <h6>Level two admins</h6>
+                                <ul id="levelTwoAdminsList">
+                                <% adminsRows.forEach(function(item) { %>
+                                    <% if ( item.adminLevel == 'Two') { %>
+                                        <li><%= item.adminName %></li>
+                                    <% } %>
+                                <% }); %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -273,8 +302,21 @@
         </div>
     </div>
 
-    
-  
-
+    <div id="hallBookingModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeHallBookingModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Hall Booking Approval</h2>
+            </header>
+            <div class="w3-container">
+                <p>Enter the approved start time:</p>
+                <input type="text" id="approvedStartTime" placeholder="hrs:mins am/pm">
+                <p>Enter the approved end time:</p>
+                <input type="text" id="approvedEndTime" placeholder="hrs:mins am/pm"><br>
+                Booking Id:<span id="bookingIdForApproval"></span><br><br>
+                <button id="submitApprovalForHallBooking" type="button" class="submitApprovalForHallBooking btn btn-primary">SUBMIT APPROVAL</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

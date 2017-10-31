@@ -40,7 +40,7 @@ router.post('/getProjectsDetails', function (req, res, next) {
 					.then(function (remarksByLevelOne) {
 						RemarksByLevelTwo.findAll({ where: {ProjectId: req.body.projectId}})
 						.then(function (remarksByLevelTwo) {
-							console.log(remarksByLevelOne[0].remark);
+							// console.log(remarksByLevelOne[0].remark);
 							data = {};
 							data.project = projectsRecord;
 							if (teamMembers.length > 0)

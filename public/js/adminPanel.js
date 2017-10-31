@@ -7,6 +7,11 @@ function showRemarksModal (projectId) {
     document.getElementById('remarksModal').style.display = 'block';
 }
 
+function showHallBookingModal (bookingId) {
+    document.getElementById('bookingIdForApproval').innerHTML = bookingId;
+    document.getElementById('hallBookingModal').style.display = 'block';
+}
+
 $(document).ready (function () {
     $("#closeModal").click(function () {
         var infoModal = document.getElementById('infoModal');
@@ -18,6 +23,13 @@ $(document).ready (function () {
         $("#remarksByAdmin").val('');
         $('#projectIdForRemark').html('');
         remarksModal.style.display='none';
+    });
+    $("#closeHallBookingModal").click(function () {
+        var hallBookingModal = document.getElementById('hallBookingModal');
+        $("#approvedStartTime").val('');
+        $("#approvedEndTime").val('');
+        $('#bookingIdForApproval').html('');
+        hallBookingModal.style.display='none';
     });
     $(document).on('click', '#addAdmin', function () {
         var adminName = document.getElementById('userName').value;
@@ -57,6 +69,11 @@ $(document).ready (function () {
                     hideMsg(msgBody);
                 }
             });
+            if(adminLevel == 'Two') {
+                $('#levelTwoAdminsList').append('<li>' + adminName + '</li>');
+            } else if (adminLevel == 'One') {
+                $('#levelOneAdminsList').append('<li>' + adminName + '</li>');
+            }
         }
     });
 

@@ -13,6 +13,7 @@ var Projects = models.Projects;
 var Teams = models.Teams;
 var Materials = models.Materials;
 var Services = models.Services;
+var HallBooking = models.HallBooking;
 
 router.post('/applyForFacilities', function(req, res, next) {
 	var record = {
@@ -171,6 +172,30 @@ router.post('/applyForProjects', function(req, res, next) {
 		console.log('Record inserted succesfully into Projects table');
 		res.send("Hello World");
 	}).catch(function(err) {
+		console.log(err);
+	});
+});
+
+router.post('/applyForHallBooking', function(req, res, next) {
+	var record = {
+		name: req.body.name,
+		roll: req.body.roll,
+		department: req.body.department,
+		contactNumber: req.body.contactNumber,
+		emailID: req.body.emailID,
+		attendeesNumber: req.body.attendeesNumber,
+		date: req.body.date,
+		startTime: req.body.startTime,
+		endTime: req.body.endTime,
+		approvedStartTime: '',
+		approvedEndTime: '',
+		approved: 'No',
+		mailSent: 'No'
+	};
+	return HallBooking.create(record)
+	.then(function () {
+		console.log('HallBooking record entered successfully');
+	}).catch(function (err) {
 		console.log(err);
 	});
 });

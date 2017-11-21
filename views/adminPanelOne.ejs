@@ -105,6 +105,7 @@
                                         <th class="header"></th>
                                         <th class="header"></th>
                                         <th class="header"></th>
+                                        <th class="header"></th>
                                     </tr>
                                 </thead>
                                 <thead>
@@ -113,6 +114,7 @@
                                         <th>PROJECT NAME</th>
                                         <th>APPROVE</th>
                                         <th>REJECT</th>
+                                        <th>BEGIN PROJECT</th>
                                         <th>STATUS</th>
                                         <th>ENTER REMARKS</th>
                                     </tr>
@@ -123,7 +125,7 @@
                                             <tr>
                                                 <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
                                                 <td ><span class="projectName"><%= item.projectTitle %></span></td>
-                                                <% if (item.status == 'Approved by L1' || item.status == 'Rejected by L2') { %>
+                                                <% if (item.status == 'Approved by L1' || item.status == 'Rejected by L2' || item.status == 'Approved by L2') { %>
                                                     <td><button type="button" class="approveForProjectsByL1 btn btn-success" disabled>APPROVE</button></td>
                                                 <% } else { %>
                                                     <td><button type="button" class="approveForProjectsByL1 btn btn-success">APPROVE</button></td>
@@ -133,6 +135,11 @@
                                                 <% } else { %>
                                                     <td><button type="button" class="
                                                     rejectForProjectsByL1 btn btn-danger">REJECT</button></td>
+                                                <% } %>
+                                                 <% if (item.status == 'Approved by L2') { %>
+                                                    <td><button type="button" class="beginProject btn btn-success">BEGIN</button></td>
+                                                <% } else { %> 
+                                                    <td><button type="button" class="beginProject btn btn-success" disabled>BEGIN</button></td>
                                                 <% } %>
                                                 <td><span id="status"><%= item.status %></span></td>
                                                 <td><button type="button" class="enterRemarksByL1 btn btn-warning">REMARK</button></td>

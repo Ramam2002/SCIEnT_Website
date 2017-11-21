@@ -77,7 +77,7 @@ router.post('/approveForProjectsByL1', function(req, res, next) {
 
 router.post('/approveForProjectsByL2', function(req, res, next) {
 	Projects.update({
-       status: 'Ongoing' 
+       status: 'Approved by L2' 
     }, {
         where: {id: req.body.projectId }
     }).then(function() {
@@ -193,7 +193,20 @@ router.post('/markAsComplete', function(req, res, next) {
 	});
 });
 
-
+router.post('/beginProject', function(req, res, next) {
+	var projectId = req.body.projectId;
+	Projects.update({
+		status: 'Ongoing'	
+	}, {
+		where: {id: projectId}
+	}). then( function () {
+		Projects.findOne({where: {id: projectId}})
+		.then (function (project) {
+			console.log('Email id is:' + project.emailID);
+			res.send(JSON.stringify({msg: 'Project is ongoing now'}));
+		});
+	});
+});
 
 
 module.exports = router;

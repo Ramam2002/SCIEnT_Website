@@ -46,7 +46,7 @@ module.exports = function(sequelize, DataTypes){
 			type: DataTypes.TEXT
 		},
 		status: {
-			type: DataTypes.ENUM('Completed', 'Ongoing', 'Approved by L1', 'Not yet approved by L1', 'Rejected by L1', 'Rejected by L2'),
+			type: DataTypes.ENUM('Completed', 'Ongoing', 'Approved by L1', 'Approved by L2', 'Not yet approved by L1', 'Rejected by L1', 'Rejected by L2'),
 			allowNull: false
 		},
 		mailSent: {

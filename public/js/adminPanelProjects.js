@@ -115,8 +115,11 @@ $(document).ready (function () {
         var projectName = $(this).closest('tr').find('.projectName').text();
         var confirmation = confirm('Are you sure you want to approve project request corresponding to id ' 
             + projectId + '?');
+        var status = $(this).closest("tr").find("#status");
         if(confirmation == true) {
             var flag = 0;
+            $(this).prop('disabled', true);
+            $(status).html('Approved by L2');
             $.ajax({
                 url: '/admin/approveForProjectsByL2',
                 method: 'POST',
@@ -129,9 +132,6 @@ $(document).ready (function () {
                     alert(data.msg);
                 }
             });
-            $('#completedOngoingTable tbody').append('<tr><td><a href="#"><span class="projectId">' + projectId +
-                '</span></a></td><td><span class="projectName">' + projectName + '</span></td><td><span id="status">Ongoing</span></td></tr>');
-            $(this).parent().parent().remove();
             showRemarksModal(projectId);
         }
     });
@@ -243,4 +243,32 @@ $(document).ready (function () {
             });
         }
     });
+
+    $(document).on('click', '.beginProject', function () {
+        var projectId = $(this).closest('tr').find('.projectId').text();
+        var projectName = $(this).closest('tr').find('.projectName').text();
+        var status = $(this).closest('tr').find('#status');
+        var confirmation = confirm('Are you sure you want to mark the project ' + projectId + ' as Ongoing and send a mail?');
+        if(confirmation == true) {
+            // $(this).prop('disabled', true);
+            // $(status).html('Completed');
+            $.ajax({
+                url: '/admin/beginProject',
+                method: 'POST',
+                data: JSON.stringify({
+                    projectId: projectId
+                }),
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function (data, status) {
+                    alert(data.msg);
+                }
+            });
+            $('#completedOrOngoingProjects tbody').append('<tr><td><a href="#"><span class="projectId">' + projectId +
+                '</span></a></td><td><span class="projectName">' + projectName + '</span></td><td><button type="button" class="markAsComplete btn btn-success">MARK</button></td><td><span id="status">Ongoing</span></td>');
+            $(this).parent().parent().remove();
+        }
+    });
+
+
 });    

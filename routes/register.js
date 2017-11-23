@@ -50,7 +50,8 @@ router.post('/applyForProjects', function(req, res, next) {
 		budget: req.body.budget,
 		timeline: req.body.timeline,
 		status: 'Not yet approved by L1',
-		mailSent: 'No'
+		mailSent: 'No',
+		latestUpdater: 'NA'
 	};
 	Projects.sync({ force: false }).then(function() {
 		Projects.create(record).then(user => {

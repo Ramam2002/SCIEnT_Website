@@ -66,7 +66,8 @@ router.post('/getProjectsDetails', function (req, res, next) {
 
 router.post('/approveForProjectsByL1', function(req, res, next) {
 	Projects.update({
-        status: 'Approved by L1' 
+        status: 'Approved by L1',
+        latestUpdater: req.session.adminid 
     }, {
         where: {id: req.body.projectId }
     }).then(function() {
@@ -77,7 +78,8 @@ router.post('/approveForProjectsByL1', function(req, res, next) {
 
 router.post('/approveForProjectsByL2', function(req, res, next) {
 	Projects.update({
-       status: 'Approved by L2' 
+       status: 'Approved by L2',
+       latestUpdater: req.session.adminid
     }, {
         where: {id: req.body.projectId }
     }).then(function() {
@@ -88,7 +90,8 @@ router.post('/approveForProjectsByL2', function(req, res, next) {
 
 router.post('/rejectForProjectsByL1', function(req, res, next) {
 	Projects.update({
-        status: 'Rejected by L1' 
+        status: 'Rejected by L1',
+        latestUpdater: req.session.adminid 
     }, {
         where: {id: req.body.projectId }
     }).then(function() {
@@ -99,7 +102,8 @@ router.post('/rejectForProjectsByL1', function(req, res, next) {
 
 router.post('/rejectForProjectsByL2', function(req, res, next) {
 	Projects.update({
-        status: 'Rejected by L2' 
+        status: 'Rejected by L2',
+        latestUpdater: req.session.adminid
     }, {
         where: {id: req.body.projectId }
     }).then(function() {
@@ -109,9 +113,10 @@ router.post('/rejectForProjectsByL2', function(req, res, next) {
 });
 
 router.post('/enterRemarksForProjects', function(req, res, next) {
-	console.log("hi there remarks");
+	// console.log("hi there remarks");
 	var remarkRecord = {
 		remark: req.body.remark,
+		remarker: req.session.adminid,
 		ProjectId: req.body.projectId
 	}
 	if (req.session.access == 'levelOneAdmin') {
@@ -132,58 +137,59 @@ router.post('/enterRemarksForProjects', function(req, res, next) {
 });
 
 
-router.post('/mailForProjects', function(req, res, next) {
-	console.log('request received');
-	var flag = 0;
-	Projects.findAll({where: {status: 'Ongoing', mailSent: 'No'}})
-	.then(function (rows) {
-		rows.forEach(function (item) {
-			var mailBody = 'Your request for your project' + item.projectTitle+ 'has been granted';
-			// Email to be sent by admin
-			var message = {
-				text: mailBody,
-				from: yourEmail,
-				to: item.emailID,
-				subject: "Granting request for scient lab projects",
-				attachment:
-					[
+// router.post('/mailForProjects', function(req, res, next) {
+// 	console.log('request received');
+// 	var flag = 0;
+// 	Projects.findAll({where: {status: 'Ongoing', mailSent: 'No'}})
+// 	.then(function (rows) {
+// 		rows.forEach(function (item) {
+// 			var mailBody = 'Your request for your project' + item.projectTitle+ 'has been granted';
+// 			// Email to be sent by admin
+// 			var message = {
+// 				text: mailBody,
+// 				from: yourEmail,
+// 				to: item.emailID,
+// 				subject: "Granting request for scient lab projects",
+// 				attachment:
+// 					[
 						
-					]
-			};
+// 					]
+// 			};
 
 
-			server.send(message, function (err, message) {
-				console.log(err);
-				if (err!=null) {
-					flag = 1;
-				} 
-				else {
-					Projects.update({
-        				mailSent: 'Yes' 
-    				},{
-    					where: {id: item.id}
-					}).then(function() {
-    				// res.send(JSON.stringify({msg: 'You have approved the facilties request corresponding to id '+ req.body.applicantId}));
-					}).catch(function(err) {
-						console.log(err);
-					});
-				}
+// 			server.send(message, function (err, message) {
+// 				console.log(err);
+// 				if (err!=null) {
+// 					flag = 1;
+// 				} 
+// 				else {
+// 					Projects.update({
+//         				mailSent: 'Yes' 
+//     				},{
+//     					where: {id: item.id}
+// 					}).then(function() {
+//     				// res.send(JSON.stringify({msg: 'You have approved the facilties request corresponding to id '+ req.body.applicantId}));
+// 					}).catch(function(err) {
+// 						console.log(err);
+// 					});
+// 				}
 
-			});
+// 			});
 
-		});	
-	});
-	if( flag == 0 ) {
-		res.send(JSON.stringify({msg:'Mail sent successfully to all applicants'}));
-	}
-	else res.send(JSON.stringify({msg: 'All mails were not sent. Send again :('}));
-});
+// 		});	
+// 	});
+// 	if( flag == 0 ) {
+// 		res.send(JSON.stringify({msg:'Mail sent successfully to all applicants'}));
+// 	}
+// 	else res.send(JSON.stringify({msg: 'All mails were not sent. Send again :('}));
+// });
 
 
 router.post('/markAsComplete', function(req, res, next) {
 	var projectId = req.body.projectId;
 	Projects.update({
-		status: 'Completed'
+		status: 'Completed',
+		latestUpdater: req.session.adminid
 	}, {
 		where: {id: projectId}
 	}).then( function () {
@@ -195,16 +201,41 @@ router.post('/markAsComplete', function(req, res, next) {
 
 router.post('/beginProject', function(req, res, next) {
 	var projectId = req.body.projectId;
-	Projects.update({
-		status: 'Ongoing'	
-	}, {
-		where: {id: projectId}
-	}). then( function () {
-		Projects.findOne({where: {id: projectId}})
-		.then (function (project) {
-			console.log('Email id is:' + project.emailID);
-			res.send(JSON.stringify({msg: 'Project is ongoing now'}));
-		});
+	Projects.findOne({ where:{ id: projectId}})
+	.then ( function (project) {
+		var mailBody = 'Your request for your project' + project.projectTitle+ 'has been granted';
+		var message = {
+				text: mailBody,
+				from: yourEmail,
+				to: project.emailID,
+				subject: "Granting request for scient lab projects",
+				attachment:
+					[
+						
+					]
+			};
+			server.send(message, function (err, message) {
+				console.log(err);
+				if (err!=null) {
+					flag = 1;
+				} 
+				else {
+					Projects.update({
+        				mailSent: 'Yes',
+        				status: 'Ongoing',
+        				latestUpdater: req.session.adminid
+    				},{
+    					where: {id: project.id}
+					}).then(function() {
+    					res.send(JSON.stringify({msg: 'The project with id:' + projectId + 'is now ongoing'}));
+					}).catch(function(err) {
+						console.log(err);
+					});
+				}
+
+			});
+	}).catch ( function (err) {
+		console.log(err);
 	});
 });
 

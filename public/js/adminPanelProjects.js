@@ -59,14 +59,14 @@ $(document).ready (function () {
                     remarksByLevelOne = data.remarksByLevelOne;
                     $("#infoList").append('<li>Remarks by L1 <ul id="remarksByL1"></ul></li>');
                     for (i = 0; i < remarksByLevelOne.length; i++) {
-                        $("#remarksByL1").append('<li>' + remarksByLevelOne[i].remark + '</li>');
+                        $("#remarksByL1").append('<li>' + remarksByLevelOne[i].remark + ' - ' + remarksByLevelOne[i].remarker + '</li>');
                     }
                 }
                 if (data.remarksByLevelTwo) {
                     remarksByLevelTwo = data.remarksByLevelTwo;
                     $("#infoList").append('<li>Remarks by L2 <ul id="remarksByL2"></ul></li>');
                     for (i = 0; i < remarksByLevelTwo.length; i++) {
-                        $("#remarksByL2").append('<li>' + remarksByLevelTwo[i].remark + '</li>');
+                        $("#remarksByL2").append('<li>' + remarksByLevelTwo[i].remark + ' - ' + remarksByLevelTwo[i].remarker + '</li>');
                     }
                 }
 
@@ -207,20 +207,20 @@ $(document).ready (function () {
         remarksModal.style.display='none';
     });
 
-    $(document).on('click', '#mailForProjects', function() {
-        $.ajax({
-            url: '/admin/mailForProjects',
-            method: 'POST',
-            data: JSON.stringify({
-                msg: 'SendMailForProjects'
-            }),
-            contentType: 'application/json',
-            dataType: 'json',
-            success: function (data, status) {
-                alert(data.msg);
-            }
-        });
-    });
+    // $(document).on('click', '#mailForProjects', function() {
+    //     $.ajax({
+    //         url: '/admin/mailForProjects',
+    //         method: 'POST',
+    //         data: JSON.stringify({
+    //             msg: 'SendMailForProjects'
+    //         }),
+    //         contentType: 'application/json',
+    //         dataType: 'json',
+    //         success: function (data, status) {
+    //             alert(data.msg);
+    //         }
+    //     });
+    // });
 
     $(document).on('click', '.markAsComplete', function () {
         var projectId = $(this).closest('tr').find('.projectId').text();

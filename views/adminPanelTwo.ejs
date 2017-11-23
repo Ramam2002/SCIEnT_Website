@@ -53,6 +53,7 @@
                                         <th class="header"></th>
                                         <th class="header">Completed or ongoing Projects</th>
                                         <th class="header"></th>
+                                        <th class="header"></th>
                                     </tr>
                                 </thead>
 
@@ -61,6 +62,7 @@
                                         <th class="subheader">PROJECT ID</th>
                                         <th class="subheader">PROJECT NAME</th>
                                         <th class="subheader">STATUS</th>
+                                        <th class="subheader">LAST UPDATE DONE BY</th>
                                      </tr>
                                 </thead>
                                 <tbody>
@@ -70,6 +72,7 @@
                                                 <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
                                                 <td ><span class="projectName"><%= item.projectTitle %></span></td>
                                                 <td><span id="status"><%= item.status %></span></td>
+                                                <td><span class="lastUpdater"><%= item.latestUpdater %></span></td>
                                             </tr>
                                         <% } %>
                                     <% }); %>
@@ -92,6 +95,7 @@
                                         <th class="header"></th>
                                         <th class="header"></th>
                                         <th class="header"></th>
+                                        <th class="header"></th>
                                     </tr>
                                 </thead>
                                 <thead>
@@ -101,6 +105,7 @@
                                         <th>APPROVE</th>
                                         <th>REJECT</th>
                                         <th>STATUS</th>
+                                        <th>LAST STATUS CHANGE DONE BY</th>
                                         <th>ENTER REMARKS</th>
                                     </tr>
                                 </thead>
@@ -121,6 +126,7 @@
                                                     <td><button type="button" class="rejectForProjectsByL2 btn btn-danger">REJECT</button></td>
                                                 <% } %>
                                                 <td><span id="status"><%= item.status %></span></td>
+                                                <td><span class="lastUpdater"><%= item.latestUpdater %></span></td>
                                                 <td><button type="button" class="enterRemarksByL2 btn btn-warning">REMARK</button></td>
                                             </tr>
                                         <% } %>

@@ -4,6 +4,10 @@ module.exports = function(sequelize, DataTypes){
 		remark: {
 			type: DataTypes.TEXT,
 			allowNull: false
+		},
+		remarker: {
+			type: DataTypes.STRING,
+			allowNull: false
 		}
 	}, {
 	freezeTableName: true

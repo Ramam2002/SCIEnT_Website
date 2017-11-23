@@ -53,6 +53,10 @@ module.exports = function(sequelize, DataTypes){
 			type: DataTypes.ENUM('No', 'Yes'),
 			allowNull: false,
 			default: 'No'
+		},
+		latestUpdater: {
+			type: DataTypes.STRING,
+			allowNull: false
 		}
 	}, {
 	freezeTableName: true

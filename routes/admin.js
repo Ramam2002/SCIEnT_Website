@@ -54,6 +54,7 @@ router.post('/adminLogin', function(req, res, next) {
 		if (bcrypt.compareSync(req.body.adminPassword, admin.password) && admin.adminLevel == 'One') {
 			// Render admin operations page
 			req.session.access = 'levelOneAdmin';
+			req.session.adminid = admin.adminName;
 			var projectsRows, facilitiesRows, hallBookingRows, adminsRows;
 			Facilities.findAll().then(function(facilities) {
 				facilitiesRows = facilities;
@@ -71,6 +72,7 @@ router.post('/adminLogin', function(req, res, next) {
 		} 
 		else if(bcrypt.compareSync(req.body.adminPassword, admin.password) && admin.adminLevel == 'Two') {
 			req.session.access = 'levelTwoAdmin';
+			req.session.adminid = admin.adminName;
 			var projectsRows;
 			Projects.findAll()
 			.then(function(projects) {
@@ -104,6 +106,7 @@ router.post('/addAdmin', function(req, res, next) {
 
 router.post('/logout', function(req, res, next) {
 	req.session.access = null;
+	req.session.adminid = null;
 	res.render('adminLogin', {msg:''});
 });
 module.exports = router;

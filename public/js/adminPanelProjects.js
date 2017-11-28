@@ -262,11 +262,13 @@ $(document).ready (function () {
                 dataType: 'json',
                 success: function (data, status) {
                     alert(data.msg);
+                    if(data.msg != "Error") {
+                        $('#completedOrOngoingProjects tbody').append('<tr><td><a href="#"><span class="projectId">' + projectId +
+                        '</span></a></td><td><span class="projectName">' + projectName + '</span></td><td><button type="button" class="markAsComplete btn btn-success">MARK</button></td><td><span id="status">Ongoing</span></td>');
+                        $(this).parent().parent().remove();
+                    }
                 }
             });
-            $('#completedOrOngoingProjects tbody').append('<tr><td><a href="#"><span class="projectId">' + projectId +
-                '</span></a></td><td><span class="projectName">' + projectName + '</span></td><td><button type="button" class="markAsComplete btn btn-success">MARK</button></td><td><span id="status">Ongoing</span></td>');
-            $(this).parent().parent().remove();
         }
     });
 

@@ -64,7 +64,7 @@ h1 {
   color: #999;
 }
 
-.log-status.wrong-entry {
+/*.log-status.wrong-entry {
   -moz-animation: wrong-log 0.3s;
   -webkit-animation: wrong-log 0.3s;
   animation: wrong-log 0.3s;
@@ -74,7 +74,7 @@ h1 {
   border-color: #ed1c24;
   color: #ed1c24;
 }
-
+*/
 .log-btn {
   background: #E0BB24;
   dispaly: inline-block;

@@ -46,6 +46,7 @@
             <li><a data-toggle="tab" href="#facilitiesOrTools">Facilities/Tools</a></li>
             <li><a data-toggle="tab" href="#conferenceHallBooking">Hall Booking Requests</a></li>
             <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
+            <li><a data-toggle="tab" href="#changePasswords">Change your password</a></li>
         </ul>
 
         <div class="tab-content">
@@ -284,8 +285,26 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+            <div id="changePasswords" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6" id="changePasswordForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">CHANGE YOUR PASSWORD</h2>
+                        <label>Enter your current password:</label><br>
+                        <input type="password" id="currentPassword" name="currentPassword" autocomplete="off"><br>
+                        <label>Enter new password:</label><br>
+                        <input type="password" id="newPassword" name="newPassword" autocomplete="off"><br>
+                        <label>Re-enter the password to confirm:</label><br>
+                        <input type="password" id="confirmPassword1" name="confirmPassword1" autocomplete="off"><br>
+                        <span id="passwordChangeMsg"></span>
+                        <button id="changePassword" class="btn btn-warning btn-lg">Change Password</button>
+                    </div>
+                </div>
+            </div>
+                    
+                </div>
+            </div>
+     
 
     <div id="infoModal" class="w3-modal">
         <div class="w3-modal-content">

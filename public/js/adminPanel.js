@@ -78,6 +78,45 @@ $(document).ready (function () {
     });
 
 });
+ $(document).on('click', '#changePassword', function () {
+        var currentPassword = document.getElementById('currentPassword').value;
+        var newPassword = document.getElementById('newPassword').value;
+        var confirmPassword1 = document.getElementById('confirmPassword1').value;
+        var msgBody = document.getElementById('passwordChangeMsg');
+        if (newPassword != confirmPassword1) {
+            msgBody.innerHTML = 'Passwords do not match';
+            $('#currentPassword').val('');
+            $('#confirmPassword1').val('');
+            $('#newPassword').val('');
+            hideMsg(msgBody);
+            return;
+        } else if ( currentPassword == '' || confirmPassword1 == ''|| newPassword == '') {
+            msgBody.innerHTML = 'Enter All Fields';
+            hideMsg(msgBody);
+            return;
+        }
+        else {
+            $.ajax({
+                url: '/admin/changePassword',
+                method: 'POST',
+                data: JSON.stringify({
+                    currentPassword: currentPassword,
+                    newPassword: newPassword 
+                }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function(data, status) {
+                    alert(data.msg);
+                    var msgBody = document.getElementById('passwordChangeMsg');
+                    msgBody.innerHTML = data.msg;
+                    $('#userName1').val('');
+                    $('#currentPassword').val('');
+                    $('#newPassword').val('');
+                    $('#confirmPassword1').val('');
+                    hideMsg(msgBody);
+                }
+            });
+}});
 
 function hideMsg(msgBody) {
     setTimeout(function() {

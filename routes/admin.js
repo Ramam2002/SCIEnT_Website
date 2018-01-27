@@ -123,11 +123,15 @@ router.post('/changePassword', function(req, res, next) {
     		});	
 		}
     	else{
-    		res.send(JSON.stringify({msg: 'You have wrong current password'}));	
+    		res.send(JSON.stringify({msg: 'You have entered wrong current password'}));	
     	}   
 	
 	}).catch(function(err) {
 		console.log(err);
+		if (req.session.access== 'levelOneAdmin')
+			res.render('adminPanelOne', { msg: 'Username not found' });
+		else if (req.session.access== 'levelTwoAdmin')
+			res.render('adminPanelTwo', { msg: 'Username not found' });
 	});
 });
 

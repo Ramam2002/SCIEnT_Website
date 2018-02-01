@@ -28,7 +28,7 @@
     <div class="container">
         <div class="row" style="margin-top:2%;">
             <div class="col-md-9">
-                <h1 style="font-family: 'Vollkorn', serif;text-align: center;">ADMIN PANEL</h1>
+                <h1 style="font-family: 'Vollkorn', serif;text-align: center;margin-left: 10%">ADMIN PANEL</h1>
             </div>
             <div class="col-md-3">
                 <form method="post" action="/admin/logout">
@@ -40,6 +40,7 @@
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#completedOrOngoingProjects">Completed/Ongoing Projects</a></li>
             <li><a data-toggle="tab" href="#pendingProjects">Pending Projects</a></li>
+            <li><a data-toggle="tab" href="#changePasswords">Change Password</a></li>
         </ul>
 
         <div class="tab-content">
@@ -134,6 +135,21 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div id="changePasswords" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6" id="changePasswordForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">CHANGE YOUR PASSWORD</h2>
+                        <label>Enter your current password:</label><br>
+                        <input type="password" id="currentPassword" name="currentPassword" autocomplete="off"><br>
+                        <label>Enter new password:</label><br>
+                        <input type="password" id="newPassword" name="newPassword" autocomplete="off"><br>
+                        <label>Re-enter the new password to confirm:</label><br>
+                        <input type="password" id="confirmPassword1" name="confirmPassword1" autocomplete="off"><br>
+                        <span id="passwordChangeMsg"></span>
+                        <button id="changePassword" class="btn btn-warning btn-lg">Change Password</button>
                     </div>
                 </div>
             </div>

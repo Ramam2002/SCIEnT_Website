@@ -107,6 +107,38 @@ router.post('/addAdmin', function(req, res, next) {
 	res.send(JSON.stringify({msg: 'You have added an admin of level ' + req.body.adminLevel + ' successfully!' }));
 	return Admins.create(adminRecord);
 });
+router.post('/changePassword', function(req, res, next) {
+	Admins.findOne({ where: { adminName: req.session.adminid} })
+	.then(function (admin) {
+		// Compare password
+		if (bcrypt.compareSync(req.body.currentPassword, admin.password)) {
+			// Render admin operations page
+			var salt=bcrypt.genSaltSync(1);
+			var hash=bcrypt.hashSync(req.body.newPassword,salt);
+		    Admins.update({
+		    	password: hash
+		    }, {
+		    		where: {
+		    			adminName: req.session.adminid 
+		    		}
+				}
+			).then(function() {
+    			res.send(JSON.stringify({msg: 'You have successfully changed your password'}));
+    			
+    		});	
+		}
+    	else{
+    		res.send(JSON.stringify({msg: 'You have entered wrong current password'}));	
+    	}   
+	
+	}).catch(function(err) {
+		console.log(err);
+		if (req.session.access== 'levelOneAdmin')
+			res.render('adminPanelOne', { msg: 'Username not found' });
+		else if (req.session.access== 'levelTwoAdmin')
+			res.render('adminPanelTwo', { msg: 'Username not found' });
+	});
+});
 
 /* code to handle logout */
 router.post('/logout', function(req, res, next) {

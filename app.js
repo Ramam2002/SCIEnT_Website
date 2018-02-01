@@ -72,10 +72,10 @@ var adminDetails = {
     password: adminPwd,
     adminLevel: 'One'
 };
- Admins.sync({force: false})
- .then( function() {
-    return Admins.create(adminDetails);
-    console.log('Demo level one admin added');
- });
+ // Admins.sync({force: false})
+ // .then( function() {
+ //    return Admins.create(adminDetails);
+ //    console.log('Demo level one admin added');
+ // });
 
 module.exports = app;

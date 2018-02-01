@@ -1,3 +1,4 @@
+/* code to handle requests for projects by both level one and level two admins */
 var express = require('express');
 var router = express.Router();
 var path = require('path');
@@ -26,7 +27,7 @@ var RemarksByLevelTwo = models.RemarksByLevelTwo;
 
 router.use(session({secret: 'ssshhhhh'}));
 router.use(bodyParser.urlencoded({extended: false }));
-
+/* to display details of a particular projects request */
 router.post('/getProjectsDetails', function (req, res, next) {
 	Projects.findOne({where: {id: req.body.projectId}})
 	.then(function (projectsRecord) {
@@ -63,7 +64,7 @@ router.post('/getProjectsDetails', function (req, res, next) {
 		console.log(err);
 	});
 });
-
+/* to approve a projects request by level one admin */
 router.post('/approveForProjectsByL1', function(req, res, next) {
 	Projects.update({
         status: 'Approved by L1',
@@ -76,6 +77,7 @@ router.post('/approveForProjectsByL1', function(req, res, next) {
     });
 });
 
+/* to approve a projects request by level two admin */
 router.post('/approveForProjectsByL2', function(req, res, next) {
 	Projects.update({
        status: 'Approved by L2',
@@ -87,7 +89,7 @@ router.post('/approveForProjectsByL2', function(req, res, next) {
     		+ req.body.projectId}));
     });
 });
-
+/* to reject a projects request by level two admin(It won't be removed though) */
 router.post('/rejectForProjectsByL1', function(req, res, next) {
 	Projects.update({
         status: 'Rejected by L1',
@@ -100,6 +102,7 @@ router.post('/rejectForProjectsByL1', function(req, res, next) {
     });
 });
 
+/* to reject a projects request by level two admin(It won't be removed though) */
 router.post('/rejectForProjectsByL2', function(req, res, next) {
 	Projects.update({
         status: 'Rejected by L2',
@@ -112,6 +115,8 @@ router.post('/rejectForProjectsByL2', function(req, res, next) {
     });
 });
 
+/* to enter remarks for a particular project request to help discussions 
+between two levels of admins */
 router.post('/enterRemarksForProjects', function(req, res, next) {
 	// console.log("hi there remarks");
 	var remarkRecord = {
@@ -184,7 +189,7 @@ router.post('/enterRemarksForProjects', function(req, res, next) {
 // 	else res.send(JSON.stringify({msg: 'All mails were not sent. Send again :('}));
 // });
 
-
+/* to mark an ongoing project as complete by level one admin */
 router.post('/markAsComplete', function(req, res, next) {
 	var projectId = req.body.projectId;
 	Projects.update({
@@ -198,7 +203,8 @@ router.post('/markAsComplete', function(req, res, next) {
 		console.log(err);
 	});
 });
-
+/* to make a project from pending to ongoing after being approved and send a mail
+to notify the applicant */
 router.post('/beginProject', function(req, res, next) {
 	var projectId = req.body.projectId;
 	Projects.findOne({ where:{ id: projectId}})

@@ -1,3 +1,4 @@
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -9,6 +10,8 @@ var models = require('./models');
 var sequelize = require('sequelize');
 var Admins = models.Admins; 
 
+
+/* all the routes for the application are declared here */
 var index = require('./routes/index');
 var register = require('./routes/register');
 var admin = require('./routes/admin'); 
@@ -29,7 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+/* all the routes for the application are used here */
 app.use('/', index);
 app.use('/', register);
 app.use('/admin', admin);

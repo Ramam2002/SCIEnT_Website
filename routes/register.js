@@ -1,3 +1,4 @@
+/* to handle form submissions for applying for projects/facilities/hallbooking */
 /*
  require packages
 */
@@ -15,6 +16,7 @@ var Materials = models.Materials;
 var Services = models.Services;
 var HallBooking = models.HallBooking;
 
+/* to handle form submission for facilities */
 router.post('/applyForFacilities', function(req, res, next) {
 	var record = {
 		name: req.body.name,
@@ -36,7 +38,7 @@ router.post('/applyForFacilities', function(req, res, next) {
     	console.log(err);
     });
 });
-
+/* to handle form submission for projects*/
 router.post('/applyForProjects', function(req, res, next) {
 	var record = {
 		name: req.body.name,
@@ -177,7 +179,7 @@ router.post('/applyForProjects', function(req, res, next) {
 		console.log(err);
 	});
 });
-
+/* to handle form submission for hall booking */
 router.post('/applyForHallBooking', function(req, res, next) {
 	var record = {
 		name: req.body.name,

@@ -1,3 +1,5 @@
+/* code to handle requests for accessing scient lab facilities (only levelOne admins
+handle it)*/
 var express = require('express');
 var router = express.Router();
 var path = require('path');
@@ -22,6 +24,7 @@ var Facilities = models.Facilities;
 router.use(session({secret: 'ssshhhhh'}));
 router.use(bodyParser.urlencoded({extended: false }));
 
+/* to display all the details of a particular request by clicking on the id */
 router.post('/getFacilitiesDetails', function(req, res, next) {
 	Facilities.findOne({where: {id: req.body.applicantId}})
 	.then(function(facilitiesRecord) {
@@ -32,7 +35,7 @@ router.post('/getFacilitiesDetails', function(req, res, next) {
 	});
 });
 
-
+/* to approve for a particular facilities request */
 router.post('/approveForFacilities', function(req, res, next) {
 	Facilities.update({
         approved: 'Yes' 
@@ -44,6 +47,7 @@ router.post('/approveForFacilities', function(req, res, next) {
 
 });
 
+/* to delete  a particular request from db as well as webpage */
 router.post('/removeForFacilities', function(req, res, next) {
 	Facilities.destroy({where: {id: req.body.applicantId}})
 	.then(function(data) {
@@ -51,6 +55,8 @@ router.post('/removeForFacilities', function(req, res, next) {
 	});
 });
 
+/* to send mails to all unnotified applicants whose facilities requests has been granted 
+by clicking on a single button */
 router.post('/mailForFacilities', function(req, res, next) {
 	console.log('request received');
 	var flag = 0;

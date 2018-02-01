@@ -1,3 +1,5 @@
+/* code to handle requests for accessing scient lab conference hall (only levelOne admins
+handle it)*/
 var express = require('express');
 var router = express.Router();
 var path = require('path');
@@ -23,6 +25,7 @@ var HallBooking = models.HallBooking;
 router.use(session({secret: 'ssshhhhh'}));
 router.use(bodyParser.urlencoded({extended: false }));
 
+/* to display all the details of a particular request by clicking on the id */
 router.post('/getHallBookingDetails', function(req, res, next) {
 	HallBooking.findOne({where: {id: req.body.bookingId}})
 	.then( function(hallBookingRecord) {
@@ -32,7 +35,7 @@ router.post('/getHallBookingDetails', function(req, res, next) {
 	});
 });
 
-
+/* to approve for a particular hallbooking request */
 router.post('/submitApprovalForHallBooking', function(req, res, next) {
 	HallBooking.update({
         approved: 'Yes',
@@ -45,7 +48,7 @@ router.post('/submitApprovalForHallBooking', function(req, res, next) {
     });
 
 });
-
+/* to delete  a particular request from db as well as webpage */
 router.post('/removeForHallBooking', function(req, res, next) {
 	HallBooking.destroy({where: {id: req.body.bookingId}})
 	.then(function(data) {
@@ -53,6 +56,8 @@ router.post('/removeForHallBooking', function(req, res, next) {
 	});
 });
 
+/* to send mails to all unnotified applicants whose facilities requests has been granted 
+by clicking on a single button */
 router.post('/mailForHallBooking', function(req, res, next) {
 	console.log('request received');
 	var flag = 0;

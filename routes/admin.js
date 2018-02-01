@@ -1,3 +1,4 @@
+/* handling of get and post requests to admin panel done here*/
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
@@ -15,9 +16,9 @@ var Admins = models.Admins;
 
 router.use(session({secret: 'ssshhhhh'}));
 router.use(bodyParser.urlencoded({extended: false }));
-
+/* code to handle get request to admin route*/
 router.get('/', function(req, res, next) {
-	
+	/* to check whether the person is already logged in as levelOne or leveltwo admin*/
 	if(req.session.access == 'levelOneAdmin') {
 		var projectsRows, facilitiesRows, hallBookingRows, adminsRows;
 		Facilities.findAll().then( function(facilities) {
@@ -42,17 +43,18 @@ router.get('/', function(req, res, next) {
 			res.render('adminPanelTwo',{projectsRows: projectsRows});
 		});
 	} 
+	/* if the person is not logged in as any level admin redirect to adminlogin page */
 	else {
 		res.render('adminLogin', {msg: ''});
 	}
 });
-
+/* code to handle post request on submitting form on admin login page */
 router.post('/adminLogin', function(req, res, next) {
 	Admins.findOne( { where: { adminName: req.body.adminName } } )
 	.then(function (admin) {
-		// Compare password
+		// Compare password and see if itt is levelOne admin
 		if (bcrypt.compareSync(req.body.adminPassword, admin.password) && admin.adminLevel == 'One') {
-			// Render admin operations page
+			// Render admin panel for level one admin
 			req.session.access = 'levelOneAdmin';
 			req.session.adminid = admin.adminName;
 			var projectsRows, facilitiesRows, hallBookingRows, adminsRows;
@@ -70,6 +72,7 @@ router.post('/adminLogin', function(req, res, next) {
 				});
 			});
 		} 
+		// check if the person logging in leveltwo admin and display the level two admin panel
 		else if(bcrypt.compareSync(req.body.adminPassword, admin.password) && admin.adminLevel == 'Two') {
 			req.session.access = 'levelTwoAdmin';
 			req.session.adminid = admin.adminName;
@@ -81,6 +84,7 @@ router.post('/adminLogin', function(req, res, next) {
 				res.render('adminPanelTwo', {projectsRows: projectsRows});
 			});
 		} 
+		// if login credentials are incorrect
 		else {
 			// Render login page 
 			res.render('adminLogin', { msg: 'Wrong Password' });
@@ -90,7 +94,8 @@ router.post('/adminLogin', function(req, res, next) {
 		res.render('adminLogin', { msg: 'Username not found' });
 	});
 });
-
+/* code to handle adding of admin accounts on levelone admin page 
+by an already registered admin */ 
 router.post('/addAdmin', function(req, res, next) {
 	var salt=bcrypt.genSaltSync(1);
 	var hash=bcrypt.hashSync(req.body.password,salt);
@@ -103,7 +108,7 @@ router.post('/addAdmin', function(req, res, next) {
 	return Admins.create(adminRecord);
 });
 
-
+/* code to handle logout */
 router.post('/logout', function(req, res, next) {
 	req.session.access = null;
 	req.session.adminid = null;

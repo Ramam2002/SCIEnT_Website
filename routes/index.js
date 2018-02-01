@@ -40,7 +40,7 @@ router.get('/:type/images',function(req, res, next){
 		res.send(files);
 	});
 });
-
+/* module for sending message/queries on contacts page to scient */
 router.post('/sendMessage', function(req, res, next) {
 	console.log(req.body.name);
 	console.log(req.body.phone);

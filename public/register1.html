@@ -8,21 +8,95 @@
     <link rel="stylesheet" href="css/register1.css">
     <script type="text/javascript" src="js/validateProjects.js" ></script>
 </head>
+<style>
+#close {
+    float:right;
+    display:inline-block;
+    padding:2px 5px;
+    background:#ccc;
+}
+</style>
 
 <script>
+    /*window.onload = function(){
+    document.getElementById("close").onclick = function(){
+        this.parentNode.parentNode.parentNode
+        .removeChild(this.parentNode.parentNode);
+        return false;
+    };
+};*/
     function fileUpload () {
         $("#file-upload").click();
     }
       
+
+
+            var i=0; 
+
+function increment(){
+i +=1;                         /* function for automatic increament of feild's "Name" attribute*/                 
+}
+
+
+
+function removeElement(parentDiv, childDiv){
+     if (childDiv == parentDiv) {
+          alert("The parent div cannot be removed.");
+     }
+     else if (document.getElementById(childDiv)) {     
+          var child = document.getElementById(childDiv);
+          var parent = document.getElementById(parentDiv);
+          parent.removeChild(child);
+     }
+     else {
+          alert("Child div has already been removed or does not exist.");
+          return false;
+     }
+}
     function addTeamMembers () {
-        $("#new_field").append('<br>' 
+       /* $("#new_field").append('<br>' 
+            +'<div>'
             + '<span>'
+            + '<span id="close">x</span>'
             + '<input type="text" name="teamMembersNames" placeholder="Name" class="mem-name" />'
             + '<input type="text" name="teamMembersRoll" placeholder="Roll Number" class="mem-roll"/>'
-            + '</span><br>');
+            
+            + '</span>'
+            +'</div><br>');*/
+
+
+            var r=document.createElement('span');
+            var br=document.createElement('br');
+            br.appendChild(r);
+            var y = document.createElement("INPUT");
+            y.style.width = "70%";
+            var z = document.createElement("INPUT");
+            z.style.width = "70%";
+            y.setAttribute("type", "text");
+            y.setAttribute("placeholder","Name");
+            var g = document.createElement("IMG");
+            g.setAttribute("src", "images/delete.png");
+            z.setAttribute("type", "text");
+            z.setAttribute("placeholder","Roll Number");
+            increment(); 
+            y.setAttribute("Name","textelement_"+i);
+            r.appendChild(y);
+            r.appendChild(z);
+            g.setAttribute("onclick", "removeElement('new_field','id_"+ i +"')");
+            r.appendChild(g);
+            r.setAttribute("id", "id_"+i);
+            document.getElementById("new_field").appendChild(r);
     }
+
+  /*  function hideField() {
+        $("#button").click(function()
+        {   console.log("alert");
+            $("new_field").hide();
+        });
+
+    }*/
     function addMaterial () {
-        $("#material_field").append('<br>'
+       /* $("#material_field").append('<br>'
             + '<span>'
             + '<input type="text" name="materialNames" placeholder="Name" class="material-name"/>'
             + '<input type="text" name="materialSpecs" placeholder="Specification" class="material-specs"/>'
@@ -31,16 +105,87 @@
             + '<input type="text" name="purpose" placeholder="Purpose" class="material-purpose"/>'
             + '<input type="text" name="vendors" placeholder="Link/Vendor" class="material-vendor"/>'
             + '</span><br>');
+    }*/
+
+            var r=document.createElement('span');
+            var br=document.createElement('br');
+            br.appendChild(r);
+            var y = document.createElement("INPUT");
+            y.style.width = "70%";
+            var z = document.createElement("INPUT");
+            z.style.width = "70%";
+            var x = document.createElement("INPUT");
+            x.style.width = "70%";
+            var w = document.createElement("INPUT");
+            w.style.width = "70%";
+            var t = document.createElement("INPUT");
+            t.style.width = "70%";
+            var s = document.createElement("INPUT");
+            s.style.width = "70%";
+            y.setAttribute("type", "text");
+            y.setAttribute("placeholder","Name");
+            var g = document.createElement("IMG");
+            g.setAttribute("src", "images/delete.png");
+            z.setAttribute("type", "text");
+            z.setAttribute("placeholder","Specification");
+            x.setAttribute("type", "text");
+            x.setAttribute("placeholder","Quantity");
+            w.setAttribute("type", "text");
+            w.setAttribute("placeholder","Price");
+            t.setAttribute("type", "text");
+            t.setAttribute("placeholder","Purpose");
+            s.setAttribute("type", "text");
+            s.setAttribute("placeholder","Link/vendor");
+            increment(); 
+            y.setAttribute("Name","textelement_"+i);
+            r.appendChild(y);
+            r.appendChild(z);
+            r.appendChild(x);
+            r.appendChild(w);
+            r.appendChild(t);
+            r.appendChild(s);
+            g.setAttribute("onclick", "removeElement('material_field','id_"+ i +"')");
+            r.appendChild(g);
+            r.setAttribute("id", "id_"+i);
+            document.getElementById("material_field").appendChild(r);
+
     }
       
     function addService () {
-        $("#service_field").append('<br>'
+      /*  $("#service_field").append('<br>'
             + '<span>'
             + '<input type="text" name="serviceNames" placeholder="Name" class="service-name" />'
             + '<input type="text" name="serviceSpecs" placeholder="Specification" class="service-specs"/>'
             + '<input type="text" name="servicePrice" placeholder="Price" class="service-price"/>'
             + '</span><br>');
-    } 
+    } */
+
+            var r=document.createElement('span');
+            var br=document.createElement('br');
+            br.appendChild(r);
+            var y = document.createElement("INPUT");
+            y.style.width = "70%";
+            var z = document.createElement("INPUT");
+            z.style.width = "70%";
+            var x = document.createElement("INPUT");
+            x.style.width = "70%";
+            y.setAttribute("type", "text");
+            y.setAttribute("placeholder","Name");
+            var g = document.createElement("IMG");
+            g.setAttribute("src", "images/delete.png");
+            z.setAttribute("type", "text");
+            z.setAttribute("placeholder","Specification");
+            x.setAttribute("placeholder","Price");
+            increment(); 
+            y.setAttribute("Name","textelement_"+i);
+            r.appendChild(y);
+            r.appendChild(z);
+            r.appendChild(x);
+            g.setAttribute("onclick", "removeElement('service_field','id_"+ i +"')");
+            r.appendChild(g);
+            r.setAttribute("id", "id_"+i);
+            document.getElementById("service_field").appendChild(r);
+        }
 </script>
 
 <style>
@@ -95,7 +240,7 @@
             </div>
             <div class="from-group">
                 <label for="memberName">Team Members :</label>
-                <span id="new_field"></span>
+                <span id="new_field"><br></span><br>
                 <input type="button" value="Add Member" onclick="addTeamMembers()" id="add-mem">
             </div>
             <div class="from-group">
@@ -147,12 +292,12 @@
             </div>
             <div class="from-group">
                 <label for="material">Materials :</label>
-                <span id="material_field"></span>
+                <span id="material_field"><br></span><br>
                 <input type="button" value="Add Material" onclick="addMaterial()" id="add-m">
             </div>
             <div class="from-group">
                 <label for="services">Services :</label>
-                <span id="service_field"></span>
+                <span id="service_field"><br></span><br>
                 <input type="button" value="Add Service" onclick="addService()" id="add-s">
             </div>
             <div class="from-group">

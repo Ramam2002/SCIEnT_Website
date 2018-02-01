@@ -115,7 +115,7 @@
                                             <tr>
                                                 <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
                                                 <td ><span class="projectName"><%= item.projectTitle %></span></td>
-                                                <% if (item.status == 'Not yet approved by L1' || item.status == 'Rejected by L1' || item.status == 'Approved by L2') { %>
+                                                <% if (item.status == 'Not yet approved by L1' || item.status == 'Approved by L2') { %>
                                                     <td><button type="button" class="approveForProjectsByL2 btn btn-success" disabled>APPROVE</button></td>
                                                 <% } else { %>
                                                     <td><button type="button" class="approveForProjectsByL2 btn btn-success">APPROVE</button></td>

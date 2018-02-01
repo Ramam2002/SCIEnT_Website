@@ -220,28 +220,30 @@ router.post('/beginProject', function(req, res, next) {
 						
 					]
 			};
-			server.send(message, function (err, message) {
-				console.log(err);
-				if (err!=null) {
-					flag = 1;
-				} 
-				else {
-					Projects.update({
-        				mailSent: 'Yes',
-        				status: 'Ongoing',
-        				latestUpdater: req.session.adminid
-    				},{
-    					where: {id: project.id}
-					}).then(function() {
-    					res.send(JSON.stringify({msg: 'The project with id:' + projectId + 'is now ongoing'}));
-					}).catch(function(err) {
-						console.log(err);
-					});
-				}
-
-			});
+		server.send(message, function (err, message) {
+			console.log(err);
+			if (err!=null) {
+				flag = 1;
+				res.send(JSON.stringify({msg: 'Error'}));
+			} 
+			else {
+				Projects.update({
+    				mailSent: 'Yes',
+    				status: 'Ongoing',
+    				latestUpdater: req.session.adminid
+				},{
+					where: {id: project.id}
+				}).then(function() {
+					res.send(JSON.stringify({msg: 'The project with id:' + projectId + 'is now ongoing'}));
+				}).catch(function(err) {
+					res.send(JSON.stringify({msg: 'Error'}));
+					console.log(err);
+				});
+			}
+		});			
 	}).catch ( function (err) {
 		console.log(err);
+		res.send(JSON.stringify({msg: 'Error'}));
 	});
 });
 

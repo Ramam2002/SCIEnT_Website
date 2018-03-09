@@ -18,6 +18,7 @@ var admin = require('./routes/admin');
 var facilities = require('./routes/facilities');
 var projects = require('./routes/projects');
 var hallBooking = require('./routes/hallBooking');
+var donations = require('./routes/donations');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* all the routes for the application are used here */
 app.use('/', index);
 app.use('/', register);
+app.use('/', donations);
 app.use('/admin', admin);
 app.use('/admin', facilities);
 app.use('/admin', projects);

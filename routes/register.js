@@ -31,7 +31,7 @@ router.post('/applyForFacilities', function(req, res, next) {
 		mailSent: 'No'
 	};
 	Facilities.sync({ force: false }).then(function() {
-        return Facilities.create(record);
+        Facilities.create(record);
         console.log('Record inserted successfully into Facilities table');
         res.send("Form Successfully submitted :)");
     }).catch(function(err) {

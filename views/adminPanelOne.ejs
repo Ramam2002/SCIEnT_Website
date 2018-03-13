@@ -10,6 +10,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="/js/adminPanel.js"></script>
+    <script src="/js/adminPanelDonations.js"></script>
     <script src="/js/adminPanelFacilities.js"></script>
     <script src="/js/adminPanelProjects.js"></script>
     <script src="/js/adminPanelHallBooking.js"></script>
@@ -43,8 +44,9 @@
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#completedOrOngoingProjects">Completed/Ongoing Projects</a></li>
             <li><a data-toggle="tab" href="#pendingProjects">Pending Projects</a></li>
-            <li><a data-toggle="tab" href="#facilitiesOrTools">Facilities/Tools</a></li>
+            <li><a data-toggle="tab" href="#facilitiesOrTools">Access</a></li>
             <li><a data-toggle="tab" href="#conferenceHallBooking">Hall Booking Requests</a></li>
+            <li><a data-toggle="tab" href="#donations">Donations</a></li>
             <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
             <li><a data-toggle="tab" href="#changePasswords">Change your password</a></li>
         </ul>
@@ -168,9 +170,10 @@
                                 <thead>
                                     <tr>
                                         <th class="header"></th>
-                                        <th class="header">FACILITIES/TOOLS (SCHEME 2)</th>
+                                        <th class="header">ACCESS</th>
                                         <th class="header"></th>
-                                        <th class="header"><button type="button" id="mailForFacilities" class="btn btn-success">Mail for Facilities</button></th>
+                                        <th class="header"><button type="button" id="mailForFacilities" class="btn btn-success">Mail for Access</button></th>
+                                        <th class="header"></th>
                                   </tr>
                                 </thead>
              
@@ -179,12 +182,19 @@
                                         <th>APPLICANT ID</th>
                                         <th>APPLICANT NAME</th>
                                         <th>APPROVE</th>
-                                        <th>REMOVE</th>  
+                                        <th>CURRENT STATUS</th>
+                                        <th>EDIT STATUS</th>  
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <% facilitiesRows.forEach(function(item) { %>
+                                        <% if (item.status == 'Access given') { %>
+                                        <tr style="background-color: #90EE90; ">
+                                        <% } else if (item.status == 'Access not given') { %>
+                                        <tr style="background-color: #FFA07A; ">
+                                        <% } else { %> 
                                         <tr>
+                                        <% } %>   
                                             <td ><a href="#"><span class="applicantId"><%= item.id %></span></a></td>
                                             <td ><span class="applicantRoll"><%= item.roll %></span></td>
                                             <% if (item.approved == 'Yes') { %>
@@ -192,7 +202,9 @@
                                             <% } else { %> 
                                                 <td><button type="button" class="approveForFacilities btn btn-success">APPROVE </button></td>
                                             <% } %>
-                                            <td><span class="removeForFacilities"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                            <td ><span class="applicantStatus"><%= item.status %></span></td>
+                                            <td><span class="editAccess"><i style="color:#666;cursor:pointer;" class="fa fa-edit"></i></span></td>
+                                            <!-- <td><span class="removeForFacilities"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td> -->
                                         </tr>
                                     <% }); %>
                                 </tbody>
@@ -241,6 +253,48 @@
                     </div>
                 </div>
             </div>
+
+
+            <div id="donations" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-12">                 
+                        <div class="table-responsive" id="donationsTable">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>                                        
+                                        <th class="header"></th>
+                                        <th class="header">DONATIONS</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>NAME</th>
+                                        <th>PURPOSE/REMARKS</th>
+                                        <th>AMOUNT</th>
+                                        <th>PAID</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% donationRows.forEach(function(item) { %>
+                                        <tr>
+                                            <td><a href="#"><span class="donationId"><%= item.id %></span></a></td>
+                                            <td><span class="donorName"><%= item.name %></span></td>
+                                            <td><span class="donationPurpose"><%= item.remarks %></span></td>
+                                            <td><span class="donationAmount"><%= item.amount %></span></td>
+                                            <td><span class="paid"><%= item.paid %></span></td>
+                                        </tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="addAdmins" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
                     <div class="col-md-4" id="addAdminForm">
@@ -351,5 +405,62 @@
             </div>
         </div>
     </div>
+
+    <div id="editAccessModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeEditAccessModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Edit Product Form</h2>
+            </header>
+            <div class="w3-container">
+                <!-- <div class="form-group">
+                    <label for="editProductName">Product Name:</label>
+                    <input type="text" class="form-control" id="editProductName">
+                </div>
+                <div class="form-group">
+                    <label for="editProductCode">Product Code:</label>
+                    <input type="text" class="form-control" id="editProductCode">
+                </div>
+                <div class="form-group">
+                    <label for="editProductTotalQuantity">Total Quantity:</label>
+                    <input type="number" class="form-control" id="editProductTotalQuantity" placeholder="default = 1">
+                </div>
+                <div class="form-group">
+                    <label for="editProductQuantityInUse">Quantity In Use:</label>
+                    <input type="number" class="form-control" id="editProductQuantityInUse" placeholder="default = 0">
+                </div>
+                <div class="form-group">
+                    <label for="editProductPrice">Price:</label>
+                    <input type="number" class="form-control" id="editProductPrice" placeholder="(optional)">
+                </div>
+                <div class="form-group">
+                    <label for="editProductVendor">Vendor:</label>
+                    <input type="text" class="form-control" id="editProductVendor" placeholder="(optional)">
+                </div> -->
+                <div class="form-group">
+                    <label for="editAccessStatus">Status:</label>
+                    <select class="form-control" id="editAccessStatus" name="editAccessStatus">
+                        <option class="editAccessStatusChoice" value="Access not given">Access not given</option>
+                        <option class="editAccessStatusChoice" value="Access given">Access given</option>
+                        <option class="editAccessStatusChoice" value="Mail sent once">Mail sent once</option>
+                        <option class="editAccessStatusChoice" value="Mail sent twice">Mail sent twice</option>
+                        <option class="editAccessStatusChoice" value="Blacklist">Blacklist</option>
+                        <option class="editAccessStatusChoice" value="Expired">Expired</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editAccessApproved">Approved:</label>
+                    <select class="form-control" id="editAccessApproved" name="editAccessApproved">
+                        <option class="editAccessApprovedChoice" value="No">No</option>
+                        <option class="editAccessApprovedChoice" value="Yes">Yes</option>
+                    </select>
+                </div>
+                <br>
+                <input type="hidden" name="applicantId" id="editAccessApplicantId" value=''>
+                <button id="submitChangedAccess" type="button" class="btn btn-primary">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

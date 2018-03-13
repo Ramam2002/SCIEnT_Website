@@ -12,6 +12,10 @@ function showHallBookingModal (bookingId) {
     document.getElementById('hallBookingModal').style.display = 'block';
 }
 
+function showEditAccessModal () {
+    document.getElementById('editAccessModal').style.display = 'block';
+}
+
 $(document).ready (function () {
     $("#closeModal").click(function () {
         var infoModal = document.getElementById('infoModal');
@@ -24,6 +28,12 @@ $(document).ready (function () {
         $('#projectIdForRemark').html('');
         remarksModal.style.display='none';
     });
+    $("#closeEditAccessModal").click(function () {
+        var editAccessModal = document.getElementById('editAccessModal');
+        $("#editAccessApplicantId").val('');
+        editAccessModal.style.display='none';
+    });
+
     $("#closeHallBookingModal").click(function () {
         var hallBookingModal = document.getElementById('hallBookingModal');
         $("#approvedStartTime").val('');

@@ -13,6 +13,7 @@ var Facilities = models.Facilities;
 var Projects = models.Projects;
 var HallBooking = models.HallBooking;
 var Admins = models.Admins;
+var Donations = models.Donations;
 
 router.use(session({secret: 'ssshhhhh'}));
 router.use(bodyParser.urlencoded({extended: false }));
@@ -20,7 +21,7 @@ router.use(bodyParser.urlencoded({extended: false }));
 router.get('/', function(req, res, next) {
 	/* to check whether the person is already logged in as levelOne or leveltwo admin*/
 	if(req.session.access == 'levelOneAdmin') {
-		var projectsRows, facilitiesRows, hallBookingRows, adminsRows;
+		var projectsRows, facilitiesRows, hallBookingRows, adminsRows, donationRows;
 		Facilities.findAll().then( function(facilities) {
 			facilitiesRows = facilities;
 			Projects.findAll().then( function(projects) {
@@ -29,7 +30,10 @@ router.get('/', function(req, res, next) {
 					hallBookingRows = bookings;
 					Admins.findAll().then( function(admins) {
 						adminsRows = admins;
-						res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows, adminsRows: adminsRows});
+						Donations.findAll().then( function(donations) {
+							donationRows = donations;
+							res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows, adminsRows: adminsRows, donationRows: donationRows });
+						});
 					});
 				});
 			});
@@ -64,9 +68,12 @@ router.post('/adminLogin', function(req, res, next) {
 					projectsRows = projects;
 					HallBooking.findAll().then( function(bookings) {
 						hallBookingRows = bookings;
-						Admins.findAll().then(function(admins) {
+						Admins.findAll().then( function(admins) {
 							adminsRows = admins;
-							res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows, adminsRows: adminsRows});
+							Donations.findAll().then( function(donations) {
+								donationRows = donations;
+								res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows, adminsRows: adminsRows, donationRows: donationRows });
+							});
 						});
 					});
 				});

@@ -20,6 +20,14 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        address: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        pan: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         amount: {
             type: DataTypes.INTEGER,
             allowNull: false

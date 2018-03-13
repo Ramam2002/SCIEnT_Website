@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1 shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <title>Donation</title>
-    <script type="text/javascript" src="validateDonations" ></script>
+    <script type="text/javascript" src="js/validateDonations.js" ></script>
     <style>
      #error
         {
@@ -100,6 +100,14 @@
   <div class="from-group">
       <label for="email">Email address:</label>
       <input type="email" class="form-control" name="emailID" id="email" required>
+  </div>
+  <div class="from-group">
+      <label for="address">Permanent Address:</label>
+      <textarea class="form-control" name="address"></textarea>
+  </div>
+  <div class="from-group">
+      <label for="pan">PAN:</label>
+      <input type="text" class="form-control" name="pan" id="pan" required>
   </div>
  <div class="from-group">
       <label for="amount">Amount (in Rs.) :</label>

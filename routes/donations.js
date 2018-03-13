@@ -37,11 +37,13 @@ router.post('/applyForDonations', function(req, res, next) {
         emailID: req.body.emailID,
         amount: req.body.amount,
         remarks: purpose,
+        pan: req.body.pan,
+        address: req.body.address
     };
 
     Donations.sync({ force: false }).then(function() {
 
-        var headers = { 
+        var headers = {
           'X-Api-Key': API_KEY, 
           'X-Auth-Token': AUTH_KEY
         };
@@ -120,35 +122,15 @@ router.get('/donationSuccess', function(req, res, next) {
     });
 });
 
+
+router.post('/admin/getDonationsDetails', function(req, res, next) {
+  Donations.findOne({where: {id: req.body.donationId}})
+  .then( function(donationRecord) {
+    console.log(donationRecord);
+    res.send(JSON.stringify(donationRecord));
+  }).catch(function(err) {
+    console.log(err);
+  });
+});
+
 module.exports = router;
-
-
-
-
-/*
-
-
-        var headers = { 'X-Api-Key': API_KEY, 'X-Auth-Token': AUTH_KEY};
-        var payload = {
-          purpose: 'trial_donation',
-          amount: record.amount,
-          phone: record.contactNumber,
-          buyer_name: record.name,
-          redirect_url: 'http://www.example.com/redirect/',
-          send_email: true,
-          webhook: 'http://www.example.com/webhook/',
-          send_sms: true,
-          email: record.emailID,
-          allow_repeated_payments: false};
-
-        // development link is test.instamojo.com
-        // deployment link is www.instamojo.com
-
-        request.post('https://test.instamojo.com/api/1.1/payment-requests/', {form: payload,  headers: headers}, function(error, response, body){
-          if(!error && response.statusCode == 201){
-            console.log(body);
-          }
-        });
-
-
-*/

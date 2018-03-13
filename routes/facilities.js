@@ -60,7 +60,12 @@ by clicking on a single button */
 router.post('/mailForFacilities', function(req, res, next) {
 	console.log('request received');
 	var flag = 0;
-	Facilities.findAll({where: {approved: 'Yes', mailSent: 'No'}})
+	Facilities.findAll({where: {
+        approved: 'Yes',
+        status: {
+            [Op.or]: ['Access not given', 'Mail Sent once']
+        }
+    }})
 	.then(function (rows) {
 		rows.forEach(function (item) {
 			var mailBody = 'Your request for accessing scient lab tools and facilities has been granted';
@@ -76,22 +81,35 @@ router.post('/mailForFacilities', function(req, res, next) {
 					]
 			};
 
-
-			server.send(message, function (err, message) {
+            var txt = "Mail delivered to applicantId: " + toString(item.id);
+            console.log(txt);
+			
+            server.send(message, function (err, message) {
+                
 				console.log(err);
 				if (err!=null) {
 					flag = 1;
 				} 
 				else {
 					Facilities.update({
-        				mailSent: 'Yes' 
+                        status: 'Mail sent once' 
     				},{
-    					where: {id: item.id}
+    					where: {id: item.id, status: 'Access not given'}
 					}).then(function() {
     				// res.send(JSON.stringify({msg: 'You have approved the facilties request corresponding to id '+ req.body.applicantId}));
 					}).catch(function(err) {
 						console.log(err);
 					});
+
+                    Facilities.update({
+                        status: 'Mail sent twice' 
+                    },{
+                        where: {id: item.id, status: 'Mail sent once'}
+                    }).then(function() {
+                    // res.send(JSON.stringify({msg: 'You have approved the facilties request corresponding to id '+ req.body.applicantId}));
+                    }).catch(function(err) {
+                        console.log(err);
+                    });
 				}
 
 			});
@@ -103,6 +121,29 @@ router.post('/mailForFacilities', function(req, res, next) {
 		res.send(JSON.stringify({msg:'Mail sent successfully to all applicants'}));
 	}
 	else res.send(JSON.stringify({msg: 'All mails were not sent. Send again :('}));
+});
+
+
+
+router.post('/editAccess', function(req, res, next) {
+    Facilities.findOne({where: {id: req.body.applicantId}})
+    .then( function(FacilitiesRecord) {
+        res.send(JSON.stringify(FacilitiesRecord));
+    }).catch(function(err) {
+        console.log(err);
+    });
+});
+
+
+router.post('/changeAccessDetails', function(req, res, next) {
+  Facilities.update({
+    status: req.body.status,
+    approved: req.body.approved
+  },{
+    where: {id: req.body.applicantId }
+  }).then(function() {
+    res.send(JSON.stringify({msg: 'The access details have been updated successfully.'}));
+  });
 });
 
 module.exports = router;

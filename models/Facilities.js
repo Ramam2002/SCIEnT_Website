@@ -34,7 +34,8 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		duration: {
 			type: DataTypes.INTEGER,
-			allowNull: false
+			allowNull: false,
+			defaultValue: 6
 		},
 		heavyMachinery: {
 			type: DataTypes.TEXT
@@ -44,13 +45,21 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false,
 			defaultValue: 'No' 
 		},
-		mailSent: {
-			type: DataTypes.ENUM('Yes', 'No'),
+		status: {
+			type: DataTypes.ENUM('Access not given', 'Access given', 'Mail sent once', 'Mail sent twice', 'Blacklist', 'Expired'),
 			allowNull: false,
-			defaultValue: 'No'
+			defaultValue: 'Access not given'
 		}
 	},{
     freezeTableName: true
   });
 	return Facilities;
 };
+
+
+
+		// mailSent: {
+		// 	type: DataTypes.ENUM('Yes', 'No'),
+		// 	allowNull: false,
+		// 	defaultValue: 'No'
+		// },

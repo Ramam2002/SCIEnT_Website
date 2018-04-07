@@ -5,9 +5,10 @@
 div {
     padding: 15px;
 }
+body {
+    background-image: url('../images/bg.jpg');
+}
 #formHallBooking {
-    border-style: solid;
-    border-width: 3px;
     padding: 5%;
     font-weight: bold;
     background-color: #E5E1E0;
@@ -30,7 +31,15 @@ div {
 }
 #submit-button:hover 
 {
- background: #383;
+ background: #494848;
+ color: white;
+ font-weight: bold;
+ cursor:pointer;
+}
+#submit-button
+{
+ background: #494848;
+ color:white;
  cursor:pointer;
 }
         

@@ -33,7 +33,8 @@ router.post('/applyForFacilities', function(req, res, next) {
 	Facilities.sync({ force: false }).then(function() {
         Facilities.create(record);
         console.log('Record inserted successfully into Facilities table');
-        res.send("Form Successfully submitted :)");
+        // res.send("Form Successfully submitted :)");
+        res.render('formSubmission');
     }).catch(function(err) {
     	console.log(err);
     });
@@ -174,7 +175,8 @@ router.post('/applyForProjects', function(req, res, next) {
 			}
 		});
 		console.log('Record inserted succesfully into Projects table');
-		res.send("Form Successfully submitted :)");
+		// res.send("Form Successfully submitted :)");
+		res.render('formSubmission');
 	}).catch(function(err) {
 		console.log(err);
 	});

@@ -1,6 +1,10 @@
 html,
 body {
     height: 100%;
+
+}
+html {
+    min-height: 100%;
 }
 #map {
     border: 2px solid black;
@@ -195,8 +199,10 @@ footer {
 
 .footer {
   bottom: 0;
-  margin-top: 20px;
+  overflow: hidden;
   width: 100%;
+  margin-top: 20px;
+
   /* Set the fixed height of the footer here */
   height: auto;
   background-color: #222;

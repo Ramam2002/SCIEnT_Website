@@ -7,6 +7,9 @@
     <title>Facilities/Tools</title>
     <script type="text/javascript" src="js/validateFacilities.js" ></script>
     <style>
+    body{
+     background-image: url("../images/bg.jpg");
+    }
      #error
         {
             color:red;
@@ -18,8 +21,7 @@
         }
      #form-projects
         {
-           border-style: solid;
-           border-width: 3px;
+           
            padding:5%;
            font-weight: bold;
            background-color: #E5E1E0;
@@ -46,10 +48,18 @@
             width: 50%;
             font-weight: normal;
         }
+        #submit-button {
+          background: #494848;
+          cursor:pointer;
+          color: white;
+
+        }
         #submit-button:hover 
         {
-         background: #383;
+         background: #494848;
          cursor:pointer;
+         color: white;
+         font-weight: bold;
         }
         
         span#project-abstract[contenteditable]:empty::before {

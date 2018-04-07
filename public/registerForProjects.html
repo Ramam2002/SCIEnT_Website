@@ -9,6 +9,9 @@
     <script type="text/javascript" src="js/validateProjects.js" ></script>
 </head>
 <style>
+body{
+     background-image: url("../images/bg.jpg");
+}
 #close {
     float:right;
     display:inline-block;
@@ -241,7 +244,8 @@ function removeElement(parentDiv, childDiv){
             <div class="from-group">
                 <label for="memberName">Team Members :</label>
                 <span id="new_field"><br></span><br>
-                <input type="button" value="Add Member" onclick="addTeamMembers()" id="add-mem">
+                <input type="button" class="form_buttons" value="Add Member" onclick="addTeamMembers()" id="add-mem">
+
             </div>
             <div class="from-group">
                 <label for="contact">Contact Number :</label>
@@ -293,12 +297,12 @@ function removeElement(parentDiv, childDiv){
             <div class="from-group">
                 <label for="material">Materials :</label>
                 <span id="material_field"><br></span><br>
-                <input type="button" value="Add Material" onclick="addMaterial()" id="add-m">
+                <input type="button" class="form_buttons"  value="Add Material" onclick="addMaterial()" id="add-m">
             </div>
             <div class="from-group">
                 <label for="services">Services :</label>
                 <span id="service_field"><br></span><br>
-                <input type="button" value="Add Service" onclick="addService()" id="add-s">
+                <input type="button" class="form_buttons" value="Add Service" onclick="addService()" id="add-s">
             </div>
             <div class="from-group">
                 <label for="timeline">Timeline Of Project :</label>

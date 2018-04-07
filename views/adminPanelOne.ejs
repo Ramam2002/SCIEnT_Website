@@ -14,6 +14,7 @@
     <script src="/js/adminPanelFacilities.js"></script>
     <script src="/js/adminPanelProjects.js"></script>
     <script src="/js/adminPanelHallBooking.js"></script>
+    <script src="/js/adminPanelInventory.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
     <link rel="stylesheet" href="/css/adminPanelOne.css">
@@ -48,6 +49,7 @@
             <li><a data-toggle="tab" href="#conferenceHallBooking">Hall Booking Requests</a></li>
             <li><a data-toggle="tab" href="#donations">Donations</a></li>
             <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
+            <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
             <li><a data-toggle="tab" href="#changePasswords">Change your password</a></li>
         </ul>
 
@@ -340,6 +342,67 @@
                 </div>
             </div>
 
+            
+            <div id="inventory" class="tab-pane fade">
+                <div class="row" style="margin-top:3%;">
+                    <div class="col-md-12">              
+                        <div class="table-responsive" id="inventoryTable">          
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header">Inventory</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"><button type="button" id="addNewVendor" class="btn btn-success">Create Vendor</button></th>
+                                        <th class="header"><button type="button" id="addNewProduct" class="btn btn-success">Add New Product</button></th>
+                                        <!-- <th class="header"><button type="button" id="mailForProjects" class="btn btn-success">Mail for Projects</button></th> -->
+                                    </tr>
+                                </thead>
+
+                                <thead>
+                                    <tr>
+                                        <th class="subheader">SL.NO</th>
+                                        <th class="subheader">PRODUCT CODE</th>
+                                        <th class="subheader">DESCRIPTION</th>
+                                        <th class="subheader">UNIT</th>
+                                        <th class="subheader">QUANTITY</th>
+                                        <th class="subheader">PRICE</th>
+                                        <th class="subheader">VENDOR</th>
+                                        <th class="subheader">BILLING DETAILS</th>
+                                        <th class="subheader">REMARKS</th>
+                                        <th class="subheader">EDIT PRODUCT</th>
+                                        <th class="subheader">REMOVE</th>
+                                     </tr>
+                                </thead>
+                                <tbody>
+                                   <% inventoryRows.forEach(function(item) { %>
+                                                <tr>
+                                                    <td ><a href="#"><span class="SlNo"><%= item.id %></span></a></td>            
+                                                    <td ><span class="productCode"><%= item.productCode %></span></td>
+                                                    <td ><span class="descriptionInventory"><%= item.descriptionInventory %></span></td>
+                                                    <td ><span class="unit"><%= item.unit %></span></td>
+                                                    <td ><span class="quantity"><%= item.quantity %></span></td>
+                                                     <td ><span class="price"><%= item.price %></span></td>
+                                                    <td ><span class="vendorName"><%= item.vendorName %></span></td>
+                                                    <td ><span class="billNumber"><%= item.billNumber %></span></td>
+                                                    <td ><span class="productRemarks"><%= item.remarks %></span></td>
+                                                    <td><span class="editForInventoryProducts"><i style="color:#777;cursor:pointer;" class="fa fa-edit"></i></span></td>
+                                                    <td><span class="removeForInventoryProducts"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                                </tr>
+                                            <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="changePasswords" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
                     <div class="col-md-6" id="changePasswordForm">
@@ -405,38 +468,13 @@
             </div>
         </div>
     </div>
-
     <div id="editAccessModal" class="w3-modal">
         <div class="w3-modal-content">
             <header class="w3-container w3-teal" > 
                 <span id="closeEditAccessModal" class="w3-button w3-display-topright">&times;</span>
-                <h2>Edit Product Form</h2>
+                <h2>Edit Access Form</h2>
             </header>
             <div class="w3-container">
-                <!-- <div class="form-group">
-                    <label for="editProductName">Product Name:</label>
-                    <input type="text" class="form-control" id="editProductName">
-                </div>
-                <div class="form-group">
-                    <label for="editProductCode">Product Code:</label>
-                    <input type="text" class="form-control" id="editProductCode">
-                </div>
-                <div class="form-group">
-                    <label for="editProductTotalQuantity">Total Quantity:</label>
-                    <input type="number" class="form-control" id="editProductTotalQuantity" placeholder="default = 1">
-                </div>
-                <div class="form-group">
-                    <label for="editProductQuantityInUse">Quantity In Use:</label>
-                    <input type="number" class="form-control" id="editProductQuantityInUse" placeholder="default = 0">
-                </div>
-                <div class="form-group">
-                    <label for="editProductPrice">Price:</label>
-                    <input type="number" class="form-control" id="editProductPrice" placeholder="(optional)">
-                </div>
-                <div class="form-group">
-                    <label for="editProductVendor">Vendor:</label>
-                    <input type="text" class="form-control" id="editProductVendor" placeholder="(optional)">
-                </div> -->
                 <div class="form-group">
                     <label for="editAccessStatus">Status:</label>
                     <select class="form-control" id="editAccessStatus" name="editAccessStatus">
@@ -462,5 +500,174 @@
         </div>
     </div>
 
+    <div id="addProductModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeAddProductModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Add Product Form</h2>
+            </header>
+            <div class="w3-container">
+                <div class="form-group">
+                    <label for="productCode">Product Code:</label>
+                    <input type="text" class="form-control" id="productCode" required>
+                </div>
+                <div class="form-group">
+                    <label for="descriptionInventory">Description Of Product:</label>
+                    <textarea class="form-control" rows="5" id="descriptionInventory" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="unit">Unit:</label>
+                    <input type="text" class="form-control" id="unit" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" placeholder="default = 0">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="text" class="form-control" id="price" required>
+                </div>
+                    <div class="form-group">
+                    <label for="vendorName">Select Vendor Name:</label>
+                    <select class="form-control" id="vendorName">
+                        <% vendorRows.forEach(function(item) { %>
+                            <option class="vendorSelectId" value="<%= item.vendorName %>"><%= item.vendorName %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div id="billDetails">BILL DETAILS
+                <div class="form-group">
+                    <label for="billNumber">Bill Number:</label>
+                    <input type="text" class="form-control" id="billNumber">
+                </div>
+                <div class="form-group">
+                    <label for="billDate">Bill Date:</label>
+                    <input type="date" class="form-control" id="billDate">
+                </div>
+                <div class="form-group">
+                    <label for="billDescription">Bill Description:</label>
+                    <input type="text" class="form-control" id="billDescription">
+                </div>
+                <div class="form-group">
+                    <label for="billUnit">Units:</label>
+                    <input type="text" class="form-control" id="billUnit">
+                </div>
+                <div class="form-group">
+                    <label for="billQuantity">Quantity:</label>
+                    <input type="number" class="form-control" id="billQuantity">
+                </div>
+                <div class="form-group">
+                    <label for="billAmount">Bill Amount:</label>
+                    <input type="text" class="form-control" id="billAmount">
+                </div>
+    
+                <div class="form-group">
+                    <label for="newProductRemarks">Remarks:</label>
+                    <input type="text" class="form-control" id="newProductRemarks">
+                </div>
+                <br>
+                <button id="submitRegistrationForNewProduct" type="button" class="btn btn-primary">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="addNewVendorModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeAddNewVendorModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Add Vendor Form</h2>
+            </header>
+            <div class="w3-container">
+                    <label for="newVendorName">Vendor Name:</label>
+                    <input type="text" class="form-control" id="newVendorName">
+                    <label for="newVendorEmail">Email:</label>
+                    <input type="email" class="form-control" id="newVendorEmail">
+                    <label for="newVendorAddress" >Address:</label>
+                    <input type="text" class="form-control" id="newVendorAddress">
+                    <label for="newVendorPhone">Phone Number:</label>
+                    <input type="number" class="form-control" id="newVendorPhone">
+            </div>
+                <button id="submitRegistrationForNewVendor" type="button" class="btn btn-primary">SUBMIT</button>
+        </div>
+    </div>
+
+    <div id="editProductModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeEditProductModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Edit Product Form</h2>
+            </header>
+            <div class="w3-container">
+                <div class="form-group">
+                    <label for="editProductCode">Product Code:</label>
+                    <input type="text" class="form-control" id="editProductCode">
+                </div>
+                <div class="form-group">
+                    <label for="editDescriptionInventory">Description:</label>
+                    <textarea class="form-control" id="editDescriptionInventory" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editUnit">Unit:</label>
+                    <input type="text" class="form-control" id="editUnit">
+                </div>
+                <div class="form-group">
+                    <label for="editQuantity">Quantity:</label>
+                    <input type="number" class="form-control" id="editQuantity">
+                </div>
+                <div class="form-group">
+                    <label for="editPrice">Price:</label>
+                    <input type="text" class="form-control" id="editPrice">
+                </div>
+                <div class="form-group">Vendor Details<br>
+                    <label for="editVendorName">Select Vendor Name:</label>
+                    <select class="form-control" id="editVendorName">
+                        <% vendorRows.forEach(function(item) { %>
+                            <option class="vendorSelectId" value="<%= item.vendorName %>"><%= item.vendorName %></option>
+                        <% }); %>
+                    </select>
+                     <label for="editVendorEmail">Vendor Email:</label>
+                     <input type="text" class="form-control" id="editVendorEmail" >
+                     <label for="editVendorPhone">Vendor Phone:</label>
+                     <input type="text" class="form-control" id="editVendorPhone">
+                     <label for="editVendorAddress">Vendor Address:</label>
+                     <input type="text" class="form-control" id="editVendorAddress">
+                 </div>
+                  <div id="billDetails">BILL DETAILS
+                <div class="form-group">
+                    <label for="editBillNumber">Bill Number:</label>
+                    <input type="text" class="form-control" id="editBillNumber">
+                </div>
+                <div class="form-group">
+                    <label for="editBillDate">Bill Date:</label>
+                    <input type="date" class="form-control" id="editBillDate">
+                </div>
+                <div class="form-group">
+                    <label for="editBillDescription">Bill Description:</label>
+                    <input type="text" class="form-control" id="editBillDescription">
+                </div>
+                <div class="form-group">
+                    <label for="editBillUnit">Units:</label>
+                    <input type="text" class="form-control" id="editBillUnit">
+                </div>
+                <div class="form-group">
+                    <label for="editBillQuantity">Quantity:</label>
+                    <input type="number" class="form-control" id="editBillQuantity">
+                </div>
+                <div class="form-group">
+                    <label for="editBillAmount">Bill Amount:</label>
+                    <input type="text" class="form-control" id="editBillAmount">
+                </div>
+            
+                <div class="form-group">
+                    <label for="editProductRemarks">Remarks:</label>
+                    <input type="text" class="form-control" id="editProductRemarks">
+                </div>
+                <br>
+                <!--<input type="hidden" name="productId" id="editProductId" value=''>-->
+                <button id="submitChangedProduct" type="button" class="btn btn-primary">SUBMIT</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

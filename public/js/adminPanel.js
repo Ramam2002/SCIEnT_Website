@@ -11,9 +11,30 @@ function showHallBookingModal (bookingId) {
     document.getElementById('bookingIdForApproval').innerHTML = bookingId;
     document.getElementById('hallBookingModal').style.display = 'block';
 }
+function showAddProductModal()
+{
+    document.getElementById('addProductModal').style.display = 'block';
+}
+function showEditProductModal()
+{
+    document.getElementById('editProductModal').style.display = 'block';
+}
+function showAddNewVendorModal()
+{
+    document.getElementById('addNewVendorModal').style.display = 'block';
+}
+
 
 function showEditAccessModal () {
     document.getElementById('editAccessModal').style.display = 'block';
+}
+
+function vendorDetailsModal (vendorName, vendorEmail, vendorAddress,vendorPhone) {
+    document.getElementById('vendorNameForInfo').innerHTML = vendorName;
+    document.getElementById('vendorEmailForInfo').innerHTML = vendorEmail;
+    document.getElementById('vendorAddressForInfo').innerHTML = vendorAddress;
+    document.getElementById('vendorPhoneForInfo').innerHTML = vendorPhone;
+    document.getElementById('vendorModal').style.display = 'block';
 }
 
 $(document).ready (function () {
@@ -40,6 +61,59 @@ $(document).ready (function () {
         $("#approvedEndTime").val('');
         $('#bookingIdForApproval').html('');
         hallBookingModal.style.display='none';
+    });
+     $("#closeHallBookingModal").click(function () {
+        var hallBookingModal = document.getElementById('hallBookingModal');
+        $("#approvedStartTime").val('');
+        $("#approvedEndTime").val('');
+        $('#bookingIdForApproval').html('');
+        hallBookingModal.style.display='none';
+    });
+
+    $("#closeAddProductModal").click(function () {
+        var addProductModal = document.getElementById('addProductModal');
+        $('#productCode').val('');
+        $('#descriptionInventory').val('');
+        $('#unit').val('');
+        $('#quantity').val('');
+        $('#price').val('');
+        $('#vendorName').val('');
+        $('#BillNumber').val('');
+        $('#BillDate').val('');
+        $('#BillDescription').val('');
+        $('#BillUnit').val('');
+        $('#BillQuantity').val('');
+        $('#BillAmount').val('');
+        $('#newProductRemarks').val('');
+        addProductModal.style.display='none';
+    });
+     $("#closeAddNewVendorModal").click(function () {
+        var addNewVendorModal = document.getElementById('addNewVendorModal');
+        $('#vendorName').val('');
+        $('#vendorEmail').val('');
+        $('#vendorAddress').val('');
+        $('#vendorPhone').val('');
+        addNewVendorModal.style.display='none';
+    });
+     $("#closeEditProductModal").click(function () {
+        var editProductModal = document.getElementById('editProductModal');
+        $('#editProductCode').val('');
+        $('#editDescriptionInventory').val('');
+        $('#editUnit').val('');
+        $('#editQuantity').val('');
+        $('#editPrice').val('');
+        $('#editVendorName').val('');
+        $('#editVendorEmail').val('');
+        $('#editVendorAddress').val('');
+        $('#editVendorPhone').val('');
+       $('#editBillNumber').val('');
+        $('#editBillDate').val('');
+        $('#editBillDescription').val('');
+        $('#editBillUnit').val('');
+        $('#editBillQuantity').val('');
+        $('#editBillAmount').val('');
+        $('#editProductRemarks').val('');
+        editProductModal.style.display='none';
     });
     $(document).on('click', '#addAdmin', function () {
         var adminName = document.getElementById('userName').value;

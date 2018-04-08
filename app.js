@@ -37,10 +37,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/', register);
 app.use('/', donations);
-app.use('/ScientAdminLogin', admin);
-app.use('/ScientAdminLogin', facilities);
-app.use('/ScientAdminLogin', projects);
-app.use('/ScientAdminLogin', hallBooking);
+app.use('/admin', admin);
+app.use('/admin', facilities);
+app.use('/admin', projects);
+app.use('/admin', hallBooking);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

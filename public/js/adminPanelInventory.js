@@ -28,7 +28,37 @@ $(document).ready(function () {
         showAddNewVendorModal();
     });
 
-      $(document).on('click', '.vendorName', function(){
+
+    $(document).on('click', '.inventoryId', function(){
+
+        $.ajax({
+            url: '/admin/getInventoryDetails',
+            method: 'POST',
+            data: JSON.stringify({
+                inventoryId: this.innerHTML
+            }),
+
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function (data, status) {
+                $('#infoList').append(
+                    '<li>Id' + data.id
+                    + '</li><li>Product Code: ' + data.productCode 
+                    + '</li><li>Description: ' + data.descriptionInventory 
+                    + '</li><li>Unit: ' + data.unit 
+                    + '</li><li>Quantity: ' + data.quantity 
+                    + '</li><li>Price: ' + data.price 
+                    + '</li><li>Vendor Name: ' + data.vendorName 
+                    + '</li><li>Bill Number: ' + data.billNumber 
+                    + '</li><li>Remarks: ' + data.remarks 
+                    + '</li>');
+                showModal();
+            }
+        });
+    });
+
+
+    $(document).on('click', '.vendorName', function(){
 
         $.ajax({
             url: '/admin/getVendorDetails',

@@ -30,6 +30,15 @@ router.post('/removeForInventoryProducts', function(req, res, next) {
     });
 });
 
+router.post('/getInventoryDetails', function(req, res, next) {
+    inventory.findOne({where: {id: req.body.inventoryId}})
+    .then( function(inventoryRecord) {
+        res.send(JSON.stringify(inventoryRecord));
+    }).catch(function(err) {
+        console.log(err);
+    });
+});
+
 router.post('/getVendorDetails', function(req, res, next) {
     Vendors.findOne({where: {vendorName: req.body.vendorName}})
     .then( function(vendorRecord) {

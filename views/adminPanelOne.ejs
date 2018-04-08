@@ -383,14 +383,14 @@
                                 <tbody>
                                    <% inventoryRows.forEach(function(item) { %>
                                                 <tr>
-                                                    <td ><a href="#"><span class="SlNo"><%= item.id %></span></a></td>            
+                                                    <td ><a href="#"><span class="inventoryId"><%= item.id %></span></a></td>            
                                                     <td ><span class="productCode"><%= item.productCode %></span></td>
                                                     <td ><span class="descriptionInventory"><%= item.descriptionInventory %></span></td>
                                                     <td ><span class="unit"><%= item.unit %></span></td>
                                                     <td ><span class="quantity"><%= item.quantity %></span></td>
                                                      <td ><span class="price"><%= item.price %></span></td>
-                                                    <td ><span class="vendorName"><%= item.vendorName %></span></td>
-                                                    <td ><span class="billNumber"><%= item.billNumber %></span></td>
+                                                    <td ><a href="#"><span class="vendorName"><%= item.vendorName %></span></a></td>
+                                                    <td ><a href="#"><span class="billNumber"><%= item.billNumber %></span></a></td>
                                                     <td ><span class="productRemarks"><%= item.remarks %></span></td>
                                                     <td><span class="editForInventoryProducts"><i style="color:#777;cursor:pointer;" class="fa fa-edit"></i></span></td>
                                                     <td><span class="removeForInventoryProducts"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>

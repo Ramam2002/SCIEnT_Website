@@ -201,7 +201,7 @@ router.post('/applyForHallBooking', function(req, res, next) {
 	return HallBooking.create(record)
 	.then(function () {
 		console.log('HallBooking record entered successfully');
-		res.send("Form Successfully submitted :)");
+		res.render('formSubmission');
 	}).catch(function (err) {
 		console.log(err);
 	});

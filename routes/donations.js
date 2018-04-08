@@ -98,7 +98,7 @@ router.post('/applyForDonations', function(req, res, next) {
             // console.log(response);
             // console.log(body);
             console.log("error in submitting instamojo details");
-            res.send("Form submission not successful. \n Note: Minimum amount allowed : Rs 10");
+            res.render('formSubmission');
           }
         });
 

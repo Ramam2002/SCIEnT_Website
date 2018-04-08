@@ -11,6 +11,7 @@
     <script src="/js/bootstrap.js"></script>
     <script src="/js/adminPanel.js"></script>
     <script src="/js/adminPanelProjects.js"></script>
+    <script src="/js/adminPanelInventory.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
     <link rel="stylesheet" href="/css/adminPanelOne.css">
@@ -41,6 +42,7 @@
             <li class="active"><a data-toggle="tab" href="#completedOrOngoingProjects">Completed/Ongoing Projects</a></li>
             <li><a data-toggle="tab" href="#pendingProjects">Pending Projects</a></li>
             <li><a data-toggle="tab" href="#changePasswords">Change Password</a></li>
+            <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
         </ul>
 
         <div class="tab-content">
@@ -138,6 +140,61 @@
                     </div>
                 </div>
             </div>
+
+             <div id="inventory" class="tab-pane fade">
+                <div class="row" style="margin-top:3%;">
+                    <div class="col-md-12">              
+                        <div class="table-responsive" id="inventoryTable">          
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header">Inventory</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <!-- <th class="header"><button type="button" id="mailForProjects" class="btn btn-success">Mail for Projects</button></th> -->
+                                    </tr>
+                                </thead>
+
+                                <thead>
+                                    <tr>
+                                        <th class="subheader">SL.NO</th>
+                                        <th class="subheader">PRODUCT CODE</th>
+                                        <th class="subheader">DESCRIPTION</th>
+                                        <th class="subheader">UNIT</th>
+                                        <th class="subheader">QUANTITY</th>
+                                        <th class="subheader">PRICE</th>
+                                        <th class="subheader">VENDOR</th>
+                                        <th class="subheader">BILLING DETAILS</th>
+                                        <th class="subheader">REMARKS</th>
+                                     </tr>
+                                </thead>
+                                <tbody>
+                                   <% inventoryRows.forEach(function(item) { %>
+                                                <tr>
+                                                    <td ><a href="#"><span class="SlNo"><%= item.id %></span></a></td>            
+                                                    <td ><span class="productCode"><%= item.productCode %></span></td>
+                                                    <td ><span class="descriptionInventory"><%= item.descriptionInventory %></span></td>
+                                                    <td ><span class="unit"><%= item.unit %></span></td>
+                                                    <td ><span class="quantity"><%= item.quantity %></span></td>
+                                                     <td ><span class="price"><%= item.price %></span></td>
+                                                    <td ><span class="vendorName"><%= item.vendorName %></span></td>
+                                                    <td ><span class="billNumber"><%= item.billNumber %></span></td>
+                                                    <td ><span class="productRemarks"><%= item.remarks %></span></td>
+                                                </tr>
+                                            <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="changePasswords" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
                     <div class="col-md-6" id="changePasswordForm">

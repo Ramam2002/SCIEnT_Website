@@ -14,6 +14,9 @@ var Projects = models.Projects;
 var HallBooking = models.HallBooking;
 var Admins = models.Admins;
 var Donations = models.Donations;
+var Inventory=models.inventory;
+var Vendors=models.Vendors;
+
 
 router.use(session({secret: 'ssshhhhh'}));
 router.use(bodyParser.urlencoded({extended: false }));
@@ -21,18 +24,24 @@ router.use(bodyParser.urlencoded({extended: false }));
 router.get('/', function(req, res, next) {
 	/* to check whether the person is already logged in as levelOne or leveltwo admin*/
 	if(req.session.access == 'levelOneAdmin') {
-		var projectsRows, facilitiesRows, hallBookingRows, adminsRows, donationRows;
+		var projectsRows, facilitiesRows, hallBookingRows, adminsRows, donationRows, inventoryRows,vendorRows;
 		Facilities.findAll().then( function(facilities) {
 			facilitiesRows = facilities;
 			Projects.findAll().then( function(projects) {
 				projectsRows = projects;
 				HallBooking.findAll().then( function(bookings) {
 					hallBookingRows = bookings;
-					Admins.findAll().then( function(admins) {
-						adminsRows = admins;
-						Donations.findAll().then( function(donations) {
-							donationRows = donations;
-							res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows, adminsRows: adminsRows, donationRows: donationRows });
+					Inventory.findAll().then(function(inventories){
+						inventoryRows = inventories;
+						Vendors.findAll().then(function(vendors){
+							vendorRows = vendors;					
+							Admins.findAll().then( function(admins) {
+								adminsRows = admins;
+								Donations.findAll().then( function(donations) {
+									donationRows = donations;
+									res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows});
+								});
+							});
 						});
 					});
 				});
@@ -40,11 +49,14 @@ router.get('/', function(req, res, next) {
 		});
 	} 
 	else if(req.session.access == 'levelTwoAdmin') {
-		var projectsRows;
+		var projectsRows,inventoryRows;
 		Projects.findAll()
 		.then(function(projects) {
 			projectsRows = projects;
-			res.render('adminPanelTwo',{projectsRows: projectsRows});
+			Inventory.findAll().then(function(inventories){
+			inventoryRows = inventories;
+			res.render('adminPanelTwo',{projectsRows: projectsRows,inventoryRows:inventoryRows});
+		});
 		});
 	} 
 	/* if the person is not logged in as any level admin redirect to adminlogin page */
@@ -61,18 +73,24 @@ router.post('/adminLogin', function(req, res, next) {
 			// Render admin panel for level one admin
 			req.session.access = 'levelOneAdmin';
 			req.session.adminid = admin.adminName;
-			var projectsRows, facilitiesRows, hallBookingRows, adminsRows;
+			var projectsRows, facilitiesRows, hallBookingRows, adminsRows,inventoryRows,vendorRows;
 			Facilities.findAll().then(function(facilities) {
 				facilitiesRows = facilities;
 				Projects.findAll().then(function(projects) {
 					projectsRows = projects;
 					HallBooking.findAll().then( function(bookings) {
 						hallBookingRows = bookings;
-						Admins.findAll().then( function(admins) {
-							adminsRows = admins;
-							Donations.findAll().then( function(donations) {
-								donationRows = donations;
-								res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows, adminsRows: adminsRows, donationRows: donationRows });
+						Inventory.findAll().then(function(inventories){
+							inventoryRows = inventories;	
+							Vendors.findAll().then(function(vendors){
+								vendorRows = vendors;
+								Admins.findAll().then(function(admins) {
+									adminsRows = admins;
+									Donations.findAll().then( function(donations) {
+										donationRows = donations;
+										res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows: inventoryRows ,vendorRows:vendorRows,adminsRows: adminsRows, donationRows: donationRows});
+									});
+								});
 							});
 						});
 					});
@@ -83,13 +101,16 @@ router.post('/adminLogin', function(req, res, next) {
 		else if(bcrypt.compareSync(req.body.adminPassword, admin.password) && admin.adminLevel == 'Two') {
 			req.session.access = 'levelTwoAdmin';
 			req.session.adminid = admin.adminName;
-			var projectsRows;
+			var projectsRows,inventoryRows;
 			Projects.findAll()
 			.then(function(projects) {
 				projectsRows = projects;
-				console.log(projectsRows);
-				res.render('adminPanelTwo', {projectsRows: projectsRows});
+				Inventory.findAll().then(function(inventories){
+							inventoryRows = inventories;
+				//console.log(projectsRows);
+				res.render('adminPanelTwo', {projectsRows: projectsRows,inventoryRows:inventoryRows});
 			});
+		});
 		} 
 		// if login credentials are incorrect
 		else {

@@ -118,10 +118,10 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- <li class = "menu-item">
                         <a href="#!home">Home</a> -->
-                    <li class="menu-item dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#!home" ng-class="getClass('/home')">Home<span class="caret"></span></a>
+                    <li class="menu-item"><a href="#!home" ng-class="getClass('/home')">Home</a><!-- <span class="caret"></span></a>
                             <ul class="menu-item dropdown-menu" style="left:0;">
-                                <li><a id="aboutUsLink" href="#about">About Us</a></li>
-                            </ul>
+                                <li></li>
+                            </ul> -->
                     </li>
                     <!-- <li class = "menu-item">
                         <a id ="aboutUsLink" href="#about">About Us</a>
@@ -179,7 +179,7 @@
         });
 
 
-        app.controller('ScientLabCtrl', function($scope, $http, $location) {
+        app.controller('ScientLabCtrl', function($scope, $rootScope, $http, $location) {
             $scope.tronixFileNames = [];
             $scope.mechFileNames = [];
             $scope.viewLoaded = function () {
@@ -187,7 +187,42 @@
                     interval: 4000 //changes the speed
                 });
                 
-                    
+                $("#aboutUsLink").on('click', function(event) {
+                    // Make sure this.hash has a value before overriding default behavior
+                    $('.down-arrow').css('display', 'none');
+                    if (this.hash !== "") {
+                      // Prevent default anchor click behavior
+                      event.preventDefault();
+
+                      // Store hash
+                      var hash = this.hash;
+
+                      // Using jQuery's animate() method to add smooth page scroll
+                      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                      $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                      }, 1500, function(){
+                   
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                      });
+
+                    } // End if
+
+                }); 
+                var offsetHeight = $(window).height()/2;
+                var body = document.body;
+                var $w = $(window).scroll(function(){
+                    if ( $w.scrollTop() > 0 ) {
+                        $('.down-arrow').css('display', 'none');
+                    } else {
+                        $('.down-arrow').css('display', 'block');
+                    }
+                }); 
+
+                if(window.location.href.indexOf("about") > -1) {
+                    $('.down-arrow').css('display', 'none');
+                }
                 
             };
             $scope.fetchResources = function() {
@@ -251,7 +286,6 @@
         $(document).ready(function(){
             // Add smooth scrolling to all links
           $("#aboutUsLink").on('click', function(event) {
-
             // Make sure this.hash has a value before overriding default behavior
             if (this.hash !== "") {
               // Prevent default anchor click behavior

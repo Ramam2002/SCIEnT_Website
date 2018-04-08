@@ -13,6 +13,13 @@ body {
     background:url("../images/loader.gif") no-repeat center center rgba(0,0,0,0.9);
 }
 
+.down-arrow {
+    position: fixed;
+    bottom: 5%;
+    z-index: 200;
+    left: 50%;
+}
+
 /* Header */
 #header {
     background-color: white;

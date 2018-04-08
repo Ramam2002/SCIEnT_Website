@@ -16,13 +16,8 @@ var Donations = models.Donations;
 var Insta = require('instamojo-nodejs');
 var instamojoDetails = require('../env.js');
 
-// var API_KEY = instamojoDetails.API_KEY;
-// var AUTH_KEY = instamojoDetails.AUTH_KEY;
-
-var API_KEY = "test_4275c7966eb92dad9efd0256465";
-var AUTH_KEY = "test_31d9a44a553fef27e164d1bf4a5";
-
-// Insta.setKeys(API_KEY, AUTH_KEY);
+var API_KEY = instamojoDetails.API_KEY;
+var AUTH_KEY = instamojoDetails.AUTH_KEY;
 
 /* to handle form submission for facilities */
 router.post('/applyForDonations', function(req, res, next) {
@@ -48,6 +43,8 @@ router.post('/applyForDonations', function(req, res, next) {
           'X-Auth-Token': AUTH_KEY
         };
 
+        // for development
+        /*
         var payload = {
           'purpose': record.remarks,
           'amount': record.amount,
@@ -61,13 +58,29 @@ router.post('/applyForDonations', function(req, res, next) {
           'allow_repeated_payments': false
         };
 
+        */
+
+        // for production
+        var payload = {
+          'purpose': record.remarks,
+          'amount': record.amount,
+          'phone': record.contactNumber,
+          'buyer_name': record.name,
+          'redirect_url': 'https://scient.nitt.edu/donationSuccess',
+          'send_email': true,
+          'webhook': '',
+          'send_sms': true,
+          'email': record.emailID,
+          'allow_repeated_payments': false
+        };
+
         console.log(payload);
 
         // development link is test.instamojo.com
         // deployment link is www.instamojo.com
 
         var options = {
-          url: 'https://test.instamojo.com/api/1.1/payment-requests/', 
+          url: 'https://www.instamojo.com/api/1.1/payment-requests/', 
           method: 'POST',
           headers: headers, 
           form: payload

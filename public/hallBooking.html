@@ -5,55 +5,61 @@
     <meta name="viewport" content="width=device-width,initial-scale=1 shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <title>Conference Hall Booking</title>
-    <script type="text/javascript" src="validateFacilities" ></script>
+    <script type="text/javascript" src="validateHallBooking.js" ></script>
     <link rel="stylesheet" href="/css/hallBooking.css">
 </head>
+<style>
+    #formHallBooking {
+        margin-top: 5%;
+    }
+</style>
 <body>
-    <form method="post" action="/applyForHallBooking">
-        <div class="container" style="width:50%" id = "formHallBooking">
+        <div class="container" id = "formHallBooking">
+            <form method="post" action="/applyForHallBooking">
             <h1 class="jumbotron text-center" id="form-title">CONFERENCE HALL BOOKING</h1>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" name="name" id="name"  required>
+                <input type="text" class="form-control" autocomplete="off" name="name" id="name"  required>
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="roll-no">Roll Number:</label>
-                <input type="text" class="form-control" name="roll" id="rollNo"  required >
+                <input type="text" class="form-control" autocomplete="off" name="roll" id="rollNo"  required >
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="department">Department:</label>
-                <input type="text" class="form-control" name="department" id="department" required>
+                <input type="text" class="form-control" autocomplete="off" name="department" id="department" required>
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="contact">Contact Number:</label>
-                <input type="tel" class="form-control" name="contactNumber" id="contact" required>
+                <input type="tel" class="form-control" autocomplete="off" name="contactNumber" id="contact" required>
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="email">Email address:</label>
-                <input type="email" class="form-control" name="emailID" id="email" required>
+                <input type="email" class="form-control" autocomplete="off" name="emailID" id="email" required>
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="numberOfAttendees">Number of attendees :</label>
-                <input type="text" class="form-control" name="attendeesNumber" id="attendeesNumber" required>
+                <input type="text" class="form-control" autocomplete="off" name="attendeesNumber" id="attendeesNumber" required>
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="date">Date:</label>
-                <input type="text" class="form-control" name="date" id="date" placeholder="dd/mm/yyyy" required>
+                <input type="text" class="form-control" autocomplete="off" name="date" id="date" placeholder="dd/mm/yyyy" required>
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="startTime">Start Time:</label>
-                <input type="text" class="form-control" name="startTime" placeholder="hours:mins am/pm" id="startTime" required>
+                <input type="text" class="form-control" autocomplete="off" name="startTime" placeholder="hours:mins am/pm" id="startTime" required>
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="endTime">End Time:</label>
-                <input type="text" class="form-control" name="endTime" id="endTime" placeholder="hours:mins am/pm" required>
+                <input type="text" class="form-control" autocomplete="off" name="endTime" id="endTime" placeholder="hours:mins am/pm" required>
             </div>
-             <span id ="error"></span><br>
+             <span id ="hallBookingErrorMsg"></span><br>
             <div class="wrapper" style="text-align:center">
                 <button type="submit" class="btn btn-default" style="width:50%" id="submit-button" onclick="validateForm()">Submit</button>
             </div>
-        </div>
-    </form>
+        
+        </form>
+    </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>  

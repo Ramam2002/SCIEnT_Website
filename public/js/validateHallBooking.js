@@ -3,7 +3,7 @@ function validateForm () {
 	var roll = document.getElementById("rollNo").value;
 	var contact = document.getElementById("contact").value;
 	var email = document.getElementById("email").value;
-	var errMsgBody = document.getElementById("facilitiesFormMsg");
+	var errMsgBody = document.getElementById("hallBookingErrorMsg");
 	if ((name.match(/([^a-zA-Z. ])+/)) != null) {
 		// alert("No special characters in name");
 		errMsgBody.innerHTML = "No special characters in name";
@@ -32,13 +32,13 @@ function validateForm () {
 	if (!emailTest) {
 		alert("Enter valid email");
 		errMsgBody.innerHTML = "Enter valid email";
-		hideFaciltiesFormErrorMsg(errMsgBody);
+		hideHallBookingFormErrorMsg(errMsgBody);
 		return false;
 	}
 
 	return true;
 }
-function hideFaciltiesFormErrorMsg(errMsgBody) {
+function hideHallBookingFormErrorMsg(errMsgBody) {
 	 setTimeout(function() {
         errMsgBody.innerHTML = '';
     },5000);

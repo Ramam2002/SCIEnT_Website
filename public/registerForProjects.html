@@ -192,6 +192,9 @@ function removeElement(parentDiv, childDiv){
 </script>
 
 <style>
+    #form-projects {
+        margin-top: 5%;
+    }
     #file-upload {
         display: none;
     }
@@ -218,45 +221,52 @@ function removeElement(parentDiv, childDiv){
     body {
         margin: 0px;
     }
+    #projectsFormMsg { 
+        color: red;
+        text-align: center;
+        padding-left: 40%;
+    }
 
 </style>
 
 <body>
-    <form method="post" action="/applyForProjects">
-        <div class="container" style="width:50%" id="form-projects">
+    <div class="container" id="form-projects">
+        <form method="post" action="/applyForProjects">
+            
             <h1 class="jumbotron text-center" id="form-title">PROJECTS</h1>
-            <div class="from-group">
+
+            <div class="form-group">
                 <label for="name">Name :</label>
-                <input type="text" class="form-control" id="name" name="name" required placeholder="Name">
+                <input type="text" class="form-control" autocomplete="off" id="name" name="name" required placeholder="Name">
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="roll-no">Roll Number :</label>
-                <input type="text" class="form-control" id="rollNo" name="rollNo" required placeholder="Roll Number">
+                <input type="text" class="form-control" autocomplete="off" id="rollNo" name="rollNo" required placeholder="Roll Number">
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="department">Department :</label>
-                <input type="text" class="form-control" id="dept" name="dept" placeholder="Department" required>
+                <input type="text" class="form-control" id="dept" autocomplete="off" name="dept" placeholder="Department" required>
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="projectName">Project Title :</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Project Title" required>
+                <input type="text" class="form-control" id="title" autocomplete="off" name="title" placeholder="Project Title" required>
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="memberName">Team Members :</label>
                 <span id="new_field"><br></span><br>
-                <input type="button" class="form_buttons" value="Add Member" onclick="addTeamMembers()" id="add-mem">
+                <input type="button" class="form_buttons" value="Add Member" autocomplete="off" onclick="addTeamMembers()" id="add-mem">
 
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="contact">Contact Number :</label>
-                <input type="tel" class="form-control" id="contact" name="contact" required placeholder="Contact">
+                <input type="tel" class="form-control" id="contact" autocomplete="off" name="contact" required placeholder="Contact">
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="email">Email address :</label>
-                <input type="email" class="form-control" id="email" name="email" required placeholder="Email Id">
+                <input type="email" class="form-control" id="email" autocomplete="off" name="email" required placeholder="Email Id">
             </div>
 
-            <div class="from-group">
+            <div class="form-group">
                 <label for="project-type">Is your Project Open or closed ?<br>
                     <span class="head-def">In an open project, other students can register to work on the project.</span>
                 </label>
@@ -279,7 +289,7 @@ function removeElement(parentDiv, childDiv){
                     </tr>
                 </table>
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="abstract">Abstract :<br>
                     <span class="head-def">In 150 words</span>
                 </label>
@@ -290,25 +300,25 @@ function removeElement(parentDiv, childDiv){
                 <br>
                 <textarea class="form-control" name="abstract" required placeholder="Write Abstract here"></textarea>
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="budget">Approximate Budget :</label>
-                <input type="text" class="form-control" id="budget" name="budget" required placeholder="Enter Required Budget">
+                <input type="text" class="form-control" autocomplete="off" id="budget" name="budget" required placeholder="Enter Required Budget">
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="material">Materials :</label>
                 <span id="material_field"><br></span><br>
-                <input type="button" class="form_buttons"  value="Add Material" onclick="addMaterial()" id="add-m">
+                <input type="button" class="form_buttons" autocomplete="off" value="Add Material" onclick="addMaterial()" id="add-m">
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="services">Services :</label>
                 <span id="service_field"><br></span><br>
-                <input type="button" class="form_buttons" value="Add Service" onclick="addService()" id="add-s">
+                <input type="button" class="form_buttons" autocomplete="off" value="Add Service" onclick="addService()" id="add-s">
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="timeline">Timeline Of Project :</label>
-                <input type="text" class="form-control" id="timeline" name="timeline" required placeholder="Timeline Of Project">
+                <input type="text" class="form-control" id="timeline" autocomplete="off" name="timeline" required placeholder="Timeline Of Project">
             </div>
-            <div class="from-group">
+            <div class="form-group">
                 <label for="bill-detail">Sample Format of bill is given below<br></label><br>
                 <div class="row">
                     <a href="form.png">
@@ -318,11 +328,14 @@ function removeElement(parentDiv, childDiv){
                 </div>
             </div>
             <br>
+            <span id="projectsFormMsg"></span>
             <div class="wrapper" style="text-align:center">
                 <button type="submit" class="btn btn-default" style="width:50%" id="submit-button" onclick="return validateForm()" >Submit</button>
             </div>
-        </div>
-    </form>  
+
+        
+        </form>
+    </div>  
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 

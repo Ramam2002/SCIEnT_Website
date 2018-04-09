@@ -14,7 +14,7 @@ $(document).ready (function () {
                     '</li><li>Meeting Organiser Name: ' +  data.name + '</li><li>Department: ' 
                     + data.department + '</li><li>Contact Number: ' + data.contactNumber + 
                     '</li><li>Email Id: ' + data.emailID + '</li><li>Number of attendees :' +
-                    data.attendeesNumber + '</li><li>Meeting date: ' + data.date + 
+                    data.attendeesNumber + '</li><li>Purpose of booking: ' + data.purpose + '</li><li>Meeting date: ' + data.date + 
                     '</li><li>Request start time: ' + data.startTime + '</li><li>Request end time: ' + 
                     data.endTime + '</li><li>Approved start time: ' + data.approvedStartTime + '</li><li>Approved end time: ' 
                     + data.approvedEndTime + '</li>');

@@ -183,6 +183,7 @@ router.post('/applyForProjects', function(req, res, next) {
 });
 /* to handle form submission for hall booking */
 router.post('/applyForHallBooking', function(req, res, next) {
+
 	var record = {
 		name: req.body.name,
 		roll: req.body.roll,
@@ -190,6 +191,7 @@ router.post('/applyForHallBooking', function(req, res, next) {
 		contactNumber: req.body.contactNumber,
 		emailID: req.body.emailID,
 		attendeesNumber: req.body.attendeesNumber,
+		purpose: req.body.purposeOfBooking,
 		date: req.body.date,
 		startTime: req.body.startTime,
 		endTime: req.body.endTime,

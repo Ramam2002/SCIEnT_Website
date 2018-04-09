@@ -32,24 +32,28 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.INTEGER,
 			allowNull: false
 		},
-		date: {
+		purpose: {
 			type: DataTypes.STRING,
+			allowNull: false
+		},
+		date: {
+			type: DataTypes.DATE,
 			allowNull: false
 		},
 		startTime: {
-			type: DataTypes.STRING,
+			type: DataTypes.TIME,
 			allowNull: false
 		},
 		endTime: {
-			type: DataTypes.STRING,
+			type: DataTypes.TIME,
 			allowNull: false
 		},
 		approvedStartTime: {
-			type: DataTypes.STRING,
+			type: DataTypes.TIME,
 			allowNull: false
 		},
 		approvedEndTime: {
-			type: DataTypes.STRING,
+			type: DataTypes.TIME,
 			allowNull: false
 		},
 		approved: {

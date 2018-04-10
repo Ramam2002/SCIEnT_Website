@@ -1,11 +1,26 @@
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var bcrypt = require('bcryptjs');
+var models = require('./models');
+var sequelize = require('sequelize');
+var Admins = models.Admins; 
 
+
+/* all the routes for the application are declared here */
 var index = require('./routes/index');
+var register = require('./routes/register');
+var admin = require('./routes/admin'); 
+var facilities = require('./routes/facilities');
+var projects = require('./routes/projects');
+var hallBooking = require('./routes/hallBooking');
+var donations = require('./routes/donations');
+var inventory = require('./routes/inventory');
+
 
 var app = express();
 
@@ -20,8 +35,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+/* all the routes for the application are used here */
 app.use('/', index);
+app.use('/', register);
+app.use('/', donations);
+app.use('/admin', admin);
+app.use('/admin', facilities);
+app.use('/admin', projects);
+app.use('/admin', hallBooking);
+app.use('/admin', inventory);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,5 +62,25 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+models.sequelize.sync().then(function () {
+  console.log('Tables are created');
+});
+
+var adminName = 'levelOneAdmin';
+var adminPwd = 'scientAdmin';
+var salt = bcrypt.genSaltSync(1);
+var hash = bcrypt.hashSync(adminPwd, salt);
+adminPwd = hash;
+var adminDetails = {
+    adminName: adminName,
+    password: adminPwd,
+    adminLevel: 'One'
+};
+  // Admins.sync({force: false})
+  // .then( function() {
+  //   return Admins.create(adminDetails);
+  //   console.log('Demo level one admin added');
+  // });
 
 module.exports = app;

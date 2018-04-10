@@ -1,0 +1,68 @@
+#error {
+    color:red;
+    font-weight: normal;
+}
+div {
+    padding: 15px;
+}
+body {
+    background-image: url('../images/bg.jpg');
+}
+#formHallBooking {
+    padding: 5%;
+    font-weight: bold;
+    background-color: #E5E1E0;
+}
+.head-def {
+    font-size: 10px;
+}
+#abs-writeup {   
+    border-style: solid;
+    border-width:0.1em;
+    border-color: #C9CACA;
+    padding: 5px;
+    border-radius:0.3em;
+    background-color: white;
+}
+#project-abstract
+{
+    width: 50%;
+    font-weight: normal;
+}
+#submit-button:hover 
+{
+ background: #494848;
+ color: white;
+ font-weight: bold;
+ cursor:pointer;
+}
+#submit-button
+{
+ background: #494848;
+ color:white;
+ cursor:pointer;
+}
+        
+span #project-abstract[contenteditable]:empty::before {
+content: 'Write your Requirements here';
+display: inline-block;
+color: #C9CACA;
+
+}
+        
+#form-title {
+    background-color:#494848;
+}
+h1 {   
+    color: white;
+}
+        
+@media only screen and (max-width: 500px) {
+    h1 {
+        font-size: 15px;
+    }
+      
+    #submit-button {
+        font-size:15px;
+    }
+}

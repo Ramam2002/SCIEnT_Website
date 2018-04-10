@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1 shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <title>Projects</title>
+    <link rel="stylesheet" href="css/register1.css">
+    <script type="text/javascript" src="js/validateProjects.js" ></script>
+</head>
+<style>
+body{
+     background-image: url("../images/bg.jpg");
+}
+#close {
+    float:right;
+    display:inline-block;
+    padding:2px 5px;
+    background:#ccc;
+}
+</style>
+
+<script>
+    /*window.onload = function(){
+    document.getElementById("close").onclick = function(){
+        this.parentNode.parentNode.parentNode
+        .removeChild(this.parentNode.parentNode);
+        return false;
+    };
+};*/
+    function fileUpload () {
+        $("#file-upload").click();
+    }
+      
+
+
+            var i=0; 
+
+function increment(){
+i +=1;                         /* function for automatic increament of feild's "Name" attribute*/                 
+}
+
+
+
+function removeElement(parentDiv, childDiv){
+     if (childDiv == parentDiv) {
+          alert("The parent div cannot be removed.");
+     }
+     else if (document.getElementById(childDiv)) {     
+          var child = document.getElementById(childDiv);
+          var parent = document.getElementById(parentDiv);
+          parent.removeChild(child);
+     }
+     else {
+          alert("Child div has already been removed or does not exist.");
+          return false;
+     }
+}
+    function addTeamMembers () {
+       /* $("#new_field").append('<br>' 
+            +'<div>'
+            + '<span>'
+            + '<span id="close">x</span>'
+            + '<input type="text" name="teamMembersNames" placeholder="Name" class="mem-name" />'
+            + '<input type="text" name="teamMembersRoll" placeholder="Roll Number" class="mem-roll"/>'
+            
+            + '</span>'
+            +'</div><br>');*/
+
+
+            var r=document.createElement('span');
+            var br=document.createElement('br');
+            br.appendChild(r);
+            var y = document.createElement("INPUT");
+            y.style.width = "70%";
+            var z = document.createElement("INPUT");
+            z.style.width = "70%";
+            y.setAttribute("type", "text");
+            y.setAttribute("placeholder","Name");
+            var g = document.createElement("IMG");
+            g.setAttribute("src", "images/delete.png");
+            z.setAttribute("type", "text");
+            z.setAttribute("placeholder","Roll Number");
+            increment(); 
+            y.setAttribute("Name","textelement_"+i);
+            r.appendChild(y);
+            r.appendChild(z);
+            g.setAttribute("onclick", "removeElement('new_field','id_"+ i +"')");
+            r.appendChild(g);
+            r.setAttribute("id", "id_"+i);
+            document.getElementById("new_field").appendChild(r);
+    }
+
+  /*  function hideField() {
+        $("#button").click(function()
+        {   console.log("alert");
+            $("new_field").hide();
+        });
+
+    }*/
+    function addMaterial () {
+       /* $("#material_field").append('<br>'
+            + '<span>'
+            + '<input type="text" name="materialNames" placeholder="Name" class="material-name"/>'
+            + '<input type="text" name="materialSpecs" placeholder="Specification" class="material-specs"/>'
+            + '<input type="text" name="materialQuantity" placeholder="Quantity" class="material-quantity"/>'
+            + '<input type="text" name="materialPrice" placeholder="Price" class="material-price" />'
+            + '<input type="text" name="purpose" placeholder="Purpose" class="material-purpose"/>'
+            + '<input type="text" name="vendors" placeholder="Link/Vendor" class="material-vendor"/>'
+            + '</span><br>');
+    }*/
+
+            var r=document.createElement('span');
+            var br=document.createElement('br');
+            br.appendChild(r);
+            var y = document.createElement("INPUT");
+            y.style.width = "70%";
+            var z = document.createElement("INPUT");
+            z.style.width = "70%";
+            var x = document.createElement("INPUT");
+            x.style.width = "70%";
+            var w = document.createElement("INPUT");
+            w.style.width = "70%";
+            var t = document.createElement("INPUT");
+            t.style.width = "70%";
+            var s = document.createElement("INPUT");
+            s.style.width = "70%";
+            y.setAttribute("type", "text");
+            y.setAttribute("placeholder","Name");
+            var g = document.createElement("IMG");
+            g.setAttribute("src", "images/delete.png");
+            z.setAttribute("type", "text");
+            z.setAttribute("placeholder","Specification");
+            x.setAttribute("type", "text");
+            x.setAttribute("placeholder","Quantity");
+            w.setAttribute("type", "text");
+            w.setAttribute("placeholder","Price");
+            t.setAttribute("type", "text");
+            t.setAttribute("placeholder","Purpose");
+            s.setAttribute("type", "text");
+            s.setAttribute("placeholder","Link/vendor");
+            increment(); 
+            y.setAttribute("Name","textelement_"+i);
+            r.appendChild(y);
+            r.appendChild(z);
+            r.appendChild(x);
+            r.appendChild(w);
+            r.appendChild(t);
+            r.appendChild(s);
+            g.setAttribute("onclick", "removeElement('material_field','id_"+ i +"')");
+            r.appendChild(g);
+            r.setAttribute("id", "id_"+i);
+            document.getElementById("material_field").appendChild(r);
+
+    }
+      
+    function addService () {
+      /*  $("#service_field").append('<br>'
+            + '<span>'
+            + '<input type="text" name="serviceNames" placeholder="Name" class="service-name" />'
+            + '<input type="text" name="serviceSpecs" placeholder="Specification" class="service-specs"/>'
+            + '<input type="text" name="servicePrice" placeholder="Price" class="service-price"/>'
+            + '</span><br>');
+    } */
+
+            var r=document.createElement('span');
+            var br=document.createElement('br');
+            br.appendChild(r);
+            var y = document.createElement("INPUT");
+            y.style.width = "70%";
+            var z = document.createElement("INPUT");
+            z.style.width = "70%";
+            var x = document.createElement("INPUT");
+            x.style.width = "70%";
+            y.setAttribute("type", "text");
+            y.setAttribute("placeholder","Name");
+            var g = document.createElement("IMG");
+            g.setAttribute("src", "images/delete.png");
+            z.setAttribute("type", "text");
+            z.setAttribute("placeholder","Specification");
+            x.setAttribute("placeholder","Price");
+            increment(); 
+            y.setAttribute("Name","textelement_"+i);
+            r.appendChild(y);
+            r.appendChild(z);
+            r.appendChild(x);
+            g.setAttribute("onclick", "removeElement('service_field','id_"+ i +"')");
+            r.appendChild(g);
+            r.setAttribute("id", "id_"+i);
+            document.getElementById("service_field").appendChild(r);
+        }
+</script>
+
+<style>
+    #form-projects {
+        margin-top: 5%;
+    }
+    #file-upload {
+        display: none;
+    }
+    
+    .sname, .service_specs, .service_price {
+        width: 30%;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+    .material_name, .material_specs, .material_quantity, .material_price, .material_vendor, .material_purpose {
+        width: 30%;
+        margin-left: 10px;
+        margin-top: 5px;
+    } 
+    .mem-name, .mem-roll {
+        width: 30%;
+        margin-left: 10px;
+    }
+
+    #add-mem, #add-s, #add-m {
+        margin-top: 10px;
+    }
+    
+    body {
+        margin: 0px;
+    }
+    #projectsFormMsg { 
+        color: red;
+        text-align: center;
+        padding-left: 40%;
+    }
+
+</style>
+
+<body>
+    <div class="container" id="form-projects">
+        <form method="post" action="/applyForProjects">
+            
+            <h1 class="jumbotron text-center" id="form-title">PROJECTS</h1>
+
+            <div class="form-group">
+                <label for="name">Name :</label>
+                <input type="text" class="form-control" autocomplete="off" id="name" name="name" required placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="roll-no">Roll Number :</label>
+                <input type="text" class="form-control" autocomplete="off" id="rollNo" name="rollNo" required placeholder="Roll Number">
+            </div>
+            <div class="form-group">
+                <label for="department">Department :</label>
+                <input type="text" class="form-control" id="dept" autocomplete="off" name="dept" placeholder="Department" required>
+            </div>
+            <div class="form-group">
+                <label for="projectName">Project Title :</label>
+                <input type="text" class="form-control" id="title" autocomplete="off" name="title" placeholder="Project Title" required>
+            </div>
+            <div class="form-group">
+                <label for="memberName">Team Members :</label>
+                <span id="new_field"><br></span><br>
+                <input type="button" class="form_buttons" value="Add Member" autocomplete="off" onclick="addTeamMembers()" id="add-mem">
+
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number :</label>
+                <input type="tel" class="form-control" id="contact" autocomplete="off" name="contact" required placeholder="Contact">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address :</label>
+                <input type="email" class="form-control" id="email" autocomplete="off" name="email" required placeholder="Email Id">
+            </div>
+
+            <div class="form-group">
+                <label for="project-type">Is your Project Open or closed ?<br>
+                    <span class="head-def">In an open project, other students can register to work on the project.</span>
+                </label>
+                <table>
+                    <tr>
+                        <th>
+                            <div class="radio">
+                            <label>
+                                <input type="radio" name="optradio" value="open" checked="checked">Open
+                            </label>
+                            </div>
+                        </th>
+                        <td>
+                            <div class="radio">
+                            <label>
+                            <input type="radio" name="optradio" value="closed">Closed
+                            </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="form-group">
+                <label for="abstract">Abstract :<br>
+                    <span class="head-def">In 150 words</span>
+                </label>
+                <!-- <div id="abs-writeup">
+                    <span id="project-abstract" contenteditable="true" name="abstract"></span>
+                </div>
+                <span id="error"></span> -->
+                <br>
+                <textarea class="form-control" name="abstract" required placeholder="Write Abstract here"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="budget">Approximate Budget :</label>
+                <input type="text" class="form-control" autocomplete="off" id="budget" name="budget" required placeholder="Enter Required Budget">
+            </div>
+            <div class="form-group">
+                <label for="material">Materials :</label>
+                <span id="material_field"><br></span><br>
+                <input type="button" class="form_buttons" autocomplete="off" value="Add Material" onclick="addMaterial()" id="add-m">
+            </div>
+            <div class="form-group">
+                <label for="services">Services :</label>
+                <span id="service_field"><br></span><br>
+                <input type="button" class="form_buttons" autocomplete="off" value="Add Service" onclick="addService()" id="add-s">
+            </div>
+            <div class="form-group">
+                <label for="timeline">Timeline Of Project :</label>
+                <input type="text" class="form-control" id="timeline" autocomplete="off" name="timeline" required placeholder="Timeline Of Project">
+            </div>
+            <div class="form-group">
+                <label for="bill-detail">Sample Format of bill is given below<br></label><br>
+                <div class="row">
+                    <a href="form.png">
+                        <img src="form.png" alt="Format of the form" class="image" id ="format-image">
+                    </a>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <span id="projectsFormMsg"></span>
+            <div class="wrapper" style="text-align:center">
+                <button type="submit" class="btn btn-default" style="width:50%" id="submit-button" onclick="return validateForm()" >Submit</button>
+            </div>
+
+        
+        </form>
+    </div>  
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>  
+
+    <script src="js/register1.js"></script>
+</body>
+</html>

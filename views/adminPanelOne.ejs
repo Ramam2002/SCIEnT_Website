@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery-1.10.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/adminPanel.js"></script>
+    <script src="/js/adminPanelDonations.js"></script>
+    <script src="/js/adminPanelFacilities.js"></script>
+    <script src="/js/adminPanelProjects.js"></script>
+    <script src="/js/adminPanelHallBooking.js"></script>
+    <script src="/js/adminPanelInventory.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+    <link rel="stylesheet" href="/css/adminPanelOne.css">
+    <link rel="stylesheet" href="/css/scheme1.css">
+</head>
+<style>
+
+.table-responsive {
+    max-height:300px;
+}
+
+</style>
+<body>
+
+    <div class="container">
+        <div class="row" style="margin-top:2%;">
+            <div class="col-md-9">
+                <h1 style="font-family: 'Vollkorn', serif;text-align: center;">ADMIN PANEL</h1>
+            </div>
+            <div class="col-md-3">
+                <form method="post" action="/admin/logout">
+                    <button type="submit" class="btn btn-warning btn-lg">Logout</button>
+                </form>
+            </div>
+        </div>
+
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#completedOrOngoingProjects">Completed/Ongoing Projects</a></li>
+            <li><a data-toggle="tab" href="#pendingProjects">Pending Projects</a></li>
+            <li><a data-toggle="tab" href="#facilitiesOrTools">Access</a></li>
+            <li><a data-toggle="tab" href="#conferenceHallBooking">Hall Booking Requests</a></li>
+            <li><a data-toggle="tab" href="#donations">Donations</a></li>
+            <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
+            <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
+            <li><a data-toggle="tab" href="#changePasswords">Change your password</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="completedOrOngoingProjects" class="tab-pane fade in active">
+                <div class="row" style="margin-top:3%;">
+                    <div class="col-md-12">              
+                        <div class="table-responsive" id="projectsTable">          
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header">Completed or ongoing Projects</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <!-- <th class="header"><button type="button" id="mailForProjects" class="btn btn-success">Mail for Projects</button></th> -->
+                                    </tr>
+                                </thead>
+
+                                <thead>
+                                    <tr>
+                                        <th class="subheader">PROJECT ID</th>
+                                        <th class="subheader">PROJECT NAME</th>
+                                        <th class="subheader">MARK AS COMPLETE</th>
+                                        <th class="subheader">STATUS</th>
+                                        <th class="subheader">LATEST UPDATE DONE BY</th>
+                                     </tr>
+                                </thead>
+                                <tbody>
+                                    <% projectsRows.forEach(function(item) { %>
+                                        <% if (item.status == 'Completed' || item.status == 'Ongoing') { %>
+                                            <tr>
+                                                <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                                                <td ><span class="projectName"><%= item.projectTitle %></span></td>
+                                                <% if (item.status == 'Completed') { %>
+                                                    <td><button type="button" class="markAsComplete btn btn-success" disabled >MARK</button></td>
+                                                <% } else { %> 
+                                                    <td><button type="button" class="markAsComplete btn btn-success">MARK</button></td>
+                                                <% } %>
+                                                <td><span id="status"><%= item.status %></span></td>
+                                                <td><span class="lastUpdater"><%= item.latestUpdater %></span></td>
+                                            </tr>
+                                        <% } %>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="pendingProjects" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-12">
+                        <div class="table-responsive" id="projectsApprovedByL2">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header">PENDING PROJECTS</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th>PROJECT ID</th>
+                                        <th>PROJECT NAME</th>
+                                        <th>APPROVE</th>
+                                        <th>REJECT</th>
+                                        <th>BEGIN PROJECT</th>
+                                        <th>STATUS</th>
+                                        <th>LAST UPDATE DONE BY</th>
+                                        <th>ENTER REMARKS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% projectsRows.forEach(function(item) { %>
+                                        <% if (item.status != 'Completed' &&item.status != 'Ongoing') { %>
+                                            <tr>
+                                                <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                                                <td ><span class="projectName"><%= item.projectTitle %></span></td>
+                                                <% if (item.status == 'Approved by L1' || item.status == 'Rejected by L2' || item.status == 'Approved by L2') { %>
+                                                    <td><button type="button" class="approveForProjectsByL1 btn btn-success" disabled>APPROVE</button></td>
+                                                <% } else { %>
+                                                    <td><button type="button" class="approveForProjectsByL1 btn btn-success">APPROVE</button></td>
+                                                <% } %>
+                                                <% if (item.status == 'Rejected by L1' || item.status == 'Rejected by L2' || item.status == 'Approved by L2') { %>
+                                                    <td><button type="button"  class="rejectForProjectsByL1 btn btn-danger" disabled>REJECT</button></td>
+                                                <% } else { %>
+                                                    <td><button type="button" class="
+                                                    rejectForProjectsByL1 btn btn-danger">REJECT</button></td>
+                                                <% } %>
+                                                 <% if (item.status == 'Approved by L2') { %>
+                                                    <td><button type="button" class="beginProject btn btn-success">BEGIN</button></td>
+                                                <% } else { %> 
+                                                    <td><button type="button" class="beginProject btn btn-success" disabled>BEGIN</button></td>
+                                                <% } %>
+                                                <td><span id="status"><%= item.status %></span></td>
+                                                <td><span class="lastUpdater"><%= item.latestUpdater %></span></td>
+                                                <td><button type="button" class="enterRemarksByL1 btn btn-warning">REMARK</button></td>
+                                            </tr>
+                                        <% } %>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="facilitiesOrTools" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">  
+                    <div class="col-md-12">                
+                        <div class="table-responsive" id="facilitiesTable">          
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header">ACCESS</th>
+                                        <th class="header"></th>
+                                        <th class="header"><button type="button" id="mailForFacilities" class="btn btn-success">Mail for Access</button></th>
+                                        <th class="header"></th>
+                                  </tr>
+                                </thead>
+             
+                                <thead>
+                                     <tr>
+                                        <th>APPLICANT ID</th>
+                                        <th>APPLICANT NAME</th>
+                                        <th>APPROVE</th>
+                                        <th>CURRENT STATUS</th>
+                                        <th>EDIT STATUS</th>  
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% facilitiesRows.forEach(function(item) { %>
+                                        <% if (item.status == 'Access given') { %>
+                                        <tr style="background-color: #90EE90; ">
+                                        <% } else if (item.status == 'Access not given') { %>
+                                        <tr style="background-color: #FFA07A; ">
+                                        <% } else { %> 
+                                        <tr>
+                                        <% } %>   
+                                            <td ><a href="#"><span class="applicantId"><%= item.id %></span></a></td>
+                                            <td ><span class="applicantRoll"><%= item.roll %></span></td>
+                                            <% if (item.approved == 'Yes') { %>
+                                                <td><button type="button" class="approveForFacilities btn btn-success" disabled>APPROVE </button></td>
+                                            <% } else { %> 
+                                                <td><button type="button" class="approveForFacilities btn btn-success">APPROVE </button></td>
+                                            <% } %>
+                                            <td ><span class="applicantStatus"><%= item.status %></span></td>
+                                            <td><span class="editAccess"><i style="color:#666;cursor:pointer;" class="fa fa-edit"></i></span></td>
+                                            <!-- <td><span class="removeForFacilities"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td> -->
+                                        </tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="conferenceHallBooking" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-12">                 
+                        <div class="table-responsive" id="hallBookingRequests">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header">HALL BOOKING</th>
+                                        <th class="header"></th>
+                                        <th class="header"><button type="button" class="mailForHallBooking btn btn-success">Mail for Hall Booking</button></th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th>BOOKING ID</th>
+                                        <th>PERSON ROLL</th>
+                                        <th>APPROVE</th>
+                                        <th>REMOVE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% hallBookingRows.forEach(function(item) { %>
+                                        <tr>
+                                            <td ><a href="#"><span class="bookingId"><%= item.id %></span></a></td>
+                                            <td ><span class="applicantRoll"><%= item.roll %></span></td>
+                                            <% if (item.approved == 'Yes') { %>
+                                                <td><button type="button" class="approveForHallBooking btn btn-success" disabled>APPROVE </button></td>
+                                            <% } else { %> 
+                                                <td><button type="button" class="approveForHallBooking btn btn-success">APPROVE </button></td>
+                                            <% } %>
+                                            <td><span class="removeForHallBooking"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                        </tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="donations" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-12">                 
+                        <div class="table-responsive" id="donationsTable">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>                                        
+                                        <th class="header"></th>
+                                        <th class="header">DONATIONS</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>NAME</th>
+                                        <th>PURPOSE/REMARKS</th>
+                                        <th>AMOUNT</th>
+                                        <th>PAID</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% donationRows.forEach(function(item) { %>
+                                        <tr>
+                                            <td><a href="#"><span class="donationId"><%= item.id %></span></a></td>
+                                            <td><span class="donorName"><%= item.name %></span></td>
+                                            <td><span class="donationPurpose"><%= item.remarks %></span></td>
+                                            <td><span class="donationAmount"><%= item.amount %></span></td>
+                                            <td><span class="paid"><%= item.paid %></span></td>
+                                        </tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="addAdmins" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-4" id="addAdminForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">ADD ADMINS</h2>
+                        <label>Enter username for admin:</label><br>
+                        <input type="text" id="userName" name="userName" autocomplete="off"><br>
+                        <label>Enter password for admin:</label><br>
+                        <input type="password" id="adminPassword" name="adminPassword" autocomplete="off"><br>
+                        <label>Confirm password by re-entering:</label><br>
+                        <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off"><br>
+                        <label>Select the level of admin:</label><br>
+                        <select id="adminLevel" name="adminLevel">
+                            <option value="One">One</option>
+                            <option value="Two">Two</option>
+                        </select><br><br>
+                        <span id="addAdminMsg"></span>
+                        <button id="addAdmin" class="btn btn-warning btn-lg">Add Admin</button>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-6">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Present Scient Admins</div>
+                            <div class="panel-body">
+                                <h6>Level one admins</h6>
+                                <ul id="levelOneAdminsList">
+                                <% adminsRows.forEach(function(item) { %>
+                                    <% if ( item.adminLevel == 'One') { %>
+                                        <li><%= item.adminName %></li>
+                                    <% } %>
+                                <% }); %>
+                                </ul>
+                                <h6>Level two admins</h6>
+                                <ul id="levelTwoAdminsList">
+                                <% adminsRows.forEach(function(item) { %>
+                                    <% if ( item.adminLevel == 'Two') { %>
+                                        <li><%= item.adminName %></li>
+                                    <% } %>
+                                <% }); %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div id="inventory" class="tab-pane fade">
+                <div class="row" style="margin-top:3%;">
+                    <div class="col-md-12">              
+                        <div class="table-responsive" id="inventoryTable">          
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header">Inventory</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"><button type="button" id="addNewVendor" class="btn btn-success">Create Vendor</button></th>
+                                        <th class="header"><button type="button" id="addNewProduct" class="btn btn-success">Add New Product</button></th>
+                                        <!-- <th class="header"><button type="button" id="mailForProjects" class="btn btn-success">Mail for Projects</button></th> -->
+                                    </tr>
+                                </thead>
+
+                                <thead>
+                                    <tr>
+                                        <th class="subheader">SL.NO</th>
+                                        <th class="subheader">PRODUCT CODE</th>
+                                        <th class="subheader">DESCRIPTION</th>
+                                        <th class="subheader">UNIT</th>
+                                        <th class="subheader">QUANTITY</th>
+                                        <th class="subheader">PRICE</th>
+                                        <th class="subheader">VENDOR</th>
+                                        <th class="subheader">BILLING DETAILS</th>
+                                        <th class="subheader">REMARKS</th>
+                                        <th class="subheader">EDIT PRODUCT</th>
+                                        <th class="subheader">REMOVE</th>
+                                     </tr>
+                                </thead>
+                                <tbody>
+                                   <% inventoryRows.forEach(function(item) { %>
+                                                <tr>
+                                                    <td ><a href="#"><span class="inventoryId"><%= item.id %></span></a></td>            
+                                                    <td ><span class="productCode"><%= item.productCode %></span></td>
+                                                    <td ><span class="descriptionInventory"><%= item.descriptionInventory %></span></td>
+                                                    <td ><span class="unit"><%= item.unit %></span></td>
+                                                    <td ><span class="quantity"><%= item.quantity %></span></td>
+                                                     <td ><span class="price"><%= item.price %></span></td>
+                                                    <td ><a href="#"><span class="vendorName"><%= item.vendorName %></span></a></td>
+                                                    <td ><a href="#"><span class="billNumber"><%= item.billNumber %></span></a></td>
+                                                    <td ><span class="productRemarks"><%= item.remarks %></span></td>
+                                                    <td><span class="editForInventoryProducts"><i style="color:#777;cursor:pointer;" class="fa fa-edit"></i></span></td>
+                                                    <td><span class="removeForInventoryProducts"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                                </tr>
+                                            <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="changePasswords" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6" id="changePasswordForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">CHANGE YOUR PASSWORD</h2>
+                        <label>Enter your current password:</label><br>
+                        <input type="password" id="currentPassword" name="currentPassword" autocomplete="off"><br>
+                        <label>Enter new password:</label><br>
+                        <input type="password" id="newPassword" name="newPassword" autocomplete="off"><br>
+                        <label>Re-enter the new password to confirm:</label><br>
+                        <input type="password" id="confirmPassword1" name="confirmPassword1" autocomplete="off"><br>
+                        <span id="passwordChangeMsg"></span>
+                        <button id="changePassword" class="btn btn-warning btn-lg">Change Password</button>
+                    </div>
+                </div>
+            </div>
+                    
+                </div>
+            </div>
+     
+
+    <div id="infoModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Request Details</h2>
+            </header>
+            <div class="w3-container">
+                <ul id="infoList">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="remarksModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeRemarksModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Remarks</h2>
+            </header>
+            <div class="w3-container">
+                <p>Enter your remarks:</p>
+                <textarea id="remarksByAdmin">
+                </textarea><br>
+                Project Id:<span id="projectIdForRemark"></span><br><br>
+                <button id="submitRemarks" type="button" class="btn btn-primary">REMARK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="hallBookingModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeHallBookingModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Hall Booking Approval</h2>
+            </header>
+            <div class="w3-container">
+                <p>Enter the approved start time:</p>
+                <input type="time" id="approvedStartTime" placeholder="hrs:mins am/pm">
+                <p>Enter the approved end time:</p>
+                <input type="time" id="approvedEndTime" placeholder="hrs:mins am/pm"><br>
+                Booking Id:<span id="bookingIdForApproval"></span><br><br>
+                <button id="submitApprovalForHallBooking" type="button" class="submitApprovalForHallBooking btn btn-primary">SUBMIT APPROVAL</button>
+            </div>
+        </div>
+    </div>
+    <div id="editAccessModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeEditAccessModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Edit Access Form</h2>
+            </header>
+            <div class="w3-container">
+                <div class="form-group">
+                    <label for="editAccessStatus">Status:</label>
+                    <select class="form-control" id="editAccessStatus" name="editAccessStatus">
+                        <option class="editAccessStatusChoice" value="Access not given">Access not given</option>
+                        <option class="editAccessStatusChoice" value="Access given">Access given</option>
+                        <option class="editAccessStatusChoice" value="Mail sent once">Mail sent once</option>
+                        <option class="editAccessStatusChoice" value="Mail sent twice">Mail sent twice</option>
+                        <option class="editAccessStatusChoice" value="Blacklist">Blacklist</option>
+                        <option class="editAccessStatusChoice" value="Expired">Expired</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editAccessApproved">Approved:</label>
+                    <select class="form-control" id="editAccessApproved" name="editAccessApproved">
+                        <option class="editAccessApprovedChoice" value="No">No</option>
+                        <option class="editAccessApprovedChoice" value="Yes">Yes</option>
+                    </select>
+                </div>
+                <br>
+                <input type="hidden" name="applicantId" id="editAccessApplicantId" value=''>
+                <button id="submitChangedAccess" type="button" class="btn btn-primary">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addProductModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeAddProductModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Add Product Form</h2>
+            </header>
+            <div class="w3-container">
+                <div class="form-group">
+                    <label for="productCode">Product Code:</label>
+                    <input type="text" class="form-control" id="productCode" required>
+                </div>
+                <div class="form-group">
+                    <label for="descriptionInventory">Description Of Product:</label>
+                    <textarea class="form-control" rows="5" id="descriptionInventory" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="unit">Unit:</label>
+                    <input type="text" class="form-control" id="unit" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" placeholder="default = 0">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="text" class="form-control" id="price" required>
+                </div>
+                    <div class="form-group">
+                    <label for="vendorName">Select Vendor Name:</label>
+                    <select class="form-control" id="vendorName">
+                        <% vendorRows.forEach(function(item) { %>
+                            <option class="vendorSelectId" value="<%= item.vendorName %>"><%= item.vendorName %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div id="billDetails">BILL DETAILS
+                <div class="form-group">
+                    <label for="billNumber">Bill Number:</label>
+                    <input type="text" class="form-control" id="billNumber">
+                </div>
+                <div class="form-group">
+                    <label for="billDate">Bill Date:</label>
+                    <input type="date" class="form-control" id="billDate">
+                </div>
+                <div class="form-group">
+                    <label for="billDescription">Bill Description:</label>
+                    <input type="text" class="form-control" id="billDescription">
+                </div>
+                <div class="form-group">
+                    <label for="billUnit">Units:</label>
+                    <input type="text" class="form-control" id="billUnit">
+                </div>
+                <div class="form-group">
+                    <label for="billQuantity">Quantity:</label>
+                    <input type="number" class="form-control" id="billQuantity">
+                </div>
+                <div class="form-group">
+                    <label for="billAmount">Bill Amount:</label>
+                    <input type="text" class="form-control" id="billAmount">
+                </div>
+    
+                <div class="form-group">
+                    <label for="newProductRemarks">Remarks:</label>
+                    <input type="text" class="form-control" id="newProductRemarks">
+                </div>
+                <br>
+                <button id="submitRegistrationForNewProduct" type="button" class="btn btn-primary">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="addNewVendorModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeAddNewVendorModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Add Vendor Form</h2>
+            </header>
+            <div class="w3-container">
+                    <label for="newVendorName">Vendor Name:</label>
+                    <input type="text" class="form-control" id="newVendorName">
+                    <label for="newVendorEmail">Email:</label>
+                    <input type="email" class="form-control" id="newVendorEmail">
+                    <label for="newVendorAddress" >Address:</label>
+                    <input type="text" class="form-control" id="newVendorAddress">
+                    <label for="newVendorPhone">Phone Number:</label>
+                    <input type="number" class="form-control" id="newVendorPhone">
+            </div>
+                <button id="submitRegistrationForNewVendor" type="button" class="btn btn-primary">SUBMIT</button>
+        </div>
+    </div>
+
+    <div id="editProductModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeEditProductModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Edit Product Form</h2>
+            </header>
+            <div class="w3-container">
+                <div class="form-group">
+                    <label for="editProductCode">Product Code:</label>
+                    <input type="text" class="form-control" id="editProductCode">
+                </div>
+                <div class="form-group">
+                    <label for="editDescriptionInventory">Description:</label>
+                    <textarea class="form-control" id="editDescriptionInventory" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editUnit">Unit:</label>
+                    <input type="text" class="form-control" id="editUnit">
+                </div>
+                <div class="form-group">
+                    <label for="editQuantity">Quantity:</label>
+                    <input type="number" class="form-control" id="editQuantity">
+                </div>
+                <div class="form-group">
+                    <label for="editPrice">Price:</label>
+                    <input type="text" class="form-control" id="editPrice">
+                </div>
+                <div class="form-group">Vendor Details<br>
+                    <label for="editVendorName">Select Vendor Name:</label>
+                    <select class="form-control" id="editVendorName">
+                        <% vendorRows.forEach(function(item) { %>
+                            <option class="vendorSelectId" value="<%= item.vendorName %>"><%= item.vendorName %></option>
+                        <% }); %>
+                    </select>
+                     <label for="editVendorEmail">Vendor Email:</label>
+                     <input type="text" class="form-control" id="editVendorEmail" >
+                     <label for="editVendorPhone">Vendor Phone:</label>
+                     <input type="text" class="form-control" id="editVendorPhone">
+                     <label for="editVendorAddress">Vendor Address:</label>
+                     <input type="text" class="form-control" id="editVendorAddress">
+                 </div>
+                  <div id="billDetails">BILL DETAILS
+                <div class="form-group">
+                    <label for="editBillNumber">Bill Number:</label>
+                    <input type="text" class="form-control" id="editBillNumber">
+                </div>
+                <div class="form-group">
+                    <label for="editBillDate">Bill Date:</label>
+                    <input type="date" class="form-control" id="editBillDate">
+                </div>
+                <div class="form-group">
+                    <label for="editBillDescription">Bill Description:</label>
+                    <input type="text" class="form-control" id="editBillDescription">
+                </div>
+                <div class="form-group">
+                    <label for="editBillUnit">Units:</label>
+                    <input type="text" class="form-control" id="editBillUnit">
+                </div>
+                <div class="form-group">
+                    <label for="editBillQuantity">Quantity:</label>
+                    <input type="number" class="form-control" id="editBillQuantity">
+                </div>
+                <div class="form-group">
+                    <label for="editBillAmount">Bill Amount:</label>
+                    <input type="text" class="form-control" id="editBillAmount">
+                </div>
+            
+                <div class="form-group">
+                    <label for="editProductRemarks">Remarks:</label>
+                    <input type="text" class="form-control" id="editProductRemarks">
+                </div>
+                <br>
+                <!--<input type="hidden" name="productId" id="editProductId" value=''>-->
+                <button id="submitChangedProduct" type="button" class="btn btn-primary">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

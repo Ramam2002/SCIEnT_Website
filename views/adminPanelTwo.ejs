@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery-1.10.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/adminPanel.js"></script>
+    <script src="/js/adminPanelProjects.js"></script>
+    <script src="/js/adminPanelInventory.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+    <link rel="stylesheet" href="/css/adminPanelOne.css">
+    <link rel="stylesheet" href="/css/scheme1.css">
+</head>
+<style>
+
+.table-responsive {
+    max-height:300px;
+}
+
+</style>
+<body>
+
+    <div class="container">
+        <div class="row" style="margin-top:2%;">
+            <div class="col-md-9">
+                <h1 style="font-family: 'Vollkorn', serif;text-align: center;margin-left: 10%">ADMIN PANEL</h1>
+            </div>
+            <div class="col-md-3">
+                <form method="post" action="/admin/logout">
+                    <button type="submit" class="btn btn-warning btn-lg">Logout</button>
+                </form>
+            </div>
+        </div>
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#completedOrOngoingProjects">Completed/Ongoing Projects</a></li>
+            <li><a data-toggle="tab" href="#pendingProjects">Pending Projects</a></li>
+            <li><a data-toggle="tab" href="#changePasswords">Change Password</a></li>
+            <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="completedOrOngoingProjects" class="tab-pane fade in active">
+                <div class="row" style="margin-top:3%;">
+                    <div class="col-md-12">              
+                        <div class="table-responsive" id="projectsTable">          
+                            <table class="table table-bordered" id="completedOngoingTable">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header">Completed or ongoing Projects</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                    </tr>
+                                </thead>
+
+                                <thead>
+                                    <tr>
+                                        <th class="subheader">PROJECT ID</th>
+                                        <th class="subheader">PROJECT NAME</th>
+                                        <th class="subheader">STATUS</th>
+                                        <th class="subheader">LAST UPDATE DONE BY</th>
+                                     </tr>
+                                </thead>
+                                <tbody>
+                                    <% projectsRows.forEach(function(item) { %>
+                                        <% if (item.status == 'Completed' || item.status == 'Ongoing') { %>
+                                            <tr>
+                                                <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                                                <td ><span class="projectName"><%= item.projectTitle %></span></td>
+                                                <td><span id="status"><%= item.status %></span></td>
+                                                <td><span class="lastUpdater"><%= item.latestUpdater %></span></td>
+                                            </tr>
+                                        <% } %>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="pendingProjects" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-12">
+                        <div class="table-responsive" id="projectsApprovedByL2">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header">PENDING PROJECTS</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th>PROJECT ID</th>
+                                        <th>PROJECT NAME</th>
+                                        <th>APPROVE</th>
+                                        <th>REJECT</th>
+                                        <th>STATUS</th>
+                                        <th>LAST STATUS CHANGE DONE BY</th>
+                                        <th>ENTER REMARKS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% projectsRows.forEach(function(item) { %>
+                                        <% if (item.status != 'Completed' && item.status != 'Ongoing') { %>
+                                            <tr>
+                                                <td ><a href="#"><span class="projectId"><%= item.id %></span></a></td>
+                                                <td ><span class="projectName"><%= item.projectTitle %></span></td>
+                                                <% if (item.status == 'Not yet approved by L1' || item.status == 'Approved by L2') { %>
+                                                    <td><button type="button" class="approveForProjectsByL2 btn btn-success" disabled>APPROVE</button></td>
+                                                <% } else { %>
+                                                    <td><button type="button" class="approveForProjectsByL2 btn btn-success">APPROVE</button></td>
+                                                <% } %>
+                                                <% if (item.status == 'Rejected by L1' || item.status == 'Rejected by L2' || item.status == 'Not yet approved by L1') { %>
+                                                    <td><button type="button" class="rejectForProjectsByL2 btn btn-danger" disabled>REJECT</button></td>
+                                                <% } else { %>
+                                                    <td><button type="button" class="rejectForProjectsByL2 btn btn-danger">REJECT</button></td>
+                                                <% } %>
+                                                <td><span id="status"><%= item.status %></span></td>
+                                                <td><span class="lastUpdater"><%= item.latestUpdater %></span></td>
+                                                <td><button type="button" class="enterRemarksByL2 btn btn-warning">REMARK</button></td>
+                                            </tr>
+                                        <% } %>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div id="inventory" class="tab-pane fade">
+                <div class="row" style="margin-top:3%;">
+                    <div class="col-md-12">              
+                        <div class="table-responsive" id="inventoryTable">          
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header">Inventory</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <!-- <th class="header"><button type="button" id="mailForProjects" class="btn btn-success">Mail for Projects</button></th> -->
+                                    </tr>
+                                </thead>
+
+                                <thead>
+                                    <tr>
+                                        <th class="subheader">SL.NO</th>
+                                        <th class="subheader">PRODUCT CODE</th>
+                                        <th class="subheader">DESCRIPTION</th>
+                                        <th class="subheader">UNIT</th>
+                                        <th class="subheader">QUANTITY</th>
+                                        <th class="subheader">PRICE</th>
+                                        <th class="subheader">VENDOR</th>
+                                        <th class="subheader">BILLING DETAILS</th>
+                                        <th class="subheader">REMARKS</th>
+                                     </tr>
+                                </thead>
+                                <tbody>
+                                   <% inventoryRows.forEach(function(item) { %>
+                                                <tr>
+                                                    <td ><a href="#"><span class="SlNo"><%= item.id %></span></a></td>            
+                                                    <td ><span class="productCode"><%= item.productCode %></span></td>
+                                                    <td ><span class="descriptionInventory"><%= item.descriptionInventory %></span></td>
+                                                    <td ><span class="unit"><%= item.unit %></span></td>
+                                                    <td ><span class="quantity"><%= item.quantity %></span></td>
+                                                     <td ><span class="price"><%= item.price %></span></td>
+                                                    <td ><span class="vendorName"><%= item.vendorName %></span></td>
+                                                    <td ><span class="billNumber"><%= item.billNumber %></span></td>
+                                                    <td ><span class="productRemarks"><%= item.remarks %></span></td>
+                                                </tr>
+                                            <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="changePasswords" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6" id="changePasswordForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">CHANGE YOUR PASSWORD</h2>
+                        <label>Enter your current password:</label><br>
+                        <input type="password" id="currentPassword" name="currentPassword" autocomplete="off"><br>
+                        <label>Enter new password:</label><br>
+                        <input type="password" id="newPassword" name="newPassword" autocomplete="off"><br>
+                        <label>Re-enter the new password to confirm:</label><br>
+                        <input type="password" id="confirmPassword1" name="confirmPassword1" autocomplete="off"><br>
+                        <span id="passwordChangeMsg"></span>
+                        <button id="changePassword" class="btn btn-warning btn-lg">Change Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="infoModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Request Details</h2>
+            </header>
+            <div class="w3-container">
+                <ul id="infoList">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="remarksModal" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-teal" > 
+                <span id="closeRemarksModal" class="w3-button w3-display-topright">&times;</span>
+                <h2>Remarks</h2>
+            </header>
+            <div class="w3-container">
+                <p>Enter your remarks:</p>
+                <textarea id="remarksByAdmin">
+                </textarea><br>
+                Project Id:<span id="projectIdForRemark"></span><br><br>
+                <button id="submitRemarks" type="button" class="btn btn-primary">REMARK</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

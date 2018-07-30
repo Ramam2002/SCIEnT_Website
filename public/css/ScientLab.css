@@ -8,6 +8,8 @@ html {
 }
 #map {
     border: 2px solid black;
+    height: 400px;  /* The height is 400 pixels */
+    width: 100%; 
 }
 #loader {
     width:100%;

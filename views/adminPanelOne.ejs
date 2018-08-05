@@ -223,7 +223,11 @@
                                 <thead>
                                     <tr>
                                         <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
                                         <th class="header">HALL BOOKING</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
                                         <th class="header"></th>
                                         <th class="header"><button type="button" class="mailForHallBooking btn btn-success">Mail for Hall Booking</button></th>
                                     </tr>
@@ -232,6 +236,10 @@
                                     <tr>
                                         <th>BOOKING ID</th>
                                         <th>PERSON ROLL</th>
+                                        <th>NAME</th>
+                                        <th>DATE</th>
+                                        <th>START TIME</th>
+                                        <th>END TIME</th>
                                         <th>APPROVE</th>
                                         <th>REMOVE</th>
                                     </tr>
@@ -241,6 +249,14 @@
                                         <tr>
                                             <td ><a href="#"><span class="bookingId"><%= item.id %></span></a></td>
                                             <td ><span class="applicantRoll"><%= item.roll %></span></td>
+                                            <td ><span class="applicantRoll"><%= item.name %></span></td>
+                                            <td ><span class="applicantRoll"><%= item.date.getDate() 
+                                            + '/'
+                                            + parseInt(item.date.getMonth() + 1)
+                                            + '/'
+                                            + item.date.getFullYear() %></span></td>
+                                            <td ><span class="applicantRoll"><%= item.startTime %></span></td>
+                                            <td ><span class="applicantRoll"><%= item.endTime %></span></td>
                                             <% if (item.approved == 'Yes') { %>
                                                 <td><button type="button" class="approveForHallBooking btn btn-success" disabled>APPROVE </button></td>
                                             <% } else { %> 

@@ -42,11 +42,13 @@
     <![endif]-->
     <!-- script src="/js/angular.min.js"></script>
     <script src="/js/angular-route.js"></script> -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-    <script src="/js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+        
     <style>
        /* .site-slider
         {
@@ -344,20 +346,7 @@
             }
         });
     </script>
-    <script>
-        function initMap() {
-          // The location of Uluru
-          var uluru = {lat: 10.7581879, lng: 78.8137351};
-          // The map, centered at Uluru
-          var map = new google.maps.Map(
-              document.getElementById('map'), {zoom: 4, center: uluru});
-          // The marker, positioned at Uluru
-          var marker = new google.maps.Marker({position: uluru, map: map});
-        }
-    </script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8GeotUWjvAqMKq1mQaywr8iC0Mylq8cA&callback=initMap">
-    </script>
+    
     
     <!-- <script>
         document.onreadystatechange = function () {

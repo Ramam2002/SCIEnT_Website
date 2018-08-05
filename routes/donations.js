@@ -9,6 +9,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var request= require('request');
 var url = require('url');
+var csrf = require('csurf');
 
 var models  = require(path.join(__dirname, '/../' ,'models'));
 var Donations = models.Donations;
@@ -18,6 +19,14 @@ var instamojoDetails = require('../env.js');
 
 var API_KEY = instamojoDetails.API_KEY;
 var AUTH_KEY = instamojoDetails.AUTH_KEY;
+
+// Setup route middleware
+var csrfProtection = csrf({ cookie: true });
+var parseForm = bodyParser.urlencoded({ extended: false })
+
+router.get('/getDonationsForm', csrfProtection, function(req, res, next) {
+    res.render('donations', { csrfToken: req.csrfToken() });
+});
 
 /* to handle form submission for facilities */
 router.post('/applyForDonations', function(req, res, next) {

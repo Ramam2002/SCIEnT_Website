@@ -6,7 +6,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-var email   = require("emailjs");
+var email = require("emailjs");
 var emailDetails = require('../env.js');
 var yourEmail = emailDetails.email;
 var yourPwd = emailDetails.pwd;
@@ -62,11 +62,10 @@ router.post('/mailForFacilities', function(req, res, next) {
 	var flag = 0;
 	Facilities.findAll({where: {
         approved: 'Yes',
-        status: {
-            [Op.or]: ['Access not given', 'Mail Sent once']
-        }
+        status: ['Access not given', 'Mail sent once']
     }})
 	.then(function (rows) {
+		console.log(rows);
 		rows.forEach(function (item) {
 			var mailBody = 'Your request for accessing scient lab tools and facilities has been granted';
 			// Email to be sent by admin
@@ -80,7 +79,7 @@ router.post('/mailForFacilities', function(req, res, next) {
 						
 					]
 			};
-
+			console.log("hi");
             var txt = "Mail delivered to applicantId: " + toString(item.id);
             console.log(txt);
 			
@@ -91,16 +90,6 @@ router.post('/mailForFacilities', function(req, res, next) {
 					flag = 1;
 				} 
 				else {
-					Facilities.update({
-                        status: 'Mail sent once' 
-    				},{
-    					where: {id: item.id, status: 'Access not given'}
-					}).then(function() {
-    				// res.send(JSON.stringify({msg: 'You have approved the facilties request corresponding to id '+ req.body.applicantId}));
-					}).catch(function(err) {
-						console.log(err);
-					});
-
                     Facilities.update({
                         status: 'Mail sent twice' 
                     },{
@@ -110,6 +99,16 @@ router.post('/mailForFacilities', function(req, res, next) {
                     }).catch(function(err) {
                         console.log(err);
                     });
+
+                    Facilities.update({
+                        status: 'Mail sent once' 
+    				},{
+    					where: {id: item.id, status: 'Access not given'}
+					}).then(function() {
+    				// res.send(JSON.stringify({msg: 'You have approved the facilties request corresponding to id '+ req.body.applicantId}));
+					}).catch(function(err) {
+						console.log(err);
+					});
 				}
 
 			});

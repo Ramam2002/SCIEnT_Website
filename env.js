@@ -1,5 +1,5 @@
-var email = "scientqueries@gmail.com";
-var pwd = "innovation";
+var email = "sreelakshmias98@gmail.com";
+var pwd = "chinnu123";
 var smtp = "smtp.gmail.com"; //If the email is gmail , else enter that smtp
 var API_KEY = "483fcdc4c4e13fc1762df91d97a1546a";
 var AUTH_KEY = "5fd27ffe5579cba18b089307450dab94";

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1 shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <title>Conference Hall Booking</title>
-    <script type="text/javascript" src="validateHallBooking.js" ></script>
+    <script type="text/javascript" src="js/validateHallBooking.js" ></script>
     <link rel="stylesheet" href="/css/hallBooking.css">
 </head>
 <style>
@@ -14,8 +14,9 @@
     }
 </style>
 <body>
-        <div class="container" id = "formHallBooking">
-            <form method="post" action="/applyForHallBooking">
+    <div class="container" id = "formHallBooking">
+        <form method="post" action="/applyForHallBooking">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>"/>
             <h1 class="jumbotron text-center" id="form-title">CONFERENCE HALL BOOKING</h1>
             <div class="form-group">
                 <label for="name">Name:</label>
@@ -59,9 +60,8 @@
             </div>
              <span id ="hallBookingErrorMsg"></span><br>
             <div class="wrapper" style="text-align:center">
-                <button type="submit" class="btn btn-default" style="width:50%" id="submit-button" onclick="validateForm()">Submit</button>
+                <button type="submit" class="btn btn-default" style="width:50%" id="submit-button" onclick="return validateForm()">Submit</button>
             </div>
-        
         </form>
     </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

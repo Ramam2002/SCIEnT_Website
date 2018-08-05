@@ -7,6 +7,19 @@ var router = express.Router();
 var fs = require('fs');
 var path = require('path');
 var bodyParser = require('body-parser');
+var csrf = require('csurf');
+
+var email = require("emailjs");
+var emailDetails = require('../env.js');
+var yourEmail = emailDetails.email;
+var yourPwd = emailDetails.pwd;
+var yourSmtp = emailDetails.smtp;
+var server  = email.server.connect({
+   user:    yourEmail, 
+   password: yourPwd, 
+   host:    yourSmtp, 
+   ssl:     true
+});
 
 var models  = require(path.join(__dirname, '/../' ,'models'));
 var Facilities = models.Facilities;
@@ -16,8 +29,29 @@ var Materials = models.Materials;
 var Services = models.Services;
 var HallBooking = models.HallBooking;
 
+// Setup route middleware
+var csrfProtection = csrf({ cookie: true });
+var parseForm = bodyParser.urlencoded({ extended: false })
+
+/* Get Register for Projects form */
+router.get('/registerForProjects', csrfProtection, function(req, res, next) {
+	res.render('registerForProjects', { csrfToken: req.csrfToken() });
+});
+
+/* Get Register for Facilities form */
+router.get('/registerForFacilities', csrfProtection, function(req, res, next) {
+	res.render('registerForFacilities', { csrfToken: req.csrfToken() });
+});
+
+/* Get Hall booking form */
+router.get('/applyForHallBooking', csrfProtection, function(req, res, next) {
+	res.render('hallBooking', { csrfToken: req.csrfToken() });
+});
+
+
+
 /* to handle form submission for facilities */
-router.post('/applyForFacilities', function(req, res, next) {
+router.post('/applyForFacilities', parseForm, csrfProtection, function(req, res, next) {
 	var record = {
 		name: req.body.name,
 		roll: req.body.roll,
@@ -34,13 +68,38 @@ router.post('/applyForFacilities', function(req, res, next) {
         Facilities.create(record);
         console.log('Record inserted successfully into Facilities table');
         // res.send("Form Successfully submitted :)");
+
+        var mailBody = record.name 
+        	+ ' ( ' 
+        	+ record.roll 
+        	+ ' )' 
+        	+ ' wants access to scient lab';
+		// Email to be sent by admin
+		var message = {
+			text: mailBody,
+			from: yourEmail,
+			to: yourEmail,
+			subject: "Access Requistion",
+			attachment:
+				[
+					
+				]
+		};
+		server.send(message, function (err, message) {
+			if (err != null) {
+				console.log(err);
+			} else {
+				console.log("Mail to alert scient ppl sent");
+			}
+		});
+
         res.render('formSubmission');
     }).catch(function(err) {
     	console.log(err);
     });
 });
 /* to handle form submission for projects*/
-router.post('/applyForProjects', function(req, res, next) {
+router.post('/applyForProjects', parseForm, csrfProtection, function(req, res, next) {
 	var record = {
 		name: req.body.name,
 		rollNo: req.body.rollNo,
@@ -176,14 +235,36 @@ router.post('/applyForProjects', function(req, res, next) {
 		});
 		console.log('Record inserted succesfully into Projects table');
 		// res.send("Form Successfully submitted :)");
+		var mailBody = record.name 
+        	+ ' ( ' 
+        	+ record.rollNo
+        	+ ' )' 
+        	+ ' has registered for project';
+		// Email to be sent by admin
+		var message = {
+			text: mailBody,
+			from: yourEmail,
+			to: yourEmail,
+			subject: "Project Registration",
+			attachment:
+				[
+					
+				]
+		};
+		server.send(message, function (err, message) {
+			if (err != null) {
+				console.log(err);
+			} else {
+				console.log("Mail to alert scient ppl sent");
+			}
+		});
 		res.render('formSubmission');
 	}).catch(function(err) {
 		console.log(err);
 	});
 });
 /* to handle form submission for hall booking */
-router.post('/applyForHallBooking', function(req, res, next) {
-
+router.post('/applyForHallBooking', parseForm, csrfProtection, function(req, res, next) {
 	var record = {
 		name: req.body.name,
 		roll: req.body.roll,
@@ -203,6 +284,29 @@ router.post('/applyForHallBooking', function(req, res, next) {
 	return HallBooking.create(record)
 	.then(function () {
 		console.log('HallBooking record entered successfully');
+		var mailBody = record.name 
+        	+ ' ( ' 
+        	+ record.roll 
+        	+ ' )' 
+        	+ ' has requested for a hall';
+		// Email to be sent by admin
+		var message = {
+			text: mailBody,
+			from: yourEmail,
+			to: yourEmail,
+			subject: "Hallbooking Request",
+			attachment:
+				[
+					
+				]
+		};
+		server.send(message, function (err, message) {
+			if (err != null) {
+				console.log(err);
+			} else {
+				console.log("Mail to alert scient ppl sent");
+			}
+		});
 		res.render('formSubmission');
 	}).catch(function (err) {
 		console.log(err);

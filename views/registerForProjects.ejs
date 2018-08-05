@@ -76,13 +76,14 @@ function removeElement(parentDiv, childDiv){
             var z = document.createElement("INPUT");
             z.style.width = "70%";
             y.setAttribute("type", "text");
+            y.setAttribute("name", "teamMembersNames");
             y.setAttribute("placeholder","Name");
             var g = document.createElement("IMG");
             g.setAttribute("src", "images/delete.png");
             z.setAttribute("type", "text");
+            z.setAttribute("name", "teamMembersRoll");
             z.setAttribute("placeholder","Roll Number");
             increment(); 
-            y.setAttribute("Name","textelement_"+i);
             r.appendChild(y);
             r.appendChild(z);
             g.setAttribute("onclick", "removeElement('new_field','id_"+ i +"')");
@@ -126,21 +127,26 @@ function removeElement(parentDiv, childDiv){
             var s = document.createElement("INPUT");
             s.style.width = "70%";
             y.setAttribute("type", "text");
+            y.setAttribute("name", "materialNames");
             y.setAttribute("placeholder","Name");
             var g = document.createElement("IMG");
             g.setAttribute("src", "images/delete.png");
             z.setAttribute("type", "text");
+            z.setAttribute("name", "materialSpecs");
             z.setAttribute("placeholder","Specification");
             x.setAttribute("type", "text");
+            x.setAttribute("name", "materialQuantity");
             x.setAttribute("placeholder","Quantity");
             w.setAttribute("type", "text");
+            w.setAttribute("name", "materialPrice");
             w.setAttribute("placeholder","Price");
             t.setAttribute("type", "text");
+            t.setAttribute("name", "purpose");
             t.setAttribute("placeholder","Purpose");
             s.setAttribute("type", "text");
+            s.setAttribute("name", "vendors");
             s.setAttribute("placeholder","Link/vendor");
             increment(); 
-            y.setAttribute("Name","textelement_"+i);
             r.appendChild(y);
             r.appendChild(z);
             r.appendChild(x);
@@ -173,14 +179,16 @@ function removeElement(parentDiv, childDiv){
             var x = document.createElement("INPUT");
             x.style.width = "70%";
             y.setAttribute("type", "text");
+            y.setAttribute("name", "serviceNames");
             y.setAttribute("placeholder","Name");
             var g = document.createElement("IMG");
             g.setAttribute("src", "images/delete.png");
             z.setAttribute("type", "text");
+            z.setAttribute("name", "serviceSpecs");
             z.setAttribute("placeholder","Specification");
+            x.setAttribute("name", "servicePrice");
             x.setAttribute("placeholder","Price");
             increment(); 
-            y.setAttribute("Name","textelement_"+i);
             r.appendChild(y);
             r.appendChild(z);
             r.appendChild(x);
@@ -232,7 +240,7 @@ function removeElement(parentDiv, childDiv){
 <body>
     <div class="container" id="form-projects">
         <form method="post" action="/applyForProjects">
-            
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>"/>
             <h1 class="jumbotron text-center" id="form-title">PROJECTS</h1>
 
             <div class="form-group">

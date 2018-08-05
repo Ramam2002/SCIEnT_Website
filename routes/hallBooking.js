@@ -64,7 +64,7 @@ router.post('/mailForHallBooking', function(req, res, next) {
 	HallBooking.findAll({where: {approved: 'Yes', mailSent: 'No'}})
 	.then(function (rows) {
 		rows.forEach(function (item) {
-			var mailBody = 'Your request for accessing scient lab conference hall has been granted from '+ item.approvedStartTime + 'to ' 
+			var mailBody = 'Your request for accessing scient lab conference hall has been granted from '+ item.approvedStartTime + ' to ' 
 			+ item.approvedEndTime;
 			// Email to be sent by admin
 			var message = {

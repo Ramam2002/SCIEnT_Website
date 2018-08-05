@@ -118,7 +118,7 @@ router.post('/adminLogin', function(req, res, next) {
 			res.render('adminLogin', { msg: 'Wrong Password' });
 		}
 	}).catch(function (err) {
-		console.log(err);
+		// console.log(err);
 		res.render('adminLogin', { msg: 'Username not found' });
 	});
 });

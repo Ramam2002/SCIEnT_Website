@@ -67,20 +67,20 @@ models.sequelize.sync().then(function () {
   console.log('Tables are created');
 });
 
-var adminName = 'levelOneAdmin';
-var adminPwd = 'scientAdmin';
-var salt = bcrypt.genSaltSync(1);
-var hash = bcrypt.hashSync(adminPwd, salt);
-adminPwd = hash;
-var adminDetails = {
-    adminName: adminName,
-    password: adminPwd,
-    adminLevel: 'One'
-};
-  // Admins.sync({force: false})
-  // .then( function() {
-  //   return Admins.create(adminDetails);
-  //   console.log('Demo level one admin added');
-  // });
+// var adminName = 'levelOneAdmin';
+// var adminPwd = 'scientAdmin';
+// var salt = bcrypt.genSaltSync(1);
+// var hash = bcrypt.hashSync(adminPwd, salt);
+// adminPwd = hash;
+// var adminDetails = {
+//     adminName: adminName,
+//     password: adminPwd,
+//     adminLevel: 'One'
+// };
+//   Admins.sync({force: false})
+//   .then( function() {
+//     return Admins.create(adminDetails);
+//     console.log('Demo level one admin added');
+//   });
 
 module.exports = app;

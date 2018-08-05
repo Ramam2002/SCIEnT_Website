@@ -209,7 +209,7 @@ router.post('/beginProject', function(req, res, next) {
 	var projectId = req.body.projectId;
 	Projects.findOne({ where:{ id: projectId}})
 	.then ( function (project) {
-		var mailBody = 'Your request for your project' + project.projectTitle+ 'has been granted';
+		var mailBody = 'Your request for your project ' + project.projectTitle +  ' has been granted';
 		var message = {
 				text: mailBody,
 				from: yourEmail,

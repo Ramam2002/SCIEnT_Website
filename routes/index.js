@@ -7,7 +7,7 @@ var router = express.Router();
 var email   = require("emailjs");
 var emailDetails = require('../env.js');
 var fs = require('fs');
-var path = require('path')
+var path = require('path');
 
 /*
  Set SMTP object

@@ -1,6 +1,6 @@
-var email = "scientqueries@gmail.com";
-var pwd = "innovation";
-var smtp = "smtp.gmail.com"; //If the email is gmail , else enter that smtp
+var email = "";
+var pwd = "";
+var smtp = ""; //If the email is gmail , else enter that smtp
 var API_KEY = "********************************";
 var AUTH_KEY = "***********************************";
 exports.email = email;

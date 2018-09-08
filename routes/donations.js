@@ -52,14 +52,15 @@ router.post('/applyForDonations', function(req, res, next) {
           'X-Auth-Token': AUTH_KEY
         };
 
-        // for development
-        /*
+        
+        var hostname = req.protocol + '://' + req.get('host');
+
         var payload = {
           'purpose': record.remarks,
           'amount': record.amount,
           'phone': record.contactNumber,
           'buyer_name': record.name,
-          'redirect_url': 'http://127.0.0.1:3000/donationSuccess',
+          'redirect_url': hostname + '/donationSuccess',
           'send_email': true,
           'webhook': '',
           'send_sms': true,
@@ -67,21 +68,6 @@ router.post('/applyForDonations', function(req, res, next) {
           'allow_repeated_payments': false
         };
 
-        */
-
-        // for production
-        var payload = {
-          'purpose': record.remarks,
-          'amount': record.amount,
-          'phone': record.contactNumber,
-          'buyer_name': record.name,
-          'redirect_url': 'https://scient.nitt.edu/donationSuccess',
-          'send_email': true,
-          'webhook': '',
-          'send_sms': true,
-          'email': record.emailID,
-          'allow_repeated_payments': false
-        };
 
         console.log(payload);
 

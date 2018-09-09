@@ -24,7 +24,7 @@ function validateDonationsForm () {
         return false;
     }
 
-    var amount_regex  = /^\d+(?:\.\d{0,2})$/;
+    var amount_regex  = /^[1-9]\d*(\.\d{0,2})?$/;
     if (!amount_regex.test(amount)) {
         // alert("Number is invalid");
         errorMsg.innerHTML = "Amount is invalid";

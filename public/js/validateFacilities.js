@@ -3,6 +3,7 @@ function validateForm () {
 	var roll = document.getElementById("rollNo").value;
 	var contact = document.getElementById("contact").value;
 	var email = document.getElementById("email").value;
+	var checkbox = document.getElementById("termsCheckbox");
 	var errMsgBody = document.getElementById("facilitiesFormMsg");
 	if ((name.match(/([^a-zA-Z. ])+/)) != null) {
 		// alert("No special characters in name");
@@ -32,6 +33,12 @@ function validateForm () {
 	if (!emailTest) {
 		alert("Enter valid email");
 		errMsgBody.innerHTML = "Enter valid email";
+		hideFaciltiesFormErrorMsg(errMsgBody);
+		return false;
+	}
+
+	if (checkbox.checked === false) {
+		errMsgBody.innerHTML = "Accept the terms and conditions";
 		hideFaciltiesFormErrorMsg(errMsgBody);
 		return false;
 	}

@@ -11,6 +11,7 @@ function validateForm () {
 	var materialQuantity = document.getElementsByClassName("material-quantity");
 	var materialPrice = document.getElementsByClassName("material-price");
 	var servicePrice = document.getElementsByClassName("service-price");
+	var checkbox = document.getElementById("termsCheckbox");
 	var errMsgBody = document.getElementById("projectsFormMsg");
 
 	if ((name.match(/([^a-zA-Z. ])+/)) != null) {
@@ -98,6 +99,11 @@ function validateForm () {
 			hideMsg(errMsgBody);
 			return false;
 		}
+	}
+	if (checkbox.checked === false) {
+		errMsgBody.innerHTML = "Accept the terms and conditions";
+		hideMsg(errMsgBody);
+		return false;
 	}
 	return true;
 }

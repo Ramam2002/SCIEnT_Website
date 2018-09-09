@@ -1,3 +1,13 @@
+body {
+    background-image: url("../images/bg.jpg");
+}
+
+#facilitiesFormMsg { 
+    color: red;
+    text-align: center;
+    display: block;
+}
+
 #error {
     color:red;
     font-weight: normal;
@@ -7,40 +17,31 @@ div {
     padding: 15px;
 }
 
-body {
-    background-image: url('../images/bg.jpg');
-}
-
-#formHallBooking {
-    padding: 5%;
+#form-projects {
+    width: 60%;
+    margin-top: 5%;
+    padding:5%;
     font-weight: bold;
     background-color: #E5E1E0;
-    width: 60%;
 }
 
-#submit-button:hover {
-    background: #494848;
-    color: white;
-    font-weight: bold;
-    cursor:pointer;
+.head-def {
+    font-size: 10px;
 }
 
 #submit-button {
     background: #494848;
-    color:white;
     cursor:pointer;
+    color: white;
 }
 
-#formHallBooking {
-    margin-top: 5%;
+#submit-button:hover {
+    background: #494848;
+    cursor:pointer;
+    color: white;
+    font-weight: bold;
 }
 
-#hallBookingErrorMsg {
-    color: red;
-    text-align: center;
-    display: block;
-}
-        
 #form-title {
     background-color:#494848;
 }
@@ -53,12 +54,11 @@ h1 {
     height: 13px;
     width: 13px;
 }
-        
+
 @media only screen and (max-width: 500px) {
     h1 {
         font-size: 15px;
     }
-      
     #submit-button {
         font-size:15px;
     }

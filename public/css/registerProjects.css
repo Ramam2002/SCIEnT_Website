@@ -1,10 +1,59 @@
+body {
+    background-image: url("../images/bg.jpg");
+    margin: 0px;
+}
+
+#close {
+    float: right;
+    display: inline-block;
+    padding: 2px 5px;
+    background: #ccc;
+}
+
+#form-projects {
+    margin-top: 5%;
+}
+
+#file-upload {
+    display: none;
+}
+
+.sname, .service_specs, .service_price {
+    width: 30%;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.material_name, .material_specs, .material_quantity, .material_price, .material_vendor, .material_purpose {
+    width: 30%;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.mem-name, .mem-roll {
+    width: 30%;
+    margin-left: 10px;
+}
+
+#add-mem, #add-s, #add-m {
+    margin-top: 10px;
+}
+
+#projectsFormMsg { 
+    color: red;
+    text-align: center;
+    display: block;
+}
+
 #error {
     color:red;
     font-weight: normal;
 }
+
 div {
     padding: 15px;
 }
+
 #form-projects {
     width: 60%;
     padding:5%;
@@ -15,6 +64,7 @@ div {
 .head-def {
     font-size: 10px;
 }
+
 .form_buttons {
     background-color: #494848;
     border-radius: 5px;
@@ -57,6 +107,7 @@ h1 {
     width: 100%;
     height: auto;
 }
+
 #submit-button {
     background: #494848;
     color: white;
@@ -72,6 +123,11 @@ h1 {
 #format-image:hover {
     opacity: 0.7;
     cursor:pointer;
+}
+
+#termsCheckbox {
+    height: 13px;
+    width: 13px;
 }
 
 @media only screen and (max-width: 500px) {

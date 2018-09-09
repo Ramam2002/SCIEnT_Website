@@ -5,237 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1 shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <title>Projects</title>
-    <link rel="stylesheet" href="css/register1.css">
+    <link rel="stylesheet" href="css/registerProjects.css">
     <script type="text/javascript" src="js/validateProjects.js" ></script>
 </head>
-<style>
-body{
-     background-image: url("../images/bg.jpg");
-}
-#close {
-    float:right;
-    display:inline-block;
-    padding:2px 5px;
-    background:#ccc;
-}
-</style>
-
-<script>
-    /*window.onload = function(){
-    document.getElementById("close").onclick = function(){
-        this.parentNode.parentNode.parentNode
-        .removeChild(this.parentNode.parentNode);
-        return false;
-    };
-};*/
-    function fileUpload () {
-        $("#file-upload").click();
-    }
-      
-
-
-            var i=0; 
-
-function increment(){
-i +=1;                         /* function for automatic increament of feild's "Name" attribute*/                 
-}
-
-
-
-function removeElement(parentDiv, childDiv){
-     if (childDiv == parentDiv) {
-          alert("The parent div cannot be removed.");
-     }
-     else if (document.getElementById(childDiv)) {     
-          var child = document.getElementById(childDiv);
-          var parent = document.getElementById(parentDiv);
-          parent.removeChild(child);
-     }
-     else {
-          alert("Child div has already been removed or does not exist.");
-          return false;
-     }
-}
-    function addTeamMembers () {
-       /* $("#new_field").append('<br>' 
-            +'<div>'
-            + '<span>'
-            + '<span id="close">x</span>'
-            + '<input type="text" name="teamMembersNames" placeholder="Name" class="mem-name" />'
-            + '<input type="text" name="teamMembersRoll" placeholder="Roll Number" class="mem-roll"/>'
-            
-            + '</span>'
-            +'</div><br>');*/
-
-
-            var r=document.createElement('span');
-            var br=document.createElement('br');
-            br.appendChild(r);
-            var y = document.createElement("INPUT");
-            y.style.width = "70%";
-            var z = document.createElement("INPUT");
-            z.style.width = "70%";
-            y.setAttribute("type", "text");
-            y.setAttribute("name", "teamMembersNames");
-            y.setAttribute("placeholder","Name");
-            var g = document.createElement("IMG");
-            g.setAttribute("src", "images/delete.png");
-            z.setAttribute("type", "text");
-            z.setAttribute("name", "teamMembersRoll");
-            z.setAttribute("placeholder","Roll Number");
-            increment(); 
-            r.appendChild(y);
-            r.appendChild(z);
-            g.setAttribute("onclick", "removeElement('new_field','id_"+ i +"')");
-            r.appendChild(g);
-            r.setAttribute("id", "id_"+i);
-            document.getElementById("new_field").appendChild(r);
-    }
-
-  /*  function hideField() {
-        $("#button").click(function()
-        {   console.log("alert");
-            $("new_field").hide();
-        });
-
-    }*/
-    function addMaterial () {
-       /* $("#material_field").append('<br>'
-            + '<span>'
-            + '<input type="text" name="materialNames" placeholder="Name" class="material-name"/>'
-            + '<input type="text" name="materialSpecs" placeholder="Specification" class="material-specs"/>'
-            + '<input type="text" name="materialQuantity" placeholder="Quantity" class="material-quantity"/>'
-            + '<input type="text" name="materialPrice" placeholder="Price" class="material-price" />'
-            + '<input type="text" name="purpose" placeholder="Purpose" class="material-purpose"/>'
-            + '<input type="text" name="vendors" placeholder="Link/Vendor" class="material-vendor"/>'
-            + '</span><br>');
-    }*/
-
-            var r=document.createElement('span');
-            var br=document.createElement('br');
-            br.appendChild(r);
-            var y = document.createElement("INPUT");
-            y.style.width = "70%";
-            var z = document.createElement("INPUT");
-            z.style.width = "70%";
-            var x = document.createElement("INPUT");
-            x.style.width = "70%";
-            var w = document.createElement("INPUT");
-            w.style.width = "70%";
-            var t = document.createElement("INPUT");
-            t.style.width = "70%";
-            var s = document.createElement("INPUT");
-            s.style.width = "70%";
-            y.setAttribute("type", "text");
-            y.setAttribute("name", "materialNames");
-            y.setAttribute("placeholder","Name");
-            var g = document.createElement("IMG");
-            g.setAttribute("src", "images/delete.png");
-            z.setAttribute("type", "text");
-            z.setAttribute("name", "materialSpecs");
-            z.setAttribute("placeholder","Specification");
-            x.setAttribute("type", "text");
-            x.setAttribute("name", "materialQuantity");
-            x.setAttribute("placeholder","Quantity");
-            w.setAttribute("type", "text");
-            w.setAttribute("name", "materialPrice");
-            w.setAttribute("placeholder","Price");
-            t.setAttribute("type", "text");
-            t.setAttribute("name", "purpose");
-            t.setAttribute("placeholder","Purpose");
-            s.setAttribute("type", "text");
-            s.setAttribute("name", "vendors");
-            s.setAttribute("placeholder","Link/vendor");
-            increment(); 
-            r.appendChild(y);
-            r.appendChild(z);
-            r.appendChild(x);
-            r.appendChild(w);
-            r.appendChild(t);
-            r.appendChild(s);
-            g.setAttribute("onclick", "removeElement('material_field','id_"+ i +"')");
-            r.appendChild(g);
-            r.setAttribute("id", "id_"+i);
-            document.getElementById("material_field").appendChild(r);
-
-    }
-      
-    function addService () {
-      /*  $("#service_field").append('<br>'
-            + '<span>'
-            + '<input type="text" name="serviceNames" placeholder="Name" class="service-name" />'
-            + '<input type="text" name="serviceSpecs" placeholder="Specification" class="service-specs"/>'
-            + '<input type="text" name="servicePrice" placeholder="Price" class="service-price"/>'
-            + '</span><br>');
-    } */
-
-            var r=document.createElement('span');
-            var br=document.createElement('br');
-            br.appendChild(r);
-            var y = document.createElement("INPUT");
-            y.style.width = "70%";
-            var z = document.createElement("INPUT");
-            z.style.width = "70%";
-            var x = document.createElement("INPUT");
-            x.style.width = "70%";
-            y.setAttribute("type", "text");
-            y.setAttribute("name", "serviceNames");
-            y.setAttribute("placeholder","Name");
-            var g = document.createElement("IMG");
-            g.setAttribute("src", "images/delete.png");
-            z.setAttribute("type", "text");
-            z.setAttribute("name", "serviceSpecs");
-            z.setAttribute("placeholder","Specification");
-            x.setAttribute("name", "servicePrice");
-            x.setAttribute("placeholder","Price");
-            increment(); 
-            r.appendChild(y);
-            r.appendChild(z);
-            r.appendChild(x);
-            g.setAttribute("onclick", "removeElement('service_field','id_"+ i +"')");
-            r.appendChild(g);
-            r.setAttribute("id", "id_"+i);
-            document.getElementById("service_field").appendChild(r);
-        }
-</script>
-
-<style>
-    #form-projects {
-        margin-top: 5%;
-    }
-    #file-upload {
-        display: none;
-    }
-    
-    .sname, .service_specs, .service_price {
-        width: 30%;
-        margin-left: 10px;
-        margin-top: 5px;
-    }
-    .material_name, .material_specs, .material_quantity, .material_price, .material_vendor, .material_purpose {
-        width: 30%;
-        margin-left: 10px;
-        margin-top: 5px;
-    } 
-    .mem-name, .mem-roll {
-        width: 30%;
-        margin-left: 10px;
-    }
-
-    #add-mem, #add-s, #add-m {
-        margin-top: 10px;
-    }
-    
-    body {
-        margin: 0px;
-    }
-    #projectsFormMsg { 
-        color: red;
-        text-align: center;
-        padding-left: 40%;
-    }
-
-</style>
 
 <body>
     <div class="container" id="form-projects">
@@ -301,10 +73,6 @@ function removeElement(parentDiv, childDiv){
                 <label for="abstract">Abstract :<br>
                     <span class="head-def">In 150 words</span>
                 </label>
-                <!-- <div id="abs-writeup">
-                    <span id="project-abstract" contenteditable="true" name="abstract"></span>
-                </div>
-                <span id="error"></span> -->
                 <br>
                 <textarea class="form-control" name="abstract" required placeholder="Write Abstract here"></textarea>
             </div>
@@ -336,6 +104,9 @@ function removeElement(parentDiv, childDiv){
                 </div>
             </div>
             <br>
+            <input type="checkbox" name="terms" value="accepted" id="termsCheckbox">
+            <label id="termsLabel">I have accepted the <a href="terms/T&C.pdf">Terms and Conditions</a> and I have read the <a href="terms/Rulebook.pdf">Rulebook</a></label>
+            <br>
             <span id="projectsFormMsg"></span>
             <div class="wrapper" style="text-align:center">
                 <button type="submit" class="btn btn-default" style="width:50%" id="submit-button" onclick="return validateForm()" >Submit</button>
@@ -351,6 +122,6 @@ function removeElement(parentDiv, childDiv){
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>  
 
-    <script src="js/register1.js"></script>
+    <script src="js/registerProjects.js"></script>
 </body>
 </html>

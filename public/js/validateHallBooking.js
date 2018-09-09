@@ -3,6 +3,7 @@ function validateForm () {
 	var roll = document.getElementById("rollNo").value;
 	var contact = document.getElementById("contact").value;
 	var email = document.getElementById("email").value;
+	var checkbox = document.getElementById("termsCheckbox");
 	var errMsgBody = document.getElementById("hallBookingErrorMsg");
 	if ((name.match(/([^a-zA-Z. ])+/)) != null) {
 		// alert("No special characters in name");
@@ -31,6 +32,11 @@ function validateForm () {
 	var emailTest = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/.test(email);
 	if (!emailTest) {
 		errMsgBody.innerHTML = "Enter valid email";
+		hideHallBookingFormErrorMsg(errMsgBody);
+		return false;
+	}
+	if (checkbox.checked === false) {
+		errMsgBody.innerHTML = "Accept the terms and conditions";
 		hideHallBookingFormErrorMsg(errMsgBody);
 		return false;
 	}

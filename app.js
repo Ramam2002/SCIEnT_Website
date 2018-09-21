@@ -22,6 +22,10 @@ var donations = require('./routes/donations');
 var inventory = require('./routes/inventory');
 var resources = require('./routes/resources');
 
+
+
+visitorCount = 0;
+
 var app = express();
 
 // view engine setup
@@ -35,8 +39,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 /* all the routes for the application are used here */
-app.use('/', index);
+app.use('/', function(req, res, next) {
+  if (req.url == '/') {
+    visitorCount++;
+  }
+  next();
+}, index);
 app.use('/', register);
 app.use('/', donations);
 app.use('/admin', admin);

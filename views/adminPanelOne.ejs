@@ -23,7 +23,7 @@
 <style>
 
 .table-responsive {
-    max-height:300px;
+    max-height: 600px;
 }
 
 </style>
@@ -94,7 +94,7 @@
                                                     <td><button type="button" class="markAsComplete btn btn-success">MARK</button></td>
                                                 <% } %>
                                                 <td><span id="status"><%= item.status %></span></td>
-                                                <td><span class="lastUpdater"><%= item.latestUpdater %></span></td>
+                                                <td><span id="lastUpdater" class="lastUpdater"><%= item.latestUpdater %></span></td>
                                             </tr>
                                         <% } %>
                                     <% }); %>
@@ -177,6 +177,9 @@
                                         <th class="header"></th>
                                         <th class="header">ACCESS</th>
                                         <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
                                         <th class="header"><button type="button" id="mailForFacilities" class="btn btn-success">Mail for Access</button></th>
                                         <th class="header"></th>
                                   </tr>
@@ -185,7 +188,10 @@
                                 <thead>
                                      <tr>
                                         <th>APPLICANT ID</th>
+                                        <th>APPLICANT ROLL</th>
                                         <th>APPLICANT NAME</th>
+                                        <th>PURPOSE</th>
+                                        <th>DURATION</th>
                                         <th>APPROVE</th>
                                         <th>CURRENT STATUS</th>
                                         <th>EDIT STATUS</th>  
@@ -202,6 +208,9 @@
                                         <% } %>   
                                             <td ><a href="#"><span class="applicantId"><%= item.id %></span></a></td>
                                             <td ><span class="applicantRoll"><%= item.roll %></span></td>
+                                            <td ><span class="applicantRoll"><%= item.name %></span></td>
+                                            <td ><span class="applicantRoll"><%= item.purpose %></span></td>
+                                            <td ><span class="applicantRoll"><%= item.duration %></span></td>
                                             <% if (item.approved == 'Yes') { %>
                                                 <td><button type="button" class="approveForFacilities btn btn-success" disabled>APPROVE </button></td>
                                             <% } else { %> 

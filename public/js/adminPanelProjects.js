@@ -248,9 +248,10 @@ $(document).ready (function () {
         var projectId = $(this).closest('tr').find('.projectId').text();
         var projectName = $(this).closest('tr').find('.projectName').text();
         var status = $(this).closest('tr').find('#status');
+        var selectedRow = $(this).parent().parent();
         var confirmation = confirm('Are you sure you want to mark the project ' + projectId + ' as Ongoing and send a mail?');
         if(confirmation == true) {
-            // $(this).prop('disabled', true);
+            //$(this).prop('disabled', true);
             // $(status).html('Completed');
             $.ajax({
                 url: '/admin/beginProject',
@@ -262,15 +263,13 @@ $(document).ready (function () {
                 dataType: 'json',
                 success: function (data, status) {
                     alert(data.msg);
-                    if(data.msg != "Error") {
+                    if( data.msg != 'Error') {
+                        selectedRow.remove();
                         $('#completedOrOngoingProjects tbody').append('<tr><td><a href="#"><span class="projectId">' + projectId +
-                        '</span></a></td><td><span class="projectName">' + projectName + '</span></td><td><button type="button" class="markAsComplete btn btn-success">MARK</button></td><td><span id="status">Ongoing</span></td>');
-                        $(this).parent().parent().remove();
+                        '</span></a></td><td><span class="projectName">' + projectName + '</span></td><td><button type="button" class="markAsComplete btn btn-success">MARK</button></td><td><span id="status">Ongoing</span></td><td><span id="lastUpdater">' + data.updater + '</span></td>');
                     }
                 }
             });
-        }
+        }       
     });
-
-
 });    

@@ -32,7 +32,7 @@
     <div class="sidenav" >
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#completedOrOngoingProjects">Completed/Ongoing Projects</a></li>            
-            <li><a data-toggle="tab" href="#eventAndUpdates">Events and Updates</a></li>
+            <li><a data-toggle="tab" href="#eventAndUpdates">Ongoing and Upcoming Events</a></li>
             <li><a data-toggle="tab" href="#pendingProjects">Pending Projects</a></li>
             <li><a data-toggle="tab" href="#facilitiesOrTools">Access</a></li>
             <li><a data-toggle="tab" href="#conferenceHallBooking">Hall Booking Requests</a></li>
@@ -113,17 +113,17 @@
             <div id="eventAndUpdates" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
                     <div class="col-md-5" id="updatesForm">
-                        <h4 style="font-family: 'Vollkorn',serif;">Updates (horizontal scroll feed)</h4>
-                        <label>Updates</label>
+                        <h4 style="font-family: 'Vollkorn',serif;">Upcoming Events (horizontal scroll feed)</h4>
+                        <label>Upcoming Events</label>
                         <br>
-                        <input type="text" name="update"  id="update" autocomplete="off"> <button id="addUpdate" class="btn btn-primary btn-md">Add Update</button>                        
+                        <input type="text" name="update"  id="update" autocomplete="off"> <button id="addUpdate" class="btn btn-primary btn-md">Add Upcoming Event</button>                        
                         <br>
                         <br>
                         <span id="updateMsg"></span>
                         <table id="updateTable" class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <td class="header col-md-4">Update Details</td>
+                                    <td class="header col-md-4">Upcoming Event Details</td>
                                     <td class="header col-md-1">Remove</td>
                                 </tr>
                             </thead>
@@ -131,9 +131,9 @@
                                     <% updatesRows.forEach(function(item) { %>
                                             <tr>
                                                 <td>
-                                                    <%= item.updateDetails %>
+                                                    <%= item.UpcomingEventsDetails %>
                                                 </td>
-                                                <td><span class="delUpdate fa fa-close" style="color:red;cursor:pointer;" id="<%= item.updateDetails %>"></span></td>
+                                                <td><span class="delUpdate fa fa-close" style="color:red;cursor:pointer;" id="<%= item.UpcomingEventsDetails %>"></span></td>
 
                                             </tr>
                                             
@@ -148,16 +148,16 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-6" id="eventsForm">
 
-                        <h4 style="font-family: 'Vollkorn',serif;">Events</h4>
+                        <h4 style="font-family: 'Vollkorn',serif;">Ongoing Event</h4>
                         <br>
-                        <input type="text" name="event" id="event" autocomplete="off"> <button id="addEvent" class="btn btn-primary btn-md">Add Event</button>
+                        <input type="text" name="event" id="event" autocomplete="off"> <button id="addEvent" class="btn btn-primary btn-md">Add Ongoing event</button>
                         <br>
                         <br>
                         <span id="eventMsg"></span>
                         <table id="eventTable" class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <td class="header col-md-5">Event Details</td>
+                                    <td class="header col-md-5">Ongoing event Details</td>
                                     <td class="header col-md-1">Remove</td>
                                 </tr>
                             </thead>
@@ -165,9 +165,9 @@
                                  <% eventRows.forEach(function(item) { %>
                                             <tr>
                                                 <td>
-                                                    <%= item.eventDetails %>
+                                                    <%= item.OngoingEventsDetails %>
                                                 </td>
-                                                <td><span class="delEvent fa fa-close" style="color:red;cursor:pointer;" id="<%= item.eventDetails %>"></span></td>
+                                                <td><span class="delEvent fa fa-close" style="color:red;cursor:pointer;" id="<%= item.OngoingEventsDetails %>"></span></td>
 
                                             </tr>
                                             

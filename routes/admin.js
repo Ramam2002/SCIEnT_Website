@@ -16,8 +16,8 @@ var Admins = models.Admins;
 var Donations = models.Donations;
 var Inventory=models.inventory;
 var Vendors=models.Vendors;
-var events=models.events;
-var updates=models.updates;
+var events=models.OngoingEvents;
+var updates=models.UpcomingEvents;
 
 
 router.use(session({secret: 'ssshhhhh'}));

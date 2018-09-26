@@ -1,6 +1,6 @@
 "use strict"
 module.exports = function(sequelize,DataTypes){
-	var events = sequelize.define("events",{
+	var OngoingEvents = sequelize.define("OngoingEvents",{
 		id:{
 			type:DataTypes.INTEGER,
 			unique:true,
@@ -8,7 +8,7 @@ module.exports = function(sequelize,DataTypes){
 			allowNull:false,
 			primaryKey:true
 		},
-		eventDetails:{
+		OngoingEventsDetails:{
 			type:DataTypes.STRING,
 			unique: true,
 			allowNull: false
@@ -16,6 +16,6 @@ module.exports = function(sequelize,DataTypes){
 	},{
     freezeTableName: true
   });
-	return events;
+	return OngoingEvents;
 
 };

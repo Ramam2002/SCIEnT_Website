@@ -1,6 +1,6 @@
-<div style="background-color:#333;opacity: 1;padding: none;">
+<div   style="background-color:#333;opacity: 1;padding: none;">
     <marquee>
-        <p style="color:#ddd; font-size: 10pt;"><strong>Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor!</strong></p>
+        <p style="color:#ddd; font-size: 10pt;"><strong ng-repeat="x in ongoingEvents"> {{x.OngoingEventsDetails}} &#9899; </strong></p>
     </marquee>
 </div>
 <br>
@@ -59,11 +59,11 @@
             </div>
         </div>
         <div class="col-md-4">
-            <iframe  height="250" width="450" src="https://www.youtube.com/embed/P5R12zxuSvk"></iframe>
+            <iframe  height="250" width="450" src="https://drive.google.com/file/d/0B1r9PHc7c1C9V1RVMVl3bXBDQ1k/preview"></iframe>
             <br>
             <br>
             <div class="updates">
-                 <strong>EVENTS</strong>
+                 <strong>UPCOMING EVENTS</strong>
                 <div style="border:solid #E0BB24;overflow-y: scroll;background-color:#333;color: #ddd;  height: 150px; width: 450px">
                     <style type="text/css">
                         li{
@@ -73,16 +73,8 @@
                     </style>
 
                     <ul>
-                        <li>Lorem ipsum dolor Lorem ipsum dolorLorem ipsum dolor Lorem ipsum dolor  </li>
-                        <li>Lorem ipsum dolor Lorem ipsum dolorLorem ipsum dolor Lorem ipsum dolor  </li>
-                        <li>Lorem ipsum dolor Lorem ipsum dolorLorem ipsum dolor Lorem ipsum dolor  </li>
-                        <li>Lorem ipsum dolor Lorem ipsum dolorLorem ipsum dolor Lorem ipsum dolor  </li>
-                        <li>Lorem ipsum dolor Lorem ipsum dolorLorem ipsum dolor Lorem ipsum dolor  </li>
-                        <li>Lorem ipsum dolor Lorem ipsum dolorLorem ipsum dolor Lorem ipsum dolor  </li>
-                        <li>Lorem ipsum dolor Lorem ipsum dolorLorem ipsum dolor Lorem ipsum dolor  </li>
-                        <li>Lorem ipsum dolor Lorem ipsum dolorLorem ipsum dolor Lorem ipsum dolor  </li>
-                        <li>Lorem ipsum dolor Lorem ipsum dolorLorem ipsum dolor Lorem ipsum dolor  </li>
-
+                      <li ng-repeat="x in upcomingEvents">{{x.UpcomingEventsDetails}}</li>
+                       
                     </ul>
                 </div>
             </div>

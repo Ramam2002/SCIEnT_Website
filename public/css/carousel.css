@@ -9,10 +9,10 @@ Image credits: unsplash.com
 /********************************/
 .fade-carousel {
     position: relative;
-    height: 40vh;
+    height: 80vh;
 }
 .fade-carousel .carousel-inner .item {
-    height: 40vh;
+    height: 80vh;
 }
 .fade-carousel .carousel-indicators > li {
     margin: 0 2px;
@@ -101,7 +101,7 @@ Image credits: unsplash.com
 .fade-carousel .slides .slide-1, 
 .fade-carousel .slides .slide-2,
 .fade-carousel .slides .slide-3 {
-  height: 50vh;
+  height: 100vh;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

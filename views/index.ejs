@@ -147,6 +147,9 @@
                         <a href="#!FAQ">FAQ</a>
                     </li> -->
                     <li class = "menu-item">
+                        <a href="#!AnnualReports" ng-class="getClass('/AnnualReports')">Annual Reports</a>
+                    </li>
+                    <li class = "menu-item">
                         <a href="#!Contacts" ng-class="getClass('/Contacts')">Contact Us</a>
                     </li>
                     <!-- <li class = "menu-item">
@@ -304,6 +307,9 @@
             })
             .when("/Donations", {
                 templateUrl : "donations.html"
+            })
+            .when("/AnnualReports", {
+                templateUrl : "annual_reports.html"
             })
             .otherwise({
                 redirectTo: '/home'

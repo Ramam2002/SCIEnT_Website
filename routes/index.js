@@ -22,6 +22,11 @@ var server  = email.server.connect({
    ssl:     true,
 });
 
+
+var models  = require(path.join(__dirname, '/../' ,'models'));
+var events = models.OngoingEvents;
+var updates = models.UpcomingEvents;
+
 /* 
  GET home page 
 */
@@ -40,6 +45,25 @@ router.get('/:type/images',function(req, res, next){
 		res.send(files);
 	});
 });
+
+//sends upcoming events list
+router.get('/upcoming',function(req,res,next){
+	updates.findAll().then(function(upcomingEvents){
+		console.log(upcomingEvents);
+        res.send(upcomingEvents);
+	});
+    
+});
+
+//sends ongoing events list
+router.get('/ongoing',function(req,res,next){
+	events.findAll().then(function(ongoingEvents){
+		console.log(ongoingEvents);
+        res.send(ongoingEvents);
+	});
+    
+});
+
 /* module for sending message/queries on contacts page to scient */
 router.post('/sendMessage', function(req, res, next) {
 	console.log(req.body.name);

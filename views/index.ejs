@@ -70,7 +70,7 @@
 
 </head>
 
-<body ng-app="ScientLab" ng-controller="ScientLabCtrl" ng-init="fetchResources()">
+<body ng-app="ScientLab" ng-controller="ScientLabCtrl" ng-init="fetchResourcesEvents()">
 <!-- <div id="loader"></div> -->
 <div id="page-contents">
     <!-- Header -->
@@ -194,6 +194,8 @@
     </div>
 </div>
     <script>
+        
+        
         var app = angular.module("ScientLab", ["ngRoute"]);
         app.filter('split', function() {
             return function(input, splitChar, splitIndex) {
@@ -212,6 +214,7 @@
         app.controller('ScientLabCtrl', function($scope, $rootScope, $http, $location) {
             $scope.tronixFileNames = [];
             $scope.mechFileNames = [];
+
             $scope.viewLoaded = function () {
                 $('.carousel').carousel({
                     interval: 4000 //changes the speed
@@ -255,7 +258,9 @@
                 }
                 
             };
-            $scope.fetchResources = function() {
+            $scope.ongoingEvents="HELLO!";
+            
+            $scope.fetchResourcesEvents = function() {
                 $http({
                     method : "GET",
                     url : "/electronics/images"
@@ -272,6 +277,23 @@
                     $scope.mechFileNames = response.data;
                 }, function myError(response) {
                 });
+                $http({
+                    method : "GET",
+                    url : "/ongoing"
+                }).then(function (response){
+                    $scope.ongoingEvents=response.data;
+                },function(response){
+
+                });
+                 $http({
+                    method : "GET",
+                    url : "/upcoming"
+                }).then(function (response){
+                    $scope.upcomingEvents=response.data;
+                },function(response){
+
+                });
+            
             }; 
             $scope.getClass = function (path) {
                 return ($location.path().substr(0, path.length) === path) ? 'active' : '';
@@ -309,6 +331,7 @@
                 redirectTo: '/home'
             });
         });
+
     </script>
     
     <!-- /.container -->

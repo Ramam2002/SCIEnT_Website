@@ -14,8 +14,11 @@ var Projects = models.Projects;
 var HallBooking = models.HallBooking;
 var Admins = models.Admins;
 var Donations = models.Donations;
-var Inventory = models.inventory;
-var Vendors = models.Vendors;
+var Inventory=models.inventory;
+var Vendors=models.Vendors;
+var events=models.OngoingEvents;
+var updates=models.UpcomingEvents;
+
 
 router.use(session({secret: 'ssshhhhh'}));
 router.use(bodyParser.urlencoded({extended: false }));
@@ -45,16 +48,13 @@ router.get('/', function(req, res, next) {
 								adminsRows = admins;
 								Donations.findAll().then( function(donations) {
 									donationRows = donations;
-									res.render('adminPanelOne',{ 
-										projectsRows: projectsRows,
-										facilitiesRows: facilitiesRows,
-										hallBookingRows: hallBookingRows,
-										inventoryRows:inventoryRows,
-										vendorRows: vendorRows, 
-										adminsRows: adminsRows, 
-										donationRows: donationRows,
-										visitorCount: visitorCount
-									});
+									events.findAll().then(function(events){
+										eventRows = events;
+										updates.findAll().then(function(updates){
+											updatesRows = updates;
+											res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows,eventRows:eventRows,updatesRows:updatesRows});
+										});
+									});									
 								});
 							});
 						});
@@ -113,16 +113,13 @@ router.post('/', function(req, res, next) {
 									adminsRows = admins;
 									Donations.findAll().then( function(donations) {
 										donationRows = donations;
-										res.render('adminPanelOne',{ 
-											projectsRows: projectsRows,
-											facilitiesRows: facilitiesRows,
-											hallBookingRows: hallBookingRows,
-											inventoryRows: inventoryRows,
-											vendorRows: vendorRows,
-											adminsRows: adminsRows,
-											donationRows: donationRows,
-											visitorCount: visitorCount
-										});
+										events.findAll().then(function(events){
+											eventRows = events;
+											updates.findAll().then(function(updates){
+												updatesRows = updates;
+												res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows,eventRows:eventRows,updatesRows:updatesRows});
+											});
+										});					
 									});
 								});
 							});
@@ -177,6 +174,20 @@ router.post('/addAdmin', function(req, res, next) {
 			+ ' successfully!' 
 		}));
 	return Admins.create(adminRecord);
+});
+
+//delete admin
+router.post('/delAdmin',function(req,res,next){
+
+	var adminName=req.body.adminName;
+	res.send(JSON.stringify({msg:"Successfully deleted "+adminName}));
+	console.log('deleting '+adminName);
+	return Admins.destroy({
+		where:{
+			adminName:adminName
+		}
+	});
+
 });
 router.post('/changePassword', function(req, res, next) {
 	Admins.findOne({ where: { adminName: req.session.adminid} })

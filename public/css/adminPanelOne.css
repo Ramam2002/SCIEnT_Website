@@ -108,3 +108,39 @@ body {
 #infoList {
     overflow-y: auto;
 }
+
+.sidenav {
+   
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    overflow-x: hidden;
+    padding-top: 50px;
+
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 13px;
+    color: #fff;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #064579;
+    background-color: grey;
+}
+.container{
+margin-left: 200px; /* Same width as the sidebar + left position in px */
+    
+    padding: 0px 10px;
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 12px;}
+}

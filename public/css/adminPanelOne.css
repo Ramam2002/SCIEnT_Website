@@ -118,9 +118,9 @@ body {
     top: 0;
     left: 0;
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    overflow-x: hidden;
+    overflow-x: auto;
     padding-top: 50px;
-
+    
 }
 
 .sidenav a {
@@ -135,12 +135,12 @@ body {
     color: #064579;
     background-color: grey;
 }
-.container{
-margin-left: 200px; /* Same width as the sidebar + left position in px */
-    
-    padding: 0px 10px;
+#box{
+    font-size: 12px;
+    padding: none;
+    color: #aaa;
 }
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 12px;}
+li{
+    padding: none;
+    
 }

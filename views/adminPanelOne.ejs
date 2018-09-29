@@ -111,9 +111,8 @@
 
             <div id="eventAndUpdates" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
-                    <div class="col-md-5" id="updatesForm">
+                    <div class="col-md-6" id="updatesForm">
                         <h4 style="font-family: 'Vollkorn',serif;">Upcoming Events (horizontal scroll feed)</h4>
-                        <label>Upcoming Events</label>
                         <br>
                         <input type="text" name="update"  id="update" autocomplete="off"> <button id="addUpdate" class="btn btn-primary btn-md">Add Upcoming Event</button>                        
                         <br>
@@ -122,6 +121,7 @@
                         <table id="updateTable" class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <td class="header col-md-1">Event ID</td>
                                     <td class="header col-md-4">Upcoming Event Details</td>
                                     <td class="header col-md-1">Remove</td>
                                 </tr>
@@ -129,6 +129,9 @@
                             <tbody>
                                     <% updatesRows.forEach(function(item) { %>
                                             <tr>
+                                                <td>
+                                                    <%=item.id%>
+                                                </td>
                                                 <td>
                                                     <%= item.UpcomingEventsDetails %>
                                                 </td>
@@ -144,7 +147,7 @@
                         </table>
                         
                     </div>
-                    <div class="col-md-1"></div>
+                    
                     <div class="col-md-6" id="eventsForm">
 
                         <h4 style="font-family: 'Vollkorn',serif;">Ongoing Event</h4>
@@ -156,13 +159,17 @@
                         <table id="eventTable" class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <td class="header col-md-5">Ongoing event Details</td>
+                                    <td class="header col-md-1">Event ID</td>
+                                    <td class="header col-md-4">Ongoing event Details</td>
                                     <td class="header col-md-1">Remove</td>
                                 </tr>
                             </thead>
                             <tbody>
                                  <% eventRows.forEach(function(item) { %>
                                             <tr>
+                                                <td>
+                                                    <%= item.id %>
+                                                </td>   
                                                 <td>
                                                     <%= item.OngoingEventsDetails %>
                                                 </td>

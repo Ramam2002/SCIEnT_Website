@@ -10,7 +10,7 @@ module.exports = function(sequelize,DataTypes){
 		},
 		OngoingEventsDetails:{
 			type:DataTypes.STRING,
-			unique: true,
+			unique: false,
 			allowNull: false
 		}
 	},{

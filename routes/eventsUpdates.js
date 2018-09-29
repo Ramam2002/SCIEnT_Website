@@ -13,21 +13,26 @@ router.use(bodyParser.urlencoded({extended: false }));
 
 //add updates
 router.post('/addUpdate',function(req,res,next){
+	
 	var updateRecord={
 		UpcomingEventsDetails:req.body.updateDetails
-	}
-	res.send(JSON.stringify({msg: 'Update added successfully!' }));
-	return updates.create(updateRecord);
+	};
+	 
+	
+	updates.create(updateRecord).then(function(update){
+		res.send(JSON.stringify({msg: 'Upcoming Event added successfully!' ,id:update.dataValues.id}));
+		
+	});
 
 });
 
 //delete updates
 router.post('/delUpdate',function(req,res,next){
-	var update=req.body.updateDetails;
-	res.send(JSON.stringify({msg:"Successfully deleted the update : "+update}));
+	var update=req.body.id;
+	res.send(JSON.stringify({msg:"Successfully deleted the Upcoming Event "}));
 	return updates.destroy({
 		where:{
-			UpcomingEventsDetails:update
+			id:update
 		}
 	});
 
@@ -38,18 +43,20 @@ router.post('/addEvent',function(req,res,next){
 	var eventRecord={
 		OngoingEventsDetails:req.body.eventDetails
 	}
-	res.send(JSON.stringify({msg: 'Event added successfully!' }));
-	return events.create(eventRecord);
+	events.create(eventRecord).then(function(event){
+		console.log('-----------');
+        res.send(JSON.stringify({msg: 'Ongoing Event added successfully!',id:event.dataValues.id }));
+	});
 
 });
 
 //delete events
 router.post('/delEvent',function(req,res,next){
-	var event=req.body.eventDetails;
-	res.send(JSON.stringify({msg:"Successfully deleted the event : "+event}));
+	var event=req.body.id;
+	res.send(JSON.stringify({msg:"Successfully deleted the Ongoing Event "}));
 	return events.destroy({
 		where:{
-			OngoingEventsDetails:event
+			id:event
 		}
 	});
 

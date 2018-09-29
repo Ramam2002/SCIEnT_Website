@@ -11,7 +11,7 @@ $(document).on('click','#addUpdate',function(){
                 success: function(data, status) {
                     alert(data.msg);      
                     $('#update').val('');
-                    $('#updateTable').append('<tr>' +'<td>'+ update + '</td>'+'<td><span class="delUpdate fa fa-close" style="color:red;cursor:pointer;" id="<%= item.updateDetails %>"></span></td>'+'</tr>');
+                    $('#updateTable').append('<tr>' +'<td>'+data.id+'</td>'+'<td>'+ update + '</td>'+'<td><span class="delUpdate fa fa-close" style="color:red;cursor:pointer;" id="'+data.id+'"></span></td>'+'</tr>');
                    
                 }
 
@@ -32,7 +32,7 @@ $(document).on('click','#addEvent',function(){
                 success: function(data, status) {
                     alert(data.msg);      
                     $('#event').val('');
-                    $('#eventTable').append('<tr>' +'<td>'+ event + '</td>'+'<td><span class="delEvent fa fa-close" style="color:red;cursor:pointer;" id="<%= item.eventDetails %>"></span></td>'+'</tr>');
+                    $('#eventTable').append('<tr>' +'<td>'+data.id+'</td>'+'<td>'+ event + '</td>'+'<td><span class="delEvent fa fa-close" style="color:red;cursor:pointer;" id="'+data.id+'"></span></td>'+'</tr>');
                    
                 }
 
@@ -45,7 +45,7 @@ $(document).on('click','.delUpdate',function(){
         url: '/admin/delUpdate',
         method: 'POST',
         data: JSON.stringify({
-            updateDetails:update
+            id:update
         }),
         contentType: "application/json",
         dataType: "json",
@@ -64,7 +64,7 @@ $(document).on('click','.delEvent',function(){
         url: '/admin/delEvent',
         method: 'POST',
         data: JSON.stringify({
-            eventDetails:event
+            id:event
         }),
         contentType: "application/json",
         dataType: "json",

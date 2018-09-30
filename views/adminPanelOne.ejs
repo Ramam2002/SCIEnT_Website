@@ -50,6 +50,7 @@
             <li><a data-toggle="tab" href="#donations">Donations</a></li>
             <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
             <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
+            <li><a data-toggle="tab" href="#resources">Resources</a></li>
             <li><a data-toggle="tab" href="#changePasswords">Change your password</a></li>
         </ul>
 
@@ -418,6 +419,40 @@
                     </div>
                 </div>
             </div>
+
+            
+
+            <div id="resources" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6" id="addResourcesForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">CHANGE YOUR PASSWORD</h2>
+                        
+                        <%= typeof msg != 'undefined' ? msg : '' %>
+                        
+                        <form action="/uploadResource" method="POST" enctype="multipart/form-data" name='resourceForm'>
+                            <div class="input-field col s6">
+                                <label for="name">Resource Name</label><br>
+                                <input id="name" name="name" type="text" class="validate">
+                            </div>
+                            <br>
+                            <div class="input-field col s6">
+                                <label for="type">Resource Type</label><br>
+                                <input id="type" name="type" type="text" class="validate">
+                            </div>
+                            <br>
+                            <div class="file-field input-field">
+                                    <label for="resourceImage">Image</label><br>
+                                    <input id="resourceImage" name="resourceImage" type="file">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+
+
 
             <div id="changePasswords" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">

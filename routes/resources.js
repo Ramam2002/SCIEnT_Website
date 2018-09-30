@@ -52,9 +52,15 @@ router.post('/uploadResource', upload.single('resourceImage'), function(req, res
         resourceImage: req.file.path
     };
     Resources.create(record).then(function(){
+<<<<<<< f9a41c773bab7a3b9e800ffe3ecf462750973580
         res.end(JSON.stringify({msg: 'Resource Form submitted successfully!' }));
     }).catch(function(err){
         res.end(JSON.stringify({msg: `Error : ${err['errors'][0]['message']}`}));
+=======
+        res.end("Form Submitted Succesfully");
+    }).catch(function(err){
+        res.end(`Error : ${err}`);
+>>>>>>> Added resources route
     });
 });
 

@@ -22,7 +22,10 @@ var donations = require('./routes/donations');
 var inventory = require('./routes/inventory');
 var resources = require('./routes/resources');
 
+<<<<<<< f9a41c773bab7a3b9e800ffe3ecf462750973580
 
+=======
+>>>>>>> Added resources route
 
 visitorCount = 0;
 

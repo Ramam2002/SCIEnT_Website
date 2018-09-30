@@ -7,8 +7,12 @@ function showRemarksModal (projectId) {
     document.getElementById('remarksModal').style.display = 'block';
 }
 
-function showHallBookingModal (bookingId) {
+function showHallBookingModal (bookingId, requestedStartTime,requestedEndTime) {
     document.getElementById('bookingIdForApproval').innerHTML = bookingId;
+    document.getElementById('approvedStartTime').value = requestedStartTime;
+    console.log(requestedStartTime);
+    document.getElementById('approvedEndTime').value = requestedEndTime;
+    console.log(requestedEndTime);
     document.getElementById('hallBookingModal').style.display = 'block';
 }
 function showAddProductModal()

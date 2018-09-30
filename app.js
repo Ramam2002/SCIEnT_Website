@@ -20,6 +20,7 @@ var projects = require('./routes/projects');
 var hallBooking = require('./routes/hallBooking');
 var donations = require('./routes/donations');
 var inventory = require('./routes/inventory');
+var annualReport = require('./routes/annualReport');
 
 
 var app = express();
@@ -44,6 +45,7 @@ app.use('/admin', facilities);
 app.use('/admin', projects);
 app.use('/admin', hallBooking);
 app.use('/admin', inventory);
+app.use('/admin', annualReport);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

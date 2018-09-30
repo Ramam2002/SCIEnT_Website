@@ -215,6 +215,7 @@
         app.controller('ScientLabCtrl', function($scope, $rootScope, $http, $location) {
             $scope.tronixFileNames = [];
             $scope.mechFileNames = [];
+            $scope.annualReportFileNames = [];
             $scope.viewLoaded = function () {
                 $('.carousel').carousel({
                     interval: 4000 //changes the speed
@@ -273,6 +274,14 @@
                 }).then(function mySuccess(response) {
                    
                     $scope.mechFileNames = response.data;
+                }, function myError(response) {
+                });
+                $http({
+                    method : "GET",
+                    url : "/annual_reports"
+                }).then(function mySuccess(response) {
+                   
+                    $scope.annualReportFileNames = response.data;
                 }, function myError(response) {
                 });
             }; 

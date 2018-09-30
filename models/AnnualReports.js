@@ -16,6 +16,7 @@ module.exports=function(sequelize,DataTypes){
         year:{
             type:DataTypes.INTEGER,
             len:[1, 4],
+            unique: true,
             allowNull: false
         },
         fileLocation: {

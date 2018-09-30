@@ -425,11 +425,11 @@
             <div id="resources" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
                     <div class="col-md-6" id="addResourcesForm">
-                        <h2 style="font-family: 'Vollkorn',serif;">CHANGE YOUR PASSWORD</h2>
+                        <h2 style="font-family: 'Vollkorn',serif;">ADD RESOURCE</h2>
                         
                         <%= typeof msg != 'undefined' ? msg : '' %>
                         
-                        <form action="/uploadResource" method="POST" enctype="multipart/form-data" name='resourceForm'>
+                        <form action="/admin/uploadResource" method="POST" enctype="multipart/form-data" name='resourceForm'>
                             <div class="input-field col s6">
                                 <label for="name">Resource Name</label><br>
                                 <input id="name" name="name" type="text" class="validate">

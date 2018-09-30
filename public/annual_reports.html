@@ -10,7 +10,7 @@
     <div class="container gal-container">
         <div ng-repeat="x in annualReportFileNames" class="col-md-4 col-sm-6 co-xs-12 gal-item">
             <div class="box">
-                <a data="{{x | split:'.':0 | changeHyphen }}" data-toggle="modal" data-target="#{{x |split:'.':0}}"><img src="annual_reports/{{ x }}"></a>
+                <a data="{{x | split:'.':0 | changeHyphen }}" data-toggle="modal" data-target="#{{x |split:'.':0}}">{{ x }}</a>
                 <div class="modal fade" id="{{x |split:'.':0}}" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">

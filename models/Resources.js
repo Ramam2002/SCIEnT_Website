@@ -18,8 +18,10 @@ module.exports=function(sequelize,DataTypes){
             allowNull: false
         },
         resourceImage: {
-            type: DataTypes.STRING,
-            // allowNull: false
+            type: DataTypes.ENUM('electronics', 'mechanical', 'others'),
+            allowNull: false,
+            defaultValue: 'others'
+
         }
     },{
     freezeTableName: true

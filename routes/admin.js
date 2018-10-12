@@ -17,7 +17,7 @@ var Donations = models.Donations;
 var Inventory=models.inventory;
 var Vendors=models.Vendors;
 var events=models.OngoingEvents;
-var updates=models.UpcomingEvents;
+
 
 
 router.use(session({secret: 'ssshhhhh'}));
@@ -50,10 +50,8 @@ router.get('/', function(req, res, next) {
 									donationRows = donations;
 									events.findAll().then(function(events){
 										eventRows = events;
-										updates.findAll().then(function(updates){
-											updatesRows = updates;
-											res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows,eventRows:eventRows,updatesRows:updatesRows});
-										});
+										res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows,eventRows:eventRows,updatesRows:updatesRows});
+										
 									});									
 								});
 							});
@@ -115,10 +113,8 @@ router.post('/', function(req, res, next) {
 										donationRows = donations;
 										events.findAll().then(function(events){
 											eventRows = events;
-											updates.findAll().then(function(updates){
-												updatesRows = updates;
-												res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows,eventRows:eventRows,updatesRows:updatesRows});
-											});
+											res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows,eventRows:eventRows});
+											
 										});					
 									});
 								});

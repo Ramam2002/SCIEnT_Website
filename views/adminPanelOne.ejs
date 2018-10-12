@@ -123,49 +123,16 @@
             </div>
 
             <div id="eventAndUpdates" class="tab-pane fade">
-                <div class="row" style="margin-top: 3%;">
-                    <div class="col-md-6" id="updatesForm">
-                        <h4 style="font-family: 'Vollkorn',serif;">Upcoming Events (horizontal scroll feed)</h4>
-                        <br>
-                        <input type="text" name="update"  id="update" autocomplete="off"> <button id="addUpdate" class="btn btn-primary btn-md">Add Upcoming Event</button>                        
-                        <br>
-                        <br>
-                        <span id="updateMsg"></span>
-                        <table id="updateTable" class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <td class="header col-md-1">Event ID</td>
-                                    <td class="header col-md-4">Upcoming Event Details</td>
-                                    <td class="header col-md-1">Remove</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    <% updatesRows.forEach(function(item) { %>
-                                            <tr>
-                                                <td>
-                                                    <%=item.id%>
-                                                </td>
-                                                <td>
-                                                    <%= item.UpcomingEventsDetails %>
-                                                </td>
-                                                <td><span class="delUpdate fa fa-close" style="color:red;cursor:pointer;" id="<%= item.UpcomingEventsDetails %>"></span></td>
+                 <div  id="eventsForm">
 
-                                            </tr>
-                                            
-                                                <% }); %>
-
-                                                
-                            </tbody>
-                            
-                        </table>
-                        
-                    </div>
-                    
-                    <div class="col-md-6" id="eventsForm">
-
-                        <h4 style="font-family: 'Vollkorn',serif;">Ongoing Event</h4>
+                        <h4 style="font-family: 'Vollkorn',serif;">Events</h4>
                         <br>
-                        <input type="text" name="event" id="event" autocomplete="off"> <button id="addEvent" class="btn btn-primary btn-md">Add Ongoing event</button>
+                        <label>Event Details : </label><input type="text" name="event" id="event" autocomplete="off">
+                        <label>Start Date : </label><input type="date" name="startDate" id="startDate" autocomplete="off">
+                        <label>Start Time : </label><input type="time" name="startTime" id="startTime" autocomplete="off">
+                        <label>End date : </label><input type="date" name="endDate" id="endDate" autocomplete="off">
+                        <label>End time : </label><input type="time" name="endTime" id="endTime" autocomplete="off">
+                        <button id="addEvent" class="btn btn-primary btn-md">Add Event</button>
                         <br>
                         <br>
                         <span id="eventMsg"></span>
@@ -173,7 +140,9 @@
                             <thead>
                                 <tr>
                                     <td class="header col-md-1">Event ID</td>
-                                    <td class="header col-md-4">Ongoing event Details</td>
+                                    <td class="header col-md-4">Event Details</td>
+                                    <td class="header col-md-2">Start Time</td>
+                                    <td class="header col-md-2">End Time</td>
                                     <td class="header col-md-1">Remove</td>
                                 </tr>
                             </thead>
@@ -186,7 +155,13 @@
                                                 <td>
                                                     <%= item.OngoingEventsDetails %>
                                                 </td>
-                                                <td><span class="delEvent fa fa-close" style="color:red;cursor:pointer;" id="<%= item.OngoingEventsDetails %>"></span></td>
+                                                <td>
+                                                   <%= item.startTime %> , <%= item.startDate %>                                         
+                                                </td>
+                                                <td>
+                                                    <%= item.endTime %> , <%= item.endDate %>
+                                                </td>
+                                                <td><span class="delEvent fa fa-close" style="color:red;cursor:pointer;" id="<%= item.id %>"></span></td>
 
                                             </tr>
                                             
@@ -200,8 +175,10 @@
                         
                     </div>
 
-                </div>
+                  
             </div>
+
+
 
             <div id="pendingProjects" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">

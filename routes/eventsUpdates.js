@@ -10,7 +10,7 @@ var models  = require(path.join(__dirname, '/../' ,'models'));
 var events = models.OngoingEvents;
 var updates = models.UpcomingEvents;
 router.use(bodyParser.urlencoded({extended: false }));
-
+/*
 //add updates
 router.post('/addUpdate',function(req,res,next){
 	
@@ -37,11 +37,16 @@ router.post('/delUpdate',function(req,res,next){
 	});
 
 });
+*/
 
 //add events
 router.post('/addEvent',function(req,res,next){
 	var eventRecord={
-		OngoingEventsDetails:req.body.eventDetails
+		OngoingEventsDetails:req.body.eventDetails,
+		startDate:req.body.startDate,
+		startTime:req.body.startTime,
+		endDate:req.body.endDate,
+		endTime:req.body.endTime
 	}
 	events.create(eventRecord).then(function(event){
 		console.log('-----------');

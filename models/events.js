@@ -12,7 +12,28 @@ module.exports = function(sequelize,DataTypes){
 			type:DataTypes.STRING,
 			unique: false,
 			allowNull: false
+		},
+		startDate:{
+			type:DataTypes.STRING,
+			unique:false,
+			allowNull:false,
+		},
+		startTime:{
+			type:DataTypes.STRING,
+			unique:false,
+			allowNull:false,
+		},
+		endTime:{
+			type:DataTypes.STRING,
+			unique:false,
+			allowNull:false,
+		},
+		endDate:{
+			type:DataTypes.STRING,
+			unique:false,
+			allowNull:false,
 		}
+
 	},{
     freezeTableName: true
   });

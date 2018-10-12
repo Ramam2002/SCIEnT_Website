@@ -70,6 +70,7 @@ html {
 /* navbar */
 
 .navbar {
+
     margin-bottom: 0px;
     background-color: #E0BB24;
 }
@@ -286,8 +287,8 @@ footer {
 .resp-container {
     position: relative;
     overflow: hidden;
-    padding-top: 50%;
-    margin-top: 20px;
+    padding-top: 75%;
+    margin-top: none;
 }
 .resp-iframe {
     position: absolute;

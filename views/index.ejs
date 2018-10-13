@@ -134,11 +134,13 @@
                     <li class = "menu-item" id="resources-main">
                         <a href="#!Tools" id="resources-tab" ng-class="getClass('/Tools')">Resources</a>
                     </li>
-                    <!-- <li class = "menu-item">
-                        <a href="#!Facilities">Facilities</a>
-                    </li> -->
+                    
+                     <li class = "menu-item">
+                        <a href="#!Projects" ng-class = "getClass('/Projects')">Projects</a>
+                    </li>
+                    
                     <li class = "menu-item">
-                        <a href="#!Projects" ng-class="getClass('/Projects')">Projects</a>
+                        <a href="#!ProjectIdeas" ng-class="getClass('/ProjectsIdeas')">Project Idea</a>
                     </li>
                      <li class = "menu-item">
                         <a href="#!Donations" ng-class="getClass('/Donations')">Donation</a>
@@ -193,6 +195,7 @@
         </div>
     </div>
 </div>
+//functions of this page
     <script>
         var app = angular.module("ScientLab", ["ngRoute"]);
         app.filter('split', function() {
@@ -208,10 +211,12 @@
             };
         });
 
-
+    
         app.controller('ScientLabCtrl', function($scope, $rootScope, $http, $location) {
             $scope.tronixFileNames = [];
             $scope.mechFileNames = [];
+            $scope.adminProjects =  [];
+
             $scope.viewLoaded = function () {
                 $('.carousel').carousel({
                     interval: 4000 //changes the speed
@@ -270,7 +275,16 @@
                 }).then(function mySuccess(response) {
                    
                     $scope.mechFileNames = response.data;
+                    console.log("zfhh" , response.data)
                 }, function myError(response) {
+                });
+                $http({
+                    method : "GET",
+                    url : "/projects/images"
+                }).then(function mySuccess (response) {
+
+                    $scope.adminProjectNames = response.data;
+                }, function myError (response) {
                 });
             }; 
             $scope.getClass = function (path) {
@@ -288,13 +302,13 @@
                templateUrl : "register.html"
             })
             .when("/Tools", {
-                templateUrl : "tools.html",
-            })
-            .when("/Facilities", {
-                templateUrl : "facilities.html"
+                templateUrl : "tools.html"
             })
             .when("/Projects", {
                 templateUrl : "projects.html"
+            })
+            .when("/ProjectIdeas", {
+                templateUrl : "project_ideas.html"
             })
             .when("/FAQ", {
                 templateUrl : "faq.html"

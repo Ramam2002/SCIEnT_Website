@@ -11,6 +11,7 @@
     <script src="/js/bootstrap.js"></script>
     <script src="/js/adminPanel.js"></script>
     <script src="/js/adminPanelDonations.js"></script>
+    <script src="/js/adminPanelResources.js"></script>
     <script src="/js/adminPanelFacilities.js"></script>
     <script src="/js/adminPanelProjects.js"></script>
     <script src="/js/adminPanelHallBooking.js"></script>
@@ -429,7 +430,7 @@
                         
                         <%= typeof msg != 'undefined' ? msg : '' %>
                         
-                        <form action="/admin/uploadResource" method="POST" enctype="multipart/form-data" name='resourceForm'>
+                        <form method="POST" enctype="multipart/form-data" name="resourceForm" id="resourceForm">
                             <div class="input-field col s6">
                                 <label for="name">Resource Name</label><br>
                                 <input id="name" name="name" type="text" class="validate">
@@ -456,7 +457,9 @@
                                     <input id="resourceImage" name="resourceImage" type="file">
                             </div>
                             <br>
-                            <button type="submit" class="btn">Submit</button>
+                            <span id="resourceMsg"></span>
+                            <br>
+                            <button type="submit" class="btn btn-warning btn-lg">Submit Resource</button>
                         </form>
                     </div>
                 </div>
@@ -481,8 +484,8 @@
                 </div>
             </div>
                     
-                </div>
-            </div>
+        </div>
+    </div>
      
 
     <div id="infoModal" class="w3-modal">

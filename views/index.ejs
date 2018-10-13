@@ -214,6 +214,10 @@
         app.controller('ScientLabCtrl', function($scope, $rootScope, $http, $location) {
             $scope.tronixFileNames = [];
             $scope.mechFileNames = [];
+            var date=new Date();
+            $scope.today =date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
+            $scope.time = date.getHours()+':'+date.getMinutes();
+            var endDate,endTime;
 
             $scope.viewLoaded = function () {
                 $('.carousel').carousel({
@@ -285,14 +289,7 @@
                 },function(response){
 
                 });
-                 $http({
-                    method : "GET",
-                    url : "/upcoming"
-                }).then(function (response){
-                    $scope.upcomingEvents=response.data;
-                },function(response){
-
-                });
+                 
             
             }; 
             $scope.getClass = function (path) {

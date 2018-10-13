@@ -129,3 +129,45 @@ Image credits: unsplash.com
 @media screen and (max-width: 640px){
     .hero h1 { font-size: 4em; }    
 }
+
+
+.event {
+    position: relative;
+    height: 17vw;
+    background-color: #333;
+}
+.event .carousel-inner .item {
+    height: 17vw;
+}
+.event .carousel-indicators > li {
+    margin: 0 1px;
+    background-color: #f39c12;
+    border-color: #f39c12;
+    opacity: .7;
+    width: 5px;
+  height: 5px;
+}
+.event .carousel-indicators > li.active {
+  width: 5px;
+  height: 5px;
+  opacity: 1;
+}
+.event .hero{
+  size: 20px;
+  color: gold;
+}
+.
+
+@media only screen and (max-width:770px){
+    .event{
+      position:relative;
+        height: 30vh;
+        left:4vw;
+    }
+
+
+    .event .carousel-inner .item{
+        height :30vh;
+    }
+
+}

@@ -25,12 +25,12 @@ $(document).on('click','#addEvent',function(){
     var endTime   = document.getElementById('endTime').value;
     var startDate = document.getElementById('startDate').value;
     var endDate = document.getElementById('endDate').value;
+    var startDate= startDate.slice(8,10)+'-'+startDate.slice(5,8)+startDate.slice(0,4);
+    var endDate=endDate.slice(8,10)+'-'+endDate.slice(5,8)+endDate.slice(0,4);
     var start= startTime+' , '+ startDate;
     var end = endTime+' , '+endDate; 
-    console.log("start  : "+startTime);
-    console.log("end  : "+endTime);
-    console.log("start Date : "+startDate);
-    console.log("end Date : "+endDate);
+    
+
 
 	$.ajax({
                 url: '/admin/addEvent',
@@ -77,8 +77,7 @@ $(document).on('click','.delUpdate',function(){
 
 $(document).on('click','.delEvent',function(){
 	var event = this.id;
-    alert(this.id);
-	 $.ajax({
+    $.ajax({
         url: '/admin/delEvent',
         method: 'POST',
         data: JSON.stringify({
@@ -95,6 +94,6 @@ $(document).on('click','.delEvent',function(){
    
 })
 
-var today = new Date();
+/*var today = new Date();
 console.log('===================');
-console.log(today.getMonth());
+console.log(today.getMonth());*/

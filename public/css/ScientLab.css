@@ -286,8 +286,7 @@ footer {
  
 .resp-container {
     position: relative;
-    overflow: hidden;
-    padding-top: 75%;
+    padding-top: 50%;
     margin-top: none;
 }
 .resp-iframe {
@@ -295,6 +294,26 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 40vw;
     border: 0;
+}
+
+@media only screen and (max-width:400px){
+    .resp-container{
+        overflow: hidden;
+        padding-top: 50%;
+        padding-left: 100%;
+    }
+
+}
+@media only screen and (min-width: 400px),(max-width:770px){
+    .resp-container{
+        overflow: hidden;
+        padding-top: 50%;
+        padding-left: 70%;
+    }
+    .resp-iframe{
+        height: 40vw;
+    }
+
 }

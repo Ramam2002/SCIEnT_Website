@@ -1,6 +1,6 @@
 <div   style="background-color:#333;opacity: 1;padding: none;">
-    <marquee>
-        <p style="color:#ddd; font-size: 13pt; padding: none; "><strong ng-repeat="x in ongoingEvents" style="font-family: 'Alegreya SC', serif;">&#9899; {{x.OngoingEventsDetails}}  </strong></p>
+    <marquee behaviour="scroll" scrollamount="5">
+        <p style="color:#ddd; font-size: 10pt; padding: none; "> <strong ng-repeat="x in ongoingEvents" ng-if="(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&endTime>=time)))"style="font-family:fantasy;font-size: 12pt;">&#9899; {{x.OngoingEventsDetails}} <span style="font-size: 10pt;font-weight:normal;font-family:sans-serif;"> ({{x.startTime+', '+x.startDate}} to {{x.endTime +', '+x.endDate}})</span> <span style="color: #333;">-----</span> </strong></p>
     </marquee>
 </div>
 
@@ -54,38 +54,13 @@
                         </div>
                     </div>
                 </div>
-        <!--
-        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
-            <div class="resp-container">
-               <iframe  class="resp-iframe" src="https://drive.google.com/file/d/0B1r9PHc7c1C9V1RVMVl3bXBDQ1k/preview"></iframe>
-              
-            </div>
-           
-            
-            <div class="updates" style="font-family: 'Karla', sans-serif;font-size: 20px;">
-              <br>
-                 <strong>UPCOMING EVENTS</strong>
-                <div class="resp-container" style="border:solid #E0BB24;overflow-y: scroll;background-color:#333;color: #ddd; ">
-                    <style type="text/css">
-                        li{ font-size: 17px;
-                            padding: none;
-                            list-style:disc;
-                        }
-                    </style>
-
-                    <ul style="position:absolute;top:0;left:0;width:100%; height:100%;">
-                      <li ng-repeat="x in upcomingEvents">{{x.UpcomingEventsDetails}}</li>
-                       
-                    </ul>
-                </div>
-            </div>
-
-        </div>-->
+      
     </div>
 </div>
 <br>
 
-   <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+<div class="container">
+  <div class="col-md-5 col-lg-5 col-xs-12 col-sm-12">
             <div class="resp-container">
                <iframe  class="resp-iframe" src="https://drive.google.com/file/d/0B1r9PHc7c1C9V1RVMVl3bXBDQ1k/preview"></iframe>
               
@@ -93,7 +68,37 @@
   
 </div>
 
-
+<div class="col-sm-12 col-xs-12 col-md-7 col-lg-7 row main-slide">
+    <div class="carousel  slide event" data-ride="carousel" data-interval="4000"  id="event-carousel">
+                
+                <ol class="carousel-indicators" >
+                    <li data-target="#event-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#event-carousel" ng-repeat="x in ongoingEvents" ng-if="x.startDate>today"data-slide-to="{{$index +1 }}"></li>
+                </ol>
+                
+                <div class="carousel-inner" >
+                  <div class="item slides active">
+                    
+                      <div class="hero">
+                        <hgroup>
+                          <strong>Upcoming Events </strong>
+                        </hgroup>
+                      </div>
+                  </div>
+                   <div class="item slides"  ng-repeat="x in ongoingEvents" ng-if="x.startDate>today">
+                        <div class="hero">
+                            <hgroup>
+                                <strong> {{x.OngoingEventsDetails}}</strong>
+                                <br>
+                                <span>{{x.startTime+', '+x.startDate}} to {{x.endTime +', '+x.endDate}}</span>
+                            </hgroup>
+                          </div>                    
+                       </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+   
 <section id="about" class="about">
     <div class="container">
         <div class="row">

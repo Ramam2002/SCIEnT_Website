@@ -25,7 +25,6 @@ var server  = email.server.connect({
 
 var models  = require(path.join(__dirname, '/../' ,'models'));
 var events = models.OngoingEvents;
-var updates = models.UpcomingEvents;
 
 /* 
  GET home page 
@@ -46,20 +45,13 @@ router.get('/:type/images',function(req, res, next){
 	});
 });
 
-//sends upcoming events list
-router.get('/upcoming',function(req,res,next){
-	updates.findAll().then(function(upcomingEvents){
-		console.log(upcomingEvents);
-        res.send(upcomingEvents);
-	});
-    
-});
+
 
 //sends ongoing events list
 router.get('/ongoing',function(req,res,next){
-	events.findAll().then(function(ongoingEvents){
-		console.log(ongoingEvents);
-        res.send(ongoingEvents);
+	events.findAll().then(function(Events){
+		console.log(Events);
+        res.send(Events);
 	});
     
 });

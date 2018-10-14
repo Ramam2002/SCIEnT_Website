@@ -54,7 +54,7 @@ router.post('/uploadResource', upload.single('resourceImage'), function(req, res
     Resources.create(record).then(function(){
         res.end(JSON.stringify({msg: 'Resource Form submitted successfully!' }));
     }).catch(function(err){
-        res.end(JSON.stringify({msg: `Error : ${err}`}));
+        res.end(JSON.stringify({msg: `Error : ${err['errors'][0]['message']}`}));
     });
 });
 

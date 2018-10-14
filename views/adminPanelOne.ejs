@@ -53,6 +53,7 @@
             <li><a data-toggle="tab" href="#donations">Donations</a></li>
             <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
             <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
+            <li><a data-toggle="tab" href="#gallery">Gallery</a></li>
             <li><a data-toggle="tab" href="#changePasswords">Change your password</a></li>
         </ul>
 
@@ -430,6 +431,36 @@
                     </div>
                 </div>
             </div>
+
+            
+
+            <div id="gallery" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6" id="addGalleryImageForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">ADD GALLERY IMAGE</h2>
+                        
+                        <%= typeof msg != 'undefined' ? msg : '' %>
+                        
+                        <form method="POST" enctype="multipart/form-data" name="GalleryImageForm" id="GalleryImageForm">
+                            <div class="input-field col s6">
+                                <label for="name">Image Title</label><br>
+                                <input id="name" name="name" type="text" class="validate">
+                            </div>
+                            <br>
+                            <div class="file-field input-field">
+                                    <label for="galleryImage">Image</label><br>
+                                    <input id="galleryImage" name="galleryImage" type="file">
+                            </div>
+                            <br>
+                            <span id="galleryMsg"></span>
+                            <br>
+                            <button type="submit" class="btn btn-warning btn-lg">Submit Gallery Image</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
 
             <div id="changePasswords" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">

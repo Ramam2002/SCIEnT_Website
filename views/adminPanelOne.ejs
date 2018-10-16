@@ -271,8 +271,8 @@
                                             + parseInt(item.date.getMonth() + 1)
                                             + '/'
                                             + item.date.getFullYear() %></span></td>
-                                            <td ><span class="applicantRoll"><%= item.startTime %></span></td>
-                                            <td ><span class="applicantRoll"><%= item.endTime %></span></td>
+                                            <td ><span class="applicantRequestedStartTime"><%= item.startTime %></span></td>
+                                            <td ><span class="applicantRequestedEndTime"><%= item.endTime %></span></td>
                                             <% if (item.approved == 'Yes') { %>
                                                 <td><button type="button" class="approveForHallBooking btn btn-success" disabled>APPROVE </button></td>
                                             <% } else { %> 

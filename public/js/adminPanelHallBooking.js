@@ -26,8 +26,10 @@ $(document).ready (function () {
 
     $(document).on('click', '.approveForHallBooking', function() {
         var bookingId = $(this).closest("tr").find(".bookingId").text();
-        approvedRequestButton = $(this).closest("tr").find(".approveForHallBooking");
-        showHallBookingModal(bookingId);
+        var requestedStartTime = $(this).closest("tr").find(".applicantRequestedStartTime").text();
+        console.log(requestedStartTime);
+        var requestedEndTime = $(this).closest("tr").find(".applicantRequestedEndTime").text();
+        showHallBookingModal(bookingId,requestedStartTime,requestedEndTime);
     });
 
     $(document).on('click', '.removeForHallBooking', function() {

@@ -20,8 +20,10 @@ var projects = require('./routes/projects');
 var hallBooking = require('./routes/hallBooking');
 var donations = require('./routes/donations');
 var inventory = require('./routes/inventory');
+var resources = require('./routes/resources');
 
 visitorCount = 0;
+
 var app = express();
 
 // view engine setup
@@ -50,6 +52,7 @@ app.use('/admin', facilities);
 app.use('/admin', projects);
 app.use('/admin', hallBooking);
 app.use('/admin', inventory);
+app.use('/admin', resources);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -48,7 +48,7 @@ router.post('/uploadAnnualReport', upload.single('reportFile'), (req, res, next)
     };
     console.log(req.file);
     AnnualReports.create(record).then(function(){
-        res.end("Submitted Succesfully");
+        res.send(JSON.stringify({msg: "Annual Reports Form submitted succesfully"}));
     }).catch(function(err){
         res.end(`Error : ${err}`);
     });

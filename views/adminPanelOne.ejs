@@ -16,6 +16,7 @@
     <script src="/js/adminPanelProjects.js"></script>
     <script src="/js/adminPanelHallBooking.js"></script>
     <script src="/js/adminPanelInventory.js"></script>
+    <script src="/js/adminPanelGallery.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
     <link rel="stylesheet" href="/css/adminPanelOne.css">
@@ -55,6 +56,7 @@
             <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
             <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
             <li><a data-toggle="tab" href="#resources">Resources</a></li>
+            <li><a data-toggle="tab" href="#gallery">Gallery</a></li>
             <li><a data-toggle="tab" href="#changePasswords">Change your password</a></li>
         </ul>
 
@@ -434,8 +436,7 @@
             </div>
 
             
-
-            <div id="resources" class="tab-pane fade">
+     <div id="resources" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
                     <div class="col-md-6" id="addResourcesForm">
                         <h2 style="font-family: 'Vollkorn',serif;">ADD RESOURCE</h2>
@@ -476,8 +477,32 @@
                     </div>
                 </div>
             </div>
-            
 
+            <div id="gallery" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6" id="addGalleryImageForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">ADD GALLERY IMAGE</h2>
+                        
+                        <%= typeof msg != 'undefined' ? msg : '' %>
+                        
+                        <form method="POST" enctype="multipart/form-data" name="galleryImageForm" id="galleryImageForm">
+                            <div class="input-field col s6">
+                                <label for="name">Image Title</label><br>
+                                <input id="name" name="name" type="text" class="validate">
+                            </div>
+                            <br>
+                            <div class="file-field input-field">
+                                    <label for="galleryImage">Image</label><br>
+                                    <input id="galleryImage" name="galleryImage" type="file">
+                            </div>
+                            <br>
+                            <span id="galleryMsg"></span>
+                            <br>
+                            <button type="submit" class="btn btn-warning btn-lg">Submit Gallery Image</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
 
             <div id="changePasswords" class="tab-pane fade">

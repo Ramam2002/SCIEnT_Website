@@ -40,6 +40,24 @@ router.get('/:type/images',function(req, res, next){
 		res.send(files);
 	});
 });
+
+// router.get('/gallery', function(req, res, next) {
+//     res.send('Gallery reached');
+// });
+
+// router.get('/gallery/images', function(req, res, next){
+//     // res.setHeader("Content-Type", "application/json");
+//     res.send('Gallery images');
+// });
+
+router.get('/gallery-images', function(req, res, next) {
+    res.setHeader("Content-Type", "application/json");
+    fs.readdir("./public/images/gallery", function(err, files) {
+        console.log(files);
+        res.send(files);
+    });
+});
+
 /* module for sending message/queries on contacts page to scient */
 router.post('/sendMessage', function(req, res, next) {
 	console.log(req.body.name);

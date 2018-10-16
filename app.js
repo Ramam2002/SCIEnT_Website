@@ -21,6 +21,7 @@ var hallBooking = require('./routes/hallBooking');
 var donations = require('./routes/donations');
 var inventory = require('./routes/inventory');
 var resources = require('./routes/resources');
+var gallery = require('./routes/gallery');
 
 visitorCount = 0;
 
@@ -53,6 +54,7 @@ app.use('/admin', projects);
 app.use('/admin', hallBooking);
 app.use('/admin', inventory);
 app.use('/admin', resources);
+app.use('/admin', gallery);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

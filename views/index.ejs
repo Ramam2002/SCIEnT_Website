@@ -137,6 +137,9 @@
                     <!-- <li class = "menu-item">
                         <a href="#!Facilities">Facilities</a>
                     </li> -->
+                    <li class = "menu-item" id="resources-main">
+                        <a href="#!Gallery" id="resources-tab" ng-class="getClass('/Gallery')">Gallery</a>
+                    </li>
                     <li class = "menu-item">
                         <a href="#!Projects" ng-class="getClass('/Projects')">Projects</a>
                     </li>
@@ -216,6 +219,7 @@
             $scope.tronixFileNames = [];
             $scope.mechFileNames = [];
             $scope.annualReportFileNames = [];
+            $scope.galleryFileNames = [];
             $scope.viewLoaded = function () {
                 $('.carousel').carousel({
                     interval: 4000 //changes the speed
@@ -284,6 +288,14 @@
                     $scope.annualReportFileNames = response.data;
                 }, function myError(response) {
                 });
+                $http({
+                    method : "GET",
+                    url : "/gallery-images"
+                }).then(function mySuccess(response) {
+                   
+                    $scope.galleryFileNames = response.data;
+                }, function myError(response) {
+                });
             }; 
             $scope.getClass = function (path) {
                 return ($location.path().substr(0, path.length) === path) ? 'active' : '';
@@ -301,6 +313,9 @@
             })
             .when("/Tools", {
                 templateUrl : "tools.html",
+            })
+            .when("/Gallery", {
+                templateUrl : "gallery.html"
             })
             .when("/Facilities", {
                 templateUrl : "facilities.html"

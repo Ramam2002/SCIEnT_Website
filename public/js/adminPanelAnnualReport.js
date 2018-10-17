@@ -20,6 +20,11 @@ $(document).ready(function() {
             hideMsg(msgBody);
             return;
         }
+        else if (parseInt(year.value) <= 0){
+            msgBody.innerHTML = 'Enter a valid year';
+            hideMsg(msgBody);
+            return;   
+        }
         else if ( file.type != 'application/pdf'){
             msgBody.innerHTML = 'Enter a pdf file';
             $('#reportFile').val('');

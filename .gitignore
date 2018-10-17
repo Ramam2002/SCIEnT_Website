@@ -36,5 +36,9 @@ node_modules
 npm-debug.log
 
 # High Resolution images
-
+public/images/tools
 public/images/facilities
+
+# Annual_reports
+public/annual_reports
+

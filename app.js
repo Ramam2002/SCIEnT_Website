@@ -21,7 +21,10 @@ var hallBooking = require('./routes/hallBooking');
 var donations = require('./routes/donations');
 var inventory = require('./routes/inventory');
 var annualReport = require('./routes/annualReport');
+var resources = require('./routes/resources');
+var gallery = require('./routes/gallery');
 
+visitorCount = 0;
 
 var app = express();
 
@@ -36,8 +39,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 /* all the routes for the application are used here */
-app.use('/', index);
+app.use('/', function(req, res, next) {
+  if (req.url == '/') {
+    visitorCount++;
+  }
+  next();
+}, index);
 app.use('/', register);
 app.use('/', donations);
 app.use('/admin', admin);
@@ -46,6 +55,8 @@ app.use('/admin', projects);
 app.use('/admin', hallBooking);
 app.use('/admin', inventory);
 app.use('/admin', annualReport);
+app.use('/admin', resources);
+app.use('/admin', gallery);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

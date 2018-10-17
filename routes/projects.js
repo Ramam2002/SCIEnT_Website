@@ -234,7 +234,7 @@ router.post('/beginProject', function(req, res, next) {
 				},{
 					where: {id: project.id}
 				}).then(function() {
-					res.send(JSON.stringify({msg: 'The project with id:' + projectId + 'is now ongoing'}));
+					res.send(JSON.stringify({msg: 'The project with id:' + projectId + 'is now ongoing', updater: req.session.adminid}));
 				}).catch(function(err) {
 					res.send(JSON.stringify({msg: 'Error'}));
 					console.log(err);

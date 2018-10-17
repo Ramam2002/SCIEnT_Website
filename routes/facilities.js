@@ -37,6 +37,7 @@ router.post('/getFacilitiesDetails', function(req, res, next) {
 
 /* to approve for a particular facilities request */
 router.post('/approveForFacilities', function(req, res, next) {
+	console.log("Update status");
 	Facilities.update({
         approved: 'Yes' 
     },{
@@ -58,14 +59,12 @@ router.post('/removeForFacilities', function(req, res, next) {
 /* to send mails to all unnotified applicants whose facilities requests has been granted 
 by clicking on a single button */
 router.post('/mailForFacilities', function(req, res, next) {
-	console.log('request received');
 	var flag = 0;
 	Facilities.findAll({where: {
         approved: 'Yes',
         status: ['Access not given', 'Mail sent once']
     }})
 	.then(function (rows) {
-		console.log(rows);
 		rows.forEach(function (item) {
 			var mailBody = 'Your request for accessing scient lab tools and facilities has been granted';
 			// Email to be sent by admin
@@ -79,8 +78,7 @@ router.post('/mailForFacilities', function(req, res, next) {
 						
 					]
 			};
-			console.log("hi");
-            var txt = "Mail delivered to applicantId: " + toString(item.id);
+            var txt = "Mail delivered to applicantId: " + item.id;
             console.log(txt);
 			
             server.send(message, function (err, message) {
@@ -114,12 +112,12 @@ router.post('/mailForFacilities', function(req, res, next) {
 			});
 
 		});	
+		if( flag == 0 ) {
+			res.send(JSON.stringify({msg:'Mail sent successfully to all applicants'}));
+		}
+		else res.send(JSON.stringify({msg: 'All mails were not sent. Send again :('}));
 	});
-	console.log("hello");
-	if( flag == 0 ) {
-		res.send(JSON.stringify({msg:'Mail sent successfully to all applicants'}));
-	}
-	else res.send(JSON.stringify({msg: 'All mails were not sent. Send again :('}));
+	
 });
 
 

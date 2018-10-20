@@ -8,7 +8,7 @@
 </div>
 <div class="tab-content" id="reports">
     <div class="container gal-container">
-        <ul ng-repeat="x in annualReportFileNames" class="list-group-flush co-xs-12">
+        <ul ng-repeat="x in annualReportFileNames" class="list-group-flush col-xs-6">
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <b>{{x | split:'.':0 | changeHyphen }}</b>
                 <a href="annual_reports/{{ x }}" download="{{ x }}" class="badge badge-light float-right">
@@ -18,6 +18,12 @@
         </ul>     
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <!-- Footer -->
 <!-- <div class="footer" class="container">

@@ -15,6 +15,9 @@
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" href="images/scient-logo.png">
 
+    <!-- Materialize CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="/css/materialize.css"> -->
+
     <!-- Custom CSS -->
     <link href="/css/ScientLab.css" rel="stylesheet">
     <link href="/css/register.css" rel="stylesheet">
@@ -48,6 +51,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="js/materialize.js"></script> -->
         
     <style>
        /* .site-slider
@@ -150,6 +154,9 @@
                         <a href="#!FAQ">FAQ</a>
                     </li> -->
                     <li class = "menu-item">
+                        <a href="#!AnnualReports" ng-class="getClass('/AnnualReports')">Annual Reports</a>
+                    </li>
+                    <li class = "menu-item">
                         <a href="#!Contacts" ng-class="getClass('/Contacts')">Contact Us</a>
                     </li>
                     <!-- <li class = "menu-item">
@@ -215,6 +222,7 @@
         app.controller('ScientLabCtrl', function($scope, $rootScope, $http, $location) {
             $scope.tronixFileNames = [];
             $scope.mechFileNames = [];
+            $scope.annualReportFileNames = [];
             $scope.galleryFileNames = [];
             $scope.viewLoaded = function () {
                 $('.carousel').carousel({
@@ -278,6 +286,14 @@
                 });
                 $http({
                     method : "GET",
+                    url : "/annual_reports"
+                }).then(function mySuccess(response) {
+                   
+                    $scope.annualReportFileNames = response.data;
+                }, function myError(response) {
+                });
+                $http({
+                    method : "GET",
                     url : "/gallery-images"
                 }).then(function mySuccess(response) {
                    
@@ -319,6 +335,9 @@
             })
             .when("/Donations", {
                 templateUrl : "donations.html"
+            })
+            .when("/AnnualReports", {
+                templateUrl : "annual_reports.html"
             })
             .otherwise({
                 redirectTo: '/home'

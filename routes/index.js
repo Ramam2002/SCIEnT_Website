@@ -41,6 +41,13 @@ router.get('/:type/images',function(req, res, next){
 	});
 });
 
+router.get('/annual_reports',function(req, res, next){
+	res.setHeader("Content-Type", "application/json");
+	fs.readdir("./public/annual_reports/", function(err, files) {
+		console.log(files);
+		res.send(files);
+	});
+});
 // router.get('/gallery', function(req, res, next) {
 //     res.send('Gallery reached');
 // });

@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var models  = require(path.join(__dirname, '/../' ,'models'));
-var events = models.OngoingEvents;
-var updates = models.UpcomingEvents;
+var events = models.Events;
+//var updates = models.UpcomingEvents;
 router.use(bodyParser.urlencoded({extended: false }));
 /*
 //add updates
@@ -42,7 +42,7 @@ router.post('/delUpdate',function(req,res,next){
 //add events
 router.post('/addEvent',function(req,res,next){
 	var eventRecord={
-		OngoingEventsDetails:req.body.eventDetails,
+		EventsDetails:req.body.eventDetails,
 		startDate:req.body.startDate,
 		startTime:req.body.startTime,
 		endDate:req.body.endDate,
@@ -50,7 +50,7 @@ router.post('/addEvent',function(req,res,next){
 	}
 	events.create(eventRecord).then(function(event){
 		console.log('-----------');
-        res.send(JSON.stringify({msg: 'Ongoing Event added successfully!',id:event.dataValues.id }));
+        res.send(JSON.stringify({msg: 'Event added successfully!',id:event.dataValues.id }));
 	});
 
 });
@@ -58,7 +58,7 @@ router.post('/addEvent',function(req,res,next){
 //delete events
 router.post('/delEvent',function(req,res,next){
 	var event=req.body.id;
-	res.send(JSON.stringify({msg:"Successfully deleted the Ongoing Event "}));
+	res.send(JSON.stringify({msg:"Successfully deleted the Event "}));
 	return events.destroy({
 		where:{
 			id:event

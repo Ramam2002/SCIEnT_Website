@@ -24,7 +24,7 @@ var server  = email.server.connect({
 
 
 var models  = require(path.join(__dirname, '/../' ,'models'));
-var events = models.OngoingEvents;
+var events = models.Events;
 
 /* 
  GET home page 
@@ -47,8 +47,8 @@ router.get('/:type/images',function(req, res, next){
 
 
 
-//sends ongoing events list
-router.get('/ongoing',function(req,res,next){
+//sends events list
+router.get('/events',function(req,res,next){
 	events.findAll().then(function(Events){
 		console.log(Events);
         res.send(Events);

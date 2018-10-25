@@ -16,7 +16,7 @@ var Admins = models.Admins;
 var Donations = models.Donations;
 var Inventory=models.inventory;
 var Vendors=models.Vendors;
-var events=models.OngoingEvents;
+var events=models.Events;
 
 
 

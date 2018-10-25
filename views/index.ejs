@@ -88,12 +88,12 @@
             </div>
             <div class="col-md-4">
                 <div>
-                    <h2 id="scient-header">Students' Centre For Innovation and Engineering Technology</h2>
+                    <h2 id="scient-header">Student Center For Innovation and Engineering Technology</h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div>
-                    <h2 id="nitt-header">National Institute of Technology Tiruchchirapalli</h2>
+                    <h2 id="nitt-header">National Institute of Technology Tiruchirapalli</h2>
                 </div>
             </div>
             <div class="col-md-2">
@@ -216,7 +216,10 @@
             $scope.mechFileNames = [];
             var date=new Date();
             $scope.today =date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
+            var today = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
             $scope.time = date.getHours()+':'+date.getMinutes();
+            var time = date.getHours()+':'+date.getMinutes();
+            var endDate,endTime;
 
             $scope.viewLoaded = function () {
                 $('.carousel').carousel({
@@ -285,18 +288,18 @@
                     url : "/events"
                 }).then(function (response){
                     $scope.empty=1;
-                    console.log("===================================");
                     for (var i =0; i <response.data.length; i++) {
                         var x=response.data[i];
-                       if(x.startDate>=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))
+                       if(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))
                         {$scope.empty=0;
+                            console.log("present!");
                          break;
                         }
-
                        
                     }
                    
                     $scope.ongoingEvents=response.data;
+                    
                 },function(response){
 
                 });

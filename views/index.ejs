@@ -220,6 +220,7 @@
             $scope.time = date.getHours()+':'+date.getMinutes();
             var time = date.getHours()+':'+date.getMinutes();
             var endDate,endTime;
+              $scope.empty=1;
 
             $scope.viewLoaded = function () {
                 $('.carousel').carousel({
@@ -287,7 +288,7 @@
                     method : "GET",
                     url : "/events"
                 }).then(function (response){
-                    $scope.empty=1;
+                  
                     for (var i =0; i <response.data.length; i++) {
                         var x=response.data[i];
                        if(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))
@@ -300,6 +301,17 @@
                    
                     $scope.ongoingEvents=response.data;
                     
+                },function(response){
+
+                });
+
+                 $http({
+                    method : "GET",
+                    url : "/announcements"
+                }).then(function (response){
+                    if(response.data.length>0)
+                        $scope.empty=0;
+                    $scope.announcements=response.data;
                 },function(response){
 
                 });

@@ -8,36 +8,9 @@ var session = require('express-session');
 
 var models  = require(path.join(__dirname, '/../' ,'models'));
 var events = models.Events;
-//var updates = models.UpcomingEvents;
+var announcements = models.Announcements;
 router.use(bodyParser.urlencoded({extended: false }));
-/*
-//add updates
-router.post('/addUpdate',function(req,res,next){
-	
-	var updateRecord={
-		UpcomingEventsDetails:req.body.updateDetails
-	};
-	 
-	
-	updates.create(updateRecord).then(function(update){
-		res.send(JSON.stringify({msg: 'Upcoming Event added successfully!' ,id:update.dataValues.id}));
-		
-	});
 
-});
-
-//delete updates
-router.post('/delUpdate',function(req,res,next){
-	var update=req.body.id;
-	res.send(JSON.stringify({msg:"Successfully deleted the Upcoming Event "}));
-	return updates.destroy({
-		where:{
-			id:update
-		}
-	});
-
-});
-*/
 
 //add events
 router.post('/addEvent',function(req,res,next){
@@ -62,6 +35,30 @@ router.post('/delEvent',function(req,res,next){
 	return events.destroy({
 		where:{
 			id:event
+		}
+	});
+
+});
+
+//add announcements
+router.post('/addAnnouncement',function(req,res,next){
+	var record={
+		Text:req.body.Text
+	}
+	announcements.create(record).then(function(announcement){
+		console.log('-----------');
+        res.send(JSON.stringify({msg: 'Announcement added successfully!',id:announcement.dataValues.id }));
+	});
+
+});
+
+//delete announcements
+router.post('/delAnnouncement',function(req,res,next){
+	var announcement=req.body.id.slice(1);
+	res.send(JSON.stringify({msg:"Successfully deleted the Announcement "}));
+	return announcements.destroy({
+		where:{
+			id:announcement
 		}
 	});
 

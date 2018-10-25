@@ -14,10 +14,10 @@ var Projects = models.Projects;
 var HallBooking = models.HallBooking;
 var Admins = models.Admins;
 var Donations = models.Donations;
-var Inventory=models.inventory;
-var Vendors=models.Vendors;
-var events=models.Events;
-
+var Inventory = models.inventory;
+var Vendors = models.Vendors;
+var events = models.Events;
+var announcements = models.Announcements;
 
 
 router.use(session({secret: 'ssshhhhh'}));
@@ -50,8 +50,10 @@ router.get('/', function(req, res, next) {
 									donationRows = donations;
 									events.findAll().then(function(events){
 										eventRows = events;
-										res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows,eventRows:eventRows,updatesRows:updatesRows});
+										announcements.findAll().then(function(announcements){
+										  res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows,eventRows:eventRows,announcementsRows:announcements});
 										
+									});														
 									});									
 								});
 							});
@@ -112,10 +114,12 @@ router.post('/', function(req, res, next) {
 									Donations.findAll().then( function(donations) {
 										donationRows = donations;
 										events.findAll().then(function(events){
-											eventRows = events;
-											res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows,eventRows:eventRows});
-											
-										});					
+										eventRows = events;
+										announcements.findAll().then(function(announcements){
+										  res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows,eventRows:eventRows,announcementsRows:announcements});
+										
+									});														
+									});					
 									});
 								});
 							});

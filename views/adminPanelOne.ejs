@@ -126,12 +126,11 @@
                  <div  id="eventsForm">
 
                         <h4 style="font-family: 'Vollkorn',serif;">Events</h4>
-                        <br>
-                        <label>Event Details : </label><input type="text" name="event" id="event" autocomplete="off">
-                        <label>Start Date : </label><input type="date" name="startDate" id="startDate" autocomplete="off">
-                        <label>Start Time : </label><input type="time" name="startTime" id="startTime" autocomplete="off">
-                        <label>End date : </label><input type="date" name="endDate" id="endDate" autocomplete="off">
-                        <label>End time : </label><input type="time" name="endTime" id="endTime" autocomplete="off">
+                        <label>Event Details : </label><input type="text" name="event" id="event" required="true" autocomplete="off">
+                        <label>Start Date : </label><input type="date" name="startDate" id="startDate" required="true" autocomplete="off">
+                        <label>Start Time : </label><input type="time" name="startTime" id="startTime" required="true" autocomplete="off">
+                        <label>End date : </label><input type="date" name="endDate" id="endDate" required="true" autocomplete="off">
+                        <label>End time : </label><input type="time" name="endTime" id="endTime" required="true" autocomplete="off">
                         <button id="addEvent" class="btn btn-primary btn-md">Add Event</button>
                         <br>
                         <br>
@@ -162,6 +161,39 @@
                                                     <%= item.endTime %> , <%= item.endDate %>
                                                 </td>
                                                 <td><span class="delEvent fa fa-close" style="color:red;cursor:pointer;" id="<%= item.id %>"></span></td>
+
+                                            </tr>
+                                            
+                                                <% }); %>
+                            
+                                
+                            </tbody>
+                            
+                        </table>
+                        <h4 style="font-family: 'Vollkorn',serif;">Announcements</h4>
+                        <label>Text : </label><input type="text" name="announcement" id="announcement" required="true" autocomplete="off">
+                        <button id="addAnnouncement" class="btn btn-primary btn-md">Add Announcement</button>
+                        <br>
+                        <br>
+                        <span id="announcementMsg"></span>
+                         <table id="announcementTable" class="table table-bordered">
+                         <thead>
+                                <tr>
+                                    <td class="header col-md-1">Announcement ID</td>
+                                    <td class="header col-md-4">Announcement</td>
+                                    <td class="header col-md-1">Remove</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 <% announcementsRows.forEach(function(item) { %>
+                                            <tr>
+                                                <td>
+                                                    <%= item.id %>
+                                                </td>   
+                                                <td>
+                                                    <%= item.Text %>
+                                                </td>
+                                                <td><span class="delAnnouncement fa fa-close" style="color:red;cursor:pointer;" id="a<%= item.id %>"></span></td>
 
                                             </tr>
                                             

@@ -1,6 +1,6 @@
 <div style="background-color:#333;opacity: 1;padding: none;" ng-if="empty==0">
     <marquee behaviour="scroll" scrollamount="5">
-        <p style="color:#ddd; font-size: 10pt; padding: none; "> <strong ng-repeat="x in ongoingEvents" ng-if="(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))"style="font-family:fantasy;font-size: 12pt;">&#9899; {{x.EventsDetails}} <span style="font-size: 10pt;font-weight:normal;font-family:sans-serif;"> ({{x.startTime+', '+x.startDate}} to {{x.endTime +', '+x.endDate}})</span> <span style="color: #333;">-----</span> </strong></p>
+        <p style="color:#ddd; font-size: 10pt; padding: none; "><strong style="size: 25pt;font-family:fantasy;font-weight: boldest; text-transform: uppercase;" ng-repeat="y in announcements">&diams; {{y.Text}}<span style="color: #333;">----</span></strong>  <span style="color: #333;">---------</span><strong ng-repeat="x in ongoingEvents" ng-if="(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))"style="font-family:fantasy;font-size: 10pt;">&#9899; {{x.EventsDetails}} <span style="font-size: 10pt;font-weight:normal;font-family:sans-serif;"> ({{x.startTime+', '+x.startDate}} to {{x.endTime +', '+x.endDate}})</span> <span style="color: #333;">-----</span> </strong></p>
     </marquee>
 </div>
 

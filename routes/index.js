@@ -25,6 +25,7 @@ var server  = email.server.connect({
 
 var models  = require(path.join(__dirname, '/../' ,'models'));
 var events = models.Events;
+var announcements = models.Announcements;
 
 /* 
  GET home page 
@@ -52,6 +53,16 @@ router.get('/events',function(req,res,next){
 	events.findAll().then(function(Events){
 		console.log(Events);
         res.send(Events);
+	});
+    
+});
+
+
+//sends announcements list
+router.get('/announcements',function(req,res,next){
+	announcements.findAll().then(function(Announcements){
+		console.log(Announcements);
+        res.send(Announcements);
 	});
     
 });

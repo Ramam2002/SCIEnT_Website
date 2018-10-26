@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -14,9 +15,9 @@
     <script src="/js/adminPanelResources.js"></script>
     <script src="/js/adminPanelFacilities.js"></script>
     <script src="/js/adminPanelProjects.js"></script>
+    <script src="/js/adminPanelAddProjects.js"></script>
     <script src="/js/adminPanelHallBooking.js"></script>
     <script src="/js/adminPanelInventory.js"></script>
-    <script src="/js/adminPanelAnnualReport.js"></script>
     <script src="/js/adminPanelGallery.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
@@ -53,10 +54,10 @@
             <li><a data-toggle="tab" href="#pendingProjects">Pending Projects</a></li>
             <li><a data-toggle="tab" href="#facilitiesOrTools">Access</a></li>
             <li><a data-toggle="tab" href="#conferenceHallBooking">Hall Booking Requests</a></li>
+            <li><a data-toggle="tab" href="#addProjects">Add Projects</a></li>
             <li><a data-toggle="tab" href="#donations">Donations</a></li>
             <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
             <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
-            <li><a data-toggle="tab" href="#annual_report">Annual Report</a></li>
             <li><a data-toggle="tab" href="#resources">Resources</a></li>
             <li><a data-toggle="tab" href="#gallery">Gallery</a></li>
             <li><a data-toggle="tab" href="#changePasswords">Change your password</a></li>
@@ -267,8 +268,8 @@
                                         <tr>
                                             <td ><a href="#"><span class="bookingId"><%= item.id %></span></a></td>
                                             <td ><span class="applicantRoll"><%= item.roll %></span></td>
-                                            <td ><span class="applicantRoll"><%= item.name %></span></td>
-                                            <td ><span class="applicantRoll"><%= item.date.getDate() 
+                                            <td ><span class="applicantName"><%= item.name %></span></td>
+                                            <td ><span class="applicantDate"><%= item.date.getDate() 
                                             + '/'
                                             + parseInt(item.date.getMonth() + 1)
                                             + '/'
@@ -285,6 +286,47 @@
                                     <% }); %>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="addProjects" class="tab-pane fade">
+                <div class="row" style="margin-top: 4%">
+                    <div class="col-md-3" id="addProjectForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">ADD PROJECTS</h2>
+                        <label>Project Title: </label><br>
+                        <input type="text" id="projectName" name="projectName" autocomplete="off" required><br>
+                        <label>Enter project description: </label><br>
+                        <textarea name="projectDesc" id="projectDesc" cols="30" rows="5" autocomplete="off" required></textarea><br>
+                        <label>Add project image : </label></br>
+                        <input type="file" name = "projectImage" id ="projectImage"></br>
+                        <button id="addProject" class="btn btn-warning btn-lg">Add Project</button>     
+                    </div>
+                    <div class="col-md-9">
+                        <div class="projectList">
+                            <div class="table-responsive" id="projectListDisplay">
+                                <table class="table  table-bordered">
+                                    <thead>
+                                       <tr>
+                                        <th>PROJECT ID</th>
+                                        <th>PROJECT IMAGE</th>
+                                        <th>PROJECT NAME</th>
+                                        <th>DESCRIPTION</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% adminProjectRows.forEach(function(item){  %>
+                                            <tr>
+                                                <td><span class="projectsID"><%= item.id %></span></td>
+                                                <td><span class="projectImage"><img src="<%= item.projectImage %>" ></span></td>
+                                                <td><span class="projectsTitle"><%= item.projectTitle %></span></td>
+                                                <td><span class="projectsDesc"><%= item.projectDesc %></span></td>
+
+                                       <% }); %>
+                                    </tbody>
+                                 </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -437,25 +479,8 @@
                 </div>
             </div>
 
-            <div id="annual_report" class="tab-pane fade">
-                <div class="row" style="margin-top: 3%;">
-                    <div class="col-md-6">
-                        <h2 style="font-family: 'Vollkorn',serif;">Add Annual Report file</h2>
-                        <form id="annualReportForm" name="annualReportForm" method="POST" enctype="multipart/form-data">
-                            <label>File Name:</label><br>
-                            <input type="text" id="fileName" name="fileName"><br>
-                            <label>Report Year:</label><br>
-                            <input type="number" id="reportYear" name="reportYear"><br>
-                            <label>File:</label><br>
-                            <input type="file" id="reportFile" name="reportFile"><br>
-                            <span id="fileSubmissionMsg"></span>
-                            <button id="addAnnualReportFile" class="btn btn-warning btn-lg">Add File</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
             
-            <div id="resources" class="tab-pane fade">
+     <div id="resources" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
                     <div class="col-md-6" id="addResourcesForm">
                         <h2 style="font-family: 'Vollkorn',serif;">ADD RESOURCE</h2>
@@ -540,7 +565,6 @@
                 </div>
             </div>
                     
-
         </div>
     </div>
      

@@ -22,6 +22,8 @@ var server  = email.server.connect({
    ssl:     true,
 });
 
+var models  = require(path.join(__dirname, '/../' ,'models'));
+var AdminProjects = models.AdminProjects;
 /* 
  GET home page 
 */
@@ -40,6 +42,7 @@ router.get('/:type/images',function(req, res, next){
 		res.send(files);
 	});
 });
+
 
 router.get('/annual_reports',function(req, res, next){
 	res.setHeader("Content-Type", "application/json");
@@ -90,6 +93,34 @@ router.post('/sendMessage', function(req, res, next) {
 			}
 		});
 	res.render('index');
+});
+router.post('/sendProjectIdea', function(req,res,next) {
+	console.log(req.body.name);
+	console.log(req.body.phNumber);
+	console.log(req.body.email);
+	console.log(req.body.projectTitle);
+	console.log(req.body.projectIdea);
+	var message = {
+		text: ' Project Title: ' + req.body.projectTitle + ' and Project Details: ' + req.body.projectIdea 
+		  + ' from Name: ' + req.body.name + ' Email: ' + req.body.email + ' and Phone Number: ' + req.body.phNumber,
+		from : req.body.email,
+		to :  yourEmail, 
+		subject: "New Project Idea",
+		attachment: 
+		[
+
+		]
+	};
+	server.send(message, function (err,message) {
+		console.log(err||message);
+		if(!err){
+			console.log("Sent");
+			res.render('index');
+		}
+		else{
+			res.send(`${err}`);
+		}
+	});
 });
 
 module.exports = router;

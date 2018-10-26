@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -14,6 +15,7 @@
     <script src="/js/adminPanelResources.js"></script>
     <script src="/js/adminPanelFacilities.js"></script>
     <script src="/js/adminPanelProjects.js"></script>
+    <script src="/js/adminPanelAddProjects.js"></script>
     <script src="/js/adminPanelHallBooking.js"></script>
     <script src="/js/adminPanelInventory.js"></script>
     <script src="/js/adminPanelAnnualReport.js"></script>
@@ -267,8 +269,8 @@
                                         <tr>
                                             <td ><a href="#"><span class="bookingId"><%= item.id %></span></a></td>
                                             <td ><span class="applicantRoll"><%= item.roll %></span></td>
-                                            <td ><span class="applicantRoll"><%= item.name %></span></td>
-                                            <td ><span class="applicantRoll"><%= item.date.getDate() 
+                                            <td ><span class="applicantName"><%= item.name %></span></td>
+                                            <td ><span class="applicantDate"><%= item.date.getDate() 
                                             + '/'
                                             + parseInt(item.date.getMonth() + 1)
                                             + '/'
@@ -289,7 +291,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div id="donations" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">

@@ -1,6 +1,6 @@
 <div style="background-color:#333;opacity: 1;padding: none;" ng-if="empty==0">
     <marquee behaviour="scroll" scrollamount="5">
-        <p style="color:#ddd; font-size: 10pt; padding: none; "><strong style="size: 25pt;font-family:fantasy;font-weight: boldest; text-transform: uppercase;" ng-repeat="y in announcements">&diams; {{y.Text}}<span style="color: #333;">----</span></strong>  <span style="color: #333;">---------</span><strong ng-repeat="x in ongoingEvents" ng-if="(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))"style="font-family:fantasy;font-size: 10pt;">&#9899; {{x.EventsDetails}} <span style="font-size: 10pt;font-weight:normal;font-family:sans-serif;"> ({{x.startTime+', '+x.startDate}} to {{x.endTime +', '+x.endDate}})</span> <span style="color: #333;">-----</span> </strong></p>
+        <p style="color:#ddd; font-size: 10pt; padding: none; "><strong style="size: 25pt;font-family:fantasy;font-weight: boldest; text-transform: uppercase;" ng-repeat="y in announcements">&diams; {{y.Text}}<span style="color: #333;">----</span></strong>  <span style="color: #333;">---------</span><strong ng-repeat="x in ongoingEvents" ng-if="(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))"style="font-family:fantasy;font-size: 10pt;">&#9899; {{x.EventsDetails}} <span style="font-size: 10pt;font-weight:normal;font-family:sans-serif;"> ({{x.startTime+', '+x.startDateFormatted}} to {{x.endTime +', '+x.endDateFormatted}})</span> <span style="color: #333;">-----</span> </strong></p>
     </marquee>
 </div>
 
@@ -69,9 +69,9 @@
 </div>
 
 <div class="col-sm-12 col-xs-12 col-md-7 col-lg-7 row main-slide">
-    <div class="carousel  slide event" data-ride="carousel" data-interval="4000"  id="event-carousel">
+    <div class="carousel  slide event" data-ride="carousel" data-interval="2000"  id="event-carousel">
                 
-                <ol class="carousel-indicators" >
+                <ol class="carousel-indicators"  >
                     <li data-target="#event-carousel" data-slide-to="0" class="active"></li>
                     <li data-target="#event-carousel" ng-repeat="x in ongoingEvents" ng-if="x.startDate>today"data-slide-to="{{$index +1 }}"></li>
                 </ol>
@@ -90,7 +90,7 @@
                             <hgroup>
                                 <strong> {{x.EventsDetails}}</strong>
                                 <br>
-                                <span>{{x.startTime+', '+x.startDate}} to {{x.endTime +', '+x.endDate}}</span>
+                                <span>{{x.startTime+', '+x.startDateFormatted}} to {{x.endTime +', '+x.endDateFormatted}}</span>
                             </hgroup>
                           </div>                    
                        </div>

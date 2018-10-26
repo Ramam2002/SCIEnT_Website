@@ -215,8 +215,8 @@
             $scope.tronixFileNames = [];
             $scope.mechFileNames = [];
             var date=new Date();
-            $scope.today =date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
-            var today = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
+            var today = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+            $scope.today =today;
             $scope.time = date.getHours()+':'+date.getMinutes();
             var time = date.getHours()+':'+date.getMinutes();
             var endDate,endTime;

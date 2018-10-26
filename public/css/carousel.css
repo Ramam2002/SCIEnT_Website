@@ -140,12 +140,13 @@ Image credits: unsplash.com
     height: 17vw;
 }
 .event .carousel-indicators > li {
-    margin: 0 1px;
+    margin: 0 5px;
     background-color: #f39c12;
     border-color: #f39c12;
     opacity: .7;
     width: 5px;
-  height: 5px;
+    height: 5px;
+
 }
 .event .carousel-indicators > li.active {
   width: 5px;

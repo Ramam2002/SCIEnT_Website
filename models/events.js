@@ -14,7 +14,7 @@ module.exports = function(sequelize,DataTypes){
 			allowNull: false
 		},
 		startDate:{
-			type:DataTypes.STRING,
+			type:DataTypes.DATEONLY,
 			unique:false,
 			allowNull:false,
 		},
@@ -29,9 +29,20 @@ module.exports = function(sequelize,DataTypes){
 			allowNull:false,
 		},
 		endDate:{
-			type:DataTypes.STRING,
+			type:DataTypes.DATEONLY,
 			unique:false,
 			allowNull:false,
+		},
+		startDateFormatted:{
+			type:DataTypes.STRING,
+			unique:false,
+			allowNull:false
+		},
+		endDateFormatted:{
+			type:DataTypes.STRING,
+			unique:false,
+			allowNull:false
+
 		}
 
 	},{

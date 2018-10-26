@@ -19,7 +19,9 @@ router.post('/addEvent',function(req,res,next){
 		startDate:req.body.startDate,
 		startTime:req.body.startTime,
 		endDate:req.body.endDate,
-		endTime:req.body.endTime
+		endTime:req.body.endTime,
+		startDateFormatted:req.body.startDateFormatted,
+		endDateFormatted:req.body.endDateFormatted
 	}
 	events.create(eventRecord).then(function(event){
 		console.log('-----------');

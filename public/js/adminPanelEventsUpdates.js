@@ -25,10 +25,10 @@ $(document).on('click','#addEvent',function(){
     var endTime   = document.getElementById('endTime').value;
     var startDate = document.getElementById('startDate').value;
     var endDate = document.getElementById('endDate').value;
-    var startDate= startDate.slice(8,10)+'-'+startDate.slice(5,8)+startDate.slice(0,4);
-    var endDate=endDate.slice(8,10)+'-'+endDate.slice(5,8)+endDate.slice(0,4);
-    var start= startTime+' , '+ startDate;
-    var end = endTime+' , '+endDate; 
+    var startDateFormatted= startDate.slice(8,10)+'-'+startDate.slice(5,8)+startDate.slice(0,4);
+    var endDateFormatted=endDate.slice(8,10)+'-'+endDate.slice(5,8)+endDate.slice(0,4);
+    var start= startTime+' , '+ startDateFormatted;
+    var end = endTime+' , '+endDateFormatted; 
     
 
 
@@ -40,7 +40,9 @@ $(document).on('click','#addEvent',function(){
                     startDate:startDate,
                     startTime:startTime,
                     endDate:endDate,
-                    endTime:endTime
+                    endTime:endTime,
+                    startDateFormatted:startDateFormatted,
+                    endDateFormatted:endDateFormatted
                 }),
                 contentType: "application/json",
                 dataType: "json",

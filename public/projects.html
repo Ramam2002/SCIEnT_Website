@@ -6,7 +6,7 @@
         </div>
     </div>
 </div>
-<div class="tab-content" id="resources">
+<!-- <div class="tab-content" id="resources">
     <div class="container gal-container">
        <div ng-repeat="x in adminProjectNames" class="col-md-4 col-sm-6 co-xs-12 gal-item">
               <div class="box">
@@ -26,7 +26,67 @@
             </div>
           </div>
         </div>
+    </div> -->
+    
+<!-- <div class="adminProject" class="tab-pane fade">
+    <div class="container-fluid" style="margin-top: 3%">
+        <div ng-repeat="x in adminProjectNames">
+            <div class="col-md-12">
+                <div class="adminProjectList">
+                    <div class="table-responsive" id="adminProjectListDisplay">
+                        <table style="margin:auto;width:50%;"    class="table borderless text-centered">
+                            <thead>
+                                <tr>
+                                  <th class="text-center">{{x.projectTitle}}</th>
+                                </tr>
+                                <tbody id="fixed-width">
+                                    <th><img src="{{x.projectImage}}" alt="Responsive image"></th>
+                                    <th>{{x.projectDesc}}</th>
+                                </tbody>
+                            </thead>
+                        </table><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+</div> -->
+
+    <div class="row" style="margin:auto">
+        <div class="card-deck">
+            <div class="col-md-4 col-sm-6 co-xs-12" ng-repeat="x in adminProjectNames" style="margin-bottom: 100px">
+                <div class="card text-center" style="padding: 50px;background: #ebebeb;border-style:outset">
+                    <img  class="card-img-top" style="width: 100%;height: auto;"  src="{{x.projectImage}}" alt="Card image cap">
+                    <div class="card-body" style="display:block;overflow:hidden;text-overflow:ellipsis">
+                        <h3 class="card-title"><strong>{{x.projectTitle}}</strong></h3>
+                        <p style="overflow: auto" class="card-text"><em>{{x.projectDesc}}</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div> 
+    <!-- <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div> -->
 
 <!-- Footer -->
 <!-- <div class="footer" class="container" id="projectsFooter">

@@ -206,7 +206,7 @@
         </div>
     </div>
 </div>
-//functions of this page
+
     <script>
         var app = angular.module("ScientLab", ["ngRoute"]);
         app.filter('split', function() {
@@ -226,13 +226,8 @@
         app.controller('ScientLabCtrl', function($scope, $rootScope, $http, $location) {
             $scope.tronixFileNames = [];
             $scope.mechFileNames = [];
-<<<<<<< HEAD
             $scope.annualReportFileNames = [];
             $scope.galleryFileNames = [];
-=======
-            $scope.adminProjects =  [];
-
->>>>>>> feature/projectIdeas
             $scope.viewLoaded = function () {
                 $('.carousel').carousel({
                     interval: 4000 //changes the speed
@@ -296,7 +291,6 @@
                 });
                 $http({
                     method : "GET",
-<<<<<<< HEAD
                     url : "/annual_reports"
                 }).then(function mySuccess(response) {
                    
@@ -307,16 +301,8 @@
                     method : "GET",
                     url : "/gallery-images"
                 }).then(function mySuccess(response) {
-                   
                     $scope.galleryFileNames = response.data;
                 }, function myError(response) {
-=======
-                    url : "/projects/images"
-                }).then(function mySuccess (response) {
-
-                    $scope.adminProjectNames = response.data;
-                }, function myError (response) {
->>>>>>> feature/projectIdeas
                 });
             }; 
             $scope.getClass = function (path) {
@@ -334,7 +320,6 @@
                templateUrl : "register.html"
             })
             .when("/Tools", {
-<<<<<<< HEAD
                 templateUrl : "tools.html",
             })
             .when("/Gallery", {
@@ -342,9 +327,6 @@
             })
             .when("/Facilities", {
                 templateUrl : "facilities.html"
-=======
-                templateUrl : "tools.html"
->>>>>>> feature/projectIdeas
             })
             .when("/Projects", {
                 templateUrl : "projects.html"

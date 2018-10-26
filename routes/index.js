@@ -22,6 +22,8 @@ var server  = email.server.connect({
    ssl:     true,
 });
 
+const models  = require(path.join(__dirname, '/../' ,'models'));
+const AdminProjects = models.AdminProjects;
 /* 
  GET home page 
 */
@@ -41,13 +43,17 @@ router.get('/:type/images',function(req, res, next){
 	});
 });
 
-router.get('/annual_reports',function(req, res, next){
-	res.setHeader("Content-Type", "application/json");
-	fs.readdir("./public/annual_reports/", function(err, files) {
-		console.log(files);
-		res.send(files);
-	});
-});
+router.get('/projects-images', function(req,res,next) {
+	// res.setHeader("Content-Type", "application/json");
+	// fs.readdir("./public/images/adminProjects", function(err, projects) {
+    //     console.log(projects);
+    //     res.send(projects);
+	// });
+	AdminProjects.findAll().then(function(projects){
+		res.send(projects);
+
+	})
+})
 // router.get('/gallery', function(req, res, next) {
 //     res.send('Gallery reached');
 // });
@@ -89,6 +95,31 @@ router.post('/sendMessage', function(req, res, next) {
 				
 			}
 		});
+	res.render('index');
+});
+router.post('/sendProjectIdea', function(req,res,next) {
+	console.log(req.body.name);
+	console.log(req.body.phNumber);
+	console.log(req.body.email);
+	console.log(req.body.projectTitle);
+	console.log(req.body.projectIdea);
+	var message = {
+		text: ' Project Title: ' + req.body.projectTitle + ' and Project Details: ' + req.body.projectIdea 
+		  + ' from Name: ' + req.body.name + ' Email: ' + req.body.email + ' and Phone Number: ' + req.body.phNumber,
+		from : req.body.email,
+		to :  yourEmail, 
+		subject: "New Project Idea",
+		attachment: 
+		[
+
+		]
+	};
+	server.send(message, function (err,message) {
+		console.log(err||message);
+		if(!err){
+			console.log("Sent");
+		}
+	});
 	res.render('index');
 });
 

@@ -15,9 +15,6 @@
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" href="images/scient-logo.png">
 
-    <!-- Materialize CSS -->
-    <!-- <link rel="stylesheet" type="text/css" href="/css/materialize.css"> -->
-
     <!-- Custom CSS -->
     <link href="/css/ScientLab.css" rel="stylesheet">
     <link href="/css/register.css" rel="stylesheet">
@@ -51,7 +48,6 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!-- <script type="text/javascript" src="js/materialize.js"></script> -->
         
     <style>
        /* .site-slider
@@ -138,6 +134,11 @@
                     <li class = "menu-item" id="resources-main">
                         <a href="#!Tools" id="resources-tab" ng-class="getClass('/Tools')">Resources</a>
                     </li>
+                    
+                     <li class = "menu-item">
+                        <a href="#!Projects" ng-class = "getClass('/Projects')">Projects</a>
+                    </li>
+                    
                     <!-- <li class = "menu-item">
                         <a href="#!Facilities">Facilities</a>
                     </li> -->
@@ -145,7 +146,7 @@
                         <a href="#!Gallery" id="resources-tab" ng-class="getClass('/Gallery')">Gallery</a>
                     </li>
                     <li class = "menu-item">
-                        <a href="#!Projects" ng-class="getClass('/Projects')">Projects</a>
+                        <a href="#!ProjectIdeas" ng-class="getClass('/ProjectsIdeas')">Project Idea</a>
                     </li>
                      <li class = "menu-item">
                         <a href="#!Donations" ng-class="getClass('/Donations')">Donation</a>
@@ -153,9 +154,6 @@
                     <!-- <li class = "menu-item">
                         <a href="#!FAQ">FAQ</a>
                     </li> -->
-                    <li class = "menu-item">
-                        <a href="#!AnnualReports" ng-class="getClass('/AnnualReports')">Annual Reports</a>
-                    </li>
                     <li class = "menu-item">
                         <a href="#!Contacts" ng-class="getClass('/Contacts')">Contact Us</a>
                     </li>
@@ -203,6 +201,7 @@
         </div>
     </div>
 </div>
+//functions of this page
     <script>
         var app = angular.module("ScientLab", ["ngRoute"]);
         app.filter('split', function() {
@@ -218,11 +217,11 @@
             };
         });
 
-
+    
         app.controller('ScientLabCtrl', function($scope, $rootScope, $http, $location) {
             $scope.tronixFileNames = [];
             $scope.mechFileNames = [];
-            $scope.annualReportFileNames = [];
+            $scope.adminProjects =  [];
             $scope.galleryFileNames = [];
             $scope.viewLoaded = function () {
                 $('.carousel').carousel({
@@ -276,24 +275,29 @@
                     $scope.tronixFileNames = response.data;
                 }, function myError(response) {
                 });
+
                 $http({
                     method : "GET",
                     url : "/mechanical/images"
                 }).then(function mySuccess(response) {
                    
                     $scope.mechFileNames = response.data;
+                    console.log("zfhh" , response.data)
                 }, function myError(response) {
                 });
+                
                 $http({
                     method : "GET",
-                    url : "/annual_reports"
+                    url : "/projects-images"
                 }).then(function mySuccess(response) {
-                   
-                    $scope.annualReportFileNames = response.data;
-                }, function myError(response) {
+
+                    $scope.adminProjectNames = response.data;
+                    console.log('Admin projects: ', response.data);
+                }, function myError (response) {
                 });
-                $http({
-                    method : "GET",
+
+            $http({
+                    method: "GET",
                     url : "/gallery-images"
                 }).then(function mySuccess(response) {
                    
@@ -316,7 +320,8 @@
                templateUrl : "register.html"
             })
             .when("/Tools", {
-                templateUrl : "tools.html",
+                templateUrl : "tools.html"
+                // templateUrl : "tools.html",
             })
             .when("/Gallery", {
                 templateUrl : "gallery.html"
@@ -327,6 +332,9 @@
             .when("/Projects", {
                 templateUrl : "projects.html"
             })
+            .when("/ProjectIdeas", {
+                templateUrl : "project_ideas.html"
+            })
             .when("/FAQ", {
                 templateUrl : "faq.html"
             })
@@ -335,9 +343,6 @@
             })
             .when("/Donations", {
                 templateUrl : "donations.html"
-            })
-            .when("/AnnualReports", {
-                templateUrl : "annual_reports.html"
             })
             .otherwise({
                 redirectTo: '/home'

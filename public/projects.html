@@ -1,39 +1,32 @@
-
+`
 <div class="container">
-	<div class = "row">
-		<div class = "col-lg-12 text-center">
-			<h1><span style="background-color: white;padding: 3px 10px 3px 10px;border-radius: 13px;">Projects<span></h1>
-		</div> 
-	</div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1><span style="background-color: white;padding: 3px 10px 3px 10px; border-radius: 13px;">Projects</span></h1>
+        </div>
+    </div>
 </div>
-
-<div class = "container" id = "projectsSection">
-	<div class = "row">
-		<div class = "col-md-12 typewriter">
-	  			<h1>Coming soon</h1>
-		</div>
-	</div>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
+<div class="tab-content" id="resources">
+    <div class="container gal-container">
+       <div ng-repeat="x in adminProjectNames" class="col-md-4 col-sm-6 co-xs-12 gal-item">
+              <div class="box">
+                <a data="{{x.projectTitle}}" data-toggle="modal" data-target="#{{x.projectTitle}}"><img src="{{x.projectImage}}" /></a>
+                <div class="modal fade" id="{{x.projectTitle}}" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="model-content">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#215;</span></button>
+                      <div class="modal-body"><img src="{{x.projectImage}}" /></div>
+                      <div class="col-md-12 row h-50 description">
+                        <h4><strong>{{x.projectTitle}}</strong>   <em>{{x.projectDesc}}</em></h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
 
 <!-- Footer -->
 <!-- <div class="footer" class="container" id="projectsFooter">

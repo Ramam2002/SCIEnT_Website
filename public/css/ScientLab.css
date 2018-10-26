@@ -327,3 +327,41 @@ footer {
 col-xs-12 col-sm-12{
     margin-top: 20px;
 }
+.question ul li a{
+    align-items: center;
+    margin:0 25px;
+}
+.question ul li a{
+    color: #eee;
+    font-weight: boldest;
+    font-size: 17px;
+}
+.question ul li:nth-child(2n){
+            list-style: none;
+            background-color: #333;
+            border-color: white;
+            border-width: 10px;
+            margin-top: 5px;
+            padding:5px;
+
+        }
+ .question ul li:nth-child(2n+1){
+            list-style: none;
+            background-color: #444;
+            border-color: white;
+            border-width: 10px;
+            margin-top: 5px;
+            padding:5px;
+        }       
+.question ul li div {
+  display: none; 
+}
+.question ul li.active div {
+  display: block; 
+  padding-bottom: 2px;
+}
+.faq-content{
+    background-color: #eee;
+    padding: 15px;
+    size: 15px;
+}

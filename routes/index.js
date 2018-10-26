@@ -99,9 +99,12 @@ router.post('/sendProjectIdea', function(req,res,next) {
 		console.log(err||message);
 		if(!err){
 			console.log("Sent");
+			res.render('index');
+		}
+		else{
+			res.send(`${err}`);
 		}
 	});
-	res.render('index');
 });
 
 module.exports = router;

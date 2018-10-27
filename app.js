@@ -20,7 +20,7 @@ var projects = require('./routes/projects');
 var hallBooking = require('./routes/hallBooking');
 var donations = require('./routes/donations');
 var inventory = require('./routes/inventory');
-var annualReport = require('./routes/annualReport');
+var adminProjects = require('./routes/adminProjects')
 var resources = require('./routes/resources');
 var gallery = require('./routes/gallery');
 
@@ -54,7 +54,7 @@ app.use('/admin', facilities);
 app.use('/admin', projects);
 app.use('/admin', hallBooking);
 app.use('/admin', inventory);
-app.use('/admin', annualReport);
+app.use('/admin', adminProjects);
 app.use('/admin', resources);
 app.use('/admin', gallery);
 
@@ -90,10 +90,10 @@ models.sequelize.sync().then(function () {
 //     password: adminPwd,
 //     adminLevel: 'One'
 // };
-//   Admins.sync({force: false})
-//   .then( function() {
-//     return Admins.create(adminDetails);
-//     console.log('Demo level one admin added');
-//   });
+  // Admins.sync({force: true})
+  // .then( function() {
+  //   return Admins.create(adminDetails);
+  //   console.log('Demo level one admin added');
+  // });
 
 module.exports = app;

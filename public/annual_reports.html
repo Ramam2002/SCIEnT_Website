@@ -1,0 +1,61 @@
+<div class="container">
+  <div class = "row">
+    <div class = "col-lg-12 text-center">
+      <h1><span style="background-color: white;padding: 3px 10px 3px 10px; border-radius: 13px;">Annual Reports</span></h1>
+    </div> 
+  </div>
+        
+</div>
+<div class="tab-content" id="reports">
+    <div class="container gal-container">
+        <ul ng-repeat="x in annualReportFileNames" class="list-group-flush col-xs-6">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <b>{{x | split:'.':0 | changeHyphen }}</b>
+                <a href="annual_reports/{{ x }}" download="{{ x }}" class="badge badge-light float-right">
+                    <i class="glyphicon glyphicon-download-alt" aria-label="Download"></i>
+                </a>
+            </li>
+        </ul>     
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- Footer -->
+<!-- <div class="footer" class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <p>Copyright &copy; ScientLab website 2017</p>
+        </div>
+        <div class="col-md-4">
+            <img class="img-responsive" id="scient_logo_footer" src="images/scient-logo.png" height="130" width="130" />
+        </div>
+        <div class="col-md-4">
+            <img class="img-responsive" id="recal_logo_footer" src="images/recal.png" height="200" width="200" />
+        </div>
+    </div>
+
+
+    <div class="box">
+                <a data="{{x | split:'.':0 | changeHyphen }}" data-toggle="modal" data-target="#{{x |split:'.':0}}">{{ x }}</a>
+                <div class="modal fade" id="{{x |split:'.':0}}" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#215;</span></button>
+                            <div class="modal-body"><a href="annual_reports/{{ x }}" download="{{ x }}" /></div>
+                            <div class="col-md-12 description">
+                                <h4>{{x | split:'.':0 | changeHyphen }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+</div> -->
+
+

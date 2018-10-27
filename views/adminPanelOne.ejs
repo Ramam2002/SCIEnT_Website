@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -11,10 +12,14 @@
     <script src="/js/bootstrap.js"></script>
     <script src="/js/adminPanel.js"></script>
     <script src="/js/adminPanelDonations.js"></script>
+    <script src="/js/adminPanelResources.js"></script>
     <script src="/js/adminPanelFacilities.js"></script>
     <script src="/js/adminPanelProjects.js"></script>
+    <script src="/js/adminPanelAddProjects.js"></script>
     <script src="/js/adminPanelHallBooking.js"></script>
     <script src="/js/adminPanelInventory.js"></script>
+    <script src="/js/adminPanelAnnualReport.js"></script>
+    <script src="/js/adminPanelGallery.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
     <link rel="stylesheet" href="/css/adminPanelOne.css">
@@ -23,7 +28,7 @@
 <style>
 
 .table-responsive {
-    max-height:300px;
+    max-height: 600px;
 }
 
 </style>
@@ -53,6 +58,9 @@
             <li><a data-toggle="tab" href="#donations">Donations</a></li>
             <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
             <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
+            <li><a data-toggle="tab" href="#annual_report">Annual Report</a></li>
+            <li><a data-toggle="tab" href="#resources">Resources</a></li>
+            <li><a data-toggle="tab" href="#gallery">Gallery</a></li>
             <li><a data-toggle="tab" href="#changePasswords">Change your password</a></li>
         </ul>
 
@@ -94,7 +102,7 @@
                                                     <td><button type="button" class="markAsComplete btn btn-success">MARK</button></td>
                                                 <% } %>
                                                 <td><span id="status"><%= item.status %></span></td>
-                                                <td><span class="lastUpdater"><%= item.latestUpdater %></span></td>
+                                                <td><span id="lastUpdater" class="lastUpdater"><%= item.latestUpdater %></span></td>
                                             </tr>
                                         <% } %>
                                     <% }); %>
@@ -177,6 +185,9 @@
                                         <th class="header"></th>
                                         <th class="header">ACCESS</th>
                                         <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
                                         <th class="header"><button type="button" id="mailForFacilities" class="btn btn-success">Mail for Access</button></th>
                                         <th class="header"></th>
                                   </tr>
@@ -185,7 +196,10 @@
                                 <thead>
                                      <tr>
                                         <th>APPLICANT ID</th>
+                                        <th>APPLICANT ROLL</th>
                                         <th>APPLICANT NAME</th>
+                                        <th>PURPOSE</th>
+                                        <th>DURATION</th>
                                         <th>APPROVE</th>
                                         <th>CURRENT STATUS</th>
                                         <th>EDIT STATUS</th>  
@@ -202,6 +216,9 @@
                                         <% } %>   
                                             <td ><a href="#"><span class="applicantId"><%= item.id %></span></a></td>
                                             <td ><span class="applicantRoll"><%= item.roll %></span></td>
+                                            <td ><span class="applicantRoll"><%= item.name %></span></td>
+                                            <td ><span class="applicantRoll"><%= item.purpose %></span></td>
+                                            <td ><span class="applicantRoll"><%= item.duration %></span></td>
                                             <% if (item.approved == 'Yes') { %>
                                                 <td><button type="button" class="approveForFacilities btn btn-success" disabled>APPROVE </button></td>
                                             <% } else { %> 
@@ -252,14 +269,14 @@
                                         <tr>
                                             <td ><a href="#"><span class="bookingId"><%= item.id %></span></a></td>
                                             <td ><span class="applicantRoll"><%= item.roll %></span></td>
-                                            <td ><span class="applicantRoll"><%= item.name %></span></td>
-                                            <td ><span class="applicantRoll"><%= item.date.getDate() 
+                                            <td ><span class="applicantName"><%= item.name %></span></td>
+                                            <td ><span class="applicantDate"><%= item.date.getDate() 
                                             + '/'
                                             + parseInt(item.date.getMonth() + 1)
                                             + '/'
                                             + item.date.getFullYear() %></span></td>
-                                            <td ><span class="applicantRoll"><%= item.startTime %></span></td>
-                                            <td ><span class="applicantRoll"><%= item.endTime %></span></td>
+                                            <td ><span class="applicantRequestedStartTime"><%= item.startTime %></span></td>
+                                            <td ><span class="applicantRequestedEndTime"><%= item.endTime %></span></td>
                                             <% if (item.approved == 'Yes') { %>
                                                 <td><button type="button" class="approveForHallBooking btn btn-success" disabled>APPROVE </button></td>
                                             <% } else { %> 
@@ -274,7 +291,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div id="donations" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
@@ -422,6 +438,93 @@
                 </div>
             </div>
 
+            <div id="annual_report" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6">
+                        <h2 style="font-family: 'Vollkorn',serif;">Add Annual Report file</h2>
+                        <form id="annualReportForm" name="annualReportForm" method="POST" enctype="multipart/form-data">
+                            <label>File Name:</label><br>
+                            <input type="text" id="fileName" name="fileName"><br>
+                            <label>Report Year:</label><br>
+                            <input type="number" id="reportYear" name="reportYear"><br>
+                            <label>File:</label><br>
+                            <input type="file" id="reportFile" name="reportFile"><br>
+                            <span id="fileSubmissionMsg"></span>
+                            <button id="addAnnualReportFile" class="btn btn-warning btn-lg">Add File</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="resources" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6" id="addResourcesForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">ADD RESOURCE</h2>
+                        
+                        <%= typeof msg != 'undefined' ? msg : '' %>
+                        
+                        <form method="POST" enctype="multipart/form-data" name="resourceForm" id="resourceForm">
+                            <div class="input-field col s6">
+                                <label for="name">Resource Name</label><br>
+                                <input id="name" name="name" type="text" class="validate">
+                            </div>
+                            <br>
+                            <div class="input-field col s6">
+                                <label for="type">Resource Type</label><br>
+                                <p>
+                                    <span>Electronics</span>
+                                    <input name="type" value="electronics" type="radio"/>
+                                </p>
+                                <p>
+                                    <span>Mechanical</span>
+                                    <input name="type" value="mechanical" type="radio"/>
+                                </p>
+                                <p>
+                                    <span>Others</span>
+                                    <input name="type" value="others" type="radio" checked/>
+                                </p>
+                            </div>
+                            <br>
+                            <div class="file-field input-field">
+                                    <label for="resourceImage">Image</label><br>
+                                    <input id="resourceImage" name="resourceImage" type="file">
+                            </div>
+                            <br>
+                            <span id="resourceMsg"></span>
+                            <br>
+                            <button type="submit" class="btn btn-warning btn-lg">Submit Resource</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gallery" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6" id="addGalleryImageForm">
+                        <h2 style="font-family: 'Vollkorn',serif;">ADD GALLERY IMAGE</h2>
+                        
+                        <%= typeof msg != 'undefined' ? msg : '' %>
+                        
+                        <form method="POST" enctype="multipart/form-data" name="galleryImageForm" id="galleryImageForm">
+                            <div class="input-field col s6">
+                                <label for="name">Image Title</label><br>
+                                <input id="name" name="name" type="text" class="validate">
+                            </div>
+                            <br>
+                            <div class="file-field input-field">
+                                    <label for="galleryImage">Image</label><br>
+                                    <input id="galleryImage" name="galleryImage" type="file">
+                            </div>
+                            <br>
+                            <span id="galleryMsg"></span>
+                            <br>
+                            <button type="submit" class="btn btn-warning btn-lg">Submit Gallery Image</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
             <div id="changePasswords" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
                     <div class="col-md-6" id="changePasswordForm">
@@ -438,8 +541,9 @@
                 </div>
             </div>
                     
-                </div>
-            </div>
+
+        </div>
+    </div>
      
 
     <div id="infoModal" class="w3-modal">

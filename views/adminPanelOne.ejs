@@ -54,6 +54,7 @@
             <li><a data-toggle="tab" href="#pendingProjects">Pending Projects</a></li>
             <li><a data-toggle="tab" href="#facilitiesOrTools">Access</a></li>
             <li><a data-toggle="tab" href="#conferenceHallBooking">Hall Booking Requests</a></li>
+            <li><a data-toggle="tab" href="#addProjects">Add Projects</a></li>
             <li><a data-toggle="tab" href="#donations">Donations</a></li>
             <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
             <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
@@ -321,7 +322,7 @@
                                         <% adminProjectRows.forEach(function(item){  %>
                                             <tr>
                                                 <td><span class="projectsID"><%= item.id %></span></td>
-                                                <td><span class="projectImage"><img src="<%= item.projectImage %>" ></span></td>
+                                                <td><span class="projectImage"><img width="400" height="225" src="<%= item.projectImage %>" ></span></td>
                                                 <td><span class="projectsTitle"><%= item.projectTitle %></span></td>
                                                 <td><span class="projectsDesc"><%= item.projectDesc %></span></td>
                                             </tr>

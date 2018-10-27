@@ -1,103 +1,97 @@
 <div style="background-color:#333;opacity: 1;padding: none;" ng-if="empty==0">
-    <marquee behaviour="scroll" scrollamount="5">
-        <p style="color:#ddd; font-size: 10pt; padding: none; "><strong style="size: 25pt;font-family:fantasy;font-weight: boldest; text-transform: uppercase;" ng-repeat="y in announcements">&diams; {{y.Text}}<span style="color: #333;">----</span></strong>  <span style="color: #333;">---------</span><strong ng-repeat="x in ongoingEvents" ng-if="(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))"style="font-family:fantasy;font-size: 10pt;">&#9899; {{x.EventsDetails}} <span style="font-size: 10pt;font-weight:normal;font-family:sans-serif;"> ({{x.startTime+', '+x.startDateFormatted}} to {{x.endTime +', '+x.endDateFormatted}})</span> <span style="color: #333;">-----</span> </strong></p>
-    </marquee>
+  <marquee behaviour="scroll" scrollamount="5">
+      <p style="color:#ddd; font-size: 10pt; padding: none; "><strong style="size: 25pt;font-family:fantasy;font-weight: boldest; text-transform: uppercase;" ng-repeat="y in announcements">&diams; {{y.Text}}<span style="color: #333;">----</span></strong>  <span style="color: #333;">---------</span><strong ng-repeat="x in ongoingEvents" ng-if="(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))"style="font-family:fantasy;font-size: 10pt;">&#9899; {{x.EventsDetails}} <span style="font-size: 10pt;font-weight:normal;font-family:sans-serif;"> ({{x.startTime+', '+x.startDateFormatted}} to {{x.endTime +', '+x.endDateFormatted}})</span> <span style="color: #333;">-----</span> </strong></p>
+  </marquee>
 </div>
 
-    <div class="row main-slide">
-             <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
-                <!-- Overlay -->
-                <!-- <div class="overlay"></div> -->
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#bs-carousel" data-slide-to="1"></li>
-                    <li data-target="#bs-carousel" data-slide-to="2"></li>
-                </ol>
-                <!-- <a id="aboutUsLink" href="#about"><span class="down-arrow"><i class="fa fa-angle-double-down" style="font-size: 80px; color: white;"></i></span></a> -->
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" >
-                    <div class="item slides active">
-                        <div class="slide-1"></div>
-                        <div class="hero">
-                            <hgroup>
-                                <h1>Ideate</h1>
-                                <h3>Get started on your next project</h3>
-                            </hgroup>
-                            <a href="#!Register">
-                                <button class="btn btn-hero btn-lg" role="button">Check out all facilities</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item slides">
-                        <div class="slide-2"></div>
-                        <div class="hero">
-                            <hgroup>
-                                <h1>Innovate</h1>
-                                <h3>Get started on your next project</h3>
-                            </hgroup>
-                            <a href="#!Register">
-                                <button class="btn btn-hero btn-lg" role="button">Check out all facilities</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item slides">
-                        <div class="slide-3"></div>
-                        <div class="hero">
-                            <hgroup>
-                                <h1>Create</h1>
-                                <h3>Get started on your next project</h3>
-                            </hgroup>
-                            <a href="#!Register">
-                                <button class="btn btn-hero btn-lg" role="button">Check out all facilities</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-      
-    </div>
-</div>
-<br>
-
-<div class="container">
-  <div class="col-md-5 col-lg-5 col-xs-12 col-sm-12">
-            <div class="resp-container">
-               <iframe  class="resp-iframe" src="https://drive.google.com/file/d/0B1r9PHc7c1C9V1RVMVl3bXBDQ1k/preview"></iframe>
-              
+<div class="container-fluid">
+  <div class="main-slide col-md-7">
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+      <!-- Overlay -->
+      <!-- <div class="overlay"></div> -->
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#bs-carousel" data-slide-to="1"></li>
+        <li data-target="#bs-carousel" data-slide-to="2"></li>
+      </ol>
+      <!-- <a id="aboutUsLink" href="#about"><span class="down-arrow"><i class="fa fa-angle-double-down" style="font-size: 80px; color: white;"></i></span></a> -->
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" >
+        <div class="item slides active">
+            <div class="slide-1"></div>
+            <div class="hero">
+                <hgroup>
+                    <h1>Ideate</h1>
+                    <h3>Get started on your next project</h3>
+                </hgroup>
+                <a href="#!Register">
+                    <button class="btn btn-hero btn-lg" role="button">Check out all facilities</button>
+                </a>
             </div>
-  
-</div>
+        </div>
+        <div class="item slides">
+            <div class="slide-2"></div>
+            <div class="hero">
+                <hgroup>
+                    <h1>Innovate</h1>
+                    <h3>Get started on your next project</h3>
+                </hgroup>
+                <a href="#!Register">
+                    <button class="btn btn-hero btn-lg" role="button">Check out all facilities</button>
+                </a>
+            </div>
+        </div>
+        <div class="item slides">
+            <div class="slide-3"></div>
+            <div class="hero">
+                <hgroup>
+                    <h1>Create</h1>
+                    <h3>Get started on your next project</h3>
+                </hgroup>
+                <a href="#!Register">
+                    <button class="btn btn-hero btn-lg" role="button">Check out all facilities</button>
+                </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5 col-xs-12 col-sm-12">
+    <div class="resp-container">
+      <iframe  class="resp-iframe" src="https://drive.google.com/file/d/0B1r9PHc7c1C9V1RVMVl3bXBDQ1k/preview"></iframe>
+    </div>   
+  </div>
 
-<div class="col-sm-12 col-xs-12 col-md-7 col-lg-7 row main-slide">
+  <div class="col-sm-12 col-xs-12 col-md-5 main-slide upcoming">
     <div class="carousel  slide event" data-ride="carousel" data-interval="2000"  id="event-carousel">
                 
-                <ol class="carousel-indicators"  >
-                    <li data-target="#event-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#event-carousel" ng-repeat="x in ongoingEvents" ng-if="x.startDate>today"data-slide-to="{{$index +1 }}"></li>
-                </ol>
+      <ol class="carousel-indicators"  >
+          <li data-target="#event-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#event-carousel" ng-repeat="x in ongoingEvents" ng-if="x.startDate>today"data-slide-to="{{$index +1 }}"></li>
+      </ol>
                 
-                <div class="carousel-inner" >
-                  <div class="item slides active">
-                    
-                      <div class="hero">
-                        <hgroup>
-                          <strong>Upcoming Events </strong>
-                        </hgroup>
-                      </div>
-                  </div>
-                   <div class="item slides"  ng-repeat="x in ongoingEvents" ng-if="x.startDate>today">
-                        <div class="hero">
-                            <hgroup>
-                                <strong> {{x.EventsDetails}}</strong>
-                                <br>
-                                <span>{{x.startTime+', '+x.startDateFormatted}} to {{x.endTime +', '+x.endDateFormatted}}</span>
-                            </hgroup>
-                          </div>                    
-                       </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
+      <div class="carousel-inner" >
+        <div class="item slides active">         
+          <div class="hero">
+            <hgroup>
+              <strong>Upcoming Events </strong>
+            </hgroup>
+          </div>
+        </div>
+        <div class="item slides"  ng-repeat="x in ongoingEvents" ng-if="x.startDate>today">
+            <div class="hero">
+              <hgroup>
+                  <strong> {{x.EventsDetails}}</strong>
+                  <br>
+                  <span>{{x.startTime+', '+x.startDateFormatted}} to {{x.endTime +', '+x.endDateFormatted}}</span>
+              </hgroup>
+            </div>                    
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
    
 <section id="about" class="about">
     <div class="container">

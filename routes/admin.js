@@ -14,6 +14,9 @@ var Projects = models.Projects;
 var HallBooking = models.HallBooking;
 var Admins = models.Admins;
 var Donations = models.Donations;
+var Inventory=models.inventory;
+var Vendors=models.Vendors;
+var AdminProjects = models.AdminProjects;
 var Inventory = models.inventory;
 var Vendors = models.Vendors;
 
@@ -24,13 +27,15 @@ router.get('/', function(req, res, next) {
 	/* to check whether the person is already logged in as levelOne or leveltwo 
 	admin*/
 	if(req.session.access == 'levelOneAdmin') {
+		// var projectsRows, facilitiesRows, hallBookingRows, adminsRows, donationRows, inventoryRows,vendorRows,adminProjectRows;
 		var projectsRows,
 			facilitiesRows, 
 			hallBookingRows, 
 			adminsRows, 
 			donationRows, 
 			inventoryRows,
-			vendorRows;
+			vendorRows,
+			adminProjectRows;
 		Facilities.findAll().then( function(facilities) {
 			facilitiesRows = facilities;
 			Projects.findAll().then( function(projects) {
@@ -45,16 +50,11 @@ router.get('/', function(req, res, next) {
 								adminsRows = admins;
 								Donations.findAll().then( function(donations) {
 									donationRows = donations;
-									res.render('adminPanelOne',{ 
-										projectsRows: projectsRows,
-										facilitiesRows: facilitiesRows,
-										hallBookingRows: hallBookingRows,
-										inventoryRows:inventoryRows,
-										vendorRows: vendorRows, 
-										adminsRows: adminsRows, 
-										donationRows: donationRows,
-										visitorCount: visitorCount
-									});
+									AdminProjects.findAll().then(function(adminProjects) {
+										adminProjectRows = adminProjects;
+										console.log(adminProjectRows);
+										res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows, adminProjectRows:adminProjectRows,visitorCount: visitorCount});
+									})
 								});
 							});
 						});
@@ -98,7 +98,8 @@ router.post('/', function(req, res, next) {
 				hallBookingRows, 
 				adminsRows,
 				inventoryRows,
-				vendorRows;
+				vendorRows,
+				adminProjectRows;
 			Facilities.findAll().then(function(facilities) {
 				facilitiesRows = facilities;
 				Projects.findAll().then(function(projects) {
@@ -113,16 +114,11 @@ router.post('/', function(req, res, next) {
 									adminsRows = admins;
 									Donations.findAll().then( function(donations) {
 										donationRows = donations;
-										res.render('adminPanelOne',{ 
-											projectsRows: projectsRows,
-											facilitiesRows: facilitiesRows,
-											hallBookingRows: hallBookingRows,
-											inventoryRows: inventoryRows,
-											vendorRows: vendorRows,
-											adminsRows: adminsRows,
-											donationRows: donationRows,
-											visitorCount: visitorCount
-										});
+										AdminProjects.findAll().then(function(adminProjects){
+											adminProjectRows = adminProjects;
+											res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows: inventoryRows ,vendorRows:vendorRows,adminsRows: adminsRows, donationRows: donationRows,adminProjectRows:adminProjectRows,visitorCount: visitorCount});
+										})
+										
 									});
 								});
 							});

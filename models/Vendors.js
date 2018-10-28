@@ -20,7 +20,7 @@ module.exports = function(sequelize,DataTypes){
 
 		},
 		vendorAddress :{
-			type: DataTypes.STRING,
+			type: DataTypes.TEXT,
 			allowNull: false
 
 		},

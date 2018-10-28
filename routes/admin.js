@@ -19,6 +19,9 @@ var Vendors=models.Vendors;
 var AdminProjects = models.AdminProjects;
 var Inventory = models.inventory;
 var Vendors = models.Vendors;
+var Events = models.Events;
+var Announcements = models.Announcements;
+
 
 router.use(session({secret: 'ssshhhhh'}));
 router.use(bodyParser.urlencoded({extended: false }));
@@ -27,7 +30,6 @@ router.get('/', function(req, res, next) {
 	/* to check whether the person is already logged in as levelOne or leveltwo 
 	admin*/
 	if(req.session.access == 'levelOneAdmin') {
-		// var projectsRows, facilitiesRows, hallBookingRows, adminsRows, donationRows, inventoryRows,vendorRows,adminProjectRows;
 		var projectsRows,
 			facilitiesRows, 
 			hallBookingRows, 
@@ -35,7 +37,8 @@ router.get('/', function(req, res, next) {
 			donationRows, 
 			inventoryRows,
 			vendorRows,
-			adminProjectRows;
+			adminProjectRows,
+			eventRows;
 		Facilities.findAll().then( function(facilities) {
 			facilitiesRows = facilities;
 			Projects.findAll().then( function(projects) {
@@ -52,9 +55,24 @@ router.get('/', function(req, res, next) {
 									donationRows = donations;
 									AdminProjects.findAll().then(function(adminProjects) {
 										adminProjectRows = adminProjects;
-										console.log(adminProjectRows);
-										res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows:inventoryRows,vendorRows:vendorRows, adminsRows: adminsRows, donationRows: donationRows, adminProjectRows:adminProjectRows,visitorCount: visitorCount});
-									})
+										Events.findAll().then(function(events){
+											eventRows = events;
+											Announcements.findAll().then(function(announcements){
+												res.render('adminPanelOne',{ 
+													projectsRows: projectsRows, 
+													facilitiesRows: facilitiesRows, 
+													hallBookingRows: hallBookingRows,
+													inventoryRows: inventoryRows,
+													vendorRows: vendorRows, 
+													adminsRows: adminsRows, 
+													donationRows: donationRows, 
+													adminProjectRows: adminProjectRows,
+													visitorCount: visitorCount, 
+													eventRows: eventRows,
+													announcementsRows: announcements});
+											});
+										});													
+									});									
 								});
 							});
 						});
@@ -116,9 +134,25 @@ router.post('/', function(req, res, next) {
 										donationRows = donations;
 										AdminProjects.findAll().then(function(adminProjects){
 											adminProjectRows = adminProjects;
-											res.render('adminPanelOne',{ projectsRows: projectsRows, facilitiesRows: facilitiesRows, hallBookingRows: hallBookingRows,inventoryRows: inventoryRows ,vendorRows:vendorRows,adminsRows: adminsRows, donationRows: donationRows,adminProjectRows:adminProjectRows,visitorCount: visitorCount});
-										})
-										
+											Events.findAll().then(function(events){
+												eventRows = events;
+												Announcements.findAll().then(function(announcements){
+													res.render('adminPanelOne',{ 
+														projectsRows: projectsRows, 
+														facilitiesRows: facilitiesRows, 
+														hallBookingRows: hallBookingRows,
+														inventoryRows: inventoryRows,
+														vendorRows: vendorRows,
+														adminsRows: adminsRows, 
+														donationRows: donationRows,
+														adminProjectRows: adminProjectRows,
+														visitorCount: visitorCount,
+														eventRows: eventRows,
+														announcementsRows: announcements
+													});
+												});
+											});
+										});
 									});
 								});
 							});
@@ -173,6 +207,20 @@ router.post('/addAdmin', function(req, res, next) {
 			+ ' successfully!' 
 		}));
 	return Admins.create(adminRecord);
+});
+
+//delete admin
+router.post('/delAdmin',function(req,res,next){
+
+	var adminName=req.body.adminName;
+	res.send(JSON.stringify({msg:"Successfully deleted "+adminName}));
+	console.log('deleting '+adminName);
+	return Admins.destroy({
+		where:{
+			adminName:adminName
+		}
+	});
+
 });
 router.post('/changePassword', function(req, res, next) {
 	Admins.findOne({ where: { adminName: req.session.adminid} })

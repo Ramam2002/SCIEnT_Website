@@ -70,7 +70,7 @@
 
 </head>
 
-<body ng-app="ScientLab" ng-controller="ScientLabCtrl" ng-init="fetchResources()">
+<body ng-app="ScientLab" ng-controller="ScientLabCtrl" ng-init="fetchResourcesEvents()">
 <!-- <div id="loader"></div> -->
 <div id="page-contents">
     <!-- Header -->
@@ -88,12 +88,12 @@
             </div>
             <div class="col-md-4">
                 <div>
-                    <h2 id="scient-header">Students' Centre For Innovation and Engineering Technology</h2>
+                    <h2 id="scient-header">Student Center For Innovation and Engineering Technology</h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div>
-                    <h2 id="nitt-header">National Institute of Technology Tiruchchirapalli</h2>
+                    <h2 id="nitt-header">National Institute of Technology Tiruchirapalli</h2>
                 </div>
             </div>
             <div class="col-md-2">
@@ -146,9 +146,9 @@
                      <li class = "menu-item">
                         <a href="#!Donations" ng-class="getClass('/Donations')">Donation</a>
                     </li>
-                    <!-- <li class = "menu-item">
-                        <a href="#!FAQ">FAQ</a>
-                    </li> -->
+                    <li class = "menu-item">
+                        <a href="#!FAQ" ng-class="getClass('/FAQ')">FAQ</a>
+                    </li> 
                     <li class = "menu-item">
                         <a href="#!Contacts" ng-class="getClass('/Contacts')">Contact Us</a>
                     </li>
@@ -199,6 +199,8 @@
 
 
     <script>
+        
+        
         var app = angular.module("ScientLab", ["ngRoute"]);
         app.filter('split', function() {
             return function(input, splitChar, splitIndex) {
@@ -219,6 +221,14 @@
             $scope.mechFileNames = [];
             $scope.adminProjects =  [];
             $scope.galleryFileNames = [];
+            var date=new Date();
+            var today = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+            $scope.today =today;
+            $scope.time = date.getHours()+':'+date.getMinutes();
+            var time = date.getHours()+':'+date.getMinutes();
+            var endDate,endTime;
+              $scope.empty=1;
+
             $scope.viewLoaded = function () {
                 $('.carousel').carousel({
                     interval: 4000 //changes the speed
@@ -262,7 +272,9 @@
                 }
                 
             };
-            $scope.fetchResources = function() {
+            
+            
+            $scope.fetchResourcesEvents = function() {
                 $http({
                     method : "GET",
                     url : "/electronics/images"
@@ -299,6 +311,39 @@
                     $scope.galleryFileNames = response.data;
                 }, function myError(response) {
                 });
+                $http({
+                    method : "GET",
+                    url : "/events"
+                }).then(function (response){
+                  
+                    for (var i =0; i <response.data.length; i++) {
+                        var x=response.data[i];
+                       if(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))
+                        {$scope.empty=0;
+                            console.log("present!");
+                         break;
+                        }
+                       
+                    }
+                   
+                    $scope.ongoingEvents=response.data;
+                    
+                },function(response){
+
+                });
+
+                 $http({
+                    method : "GET",
+                    url : "/announcements"
+                }).then(function (response){
+                    if(response.data.length>0)
+                        $scope.empty=0;
+                    $scope.announcements=response.data;
+                },function(response){
+
+                });
+                 
+            
             }; 
             $scope.getClass = function (path) {
                 return ($location.path().substr(0, path.length) === path) ? 'active' : '';
@@ -343,6 +388,7 @@
                 redirectTo: '/home'
             });
         });
+
     </script>
     
     <!-- /.container -->

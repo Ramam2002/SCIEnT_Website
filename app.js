@@ -23,6 +23,7 @@ var inventory = require('./routes/inventory');
 var adminProjects = require('./routes/adminProjects')
 var resources = require('./routes/resources');
 var gallery = require('./routes/gallery');
+var eventsUpdates = require('./routes/eventsUpdates');
 
 visitorCount = 0;
 
@@ -57,6 +58,8 @@ app.use('/admin', inventory);
 app.use('/admin', adminProjects);
 app.use('/admin', resources);
 app.use('/admin', gallery);
+app.use('/admin', eventsUpdates);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -70,6 +70,7 @@ html {
 /* navbar */
 
 .navbar {
+
     margin-bottom: 0px;
     background-color: #E0BB24;
 }
@@ -125,6 +126,9 @@ header.carousel .fill {
     background-size: cover;
 }
 
+.main-slide {
+    margin-top: 20px;
+}
 
 .about {
     margin-top: 45px;
@@ -215,7 +219,7 @@ footer {
   /* Set the fixed height of the footer here */
   height: 100%;
   background-color: #222;
-  padding-bottom: 128px;
+  padding-bottom: 50px;
 }
 
 .copyright-text {
@@ -281,3 +285,104 @@ footer {
    height: 400px;
    background-color: grey;
  }
+ 
+ 
+.resp-container {
+    position: relative;
+    padding-top: 50%;
+    margin-top: 20px;
+}
+.resp-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40vw;
+    border: 0;
+}
+
+@media only screen and (max-width:400px){
+    .resp-container{
+        overflow: hidden;
+        padding-top: 50%;
+        padding-left: 100%;
+    }
+}
+@media only screen and (min-width: 400px),(max-width:770px){
+   .resp-container {
+        position: relative;
+        overflow: hidden;
+        padding-top: 50%;
+        margin-top: 20px;
+    }
+    .resp-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    } 
+
+}
+
+col-xs-12 col-sm-12{
+    margin-top: 20px;
+}
+.question ul li a{
+    align-items: center;
+    margin:0 25px;
+}
+.question ul li a{
+    color: #eee;
+    font-weight: boldest;
+    font-size: 17px;
+}
+.question ul li:nth-child(2n){
+            list-style: none;
+            background-color: #333;
+            border-color: white;
+            border-width: 10px;
+            margin-top: 10px;
+            padding:5px;
+
+        }
+ .question ul li:nth-child(2n+1){
+            list-style: none;
+            background-color: #444;
+            border-color: white;
+            border-width: 10px;
+            margin-top: 10px;
+            padding:5px;
+        }       
+.question ul li div {
+  display: none; 
+}
+.question ul li.active div {
+  display: block; 
+  padding-bottom: 2px;
+}
+.question ul {
+    padding-right: 40px;
+}
+.faq-content{
+    background-color: #eee;
+    padding: 15px;
+    size: 15px;
+}
+
+.faq-trigger {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.faq-trigger:hover {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.faq-trigger p {
+    color: #000;
+}

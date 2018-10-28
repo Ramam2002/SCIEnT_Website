@@ -57,7 +57,8 @@ router.post('/addAdminProjects', upload.single('projectImage'), function (req, r
         console.log('Details saved and image added to gallery');
         res.end(JSON.stringify({msg: 'Admin Projects Form submitted successfully!' }));
     }).catch(function(err){
-        res.end(JSON.stringify({msg: `Error : ${err['errors'][0]['message']}`}));
+        console.log(err);
+        res.end(JSON.stringify({msg: 'Some error has occurred'}));
     })
 
 });

@@ -16,7 +16,7 @@ module.exports = function(sequelize,DataTypes){
 
 		},
 		descriptionInventory: {
-			type: DataTypes.STRING,
+			type: DataTypes.TEXT,
 			allowNull: false
 		},
 		unit: {
@@ -68,7 +68,7 @@ module.exports = function(sequelize,DataTypes){
 			allowNull: false
 		},
 		remarks :{
-			type: DataTypes.STRING,
+			type: DataTypes.TEXT,
 			allowNull: false
 		},
     }, {

@@ -37,7 +37,7 @@ module.exports = function(sequelize, DataTypes){
 			allowNull: false
 		},
 		abstract: {
-			type: DataTypes.STRING
+			type: DataTypes.TEXT
 		},
 		budget: {
 			type: DataTypes.INTEGER

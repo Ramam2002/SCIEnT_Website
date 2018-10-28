@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false
         },
         projectDesc: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: true
         }
     },{

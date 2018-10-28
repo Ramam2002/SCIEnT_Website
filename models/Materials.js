@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes){
 			type: DataTypes.INTEGER
 		},
 		purpose: {
-			type: DataTypes.STRING
+			type: DataTypes.TEXT
 		},
 		vendor: {
 			type: DataTypes.STRING

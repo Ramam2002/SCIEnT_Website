@@ -50,7 +50,7 @@ router.post('/uploadAnnualReport', upload.single('reportFile'), (req, res, next)
     AnnualReports.create(record).then(function(){
         res.send(JSON.stringify({msg: "Annual Reports Form submitted succesfully"}));
     }).catch(function(err){
-        res.send(JSON.stringify({msg: `Error : ${err['errors'][0]['message']}`}));
+        res.send(JSON.stringify({msg: 'Some error has occurred'}));
     });
 });
 

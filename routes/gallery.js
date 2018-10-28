@@ -51,7 +51,7 @@ router.post('/uploadGallery', upload.single('galleryImage'), function(req, res, 
     Gallery.create(record).then(function(){
         res.end(JSON.stringify({msg: 'Gallery Form submitted successfully!' }));
     }).catch(function(err){
-        res.end(JSON.stringify({msg: `Error : ${err['errors'][0]['message']}`}));
+        res.end(JSON.stringify({msg: 'Some error has occurred'}));
     });
 });
 

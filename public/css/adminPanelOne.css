@@ -109,3 +109,39 @@ body {
 #infoList {
     overflow-y: auto;
 }
+
+.sidenav {
+   
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    overflow-x: auto;
+    padding-top: 50px;
+    
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 13px;
+    color: #fff;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #064579;
+    background-color: grey;
+}
+#box{
+    font-size: 12px;
+    padding: none;
+    color: #aaa;
+}
+li{
+    padding: none;
+    
+}

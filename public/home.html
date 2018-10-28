@@ -1,94 +1,138 @@
+<div style="background-color:#333;opacity: 1;padding: none;" ng-if="empty==0">
+  <marquee behaviour="scroll" scrollamount="5">
+      <p style="color:#ddd; font-size: 10pt; padding: none; "><strong style="size: 25pt;font-family:fantasy;font-weight: boldest; text-transform: uppercase;" ng-repeat="y in announcements">&diams; {{y.Text}}<span style="color: #333;">----</span></strong>  <span style="color: #333;">---------</span><strong ng-repeat="x in ongoingEvents" ng-if="(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))"style="font-family:fantasy;font-size: 10pt;">&#9899; {{x.EventsDetails}} <span style="font-size: 10pt;font-weight:normal;font-family:sans-serif;"> ({{x.startTime+', '+x.startDateFormatted}} to {{x.endTime +', '+x.endDateFormatted}})</span> <span style="color: #333;">-----</span> </strong></p>
+  </marquee>
+</div>
 
-<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
-  <!-- Overlay -->
-  <!-- <div class="overlay"></div> -->
-
-  <!-- Indicators -->
-    <ol class="carousel-indicators">
+<div class="container-fluid">
+  <div class="main-slide col-md-7">
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+      <!-- Overlay -->
+      <!-- <div class="overlay"></div> -->
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
         <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
         <li data-target="#bs-carousel" data-slide-to="1"></li>
         <li data-target="#bs-carousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- <a id="aboutUsLink" href="#about"><span class="down-arrow"><i class="fa fa-angle-double-down" style="font-size: 80px; color: white;"></i></span></a> -->
-  
-  <!-- Wrapper for slides -->
-    <div class="carousel-inner">
+      </ol>
+      <!-- <a id="aboutUsLink" href="#about"><span class="down-arrow"><i class="fa fa-angle-double-down" style="font-size: 80px; color: white;"></i></span></a> -->
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" >
         <div class="item slides active">
             <div class="slide-1"></div>
             <div class="hero">
                 <hgroup>
-                    <h1>Ideate</h1>        
+                    <h1>Ideate</h1>
                     <h3>Get started on your next project</h3>
                 </hgroup>
-                <a href="#!Register"><button class="btn btn-hero btn-lg" role="button">Check out all facilities</button></a>
+                <a href="#!Register">
+                    <button class="btn btn-hero btn-lg" role="button">Check out all facilities</button>
+                </a>
             </div>
         </div>
         <div class="item slides">
             <div class="slide-2"></div>
-            <div class="hero">        
+            <div class="hero">
                 <hgroup>
-                    <h1>Innovate</h1>        
+                    <h1>Innovate</h1>
                     <h3>Get started on your next project</h3>
-                </hgroup>       
-                <a href="#!Register"><button class="btn btn-hero btn-lg" role="button">Check out all facilities</button></a>
+                </hgroup>
+                <a href="#!Register">
+                    <button class="btn btn-hero btn-lg" role="button">Check out all facilities</button>
+                </a>
             </div>
         </div>
         <div class="item slides">
             <div class="slide-3"></div>
-            <div class="hero">        
+            <div class="hero">
                 <hgroup>
-                    <h1>Create</h1>        
+                    <h1>Create</h1>
                     <h3>Get started on your next project</h3>
                 </hgroup>
-                <a href="#!Register"><button class="btn btn-hero btn-lg" role="button">Check out all facilities</button></a>
+                <a href="#!Register">
+                    <button class="btn btn-hero btn-lg" role="button">Check out all facilities</button>
+                </a>
             </div>
         </div>
-    </div> 
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5 col-xs-12 col-sm-12">
+    <div class="resp-container">
+      <iframe  class="resp-iframe" src="https://drive.google.com/file/d/0B1r9PHc7c1C9V1RVMVl3bXBDQ1k/preview"></iframe>
+    </div>   
+  </div>
+
+  <div class="col-sm-12 col-xs-12 col-md-5 main-slide upcoming">
+    <div class="carousel  slide event" data-ride="carousel" data-interval="2000"  id="event-carousel">
+                
+      <ol class="carousel-indicators"  >
+          <li data-target="#event-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#event-carousel" ng-repeat="x in ongoingEvents" ng-if="x.startDate>today"data-slide-to="{{$index +1 }}"></li>
+      </ol>
+                
+      <div class="carousel-inner" >
+        <div class="item slides active">         
+          <div class="hero">
+            <hgroup>
+              <strong>Upcoming Events </strong>
+            </hgroup>
+          </div>
+        </div>
+        <div class="item slides"  ng-repeat="x in ongoingEvents" ng-if="x.startDate>today">
+            <div class="hero">
+              <hgroup>
+                  <strong> {{x.EventsDetails}}</strong>
+                  <br>
+                  <span>{{x.startTime+', '+x.startDateFormatted}} to {{x.endTime +', '+x.endDateFormatted}}</span>
+              </hgroup>
+            </div>                    
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+   
 <section id="about" class="about">
     <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2><span style="border-bottom: 4px solid #000;">About Us</span></h2>
-                    <p class="lead">SCIEnT is a multi-disciplinary innovation centre, providing opportunities to students to delve into the ever expanding world of technology, and discover, hands on, the incredible scope for innovation that the world offers today.
-
-                    The lab allows students to explore and experiment with technology, without having to deal with the fear and cost of failure. At SCIEnT, students are offered a multitude of tools, machines, consumables and services, and a space in which to work, learn and grow.</p>
-                </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2><span style="border-bottom: 4px solid #000;">About Us</span></h2>
+                <p class="lead">SCIEnT is a multi-disciplinary innovation centre, providing opportunities to students to delve into the ever expanding world of technology, and discover, hands on, the incredible scope for innovation that the world offers today. The lab allows students to explore and experiment with technology, without having to deal with the fear and cost of failure. At SCIEnT, students are offered a multitude of tools, machines, consumables and services, and a space in which to work, learn and grow.
+                </p>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container -->
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
 </section>
-
 <!-- Footer -->
 <!-- <div class="footer" class="container">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-2">
-            <img class="img-responsive recal_logo_footer" src="images/recal.png" height="75" width="182" />
-            <p id="footer-text">An initiative of the class of '90</p>
-        </div>
-        <div class="col-md-2">
-            <ul class="list-unstyled list-inline list-social-icons">
-                <li class="contacts-fa">
-                    <a target="_blank" href="https://www.facebook.com/ScientNITT/"><i class="fa fa-facebook-square fa-3x" ></i></a>
-                </li>
-                <li class="contacts-fa">
-                    <a target="_blank" href="#!Contacts"><i class="fa fa-envelope fa-3x" ></i></a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-2">
-            <p id="spider">Made By Spider</p>
-            <img class="img-responsive spider-logo" src="images/spiderLogo.png" height="45" width="45" />
-            <p class="copyright-text">Copyright &copy; ScientLab website 2017</p>
-        </div>
-        <div class="col-md-3"></div>
-    </div>
-</div>
--->
-<script type="text/javascript" src = "jquery.js"></script>
-<script type="text/javascript" src ="bootstrap.js"></script>
-
+   <div class="row">
+       <div class="col-md-3"></div>
+       <div class="col-md-2">
+           <img class="img-responsive recal_logo_footer" src="images/recal.png" height="75" width="182" />
+           <p id="footer-text">An initiative of the class of '90</p>
+       </div>
+       <div class="col-md-2">
+           <ul class="list-unstyled list-inline list-social-icons">
+               <li class="contacts-fa">
+                   <a target="_blank" href="https://www.facebook.com/ScientNITT/"><i class="fa fa-facebook-square fa-3x" ></i></a>
+               </li>
+               <li class="contacts-fa">
+                   <a target="_blank" href="#!Contacts"><i class="fa fa-envelope fa-3x" ></i></a>
+               </li>
+           </ul>
+       </div>
+       <div class="col-md-2">
+           <p id="spider">Made By Spider</p>
+           <img class="img-responsive spider-logo" src="images/spiderLogo.png" height="45" width="45" />
+           <p class="copyright-text">Copyright &copy; ScientLab website 2017</p>
+       </div>
+       <div class="col-md-3"></div>
+   </div>
+   </div>
+   -->
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="bootstrap.js"></script>
 </body>

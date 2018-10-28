@@ -19,7 +19,7 @@ module.exports=function(sequelize,DataTypes){
             defaultValue: 'others'
         },
         resourceImage: {
-            type:DataTypes.STRING,
+            type:DataTypes.TEXT,
             allowNull: false
         }
     },{

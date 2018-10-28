@@ -24,6 +24,9 @@ var server  = email.server.connect({
 
 var models  = require(path.join(__dirname, '/../' ,'models'));
 var AdminProjects = models.AdminProjects;
+var Events = models.Events;
+var Announcements = models.Announcements;
+
 /* 
  GET home page 
 */
@@ -35,7 +38,7 @@ router.get('/', function(req, res, next) {
   API route for images under the public/images/tools directory
   @params type [for type of the tools]
 */ 
-router.get('/:type/images',function(req, res, next){
+router.get('/:type/images',function(req, res, next) {
 	res.setHeader("Content-Type", "application/json");
 	fs.readdir("./public/images/tools/" + req.params["type"],function(err, files) {
 		console.log(files);
@@ -43,7 +46,7 @@ router.get('/:type/images',function(req, res, next){
 	});
 });
 
-router.get('/annual_reports',function(req, res, next){
+router.get('/annual_reports',function(req, res, next) {
 	res.setHeader("Content-Type", "application/json");
 	fs.readdir("./public/annual_reports/", function(err, files) {
 		console.log(files);
@@ -52,11 +55,10 @@ router.get('/annual_reports',function(req, res, next){
 });
 
 router.get('/projects-images', function(req,res,next) {
-	AdminProjects.findAll().then(function(projects){
+	AdminProjects.findAll().then(function(projects) {
 		res.send(projects);
-
-	})
-})
+	});
+});
 
 router.get('/gallery-images', function(req, res, next) {
     res.setHeader("Content-Type", "application/json");
@@ -64,6 +66,23 @@ router.get('/gallery-images', function(req, res, next) {
         console.log(files);
         res.send(files);
     });
+}); 
+
+//sends events list
+router.get('/events',function(req, res, next) {
+	Events.findAll().then(function(events) {
+		console.log(events);
+        res.send(events);
+	}); 
+});
+
+
+//sends announcements list
+router.get('/announcements',function(req, res, next) {
+	Announcements.findAll().then(function(announcements) {
+		console.log(announcements);
+        res.send(announcements);
+	});
 });
 
 /* module for sending message/queries on contacts page to scient */

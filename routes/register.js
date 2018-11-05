@@ -92,9 +92,14 @@ router.post('/applyForFacilities', parseForm, csrfProtection, function(req, res,
 				console.log("Mail to alert scient ppl sent");
 			}
 		});
-
-        res.render('formSubmission');
+		console.log("App or website:" +req.headers['user-agent'].indexOf('Mobile'));
+		if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.send(JSON.stringify({msg: "Facilities request recorded", statusCode: 200}));
+		else
+        	res.render('formSubmission');
     }).catch(function(err) {
+    	if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.send(JSON.stringify({msg: "Facilities request not recorded", statusCode: 500}));
     	console.log(err);
     });
 });
@@ -258,8 +263,13 @@ router.post('/applyForProjects', parseForm, csrfProtection, function(req, res, n
 				console.log("Mail to alert scient ppl sent");
 			}
 		});
-		res.render('formSubmission');
+		if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.send(JSON.stringify({msg: "Projects request recorded", statusCode: 200}));
+		else
+			res.render('formSubmission');
 	}).catch(function(err) {
+		if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.send(JSON.stringify({msg: "Projects request not recorded", statusCode: 500}));
 		console.log(err);
 	});
 });
@@ -307,8 +317,13 @@ router.post('/applyForHallBooking', parseForm, csrfProtection, function(req, res
 				console.log("Mail to alert scient ppl sent");
 			}
 		});
-		res.render('formSubmission');
+		if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.send(JSON.stringify({msg: "Hall Booking request recorded", statusCode: 200}));
+		else 
+			res.render('formSubmission');
 	}).catch(function (err) {
+		if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.send(JSON.stringify({msg: "Hall Booking request not recorded", statusCode: 500}));
 		console.log(err);
 	});
 });

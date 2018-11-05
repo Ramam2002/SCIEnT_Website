@@ -82,7 +82,7 @@ router.get('/gallery-images', function(req, res, next) {
 router.get('/events',function(req, res, next) {
 	Events.findAll().then(function(events) {
 		console.log(events);
-        res.send(events);
+        res.send(JSON.stringify({events: events, statusCode: 200}));
 	}); 
 });
 
@@ -91,7 +91,7 @@ router.get('/events',function(req, res, next) {
 router.get('/announcements',function(req, res, next) {
 	Announcements.findAll().then(function(announcements) {
 		console.log(announcements);
-        res.send(announcements);
+        res.send(JSON.stringify({announcements: announcements, statusCode: 200}));
 	});
 });
 
@@ -111,14 +111,21 @@ router.post('/sendMessage', function(req, res, next) {
 				
 			]
 		};
-		server.send(message, function(err, message){
-			console.log(err||message);
-			if(!err)
-			{	
-				console.log('Sent');
-				
-			}
-		});
+	server.send(message, function(err, message){
+		console.log(err||message);
+		if(!err)
+		{	
+			console.log('Sent');
+			
+		}
+		if(req.headers['user-agent'].indexOf('Mobile') != -1) {
+			if(! err)
+				res.send(JSON.stringify({msg: "Message sent", statusCode: 200}));
+			else 
+				res.send(JSON.stringify({msg: "Message not sent", statusCode: 500}));
+		}
+	});
+	
 	res.render('index');
 });
 router.post('/sendProjectIdea', function(req,res,next) {
@@ -140,14 +147,20 @@ router.post('/sendProjectIdea', function(req,res,next) {
 	};
 	server.send(message, function (err,message) {
 		console.log(err||message);
-		if(!err){
-			console.log("Sent");
-			res.render('index');
+		if(!err)
+		{	
+			console.log('Sent');
+			
 		}
-		else{
-			res.send(`${err}`);
+		if(req.headers['user-agent'].indexOf('Mobile') != -1) {
+			if(! err)
+				res.send(JSON.stringify({msg: "Project idea sent", statusCode: 200}));
+			else 
+				res.send(JSON.stringify({msg: "Project Idea not sent", statusCode: 500}));
 		}
+		
 	});
+	res.render('index');
 });
 
 module.exports = router;

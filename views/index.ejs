@@ -331,17 +331,17 @@
                     url : "/events"
                 }).then(function (response){
                   
-                    for (var i =0; i < response.data.length; i++) {
-                        var x=response.data[i];
-                       if(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))
-                        {$scope.empty=0;
+                    for (var i =0; i < response.data["events"].length; i++) {
+                        var x=response.data["events"][i];
+                        if(x.startDate <= today && (x.endDate > today || (x.endDate == today && x.endTime >= time))){
+                            $scope.empty=0;
                             console.log("present!");
-                         break;
+                            break;
                         }
                        
                     }
                    
-                    $scope.ongoingEvents=response.data;
+                    $scope.ongoingEvents = response.data["events"];
                     
                 },function(response){
 
@@ -351,9 +351,9 @@
                     method : "GET",
                     url : "/announcements"
                 }).then(function (response){
-                    if(response.data.length>0)
+                    if(response.data["announcements"].length > 0)
                         $scope.empty=0;
-                    $scope.announcements=response.data;
+                    $scope.announcements=response.data["announcements"];
                 },function(response){
 
                 });

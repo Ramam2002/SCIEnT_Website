@@ -1,0 +1,34 @@
+Route for resources:
+
+
+/:type/images - parameters-> type can be either electronics or mechanical
+
+			  - JSON response {"filenames": <file_names>, "statusCode": <200 | 404> }
+
+			  path for the images - scient.nitt.edu/images/tools/electronics/filename or scient.nitt.edu/images/tools/mechanical/filename
+
+			  multi word image names are stores with words separated with hyphens. So display name of tool accordingly after
+			  some formatting
+
+
+Route for gallery:
+
+/gallery-images - JSON response {"filenames": <file_names>, "statusCode": <200 | 404> }
+
+			  path for the images - scient.nitt.edu/images/gallery/filename 
+
+Route for projects:
+
+/projects-images - JSON response {"projects": <project>, "statusCode": <200 | 404> }
+
+					Attributes of each project x to be shown :
+
+					x.projectImage
+					x.projectTitle
+					x.projectDesc
+
+Route for annual_reports:
+
+/annual_reports - JSON response {"filenames": <file_names>, "statusCode": <200 | 404> }
+
+				  path for the report files - scient.nitt.edu/annual_reports/filename 

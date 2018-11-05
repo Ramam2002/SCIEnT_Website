@@ -42,7 +42,11 @@ router.get('/:type/images',function(req, res, next) {
 	res.setHeader("Content-Type", "application/json");
 	fs.readdir("./public/images/tools/" + req.params["type"],function(err, files) {
 		console.log(files);
-		res.send(files);
+		//console.log(JSON.stringify({filenames: files}));
+		if(!err)
+			res.send(JSON.stringify({filenames: files, statusCode: 200}));
+		else 
+			res.send(JSON.stringify({filenames: null, statusCode: 404}));
 	});
 });
 
@@ -50,13 +54,16 @@ router.get('/annual_reports',function(req, res, next) {
 	res.setHeader("Content-Type", "application/json");
 	fs.readdir("./public/annual_reports/", function(err, files) {
 		console.log(files);
-		res.send(files);
+		if(!err)
+        	res.send(JSON.stringify({filenames: files, statusCode: 200}));
+        else 
+			res.send(JSON.stringify({filenames: null, statusCode: 404}));
 	});
 });
 
 router.get('/projects-images', function(req,res,next) {
 	AdminProjects.findAll().then(function(projects) {
-		res.send(projects);
+		res.send(JSON.stringify({projects: projects, statusCode: 200}));
 	});
 });
 
@@ -64,7 +71,10 @@ router.get('/gallery-images', function(req, res, next) {
     res.setHeader("Content-Type", "application/json");
     fs.readdir("./public/images/gallery", function(err, files) {
         console.log(files);
-        res.send(files);
+        if(!err)
+        	res.send(JSON.stringify({filenames: files, statusCode: 200}));
+        else 
+			res.send(JSON.stringify({filenames: null, statusCode: 404}));
     });
 }); 
 

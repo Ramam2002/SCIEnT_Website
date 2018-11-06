@@ -44,9 +44,10 @@ router.get('/:type/images',function(req, res, next) {
 		console.log(files);
 		//console.log(JSON.stringify({filenames: files}));
 		if(!err)
-			res.send(JSON.stringify({filenames: files, statusCode: 200}));
+			res.status(200).send(JSON.stringify({filenames: files}));
 		else 
-			res.send(JSON.stringify({filenames: null, statusCode: 404}));
+			res.sendStatus(404);
+		
 	});
 });
 
@@ -55,15 +56,17 @@ router.get('/annual_reports',function(req, res, next) {
 	fs.readdir("./public/annual_reports/", function(err, files) {
 		console.log(files);
 		if(!err)
-        	res.send(JSON.stringify({filenames: files, statusCode: 200}));
+        	res.status(200).send(JSON.stringify({filenames: files}));
         else 
-			res.send(JSON.stringify({filenames: null, statusCode: 404}));
+			res.sendStatus(404);
 	});
 });
 
 router.get('/projects-images', function(req,res,next) {
 	AdminProjects.findAll().then(function(projects) {
-		res.send(JSON.stringify({projects: projects, statusCode: 200}));
+		res.status(200).send(JSON.stringify({projects: projects}));
+	}).catch(function(err) {
+		res.sendStatus(500);
 	});
 });
 
@@ -72,9 +75,9 @@ router.get('/gallery-images', function(req, res, next) {
     fs.readdir("./public/images/gallery", function(err, files) {
         console.log(files);
         if(!err)
-        	res.send(JSON.stringify({filenames: files, statusCode: 200}));
+        	res.status(200).send(JSON.stringify({filenames: files}));
         else 
-			res.send(JSON.stringify({filenames: null, statusCode: 404}));
+			res.sendStatus(404);
     });
 }); 
 
@@ -82,7 +85,9 @@ router.get('/gallery-images', function(req, res, next) {
 router.get('/events',function(req, res, next) {
 	Events.findAll().then(function(events) {
 		console.log(events);
-        res.send(JSON.stringify({events: events, statusCode: 200}));
+        res.status(200).send(JSON.stringify({events: events}));
+	}).catch(function(err){
+		res.sendStatus(500);
 	}); 
 });
 
@@ -91,7 +96,9 @@ router.get('/events',function(req, res, next) {
 router.get('/announcements',function(req, res, next) {
 	Announcements.findAll().then(function(announcements) {
 		console.log(announcements);
-        res.send(JSON.stringify({announcements: announcements, statusCode: 200}));
+        res.status(200).send(JSON.stringify({announcements: announcements}));
+	}).catch(function(err){
+		res.sendStatus(500);
 	});
 });
 
@@ -120,9 +127,9 @@ router.post('/sendMessage', function(req, res, next) {
 		}
 		if(req.headers['user-agent'].indexOf('Mobile') != -1) {
 			if(! err)
-				res.send(JSON.stringify({msg: "Message sent", statusCode: 200}));
+				res.status(200).send(JSON.stringify({msg: "Message sent"}));
 			else 
-				res.send(JSON.stringify({msg: "Message not sent", statusCode: 500}));
+				res.sendStatus(500);
 		}
 	});
 	
@@ -154,9 +161,9 @@ router.post('/sendProjectIdea', function(req,res,next) {
 		}
 		if(req.headers['user-agent'].indexOf('Mobile') != -1) {
 			if(! err)
-				res.send(JSON.stringify({msg: "Project idea sent", statusCode: 200}));
+				res.status(200).send(JSON.stringify({msg: "Project idea sent", statusCode: 200}));
 			else 
-				res.send(JSON.stringify({msg: "Project Idea not sent", statusCode: 500}));
+				res.sendStatus(500);
 		}
 		
 	});

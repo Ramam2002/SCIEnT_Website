@@ -6,7 +6,8 @@ Route for resources:
 Method : GET
 /:type/images - parameters-> type can be either electronics or mechanical
 
-			  - JSON response {"filenames": <file_names>, "statusCode": <200 | 404> }
+			  - JSON response {"filenames": <file_names> } in case of status 200
+			   status 404 if not found
 
 			  path for the images - scient.nitt.edu/images/tools/electronics/filename or scient.nitt.edu/images/tools/mechanical/filename
 
@@ -17,14 +18,15 @@ Method : GET
 Route for gallery:
 
 Method: GET
-/gallery-images - JSON response {"filenames": <file_names>, "statusCode": <200 | 404> }
+/gallery-images - JSON response {"filenames": <file_names> } in case of status 200
+				  status 404 if not found
 
 			  path for the images - scient.nitt.edu/images/gallery/filename 
 
 Route for projects:
 
 Method: GET
-/projects-images - JSON response {"projects": <project>, "statusCode": <200> }
+/projects-images - JSON response {"projects": <project> } in case of status 200
 
 					var AdminProjects = sequelize.define("AdminProjects", {
 				        id: {
@@ -47,17 +49,21 @@ Method: GET
 				            allowNull: true
 				        }
 				    }
+
+				    status 500 in case of db fetch error
+
 Route for annual_reports:
 
 Method: GET
-/annual_reports - JSON response {"filenames": <file_names>, "statusCode": <200 | 404> }
+/annual_reports - JSON response {"filenames": <file_names> } in case of status 200
+				  status 404 in case of not found
 
 				  path for the report files - scient.nitt.edu/annual_reports/filename
 
 Route for announcements:
 
 Method: GET
-/announcements - JSON response {"announcements": <announcements>, "statusCode": <200> }
+/announcements - JSON response {"announcements": <announcements>} in case of status 200
 				var Announcements = sequelize.define("Announcements",{
 			        id:{
 			            type:DataTypes.INTEGER,
@@ -73,12 +79,13 @@ Method: GET
 			        }
 
 			    }
+			    status 500 in case of db fetch error
 
 
 Route for events:
 
 Method: GET
-/events  - JSON response {"events": <events>, "statusCode": <200> }
+/events  - JSON response {"events": <events>} in case of status 200
 
 			var Events = sequelize.define("Events",{
 				id:{
@@ -126,7 +133,7 @@ Method: GET
 				}
 
 			}
-
+			status 500 in case of db fetch error
 Routes for registrations(routes/register.js): 
 
 Method: POST

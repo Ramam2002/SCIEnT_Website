@@ -285,9 +285,9 @@
                 }).then(function mySuccess(response) {
 
                     $scope.tronixFileNames = response.data["filenames"];
-                    console.log("resources status Code: " + response.data["statusCode"]);
                 }, function myError(response) {
-                    console.log("resources error status Code: " + response.data["statusCode"]);
+
+                    console.log(response.status);
                 });
 
                 $http({
@@ -296,9 +296,9 @@
                 }).then(function mySuccess(response) {
 
                     $scope.mechFileNames = response.data["filenames"];
-                    console.log("resources status Code: " + response.data["statusCode"]);
+                    
                 }, function myError(response) {
-                    console.log("resources status Code: " + response.data["statusCode"]);
+                    
                 });
                 
                 $http({
@@ -307,8 +307,7 @@
                 }).then(function mySuccess(response) {
 
                     $scope.adminProjectNames = response.data["projects"];
-                    console.log("adminProjects hi");
-                    
+
                 }, function myError (response) {
                 });
 
@@ -329,7 +328,7 @@
                 $http({
                     method : "GET",
                     url : "/events"
-                }).then(function (response){
+                }).then(function mySuccess(response){
                   
                     for (var i =0; i < response.data["events"].length; i++) {
                         var x=response.data["events"][i];
@@ -343,22 +342,21 @@
                    
                     $scope.ongoingEvents = response.data["events"];
                     
-                },function(response){
+                },function myError(response){
 
                 });
 
                  $http({
                     method : "GET",
                     url : "/announcements"
-                }).then(function (response){
+                }).then(function mySuccess(response){
                     if(response.data["announcements"].length > 0)
                         $scope.empty=0;
                     $scope.announcements=response.data["announcements"];
-                },function(response){
+                },function myError(response){
 
                 });
-                 
-            
+      
             }; 
             $scope.getClass = function (path) {
                 return ($location.path().substr(0, path.length) === path) ? 'active' : '';

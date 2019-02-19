@@ -75,6 +75,39 @@ $(document).ready (function () {
         });
     });
 
+    const download = function(data) {
+        const blob = new Blob([data], { type: 'text/csv'});
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.setAttribute('hidden', '');
+        a.setAttribute('href', url);
+        a.setAttribute('download', `Access_List-${Date.now()}.csv`);
+        document.body.append(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+
+    $(document).on('click', '#exportFacilitiesCSV', function() {
+        $.ajax({
+            url: '/admin/access/all',
+            method: 'GET',
+            dataType: 'json',
+            success: function (data, status) {
+                // convert to csv text
+                const items = data;
+                const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
+                const header = Object.keys(items[0])
+                let csv = items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','))
+                csv.unshift(header.join(','));
+                csv = csv.join('\r\n');
+                // download as a csv file
+                download(csv);
+            },
+            err: function(err, status) {
+                console.log(err);
+            }
+        });
+    });
 
     $(document).on('click', '.editAccess', function () {
         var applicantId = $(this).closest("tr").find(".applicantId").text();

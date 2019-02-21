@@ -42,3 +42,5 @@ public/images/tools
 public/images/gallery
 public/annual_reports
 
+# Other documents
+bin/public

@@ -143,4 +143,14 @@ router.post('/changeAccessDetails', function(req, res, next) {
   });
 });
 
+router.get('/access/all', function(req, res, next) {
+    Facilities
+        .findAll()
+        .then(function(accessList) {
+            res.json(accessList).status(200);
+        })
+        .catch(function(err) {
+            res.json(err).status(400);
+        });
+})
 module.exports = router;

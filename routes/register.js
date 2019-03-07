@@ -51,7 +51,7 @@ router.get('/applyForHallBooking', csrfProtection, function(req, res, next) {
 
 
 /* to handle form submission for facilities */
-router.post('/applyForFacilities', parseForm, csrfProtection, function(req, res, next) {
+router.post('/applyForFacilities', parseForm, function(req, res, next) {
 	var record = {
 		name: req.body.name,
 		roll: req.body.roll,
@@ -92,7 +92,7 @@ router.post('/applyForFacilities', parseForm, csrfProtection, function(req, res,
 				console.log("Mail to alert scient ppl sent");
 			}
 		});
-
+		console.log(req.headers['user-agent']);
 		if(req.headers['user-agent'].indexOf('Mobile') != -1)
 			res.status(200).send(JSON.stringify({msg: "Facilities request recorded"}));
 		else
@@ -104,7 +104,7 @@ router.post('/applyForFacilities', parseForm, csrfProtection, function(req, res,
     });
 });
 /* to handle form submission for projects*/
-router.post('/applyForProjects', parseForm, csrfProtection, function(req, res, next) {
+router.post('/applyForProjects', parseForm, function(req, res, next) {
 	var record = {
 		name: req.body.name,
 		rollNo: req.body.rollNo,
@@ -274,7 +274,7 @@ router.post('/applyForProjects', parseForm, csrfProtection, function(req, res, n
 	});
 });
 /* to handle form submission for hall booking */
-router.post('/applyForHallBooking', parseForm, csrfProtection, function(req, res, next) {
+router.post('/applyForHallBooking', parseForm, function(req, res, next) {
 	var record = {
 		name: req.body.name,
 		roll: req.body.roll,

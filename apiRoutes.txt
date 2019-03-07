@@ -1,0 +1,292 @@
+
+Routes for get requests(routes/index.js)
+
+Route for resources:
+
+Method : GET
+/:type/images - parameters-> type can be either electronics or mechanical
+
+			  - JSON response {"filenames": <file_names> } in case of status 200
+			   status 404 if not found
+
+			  path for the images - scient.nitt.edu/images/tools/electronics/filename or scient.nitt.edu/images/tools/mechanical/filename
+
+			  multi word image names are stores with words separated with hyphens. So display name of tool accordingly after
+			  some formatting
+
+
+Route for gallery:
+
+Method: GET
+/gallery-images - JSON response {"filenames": <file_names> } in case of status 200
+				  status 404 if not found
+
+			  path for the images - scient.nitt.edu/images/gallery/filename 
+
+Route for projects:
+
+Method: GET
+/projects-images - JSON response {"projects": <project> } in case of status 200
+
+					var AdminProjects = sequelize.define("AdminProjects", {
+				        id: {
+							type: DataTypes.INTEGER,
+							unique: true,
+							primaryKey: true,
+							allowNull: false,
+							autoIncrement: true
+				        },
+				        projectImage: {
+				            type: DataTypes.STRING,
+				            allowNull: true
+				        },
+				        projectTitle: {
+				            type: DataTypes.STRING,
+				            allowNull: false
+				        },
+				        projectDesc: {
+				            type: DataTypes.TEXT,
+				            allowNull: true
+				        }
+				    }
+
+				    status 500 in case of db fetch error
+
+Route for annual_reports:
+
+Method: GET
+/annual_reports - JSON response {"filenames": <file_names> } in case of status 200
+				  status 404 in case of not found
+
+				  path for the report files - scient.nitt.edu/annual_reports/filename
+
+Route for announcements:
+
+Method: GET
+/announcements - JSON response {"announcements": <announcements>} in case of status 200
+				var Announcements = sequelize.define("Announcements",{
+			        id:{
+			            type:DataTypes.INTEGER,
+			            unique:true,
+			            autoIncrement:true,
+			            allowNull:false,
+			            primaryKey:true
+			        },
+			        Text:{
+			            type:DataTypes.STRING,
+			            unique: false,
+			            allowNull: false
+			        }
+
+			    }
+			    status 500 in case of db fetch error
+
+
+Route for events:
+
+Method: GET
+/events  - JSON response {"events": <events>} in case of status 200
+
+			var Events = sequelize.define("Events",{
+				id:{
+					type:DataTypes.INTEGER,
+					unique:true,
+					autoIncrement:true,
+					allowNull:false,
+					primaryKey:true
+				},
+				EventsDetails:{
+					type:DataTypes.STRING,
+					unique: false,
+					allowNull: false
+				},
+				startDate:{
+					type:DataTypes.DATEONLY,
+					unique:false,
+					allowNull:false,
+				},
+				startTime:{
+					type:DataTypes.STRING,
+					unique:false,
+					allowNull:false,
+				},
+				endTime:{
+					type:DataTypes.STRING,
+					unique:false,
+					allowNull:false,
+				},
+				endDate:{
+					type:DataTypes.DATEONLY,
+					unique:false,
+					allowNull:false,
+				},
+				startDateFormatted:{
+					type:DataTypes.STRING,
+					unique:false,
+					allowNull:false
+				},
+				endDateFormatted:{
+					type:DataTypes.STRING,
+					unique:false,
+					allowNull:false
+
+				}
+
+			}
+			status 500 in case of db fetch error
+Routes for registrations(routes/register.js): 
+
+Method: POST
+
+Facilities / Access requisition
+/applyForFacilities - JSON response : {"msg": "Facilities request recorded", "statusCode": 200} or {"msg": "Facilities request 	not recorded", "statusCode": 500}
+	
+	Fields to be passed in post request:
+	var Facilities = sequelize.define("Facilities", {
+		name: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		roll: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		department: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		contactNumber: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		emailID: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		purpose: {
+			type: DataTypes.TEXT,
+			allowNull: false
+		},
+		duration: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			defaultValue: 6
+		},
+		heavyMachinery: {
+			type: DataTypes.TEXT
+		}
+	}
+
+Projects
+/applyForProjects - JSON response : {"msg": "Projects request recorded", "statusCode": 200} or {"msg": "Projects request not recorded", "statusCode": 500}
+	Fields to be passed in post request:
+	var Projects = sequelize.define("Projects", {
+		name: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		rollNo: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		department: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		projectTitle: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		contactNumber: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		emailID: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		visibility: {
+			type: DataTypes.ENUM('open', 'closed'),
+			allowNull: false
+		},
+		abstract: {
+			type: DataTypes.TEXT
+		},
+		budget: {
+			type: DataTypes.INTEGER
+		},
+		timeline: {
+			type: DataTypes.TEXT
+		}
+	}
+	
+
+
+HallBooking 
+/applyForHallBooking - JSON response : {"msg": "HallBooking request recorded", "statusCode": 200} or {"msg": "HallBooking request not recorded", "statusCode": 500}
+	Fields to be passed in post request:
+	var HallBooking = sequelize.define("HallBooking", {
+		name: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		roll: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		department: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		contactNumber: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		emailID: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		attendeesNumber: {
+			type: DataTypes.INTEGER,
+			allowNull: false
+		},
+		purpose: {
+			type: DataTypes.TEXT,
+			allowNull: false
+		},
+		date: {
+			type: DataTypes.DATE,
+			allowNull: false
+		},
+		startTime: {
+			type: DataTypes.TIME,
+			allowNull: false
+		},
+		endTime: {
+			type: DataTypes.TIME,
+			allowNull: false
+		}
+	}
+
+
+Route for sending message (routes/index.js)
+
+Method: POST
+
+/sendMessage
+	
+	Fields to be passed :
+		name
+		phone
+		email
+		msg
+
+
+/sendProjectIdea 
+	
+	Fields to be passed :
+		name
+		phNumber
+		email
+		projectTitle
+		projectIdea

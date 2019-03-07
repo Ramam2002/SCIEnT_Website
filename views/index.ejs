@@ -131,6 +131,9 @@
                     <li class = "menu-item">
                         <a href="#!Register" ng-class="getClass('/Register')">Register</a>
                     </li>
+                    <li class = "menu-item">
+                        <a href="#!AnnualReports" ng-class="getClass('/AnnualReports')">Annual Reports</a>
+                    </li>
                     <li class = "menu-item" id="resources-main">
                         <a href="#!Tools" id="resources-tab" ng-class="getClass('/Tools')">Resources</a>
                     </li>
@@ -152,6 +155,7 @@
                     <li class = "menu-item">
                         <a href="#!Contacts" ng-class="getClass('/Contacts')">Contact Us</a>
                     </li>
+
                     <!-- <li class = "menu-item">
                         <form class="navbar-form" role="search">
                             <div class="input-group add-on">
@@ -279,19 +283,22 @@
                     method : "GET",
                     url : "/electronics/images"
                 }).then(function mySuccess(response) {
-                    
-                    $scope.tronixFileNames = response.data;
+
+                    $scope.tronixFileNames = response.data["filenames"];
                 }, function myError(response) {
+
+                    console.log(response.status);
                 });
 
                 $http({
                     method : "GET",
                     url : "/mechanical/images"
                 }).then(function mySuccess(response) {
-                   
-                    $scope.mechFileNames = response.data;
-                    console.log("zfhh" , response.data)
+
+                    $scope.mechFileNames = response.data["filenames"];
+                    
                 }, function myError(response) {
+                    
                 });
                 
                 $http({
@@ -299,51 +306,57 @@
                     url : "/projects-images"
                 }).then(function mySuccess(response) {
 
-                    $scope.adminProjectNames = response.data;
-                    console.log('Admin projects: ', response.data);
+                    $scope.adminProjectNames = response.data["projects"];
+
                 }, function myError (response) {
                 });
 
-            $http({
+                $http({
                     method: "GET",
                     url : "/gallery-images"
                 }).then(function mySuccess(response) {
-                    $scope.galleryFileNames = response.data;
+                    $scope.galleryFileNames = response.data["filenames"];
+                }, function myError(response) {
+                });
+                $http({
+                    method: "GET",
+                    url : "/annual_reports"
+                }).then(function mySuccess(response) {
+                    $scope.annualReportFileNames = response.data["filenames"];
                 }, function myError(response) {
                 });
                 $http({
                     method : "GET",
                     url : "/events"
-                }).then(function (response){
+                }).then(function mySuccess(response){
                   
-                    for (var i =0; i <response.data.length; i++) {
-                        var x=response.data[i];
-                       if(x.startDate<=today&&(x.endDate>today||(x.endDate==today&&x.endTime>=time)))
-                        {$scope.empty=0;
+                    for (var i =0; i < response.data["events"].length; i++) {
+                        var x=response.data["events"][i];
+                        if(x.startDate <= today && (x.endDate > today || (x.endDate == today && x.endTime >= time))){
+                            $scope.empty=0;
                             console.log("present!");
-                         break;
+                            break;
                         }
                        
                     }
                    
-                    $scope.ongoingEvents=response.data;
+                    $scope.ongoingEvents = response.data["events"];
                     
-                },function(response){
+                },function myError(response){
 
                 });
 
                  $http({
                     method : "GET",
                     url : "/announcements"
-                }).then(function (response){
-                    if(response.data.length>0)
+                }).then(function mySuccess(response){
+                    if(response.data["announcements"].length > 0)
                         $scope.empty=0;
-                    $scope.announcements=response.data;
-                },function(response){
+                    $scope.announcements=response.data["announcements"];
+                },function myError(response){
 
                 });
-                 
-            
+      
             }; 
             $scope.getClass = function (path) {
                 return ($location.path().substr(0, path.length) === path) ? 'active' : '';
@@ -383,6 +396,9 @@
             })
             .when("/Donations", {
                 templateUrl : "donations.html"
+            })
+            .when("/AnnualReports", {
+                templateUrl : "annual_reports.html"
             })
             .otherwise({
                 redirectTo: '/home'

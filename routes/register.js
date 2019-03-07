@@ -93,8 +93,13 @@ router.post('/applyForFacilities', parseForm, csrfProtection, function(req, res,
 			}
 		});
 
-        res.render('formSubmission');
+		if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.status(200).send(JSON.stringify({msg: "Facilities request recorded"}));
+		else
+        	res.render('formSubmission');
     }).catch(function(err) {
+    	if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.sendStatus(500);
     	console.log(err);
     });
 });
@@ -258,8 +263,13 @@ router.post('/applyForProjects', parseForm, csrfProtection, function(req, res, n
 				console.log("Mail to alert scient ppl sent");
 			}
 		});
-		res.render('formSubmission');
+		if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.status(200).send(JSON.stringify({msg: "Projects request recorded"}));
+		else
+			res.render('formSubmission');
 	}).catch(function(err) {
+		if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.sendStatus(500);
 		console.log(err);
 	});
 });
@@ -307,8 +317,13 @@ router.post('/applyForHallBooking', parseForm, csrfProtection, function(req, res
 				console.log("Mail to alert scient ppl sent");
 			}
 		});
-		res.render('formSubmission');
+		if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.status(200).send(JSON.stringify({msg: "Hall Booking request recorded"}));
+		else 
+			res.render('formSubmission');
 	}).catch(function (err) {
+		if(req.headers['user-agent'].indexOf('Mobile') != -1)
+			res.sendStatus(500);
 		console.log(err);
 	});
 });

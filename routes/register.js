@@ -35,23 +35,32 @@ var parseForm = bodyParser.urlencoded({ extended: false })
 
 /* Get Register for Projects form */
 router.get('/registerForProjects', csrfProtection, function(req, res, next) {
-	res.render('registerForProjects', { csrfToken: req.csrfToken() });
+	if(req.headers['user-agent'].indexOf('Mobile') != -1)
+		res.status(200).send(JSON.stringify({_csrf: req.csrfToken() }));
+	else 
+		res.render('registerForProjects', { csrfToken: req.csrfToken() });
 });
 
 /* Get Register for Facilities form */
 router.get('/registerForFacilities', csrfProtection, function(req, res, next) {
-	res.render('registerForFacilities', { csrfToken: req.csrfToken() });
+	if(req.headers['user-agent'].indexOf('Mobile') != -1)
+		res.status(200).send(JSON.stringify({_csrf: req.csrfToken() }));
+	else
+		res.render('registerForFacilities', { csrfToken: req.csrfToken() });
 });
 
 /* Get Hall booking form */
 router.get('/applyForHallBooking', csrfProtection, function(req, res, next) {
-	res.render('hallBooking', { csrfToken: req.csrfToken() });
+	if(req.headers['user-agent'].indexOf('Mobile') != -1)
+		res.status(200).send(JSON.stringify({_csrf: req.csrfToken() }));
+	else
+		res.render('hallBooking', { csrfToken: req.csrfToken() });
 });
 
 
 
 /* to handle form submission for facilities */
-router.post('/applyForFacilities', parseForm, function(req, res, next) {
+router.post('/applyForFacilities', parseForm, csrfProtection, function(req, res, next) {
 	var record = {
 		name: req.body.name,
 		roll: req.body.roll,
@@ -104,7 +113,7 @@ router.post('/applyForFacilities', parseForm, function(req, res, next) {
     });
 });
 /* to handle form submission for projects*/
-router.post('/applyForProjects', parseForm, function(req, res, next) {
+router.post('/applyForProjects', parseForm, csrfProtection, function(req, res, next) {
 	var record = {
 		name: req.body.name,
 		rollNo: req.body.rollNo,
@@ -273,8 +282,9 @@ router.post('/applyForProjects', parseForm, function(req, res, next) {
 		console.log(err);
 	});
 });
+
 /* to handle form submission for hall booking */
-router.post('/applyForHallBooking', parseForm, function(req, res, next) {
+router.post('/applyForHallBooking', parseForm, csrfProtection, function(req, res, next) {
 	var record = {
 		name: req.body.name,
 		roll: req.body.roll,

@@ -21,6 +21,7 @@ var Inventory = models.inventory;
 var Vendors = models.Vendors;
 var Events = models.Events;
 var Announcements = models.Announcements;
+var Testimonials = models.Testimonials;
 
 
 router.use(session({secret: 'ssshhhhh'}));
@@ -55,21 +56,26 @@ router.get('/', function(req, res, next) {
 									donationRows = donations;
 									AdminProjects.findAll().then(function(adminProjects) {
 										adminProjectRows = adminProjects;
-										Events.findAll().then(function(events){
+										Events.findAll().then(function(events) {
 											eventRows = events;
-											Announcements.findAll().then(function(announcements){
-												res.render('adminPanelOne',{ 
-													projectsRows: projectsRows, 
-													facilitiesRows: facilitiesRows, 
-													hallBookingRows: hallBookingRows,
-													inventoryRows: inventoryRows,
-													vendorRows: vendorRows, 
-													adminsRows: adminsRows, 
-													donationRows: donationRows, 
-													adminProjectRows: adminProjectRows,
-													visitorCount: visitorCount, 
-													eventRows: eventRows,
-													announcementsRows: announcements});
+											Announcements.findAll().then(function(announcements) {
+												announcementsRows = announcements;
+												Testimonials.findAll().then(function(testimonials) {
+													res.render('adminPanelOne',{ 
+														projectsRows: projectsRows, 
+														facilitiesRows: facilitiesRows, 
+														hallBookingRows: hallBookingRows,
+														inventoryRows: inventoryRows,
+														vendorRows: vendorRows, 
+														adminsRows: adminsRows, 
+														donationRows: donationRows, 
+														adminProjectRows: adminProjectRows,
+														visitorCount: visitorCount, 
+														eventRows: eventRows,
+														announcementsRows: announcements,
+														testimonialsRows: testimonials
+													});
+												});
 											});
 										});													
 									});									
@@ -137,18 +143,22 @@ router.post('/', function(req, res, next) {
 											Events.findAll().then(function(events){
 												eventRows = events;
 												Announcements.findAll().then(function(announcements){
-													res.render('adminPanelOne',{ 
-														projectsRows: projectsRows, 
-														facilitiesRows: facilitiesRows, 
-														hallBookingRows: hallBookingRows,
-														inventoryRows: inventoryRows,
-														vendorRows: vendorRows,
-														adminsRows: adminsRows, 
-														donationRows: donationRows,
-														adminProjectRows: adminProjectRows,
-														visitorCount: visitorCount,
-														eventRows: eventRows,
-														announcementsRows: announcements
+													announcementsRows =  announcements;
+													Testimonials.findAll().then(function(testimonials) {
+														res.render('adminPanelOne',{ 
+															projectsRows: projectsRows, 
+															facilitiesRows: facilitiesRows, 
+															hallBookingRows: hallBookingRows,
+															inventoryRows: inventoryRows,
+															vendorRows: vendorRows,
+															adminsRows: adminsRows, 
+															donationRows: donationRows,
+															adminProjectRows: adminProjectRows,
+															visitorCount: visitorCount,
+															eventRows: eventRows,
+															announcementsRows: announcements,
+															testimonialsRows: testimonials
+														});
 													});
 												});
 											});

@@ -66,4 +66,22 @@ $(document).ready(function() {
             });
         }
     });
+     $(document).on('click','.delRes',function(){
+    var id = this.id;
+    
+    $.ajax({
+        url: '/admin/delResource',
+        method: 'POST',
+        data: JSON.stringify({
+            id:id
+        }),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(data, status) {
+            alert(data.msg);
+            $('#' + id).parent().parent().remove();
+            
+        }
+    })
+})
 });

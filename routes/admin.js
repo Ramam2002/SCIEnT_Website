@@ -21,6 +21,8 @@ var Inventory = models.inventory;
 var Vendors = models.Vendors;
 var Events = models.Events;
 var Announcements = models.Announcements;
+var Resources = models.Resources;
+var Gallery = models.Gallery;
 
 
 router.use(session({secret: 'ssshhhhh'}));
@@ -38,7 +40,9 @@ router.get('/', function(req, res, next) {
 			inventoryRows,
 			vendorRows,
 			adminProjectRows,
-			eventRows;
+			eventRows,
+			announcementRows,
+			resourceRows;
 		Facilities.findAll().then( function(facilities) {
 			facilitiesRows = facilities;
 			Projects.findAll().then( function(projects) {
@@ -58,18 +62,27 @@ router.get('/', function(req, res, next) {
 										Events.findAll().then(function(events){
 											eventRows = events;
 											Announcements.findAll().then(function(announcements){
-												res.render('adminPanelOne',{ 
-													projectsRows: projectsRows, 
-													facilitiesRows: facilitiesRows, 
-													hallBookingRows: hallBookingRows,
-													inventoryRows: inventoryRows,
-													vendorRows: vendorRows, 
-													adminsRows: adminsRows, 
-													donationRows: donationRows, 
-													adminProjectRows: adminProjectRows,
-													visitorCount: visitorCount, 
-													eventRows: eventRows,
-													announcementsRows: announcements});
+												announcementRows =announcements;
+												Resources.findAll().then(function(resource){
+													resourceRows = resource;
+													Gallery.findAll().then(function(gallery){
+														res.render('adminPanelOne',{ 
+															projectsRows: projectsRows, 
+															facilitiesRows: facilitiesRows, 
+															hallBookingRows: hallBookingRows,
+															inventoryRows: inventoryRows,
+															vendorRows: vendorRows, 
+															adminsRows: adminsRows, 
+															donationRows: donationRows, 
+															adminProjectRows: adminProjectRows,
+															visitorCount: visitorCount, 
+															eventRows: eventRows,
+															announcementsRows: announcementRows,
+															resourceRows: resourceRows,
+															gallery:gallery
+														});
+													})
+												})
 											});
 										});													
 									});									
@@ -117,7 +130,10 @@ router.post('/', function(req, res, next) {
 				adminsRows,
 				inventoryRows,
 				vendorRows,
-				adminProjectRows;
+				adminProjectRows,
+				eventRows,
+				announcementRows,
+				resourceRows;
 			Facilities.findAll().then(function(facilities) {
 				facilitiesRows = facilities;
 				Projects.findAll().then(function(projects) {
@@ -137,19 +153,27 @@ router.post('/', function(req, res, next) {
 											Events.findAll().then(function(events){
 												eventRows = events;
 												Announcements.findAll().then(function(announcements){
-													res.render('adminPanelOne',{ 
-														projectsRows: projectsRows, 
-														facilitiesRows: facilitiesRows, 
-														hallBookingRows: hallBookingRows,
-														inventoryRows: inventoryRows,
-														vendorRows: vendorRows,
-														adminsRows: adminsRows, 
-														donationRows: donationRows,
-														adminProjectRows: adminProjectRows,
-														visitorCount: visitorCount,
-														eventRows: eventRows,
-														announcementsRows: announcements
-													});
+													announcementRows =announcements;
+												Resources.findAll().then(function(resource){
+													resourceRows = resource;
+													Gallery.findAll().then(function(gallery){
+														res.render('adminPanelOne',{ 
+															projectsRows: projectsRows, 
+															facilitiesRows: facilitiesRows, 
+															hallBookingRows: hallBookingRows,
+															inventoryRows: inventoryRows,
+															vendorRows: vendorRows, 
+															adminsRows: adminsRows, 
+															donationRows: donationRows, 
+															adminProjectRows: adminProjectRows,
+															visitorCount: visitorCount, 
+															eventRows: eventRows,
+															announcementsRows: announcementRows,
+															resourceRows: resourceRows,
+															gallery:gallery
+														});
+													})
+												})
 												});
 											});
 										});

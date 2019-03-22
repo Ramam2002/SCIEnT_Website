@@ -55,4 +55,16 @@ router.post('/uploadGallery', upload.single('galleryImage'), function(req, res, 
     });
 });
 
+//delete gallery item
+router.post('/delGallery',function(req,res,next){
+    var id=req.body.id.slice(1);
+    res.send(JSON.stringify({msg:"Successfully deleted the item! "}));
+    return Gallery.destroy({
+        where:{
+            id:id
+        }
+    });
+
+});
+
 module.exports = router;

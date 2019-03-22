@@ -59,4 +59,15 @@ router.post('/uploadResource', upload.single('resourceImage'), function(req, res
     });
 });
 
+//delete resources
+router.post('/delResource',function(req,res,next){
+    var id=req.body.id.slice(1);
+    res.send(JSON.stringify({msg:"Successfully deleted the Resource! "}));
+    return Resources.destroy({
+        where:{
+            id:id
+        }
+    });
+
+});
 module.exports = router;

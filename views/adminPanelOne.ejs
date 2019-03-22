@@ -403,29 +403,40 @@
             </div>
 
             <div id="addProjects" class="tab-pane fade">
-                <div class="row" style="margin-top: 4%">
-                    <div class="col-md-3" id="addProjectForm">
-                        <h2 style="font-family: 'Vollkorn',serif;">ADD PROJECTS</h2>
-                        <label>Project Title: </label><br>
-                        <input type="text" id="projectName" name="projectName" autocomplete="off" required><br>
-                        <label>Enter project description: </label><br>
-                        <textarea name="projectDesc" id="projectDesc" cols="24" rows="5" autocomplete="off" required></textarea><br>
-                        <label>Add project image : </label></br>
-                        <input type="file" name = "projectImage" id ="projectImage"></br>
+                    <br>
+                    <div  id="addProjectForm">
+                        <h3 style="font-family: 'Vollkorn',serif;">ADD PROJECTS</h3>
+                        <div class="form-group">
+                            <label for="projectName">Project Title: </label>
+                            <input type="text" id="projectName" class="form-control" name="projectName" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDesc">Enter project description: </label>
+                            <textarea name="projectDesc" class="form-control" id="projectDesc" cols="24" rows="5" autocomplete="off" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectImage">Add project image : </label>
+                            <input type="file" name = "projectImage" class="form-control" id ="projectImage">
+                        </div>              
+                                   
+
                         <span id="addProjectFormMsg" ></span></br>
-                        <button id="addProject" class="btn btn-warning btn-lg">Add Project</button>  
+                        <button id="addProject" class="btn btn-warning btn-md">Add Project</button>  
                     </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-8">
+                    <br>
+                    
+                    <div class="row" >
                         <div class="projectList">
-                            <div class="table-responsive" id="projectListDisplay">
+                            <div id="projectListDisplay">
                                 <table class="table  table-bordered">
                                     <thead>
                                        <tr>
-                                        <th>PROJECT ID</th>
-                                        <th>PROJECT IMAGE</th>
-                                        <th>PROJECT NAME</th>
-                                        <th>DESCRIPTION</th>
+                                        <th class="header col-md-1">PROJECT ID</th>
+                                        <th class="header col-md-3">PROJECT IMAGE</th>
+                                        <th class="header col-md-3">PROJECT NAME</th>
+                                        <th class="header col-md-4">DESCRIPTION</th>
+                                        <th class="header col-md-1">REMOVE</th>
                                        </tr>
                                     </thead>
                                     <tbody>
@@ -435,6 +446,7 @@
                                                 <td><span class="projectImage"><img width="400" height="225" src="<%= item.projectImage %>" ></span></td>
                                                 <td><span class="projectsTitle"><%= item.projectTitle %></span></td>
                                                 <td><span class="projectsDesc"><%= item.projectDesc %></span></td>
+                                                <td><span class="delProject fa fa-close" style="color:red;cursor:pointer;" id="p<%= item.id %>"></span></td>
                                             </tr>
                                         <% }); %>
                                     </tbody>
@@ -442,7 +454,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                
             </div>
 
             <div id="donations" class="tab-pane fade">
@@ -671,7 +683,7 @@
             
             <div id="resources" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
-                    <div class="col-md-4" id="addResourcesForm">
+                    <div class="col-md-3" id="addResourcesForm">
                         <h2 style="font-family: 'Vollkorn',serif;">ADD RESOURCE</h2>
                         
                         <form method="POST" enctype="multipart/form-data" name="resourceForm" id="resourceForm">
@@ -695,24 +707,51 @@
                                     <input name="type" value="others" type="radio" checked/>
                                 </p>
                             </div>
-                            <br>
                             <div class="file-field input-field">
                                     <label for="resourceImage">Image</label><br>
                                     <input id="resourceImage" name="resourceImage" type="file">
                             </div>
                             <br>
                             <span id="resourceMsg"></span>
-                            <br>
                             <button type="submit" class="btn btn-warning btn-lg">Submit Resource</button>
                         </form>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="resourceList">
+                            <div id="resourceListDisplay">
+                                <table class="table  table-bordered" >
+                                    <thead>
+                                       <tr>
+                                        <th class="header ">ID</th>
+                                        <th class="header ">IMAGE</th>
+                                        <th class="header ">NAME</th>
+                                        <th class="header ">TYPE</th>
+                                        <th class="header"><span class="fa fa-close" style="color:grey;cursor:pointer;" ></span></td></th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% resourceRows.forEach(function(item){  %>
+                                            <tr>
+                                                <td><span class="resID"><%= item.id %></span></td>
+                                                <td><span class="resImage"><img width="400" height="225" src="<%= item.resourceImage %>" ></span></td>
+                                                <td><span class="resTitle"><%= item.resourceName %></span></td>
+                                                <td><span class="resType"><%= item.resourceType %></span></td>
+                                                <td><span class="delRes fa fa-close" style="color:red;cursor:pointer;" id="r<%= item.id %>"></span></td>
+                                            </tr>
+                                        <% }); %>
+                                    </tbody>
+                                 </table>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
 
             <div id="gallery" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">
-                    <div class="col-md-4" id="addGalleryImageForm">
-                        <h2 style="font-family: 'Vollkorn',serif;">ADD GALLERY IMAGE</h2>                        
+                    <div class="col-md-3" id="addGalleryImageForm">
+                        <h3 style="font-family: 'Vollkorn',serif;">ADD GALLERY IMAGE</h3>                        
                         <form method="POST" enctype="multipart/form-data" name="galleryImageForm" id="galleryImageForm">
                             <div class="input-field col s6">
                                 <label for="name">Image Title</label><br>
@@ -728,6 +767,33 @@
                             <br>
                             <button type="submit" class="btn btn-warning btn-lg">Submit Gallery Image</button>
                         </form>
+                    </div>
+                     <div class="col-md-9">
+                        <div class="galleryList">
+                            <div id="galleryListDisplay">
+                                <table class="table  table-bordered" >
+                                    <thead>
+                                       <tr>
+                                        <th class="header ">ID</th>
+                                        <th class="header ">IMAGE</th>
+                                        <th class="header ">TITLE</th>
+                                        <th class="header"><span class="fa fa-close" style="color:grey;cursor:pointer;" ></span></td></th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% gallery.forEach(function(item){  %>
+                                            <tr>
+                                                <td><span class="galID"><%= item.id %></span></td>
+                                                <td><span class="galmage"><img width="400" height="225" src="<%= item.image %>" ></span></td>
+                                                <td><span class="galTitle"><%= item.Title %></span></td>
+                                                <td><span class="delGallery fa fa-close" style="color:red;cursor:pointer;" id="g<%= item.id %>"></span></td>
+                                            </tr>
+                                        <% }); %>
+                                    </tbody>
+                                 </table>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

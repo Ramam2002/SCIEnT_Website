@@ -59,7 +59,7 @@ $(document).ready( function (){
                     success: function(data, status) {
                         alert(data.msg);
                         var msgBody = document.getElementById('addProjectFormMsg');
-                        msgBody.innerHTML = data.msg;
+                        msgBody.innerHTML = data.msg+' Refresh the page to see the newly added projects!';
                         $("#projectName").val('');
                         $('#projectImage').val('');
                         $("#projectDesc").val('');
@@ -77,6 +77,27 @@ $(document).ready( function (){
         }
 
     });
+
+    $(document).on('click','.delProject',function(){
+    var id = this.id;
+    
+    $.ajax({
+        url: '/admin/delProject',
+        method: 'POST',
+        data: JSON.stringify({
+            id:id
+        }),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(data, status) {
+            alert(data.msg);
+            $('#' + id).parent().parent().remove();
+            
+        }
+    })
+})
+
+
 });
 
     

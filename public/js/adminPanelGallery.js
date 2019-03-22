@@ -63,4 +63,22 @@ $(document).ready(function() {
             });
         }
     });
+    $(document).on('click','.delGallery',function(){
+    var id = this.id;
+    
+    $.ajax({
+        url: '/admin/delGallery',
+        method: 'POST',
+        data: JSON.stringify({
+            id:id
+        }),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(data, status) {
+            alert(data.msg);
+            $('#' + id).parent().parent().remove();
+            
+        }
+    })
+})
 });

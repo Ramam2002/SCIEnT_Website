@@ -63,4 +63,16 @@ router.post('/addAdminProjects', upload.single('projectImage'), function (req, r
 
 });
 
+//delete projects
+router.post('/delProject',function(req,res,next){
+    var id=req.body.id.slice(1);
+    res.send(JSON.stringify({msg:"Successfully deleted the Project! "}));
+    return AdminProjects.destroy({
+        where:{
+            id:id
+        }
+    });
+
+});
+
 module.exports = router;

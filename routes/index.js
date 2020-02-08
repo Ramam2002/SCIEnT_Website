@@ -26,6 +26,7 @@ var models  = require(path.join(__dirname, '/../' ,'models'));
 var AdminProjects = models.AdminProjects;
 var Events = models.Events;
 var Announcements = models.Announcements;
+var Testimonials = models.Testimonials;
 
 /* 
  GET home page 
@@ -168,6 +169,31 @@ router.post('/sendProjectIdea', function(req,res,next) {
 		
 	});
 	res.render('index');
+});
+
+router.post('/submitTestimonial', function(req,res,next) {
+
+	Testimonials.create({
+		name: req.body.name,
+		testimonial: req.body.review
+	}).then(function() {
+		console.log("Name: " , req.body.name);
+		console.log("Review: " , req.body.review);
+		console.log('Testimonial sent! Thank you for filling it.')
+		// res.end(JSON.stringify({msg: 'Testimonial sent! Thank you for filling it.'}))
+		res.redirect('/#!/Testimonials')
+	}).catch(function(err) {
+		console.log(err);
+		res.end(JSON.stringify({msg: `Error: ${err}`}));
+	})
+})
+
+router.post('/removeTestimonial', function(req, res, next) {
+	Testimonials.destroy({where: {id: req.body.testimonialId}})
+	.then(function(data) {
+		console.log("Deleted")
+		res.send(JSON.stringify({msg: 'You have deleted the request corresponding to id ' + req.body.testimonialId}));
+	});
 });
 
 module.exports = router;

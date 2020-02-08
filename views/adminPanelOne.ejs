@@ -21,6 +21,7 @@
     <script src="/js/adminPanelInventory.js"></script>
     <script src="/js/adminPanelGallery.js"></script>
     <script src="/js/adminPanelEventsUpdates.js"></script>
+    <script src="/js/testimonial.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
     <link rel="stylesheet" href="/css/adminPanelOne.css">
@@ -74,6 +75,7 @@
             <li><a data-toggle="tab" href="#inventory">Inventory</a></li>
             <li><a data-toggle="tab" href="#resources">Resources</a></li>
             <li><a data-toggle="tab" href="#gallery">Gallery</a></li>
+            <li><a data-toggle="tab" href="#testimonials">Testimonials</a></li>
             <li><a data-toggle="tab" href="#changePasswords">Change your password</a></li>
         </ul>
       </ul>
@@ -798,6 +800,45 @@
                 </div>
             </div>
 
+            <div id="testimonials" class="tab-pane fade">
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-12">
+                        <div class="table-responsive" id="testimonialsTable">
+                            <!-- <span>Total Testimonials: <%= testimonialsRows.length %></span><br> -->
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="header"></th>
+                                        <th class="header text-center">Testimonials</th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
+                                    </tr>
+                                </thead>
+                                
+                                <thead>
+                                    <tr>
+                                        <th class="subheader">No. </th>
+                                        <th class="subheader">NAME</th>
+                                        <th class="subheader">TESTIMONIAL</th>
+                                        <th class="subheader"></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <% testimonialsRows.forEach(function(item) { %>
+                                        <tr>
+                                            <td class="col-md-2"><span class="testimonialId"><%= item.id %></span></td>
+                                            <td class="col-md-2"><span class="name"><%= item.name %></span></td>
+                                            <td class="col-md-6"><span class="review"><%= item.testimonial %></span></td>
+                                            <td class="col-md-2"><span class="removeTestimonial"><i style="color:red;cursor:pointer;" class="fa fa-close"></i></span></td>
+                                        </tr>
+                                    <%})%>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div id="changePasswords" class="tab-pane fade">
                 <div class="row" style="margin-top: 3%;">

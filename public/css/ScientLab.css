@@ -82,6 +82,7 @@ html {
 
 .navbar-inverse .navbar-nav>li>a {
     color: #ffffff;
+    font-size: 17px;
     border-bottom: 2px solid #E0BB24;
 }
 

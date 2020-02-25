@@ -190,7 +190,7 @@ router.post('/', function(req, res, next) {
                                                                         eventRows: eventRows,
                                                                         announcementsRows: announcements,
                                                                         resourceRows: resourceRows,
-                                                                        galleryRows: gallery,
+                                                                        gallery: gallery,
                                                                         testimonialsRows: testimonials
                                                                     });
                                                                 });

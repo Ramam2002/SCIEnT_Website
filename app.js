@@ -83,6 +83,8 @@ models.sequelize.sync().then(function () {
   console.log('Tables are created');
 });
 
+//Uncomment this block the first time you run to insert admin into DB. Comment it back after that
+
 // var adminName = 'levelOneAdmin';
 // var adminPwd = 'scientAdmin';
 // var salt = bcrypt.genSaltSync(1);

@@ -232,7 +232,9 @@
                 });
 
             $scope.filter_Cards = function(filter_Obj){
-              if( new Date(filter_Obj.year).getFullYear() == $scope.choice.year)
+              if($scope.choice.year == 'all')
+                return true; 
+              else if( new Date(filter_Obj.year).getFullYear() == $scope.choice.year)
                     return true;
               else
                     return false;

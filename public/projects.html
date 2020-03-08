@@ -7,6 +7,7 @@
             <div class="form-group" style="width :100px; margin: auto;">
                 <label for="year">Select Year:</label>
                 <select class="form-control" id="year" ng-model ='choice.year' ng-model-instant>
+                    <option value="all" selected>All</option>
                     <option ng-repeat="y in years" value="{{y}}">{{y}}</option>
                 </select>
             </div> 
@@ -62,7 +63,7 @@
 
 </div> -->
 
-    <div class="row" style="margin:auto;">
+    <div class="row" style="margin: 20px auto;">
         <div class="card-deck">
             <div class="col-md-4 col-sm-6 co-xs-12" ng-repeat="x in adminProjectNames" ng-show = 'filter_Cards(x)' style="margin-bottom: 100px;">
                 <div class="card text-center" style="padding: 50px;background: #ebebeb; border-style:outset;">

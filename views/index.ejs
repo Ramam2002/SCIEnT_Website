@@ -217,6 +217,7 @@
             $scope.mechFileNames = [];
             $scope.adminProjects =  [];
             $scope.galleryFileNames = [];
+            $scope.choice = {};
             var date=new Date();
             var today = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
             $scope.today =today;
@@ -229,6 +230,13 @@
                 $('.carousel').carousel({
                     interval: 4000 //changes the speed
                 });
+
+            $scope.filter_Cards = function(filter_Obj){
+              if( new Date(filter_Obj.year).getFullYear() == $scope.choice.year)
+                    return true;
+              else
+                    return false;
+                }
                 
                 $("#aboutUsLink").on('click', function(event) {
                     // Make sure this.hash has a value before overriding default behavior
@@ -298,6 +306,22 @@
                     url : "/projects-images"
                 }).then(function mySuccess(response) {
 
+                    let proj_Dates = [], proj_Year = []; 
+                    
+                    for ( const j of response.data['projects']){
+                        proj_Dates.push(new Date(j.year).getFullYear());       
+                    }
+                   
+                    for (const k of proj_Dates){
+                        if(proj_Year.indexOf(k) == -1)
+                            proj_Year.push(k);
+                    }
+
+                    proj_Year.sort(function(a, b){
+                        return b-a;
+                    })
+
+                    $scope.years = proj_Year;
                     $scope.adminProjectNames = response.data["projects"];
 
                 }, function myError (response) {

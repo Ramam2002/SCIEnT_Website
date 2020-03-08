@@ -19,6 +19,10 @@ module.exports = function(sequelize, DataTypes){
         projectDesc: {
             type: DataTypes.TEXT,
             allowNull: true
+        },
+        year: {
+            type: DataTypes.DATE    ,
+            allowNull: false
         }
     },{
         freezeTableName : true

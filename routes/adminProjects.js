@@ -51,7 +51,8 @@ router.post('/addAdminProjects', upload.single('projectImage'), function (req, r
     AdminProjects.create({
         projectTitle: req.body.projectTitle,
         projectDesc: req.body.projectDesc,
-        projectImage: finalPath
+        projectImage: finalPath,
+        year: req.body.year
     }).then(function () {
         console.log(req.body);
         console.log('Details saved and image added to gallery');

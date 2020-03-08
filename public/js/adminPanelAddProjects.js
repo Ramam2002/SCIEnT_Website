@@ -4,7 +4,10 @@ $(document).ready( function (){
         var projectTitle = $("#projectName").val();
         var projectDesc = $("#projectDesc").val();
         var projectImage = $("#projectImage").val();
-
+        var year = $('#year').val();
+       
+        console.log(year, projectDesc, projectTitle);
+    
         var file = $("#projectImage").get(0).files[0];
         var msgBody = document.getElementById('addProjectFormMsg');
 
@@ -38,6 +41,7 @@ $(document).ready( function (){
             fd.append('projectImage', $("#projectImage").get(0).files[0]);
             fd.append('projectTitle',projectTitle);
             fd.append('projectDesc',projectDesc);
+            fd.append('year', year);
 
             console.log(fd);
             console.log(projectTitle,projectDesc);
@@ -57,12 +61,14 @@ $(document).ready( function (){
                     processData: false,
                     contentType: false,
                     success: function(data, status) {
+                        console.log('success');
                         alert(data.msg);
                         var msgBody = document.getElementById('addProjectFormMsg');
                         msgBody.innerHTML = data.msg+' Refresh the page to see the newly added projects!';
                         $("#projectName").val('');
                         $('#projectImage').val('');
                         $("#projectDesc").val('');
+                        $("#year").val('');
                         hideMsg(msgBody);
                     },
                     error: function (err) {

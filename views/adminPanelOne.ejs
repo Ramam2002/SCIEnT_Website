@@ -421,11 +421,11 @@
                             <label for="projectImage">Add project image : </label>
                             <input type="file" name = "projectImage" class="form-control" id ="projectImage">
                         </div>              
-                                   
+                        
                         <div class="form-group">
-                            <label for="year">Add year: </label>
+                            <label for="year">Add Date of commencement: </label>
                             <input type="date" name = "year" class="form-control" id = "year">
-                        </div> 
+                        </div>
 
                         <span id="addProjectFormMsg" ></span></br>
                         <button id="addProject" class="btn btn-warning btn-md">Add Project</button>  
@@ -439,9 +439,10 @@
                                     <thead>
                                        <tr>
                                         <th class="header col-md-1">PROJECT ID</th>
-                                        <th class="header col-md-3">PROJECT IMAGE</th>
-                                        <th class="header col-md-3">PROJECT NAME</th>
-                                        <th class="header col-md-4">DESCRIPTION</th>
+                                        <th class="header col-md-4">PROJECT IMAGE</th>
+                                        <th class="header col-md-2">PROJECT NAME</th>
+                                        <th class="header col-md-2">DESCRIPTION</th>
+                                        <th class="header col-md-2">DATE OF COMMENCEMENT</th>
                                         <th class="header col-md-1">REMOVE</th>
                                        </tr>
                                     </thead>
@@ -452,7 +453,9 @@
                                                 <td><span class="projectImage"><img width="400" height="225" src="<%= item.projectImage %>" ></span></td>
                                                 <td><span class="projectsTitle"><%= item.projectTitle %></span></td>
                                                 <td><span class="projectsDesc"><%= item.projectDesc %></span></td>
+                                                <td><span class="projectsyear"><%= item.year %></span></td>
                                                 <td><span class="delProject fa fa-close" style="color:red;cursor:pointer;" id="p<%= item.id %>"></span></td>
+
                                             </tr>
                                         <% }); %>
                                     </tbody>
@@ -1140,6 +1143,16 @@
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker10').datetimepicker({
+                    viewMode: 'years',
+                    format: 'MM/YYYY'
+                });
+            });
+        </script>
+
 </body>
 
 </html>

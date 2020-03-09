@@ -17,7 +17,7 @@ $(document).ready( function (){
             hideMsg(msgBody);
             return;
         } 
-        else if ( projectTitle == '' || projectDesc == '') {
+        else if ( projectTitle == '' || projectDesc == '' || year == '') {
             msgBody.innerHTML = 'Enter All Fields';
             hideMsg(msgBody);
             return;

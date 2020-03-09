@@ -7,7 +7,7 @@
                 <label for="year">Select Year:</label>
                 <select class="form-control" id="year" ng-model ='choice.year' ng-model-instant>
                     <option value="all" selected>All</option>
-                    <option ng-repeat="y in years" value="{{y}}">{{y}}</option>
+                    <option value="{{y}}" ng-repeat="y in years">{{y}}</option>
                 </select>
             </div> 
             

@@ -285,17 +285,28 @@ router.post('/applyForProjects', parseForm, csrfProtection, function(req, res, n
 
 /* to handle form submission for hall booking */
 router.post('/applyForHallBooking', parseForm, csrfProtection, function(req, res, next) {
+	console.log(req.body.startDate, req.body.startTime, req.body.endDate, req.body.endTime);
+	var startDate = req.body.startDate + " " + req.body.startTime + ":00";
+	startDate = startDate.split(/[- :]/);
+	var start_timestamp = new Date(Date.UTC(startDate[0], startDate[1]-1, startDate[2], startDate[3], startDate[4], startDate[5])).getTime();
+	var endDate = req.body.endDate + " " + req.body.endTime + ":00";
+	endDate = endDate.split(/[- :]/);
+	var end_timestamp = new Date(Date.UTC(endDate[0], endDate[1]-1, endDate[2], endDate[3], endDate[4], endDate[5])).getTime();
 	var record = {
 		name: req.body.name,
 		roll: req.body.roll,
 		department: req.body.department,
 		contactNumber: req.body.contactNumber,
 		emailID: req.body.emailID,
+		hallnumber: 'CH1',
 		attendeesNumber: req.body.attendeesNumber,
 		purpose: req.body.purposeOfBooking,
-		date: req.body.date,
+		startDate: req.body.startDate,
 		startTime: req.body.startTime,
+		endDate: req.body.endDate,
 		endTime: req.body.endTime,
+		startTimestamp: start_timestamp,
+		endTimestamp: end_timestamp,
 		approvedStartTime: '',
 		approvedEndTime: '',
 		approved: 'No',
@@ -338,5 +349,36 @@ router.post('/applyForHallBooking', parseForm, csrfProtection, function(req, res
 	});
 });
 
+// /* Route for making ajax request to check if the conference hall is available */
+
+router.post('/availabilityOfConferenceHall', function(req, res, next) {
+	var is_available = true;
+	var startDate = req.body.startDate;
+	var startTime = req.body.startTime;
+	var endDate = req.body.endDate;
+	var endTime = req.body.endTime;
+	var hallnumber = req.body.hallnumber;
+	var start = startDate + " " + startTime + ":00";
+	var end = endDate + " " + endTime + ":00";
+	start = start.split(/[- :]/);
+	end = end.split(/[- :]/);
+	var start_date = new Date(Date.UTC(start[0], start[1]-1, start[2], start[3], start[4], start[5]));
+	var end_date = new Date(Date.UTC(end[0], end[1]-1, end[2], end[3], end[4], end[5]));
+	var start_time = start_date.getTime();
+	var end_time = end_date.getTime();
+	HallBooking.findAll().then((records) => {
+		records.forEach((record) => {
+			var start_timestamp = record["startTimestamp"].getTime();
+			var end_timestamp = record["endTimestamp"].getTime();
+			var hall_number = record["hallnumber"];
+			console.log(start_timestamp, end_timestamp, start_time, end_time)
+			if(((start_time >= start_timestamp && start_time <= end_timestamp) || (end_time >= start_timestamp && end_time <= end_timestamp)) && (hallnumber === hall_number)) {
+				is_available = false;
+			}
+		})
+	}).then(() => {
+		res.send(is_available);
+	});;
+})
 
 module.exports = router;

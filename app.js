@@ -95,10 +95,10 @@ models.sequelize.sync().then(function () {
 //     password: adminPwd,
 //     adminLevel: 'One'
 // };
-  // Admins.sync({force: true})
-  // .then( function() {
-  //   return Admins.create(adminDetails);
-  //   console.log('Demo level one admin added');
-  // });
+//   Admins.sync({force: true})
+//   .then( function() {
+//     return Admins.create(adminDetails);
+//     console.log('Demo level one admin added');
+//   });
 
 module.exports = app;

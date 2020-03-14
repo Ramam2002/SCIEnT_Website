@@ -28,6 +28,10 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
+		hallnumber: {
+			type:DataTypes.STRING,
+			allowNull: false
+		},
 		attendeesNumber: {
 			type: DataTypes.INTEGER,
 			allowNull: false
@@ -36,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.TEXT,
 			allowNull: false
 		},
-		date: {
+		startDate: {
 			type: DataTypes.DATE,
 			allowNull: false
 		},
@@ -44,8 +48,20 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.TIME,
 			allowNull: false
 		},
+		endDate: {
+			type: DataTypes.DATE,
+			allowNull: false
+		},
 		endTime: {
 			type: DataTypes.TIME,
+			allowNull: false
+		},
+		startTimestamp: {
+			type: DataTypes.DATE,
+			allowNull: false
+		},
+		endTimestamp: {
+			type: DataTypes.DATE,
 			allowNull: false
 		},
 		approvedStartTime: {

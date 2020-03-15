@@ -26,14 +26,14 @@ $(document).on('click', '#submitRegistrationForNewProduct', function () {
                 method: 'POST',
                 data: JSON.stringify({
                     productCode: productCode,
-                    unit: unit;
+                    unit: unit,
                     quantity: quantity,
                     price: price,
                     vendorName: vendorName,
                     vendorEmail: vendorEmail,
                     vendorAddress: vendorAddress,
                     vendorPhone: vendorPhone,
-                    billingInventory: billingInventory
+                    billingInventory: billingInventory,
                     remarks: remarks
                 }),
                 contentType: "application/json",

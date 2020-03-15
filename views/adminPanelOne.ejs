@@ -355,6 +355,8 @@
                                         <th class="header"></th>
                                         <th class="header"></th>
                                         <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
                                         <th class="header">HALL BOOKING</th>
                                         <th class="header"></th>
                                         <th class="header"></th>
@@ -369,9 +371,11 @@
                                         <th>BOOKING ID</th>
                                         <th>PERSON ROLL</th>
                                         <th>NAME</th>
-                                        <th>DATE</th>
+                                        <th>START DATE</th>
                                         <th>START TIME</th>
+                                        <th>END DATE</th>
                                         <th>END TIME</th>
+                                        <th>CONFERENCE HALLNUMBER</th>
                                         <th>APPROVE</th>
                                         <th>REMOVE</th>
                                     </tr>
@@ -382,13 +386,19 @@
                                             <td ><a href="#"><span class="bookingId"><%= item.id %></span></a></td>
                                             <td ><span class="applicantRoll"><%= item.roll %></span></td>
                                             <td ><span class="applicantName"><%= item.name %></span></td>
-                                            <td ><span class="applicantDate"><%= item.date.getDate() 
+                                            <td ><span class="applicantDate"><%= item.startDate.getDate() 
                                             + '/'
-                                            + parseInt(item.date.getMonth() + 1)
+                                            + parseInt(item.startDate.getMonth() + 1)
                                             + '/'
-                                            + item.date.getFullYear() %></span></td>
+                                            + item.startDate.getFullYear() %></span></td>
                                             <td ><span class="applicantRequestedStartTime"><%= item.startTime %></span></td>
+                                            <td ><span class="applicantDate"><%= item.endDate.getDate() 
+                                            + '/'
+                                            + parseInt(item.endDate.getMonth() + 1)
+                                            + '/'
+                                            + item.endDate.getFullYear() %></span></td>
                                             <td ><span class="applicantRequestedEndTime"><%= item.endTime %></span></td>
+                                            <td ><span class="applicantRequestedEndTime"><%= item.hallnumber %></span></td>
                                             <% if (item.approved == 'Yes') { %>
                                                 <td><button type="button" class="approveForHallBooking btn btn-success" disabled>APPROVE </button></td>
                                             <% } else { %> 

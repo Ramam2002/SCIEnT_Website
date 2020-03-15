@@ -61,8 +61,7 @@ function validateForm () {
 		hideHallBookingFormErrorMsg(errMsgBody);
 		return false;
 	} else {
-		var result = true;
-		try {
+		var result;
 			$.ajax({
 				url: '/availabilityOfConferenceHall',
 				method: 'POST',
@@ -75,19 +74,17 @@ function validateForm () {
 				}),
 				contentType: "application/json",
 				dataType: "json",
+				async: false,
 				success: function(response) {
-					console.log(response);
 					if(response === false){
 						errMsgBody.innerHTML = "Already Booked";
 						hideHallBookingFormErrorMsg(errMsgBody);
 					}
 					result = response;
 				}
-			});
-		} catch(err) {
-			console.log(err);
-		}
-		return result;
+			}).responseText;
+			console.log(result);
+			return result;
 	}
 	return true;
 }

@@ -28,7 +28,6 @@ router.use(bodyParser.urlencoded({ extended: false }));
 //testing if the get request works
 router.post("/getHallSummary", function(req, res, next) {
   console.log("request received");
-  console.log("get a life");
   HallBooking.findAll({ where: { approved: "yes" } })
     .then(function(hallBookingRecord) {
       res.send(JSON.stringify(hallBookingRecord));

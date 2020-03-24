@@ -11,8 +11,7 @@ $(document).ready(function() {
       method: "POST",
       data: JSON.stringify({
         month: month,
-        year: year,
-        name: "Anjaneya Tripathi"
+        year: year
       }),
       contentType: "application/json",
       dataType: "json",
@@ -304,11 +303,9 @@ $(document).ready(function() {
             );
           } else {
             x++;
-            //console.log("Babaji ka Thullu!" + x);
           }
           console.log(x + "//" + z);
           if (x === z) {
-            //console.log("POPAT");
             $("#infoList").append(
               "<h2>NO ROOM BOOKED FOR THE SELECTED TIME DURATION</h2>"
             );

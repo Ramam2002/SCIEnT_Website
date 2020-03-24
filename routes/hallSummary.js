@@ -25,23 +25,17 @@ var HallBooking = models.HallBooking;
 router.use(session({ secret: "ssshhhhh" }));
 router.use(bodyParser.urlencoded({ extended: false }));
 
-/* to display all the details of a particular request by clicking on the id */
-// NOT USED, FOR REFERENCE ONLY
-router.post("/getHallBookingDetails", function(req, res, next) {
-  HallBooking.findOne({ where: { id: req.body.bookingId } })
+//testing if the get request works
+router.post("/getHallSummary", function(req, res, next) {
+  console.log("request received");
+  console.log("get a life");
+  HallBooking.findAll({ where: { approved: "yes" } })
     .then(function(hallBookingRecord) {
       res.send(JSON.stringify(hallBookingRecord));
     })
     .catch(function(err) {
       console.log(err);
     });
-});
-
-//testing if the get request works
-router.get("/getHallSummary", function(req, res, next) {
-  console.log(req.body.month);
-  var lol = "LOL";
-  res.send(lol);
 });
 
 module.exports = router;

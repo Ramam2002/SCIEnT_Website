@@ -1,4 +1,3 @@
-var approvedRequestButton;
 $(document).ready(function() {
   $(document).on("click", "#choice", function() {
     var month = document.getElementById("months").value;

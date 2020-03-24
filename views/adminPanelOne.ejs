@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -18,6 +17,7 @@
     <script src="/js/adminPanelProjects.js"></script>
     <script src="/js/adminPanelAddProjects.js"></script>
     <script src="/js/adminPanelHallBooking.js"></script>
+    <script src="/js/adminPanelHallSummary.js"></script>
     <script src="/js/adminPanelInventory.js"></script>
     <script src="/js/adminPanelGallery.js"></script>
     <script src="/js/adminPanelEventsUpdates.js"></script>
@@ -68,6 +68,7 @@
             <li><a data-toggle="tab" href="#pendingProjects">Pending Projects</a></li>
             <li><a data-toggle="tab" href="#facilitiesOrTools">Access</a></li>
             <li><a data-toggle="tab" href="#conferenceHallBooking">Hall Booking Requests</a></li>
+            <li><a data-toggle="tab" href="#conferenceHallSummary">Hall Booking Summary</a></li>
             <li><a data-toggle="tab" href="#addProjects">Add Projects</a></li>
             <li><a data-toggle="tab" href="#donations">Donations</a></li>
             <li><a data-toggle="tab" href="#addAdmins">Add Admins</a></li>
@@ -195,21 +196,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                 <% announcementsRows.forEach(function(item) { %>
-                                            <tr>
-                                                <td>
-                                                    <%= item.id %>
-                                                </td>   
-                                                <td>
-                                                    <%= item.Text %>
-                                                </td>
-                                                <td><span class="delAnnouncement fa fa-close" style="color:red;cursor:pointer;" id="a<%= item.id %>"></span></td>
+                                <% announcementsRows.forEach(function(item) { %>
+                                    <tr>
+                                        <td>
+                                            <%= item.id %>
+                                        </td>   
+                                        <td>
+                                            <%= item.Text %>
+                                        </td>
+                                            <td><span class="delAnnouncement fa fa-close" style="color:red;cursor:pointer;" id="a<%= item.id %>"></span></td>
 
-                                            </tr>
-                                            
-                                                <% }); %>
-                            
-                                
+                                            </tr>            
+                                <% }); %>    
                             </tbody>
                             
                         </table>
@@ -361,6 +359,8 @@
                                         <th class="header"></th>
                                         <th class="header"></th>
                                         <th class="header"></th>
+                                        <th class="header"></th>
+                                        <th class="header"></th>
                                         <th class="header">
                                             <button type="button" class="mailForHallBooking btn btn-success">Mail for Hall Booking</button>
                                         </th>
@@ -376,6 +376,8 @@
                                         <th>END DATE</th>
                                         <th>END TIME</th>
                                         <th>CONFERENCE HALLNUMBER</th>
+                                        <th>PURPOSE</th>
+                                        <th>ATTENDEES</th>
                                         <th>APPROVE</th>
                                         <th>REMOVE</th>
                                     </tr>
@@ -399,6 +401,8 @@
                                             + item.endDate.getFullYear() %></span></td>
                                             <td ><span class="applicantRequestedEndTime"><%= item.endTime %></span></td>
                                             <td ><span class="applicantRequestedEndTime"><%= item.hallnumber %></span></td>
+                                            <td ><span class="applicantRequestedEndTime"><%= item.purpose %></span></td>
+                                            <td ><span class="applicantRequestedEndTime"><%= item.attendeesNumber %></span></td>
                                             <% if (item.approved == 'Yes') { %>
                                                 <td><button type="button" class="approveForHallBooking btn btn-success" disabled>APPROVE </button></td>
                                             <% } else { %> 
@@ -410,6 +414,103 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="conferenceHallSummary" class="tab-pane fade">
+                <div>
+                    <h3>Hall Booking Summary</h3>
+                    <% var set = new Set(); %>
+                    <% hallBookingRows.forEach(function(item) { %>
+                        <p><% set.add(item.startDate.getFullYear()) %></p>
+                    <% }); %>
+                    <label for="months">Month: </label>
+                    <select id="months">
+                        <option value="0">All</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">Decenber</option>
+                    </select>
+                    <label for="years">Year: </label>
+                    <select id="years">
+                        <option value="0">All</option>
+                        <% set.forEach(function(item) { %>
+                            <option value='<%= item %>''><%= item %></option>
+                        <% }); %>
+                    </select>
+                    <button id="choice">Show</button>
+                </div>
+                <hr>
+                <div>
+                    <div class="table-responsive" id="hallBookingSummary">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="header"></th>
+                                    <th class="header"></th>
+                                    <th class="header"></th>
+                                    <th class="header"></th>
+                                    <th class="header"></th>
+                                    <th class="header">HALL BOOKING</th>
+                                    <th class="header"></th>
+                                    <th class="header"></th>
+                                    <th class="header"></th>
+                                    <th class="header">
+                                        <button type="button" class="mailForHallBooking btn btn-success">Mail for Hall Booking</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th>BOOKING ID</th>
+                                    <th>PERSON ROLL</th>
+                                    <th>NAME</th>
+                                    <th>START DATE</th>
+                                    <th>START TIME</th>
+                                    <th>END DATE</th>
+                                    <th>END TIME</th>
+                                    <th>CONFERENCE HALLNUMBER</th>
+                                    <th>PURPOSE</th>
+                                    <th>ATTENDEES</th>
+                                </tr>
+                            </thead>
+                            <tbody id="hS">
+                                <% hallBookingRows.forEach(function(item) { %>
+                                    <% if (item.approved == 'Yes') { %>
+                                    <tr>
+                                        <td ><a href="#"><span class="bookingId"><%= item.id %></span></a></td>
+                                        <td ><span class="applicantRoll"><%= item.roll %></span></td>
+                                        <td ><span class="applicantName"><%= item.name %></span></td>
+                                        <td ><span class="applicantDate"><%= item.startDate.getDate() 
+                                        + '/'
+                                        + parseInt(item.startDate.getMonth() + 1)
+                                        + '/'
+                                        + item.startDate.getFullYear() %></span></td>
+                                        <td ><span class="applicantRequestedStartTime"><%= item.startTime %></span></td>
+                                        <td ><span class="applicantDate"><%= item.endDate.getDate() 
+                                        + '/'
+                                        + parseInt(item.endDate.getMonth() + 1)
+                                        + '/'
+                                        + item.endDate.getFullYear() %></span></td>
+                                        <td ><span class="applicantRequestedEndTime"><%= item.endTime %></span></td>
+                                        <td ><span class="applicantRequestedEndTime"><%= item.hallnumber %></span></td>
+                                        <td ><span class="applicantRequestedEndTime"><%= item.purpose %></span></td>
+                                        <td ><span class="applicantRequestedEndTime"><%= item.attendeesNumber %></span></td>
+                                    </tr>
+                                    <% } %>
+                                <% }); %>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

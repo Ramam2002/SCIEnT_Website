@@ -88,6 +88,16 @@ $(document).ready(function() {
                 item.hallnumber +
                 "</span>" +
                 "</td>" +
+                "<td >" +
+                '<span class="applicantRequestedEndTime">' +
+                item.purpose +
+                "</span>" +
+                "</td>" +
+                "<td >" +
+                '<span class="applicantRequestedEndTime">' +
+                item.attendeesNumber +
+                "</span>" +
+                "</td>" +
                 "</tr>"
             );
           } else if (month == "0") {
@@ -142,6 +152,16 @@ $(document).ready(function() {
                   "<td >" +
                   '<span class="applicantRequestedEndTime">' +
                   item.hallnumber +
+                  "</span>" +
+                  "</td>" +
+                  "<td >" +
+                  '<span class="applicantRequestedEndTime">' +
+                  item.purpose +
+                  "</span>" +
+                  "</td>" +
+                  "<td >" +
+                  '<span class="applicantRequestedEndTime">' +
+                  item.attendeesNumber +
                   "</span>" +
                   "</td>" +
                   "</tr>"
@@ -203,6 +223,16 @@ $(document).ready(function() {
                   item.hallnumber +
                   "</span>" +
                   "</td>" +
+                  "<td >" +
+                  '<span class="applicantRequestedEndTime">' +
+                  item.purpose +
+                  "</span>" +
+                  "</td>" +
+                  "<td >" +
+                  '<span class="applicantRequestedEndTime">' +
+                  item.attendeesNumber +
+                  "</span>" +
+                  "</td>" +
                   "</tr>"
               );
             } else {
@@ -259,6 +289,16 @@ $(document).ready(function() {
                 "<td >" +
                 '<span class="applicantRequestedEndTime">' +
                 item.hallnumber +
+                "</span>" +
+                "</td>" +
+                "<td >" +
+                '<span class="applicantRequestedEndTime">' +
+                item.purpose +
+                "</span>" +
+                "</td>" +
+                "<td >" +
+                '<span class="applicantRequestedEndTime">' +
+                item.attendeesNumber +
                 "</span>" +
                 "</td>" +
                 "</tr>"

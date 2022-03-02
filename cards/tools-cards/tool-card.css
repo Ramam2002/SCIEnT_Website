@@ -1,0 +1,73 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
+
+:root{
+    --card-background: #efeeef;
+}
+
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 45px 2px;
+    transform-style: preserve-3d;
+}
+
+.container .box{
+    position: relative;
+    width: 450px;
+    height: 300px;
+    margin: 55px 0;
+    background: #111;
+    transform-style: preserve-3d;
+    border-radius: 5px;
+}
+
+.container .box:hover{
+    box-shadow:0 50px 75px rgba(1,1,1,0.3);
+}
+
+.container .box .contentBox{
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    right: 50px;
+    transform: translateZ(20px) scaleY(0);
+    padding: 30px 25px;
+    border-radius: 8px;
+    background: var(--card-background);
+    transform-origin: top;
+    box-shadow:3px 3px 3px darkcyan;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    font-family: sans-serif;
+}
+
+.container .box .contentBox h2{
+    font-weight: bold;
+}
+
+.container .box .contentBox p{
+    font-weight: 400;
+}
+
+.container .box .contentBox a{
+    color: darkorchid;
+    margin-left: 70%;
+}
+
+.container .box:hover .contentBox{
+    transform: translateZ(35px) scaleY(1);
+}
+
+.container .box .imgBox{
+    background-image: url('./tools-images/download3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+

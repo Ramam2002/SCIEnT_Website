@@ -40,4 +40,615 @@
   left:0;
 }
 
+#allProjectsContainer
+{
+  position: relative;
+    min-width: 1200px;
+    margin-top: -70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    flex-wrap: wrap;
+    padding: 25px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+}
 
+/* New card CSS */
+.outBox{
+  position: relative;
+  display: flex;
+  background-color: #216363;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cardContainer{
+  position: relative;
+  padding: 5px;
+  min-height: 100%;
+  transition: 0.4s;
+}
+
+.cardContainer:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.projectCARD{
+  margin: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  border: 0;
+  padding: 5px;
+  position: relative;
+  width: 320px;
+  height: 500px;
+  background-color: #8FC038;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.imgBox{
+  position: absolute;
+  z-index: 10000;
+  width: 100%;
+  height: 280px;
+  transition: 0.5s;
+}
+
+.imgBox img{
+  position: absolute;
+  display: flex;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.cardContainer .contentBox{
+  position: absolute;
+  top: 225px;
+  padding-right: 6px;
+  padding-left: 6px;
+  width: 97%;
+  z-index: 10;
+}
+
+.contentBox h2{
+  text-align: center;
+  font-weight: bolder;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.contentBox .textDescription{
+  width: 100%;
+  text-align: justify;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* For members */
+
+:root{
+  --hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
+  --returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  --font : "monsterrat";
+  --dark-color: #2b3b4d;
+  --light-color: #efeeef;
+  }
+  
+  .card-container{
+    background: #333;
+    width: 50%;
+    }
+
+    #allProjectsContainer
+    {
+      background: #333;
+      width: 50%;
+    }
+  
+    .middle{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .card{
+      cursor: pointer;
+      width: 200px;
+      height: 300px;
+    }
+  
+    /* .card{
+      cursor: pointer;
+      width: 340px;
+      height: 480px;
+    } */
+  
+    .front,.back{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: absolute;
+      transition: transform .6s linear;
+    }
+    .front img{
+      height: 100%;
+    }
+    .front{
+      transform: perspective(600px) rotateY(0deg);
+    }
+    .back{
+      background: var(--light-color);
+      transform: perspective(600px) rotateY(180deg);
+    }
+    .back-content{
+      color: var(--dark-color);
+      text-align: center;
+      width: 100%;
+    }
+    .sm{
+      margin: 20px 0;
+    }
+    .sm a{
+      display: inline-flex;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      color: var(--dark-color);
+      font-size: 18px;
+      transition: 0.4s;
+      border-radius: 50%
+    }
+    .sm a:hover{
+      background: var(--dark-color);
+      color: white;
+    }
+    .card:hover > .front{
+      transform: perspective(600px) rotateY(-180deg);
+    }
+    .card:hover > .back{
+      transform: perspective(600px) rotateY(0deg);
+    }
+
+    /* .batchBar
+    {
+      margin-left: 40%;
+      text-align: center;
+      display:flex;  
+      list-style:none;
+    } */
+
+    /* General Stuff */
+.subtopic {
+  text-align: center;
+  font-weight: 600;
+  color: black;
+}
+
+#teamPictures .btn-group {
+  margin-bottom: 15px;
+}
+
+#teamPictures .active-batch {
+  background-color: white;
+  color: #414141;
+}
+
+#projectPictures .btn-group {
+  margin-bottom: 15px;
+}
+
+#projectPictures .active-batch {
+  background-color: white;
+  color: #414141;
+}
+
+/* Main Container for all member images */
+#allMembersContainer {
+  text-align: center;
+  max-width: 1100px;
+  min-width: 200px;
+  margin: 10px auto;
+}
+
+/* Div for each individual member */
+.member-container {
+  margin: 0px 10px;
+  padding: 12px;
+  display: inline-block;
+  width: 155px;
+  position: relative;
+  z-index: 0;
+  margin-bottom: 28px;
+}
+
+/* Initally alumniButton bar hidden */
+#alumniButtons {
+  display: none;
+}
+
+/**
+* When you hover over one member, increase its z-index to 100.
+* Thus, the inner-details div will not be blocked by subsequent member-container divs.
+*/
+.member-container:hover {
+  z-index: 100;
+}
+
+.member-container:hover > .inner-details {
+  animation: fadeInUp 0.5s ease 0s 1 forwards;
+}
+
+.member-container:hover .basic-details .member-name
+{
+  color: white;
+}
+/* Basic Details Div - Consist of image and name */
+.basic-details {
+  position: relative;
+  z-index: 20; /* Has to be more than the z-index of inner-details on hover */
+}
+
+.basic-details .member-image {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+}
+
+.basic-details .member-name {
+  color: black;
+  /* color: white; */
+  font-size: 14px;
+}
+
+/* Inner Details Div - Consist of interests and social media icons */
+.inner-details {
+  position: absolute;
+  padding-top: 190px;
+  padding-bottom: 20px;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 15;
+  opacity: 0;
+  border-radius: 5px;
+}
+
+
+
+
+.headMembers{
+  background: transparent;
+  position: relative;
+  min-width: 400px;
+  /* min-width: 1000px; */
+  /* margin-top: -70px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 120px;
+  flex-wrap: wrap;
+  padding: 10px;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+}
+
+.headMembers .head-card{
+  position: relative;
+  max-width: 300px;
+  min-width: 280px;
+  height: 250px;
+  margin: 50px;
+  padding: 25px;
+  background: black;
+  flex-direction: column;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+  transition: 0.4s ease-in-out;
+}
+
+.headMembers .head-card:hover{
+  height: 465px;
+}
+
+.headMembers .head-card .imgBx{
+  position: relative;
+  width: 260px;
+  height: 260px;
+  top: -50px;
+  z-index: 1;
+}
+
+.headMembers .head-card .imgBx img{
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+}
+
+.headMembers .head-card .content{
+  position: relative;
+  text-align: center;
+  margin-top: -140px;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in;
+}
+
+.headMembers .head-card .content .card-btn{
+  text-decoration: none;
+  background-color: #faf;
+  color: #121;
+}
+
+.headMembers .head-card:hover .content{
+  visibility: visible;
+  opacity: 1;
+  margin-top: -60px;
+  transition-delay: 0.2s;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 550px) {
+  p {
+      font-size: 16px;
+  }
+
+  .basic-details .member-image {
+      width: 91px;
+      height: 91px;
+  }
+
+  .member-container {
+      width: 115px;
+      margin: 0px;
+  }
+
+  .inner-details {
+      padding-top: 140px;
+  }
+
+  .basic-details .member-name {
+      font-size: 12px;
+  }
+
+  /*Effectively removes btn-lg class from batch buttons*/
+  #batchButtons {
+      width: 95%;
+  }
+
+  #allMembersButtons {
+      width: 60%;
+  }
+
+  #alumniButtons {
+      width: 95%;
+  }
+
+  #allMembersButtons .small-mobile {
+      width: 35%;
+  }
+
+  #allMembersButtons .large-mobile {
+      width: 65%;
+  }
+
+  #alumniButtons button {
+      font-size: 13px;
+      padding: 6px 6px;
+  }
+
+  #batchButtons button, #allMembersButtons button {
+      font-size: 14px;
+      padding: 6px 6px;
+  }
+
+  .small-mobile {
+      width: 10%;
+  }
+
+  .large-mobile {
+      width: 30%;
+  }
+}
+
+.red {
+  background-color: #A53737;
+}
+
+.blue {
+  background-color: #216363;
+}
+
+.green {
+  background-color: #789A33;
+}
+
+.inner-details h5 {
+  color: white;
+  font-weight: 100;
+}
+
+/* Social Info Div - Github and Linkedin icons */
+.social-info {
+  padding-top: 10px;
+}
+
+.social-info span {
+  display: inline-block;
+  width: 30%;
+}
+
+.social-info i {
+  font-size: 26px;
+  color: white;
+}
+
+/* Animation for inner-details div, activated on hover */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0px);
+  }
+}
+
+
+/* base */
+
+
+/* General Stuff */
+/* html, body {
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #212121;
+} */
+
+#main-body-container {
+  min-height: 100%;
+  margin-bottom: -1.4em;
+  overflow: hidden;
+}
+
+#main-body-container::after {
+  content: "";
+  display: block;
+  height: 1.4em;
+}
+
+/* .navbar-nav > li, .navbar-nav > li > a {
+  transition: color 0.2s, background-color 0.2s;
+} */
+
+/* .navbar-nav > li:hover {
+  background: #131313;
+} */
+
+.first-container {
+  margin-top: 50px;
+}
+
+#gitHubNav {
+  /* display: flex; */
+  padding-right: 60px;
+}
+
+#gitHubNav i {
+  padding-left: 10px;
+  position: absolute;
+  top: 13px;
+  font-size: 20px;
+}
+
+.outer-container {
+  position: relative;
+}
+  
+
+  
+/* p {
+  text-align: center;
+  color: black;
+  max-width: 800px;
+  min-width: 300px;
+  margin: auto;
+  padding: 0px 20px;
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 1.5em;
+} */
+  
+/* section {
+  padding: 15px 0px;
+  border-bottom: 1px solid rgb(226,226,226);
+} */
+
+@media only screen and (max-width: 550px) {
+  p:not(.talk-info) {
+    text-align: justify;
+  }
+}
+  
+/* h1 {
+  margin: 0px;
+  padding: 20px 0px 10px 0px;
+  font-size: 3em;
+  font-weight: 100;
+} */
+  
+.separator {
+  width: 70%;
+  border-color: #999999;
+}
+
+.hcenter {
+  text-align: center;
+}
+
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+.dark-button {
+  background-color: #414141;
+  color: white;
+  border-color: #515151;
+  font-weight: 100;
+}
+
+.dark-button:hover {
+  background-color: white;
+  color: #414141;
+}
+
+.light-button:hover {
+  background-color: #414141;
+  color: white;
+}
+
+.love-footer-dark {
+  height: 1.4em;
+  text-align: center;
+  background-color: #111111;
+  color: green;
+  overflow: hidden;
+}
+
+button {
+  margin: 10px 0px;
+  font-weight: 100 !important;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+@media only screen and (max-width: 768px) {
+
+#gitHubNav i {
+  top: 9px;
+  font-size: 18px;
+}
+
+}

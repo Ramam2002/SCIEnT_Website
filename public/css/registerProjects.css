@@ -4,10 +4,10 @@ body {
 }
 
 #close {
-    float: right;
     display: inline-block;
+    /*float: right;*/
     padding: 2px 5px;
-    background: #ccc;
+    background: #dcc;
 }
 
 #form-projects {

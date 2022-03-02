@@ -21,15 +21,18 @@
     <link href="/css/tools.css" rel="stylesheet">
     <link href="/css/carousel.css" rel="stylesheet">
     <link href="/css/projects.css" rel="stylesheet">
-    
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="/css/templatemo_misc.css">
     <link rel="stylesheet" href="/css/templatemo_style.css">  -->
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
@@ -42,13 +45,20 @@
     <![endif]-->
     <!-- script src="/js/angular.min.js"></script>
     <script src="/js/angular-route.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS - Bootstrap -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+	<!-- Latest compiled and minified JavaScript - Bootstrap -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-        
+
     <style>
        /* .site-slider
         {
@@ -66,7 +76,7 @@
             text-align: center;
         }
     </style>
-    
+
 
 </head>
 
@@ -98,7 +108,7 @@
             </div>
             <div class="col-md-2">
                 <div style="text-align: center;">
-                    <img class="img-responsive" id="nitt-logo" src="images/nitt-logo.png" height="100.5" width="100" />
+                    <a href="https://www.nitt.edu/" target="_blank"><img class="img-responsive" id="nitt-logo" src="images/nitt-logo.png" height="100.5" width="100" /></a>
                 </div>
             </div>   
         </div>
@@ -125,9 +135,19 @@
                                 <li></li>
                             </ul> -->
                     </li>
+
+<!-- added members -->
                     <!-- <li class = "menu-item">
-                        <a id ="aboutUsLink" href="#about">About Us</a>
+                        <a id ="aboutUsLink" ng-class="getClass('/members')" href="#!members">Team</a>
                     </li> -->
+
+
+                    <li class = "menu-item">
+                       <a href="#!ProjectIdeas" ng-class="getClass('/ProjectIdeas')">Members</a>
+                    </li>
+
+<!-- end -->
+
                     <li class = "menu-item">
                         <a href="#!Register" ng-class="getClass('/Register')">Register</a>
                     </li>
@@ -143,18 +163,15 @@
                      <li class = "menu-item">
                         <a href="#!Projects" ng-class = "getClass('/Projects')">Projects</a>
                     </li>
-                    <li class = "menu-item">
-                        <a href="#!ProjectIdeas" ng-class="getClass('/ProjectIdeas')">Project Idea</a>
-                    </li>
                      <li class = "menu-item">
                         <a href="#!Donations" ng-class="getClass('/Donations')">Donation</a>
                     </li>
                     <li class = "menu-item">
-                        <a href="#!FAQ" ng-class="getClass('/FAQ')">FAQ</a>
-                    </li> 
-                    <li class = "menu-item">
                         <a href="#!Testimonials" ng-class="getClass('/Testimonials')">Testimonials</a>
                     </li>
+                    <li class = "menu-item">
+                        <a href="#!FAQ" ng-class="getClass('/FAQ')">FAQ</a>
+                    </li> 
                     <li class = "menu-item">
                         <a href="#!Contacts" ng-class="getClass('/Contacts')">Contact Us</a>
                     </li>
@@ -168,25 +185,32 @@
     <div class="contents" ng-view onload="viewLoaded()" style="height:auto;"></div>
     <div class="footer" class="container">
         <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-2">
+            <div class="col-md-2"></div>
+            <div class="col-md-3">
                 <img class="img-responsive recal_logo_footer" src="images/recal.png" height="75" width="182" />
                 <p id="footer-text">An alumni initiative of the class of '90</p>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <ul class="list-unstyled list-inline list-social-icons">
-                    <li class="contacts-fa">
-                        <a target="_blank" href="https://www.facebook.com/ScientNITT/"><i class="fa fa-facebook-square fa-3x" ></i></a>
+                    <li class="contacts-fa  ">
+                        <a target="_blank" href="https://www.facebook.com/ScientNITT/"><i class="logo-color fa fa-facebook-square fa-3x"></i></a>
                     </li>
                     <li class="contacts-fa">
-                        <a target="_blank" href="#!Contacts"><i class="fa fa-envelope fa-3x" ></i></a>
+                        <a target="_blank" href="https://www.instagram.com/scientlab/"><i class="logo-color fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="contacts-fa">
+                        <a target="_blank" href="https://www.linkedin.com/company/scientnitt/"><i class="logo-color fa fa-linkedin-square fa-3x"></i></a>
+                    </li>
+                    <li class="contacts-fa">
+                        <a target="_blank" href="https://www.youtube.com/"><i class="logo-color fa fa-youtube-square fa-3x"></i></a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-2">
-                <p id="spider">Made By Spider</p>
-                <img class="img-responsive spider-logo" src="images/spiderLogo.png" height="45" width="45" />
-                <p class="copyright-text">Copyright &copy; ScientLab website 2017</p>
+                <p id="spider">Made By SCIEnT</p>
+                <a target="_blank" href="https://spider.nitt.edu/"><img class="img-responsive spider-logo" src="images/scient-logo.png" height="45" width="45" /></a>
+                
+                <p id="copyright-text">Copyright &copy; ScientLab website 2017</p>
             </div>
             <div class="col-md-3"></div>
         </div>

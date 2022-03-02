@@ -26,6 +26,13 @@ html {
     left: 50%;
 }
 
+.down-arrow-testimonial{
+    position: fixed;
+    bottom: 5%;
+    z-index: 200;
+    left: 50%;
+}
+
 /* Header */
 #header {
     background-color: white;
@@ -41,20 +48,22 @@ html {
 }
 #scient-header {
     text-align: left;
+    font-weight: bold;
     padding-top: 10px;
 }
 #nitt-header {
     /*display: inline-block;*/
     font-family: 'Roboto', sans-serif;
     font-size: 28px;
-    text-align: right;
+    line-height: 1.3;
+    text-align: center;
     padding-top: 15px;
 }
 
 #header .row div {
     padding-right: 0px;
 }
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 1000px) {
     #nitt-header {
         text-align: center;
     }
@@ -152,7 +161,7 @@ header.carousel .fill {
 .panel-heading {
     cursor: pointer;
 }
-.panel-heading : hover {
+.panel-heading:hover {
     background-color: #E0BB24;
 }
 
@@ -193,14 +202,14 @@ footer {
 
 /* Responsive Styles */
 
-@media(max-width:991px) {
+@media(max-width:1000px) {
     .customer-img,
     .img-related {
         margin-bottom: 30px;
     }
 }
 
-@media(max-width:767px) {
+@media(max-width:770px) {
     .img-portfolio {
         margin-bottom: 15px;
     }
@@ -224,7 +233,8 @@ footer {
   padding-bottom: 50px;
 }
 
-.copyright-text {
+#copyright-text {
+    /* text-align: center; */
     color: white;
     font-size: 14px;
     padding-top: 25px;
@@ -260,7 +270,7 @@ footer {
 .footer .row div {
     text-align: center;
 }
-.fa-facebook-square, .fa-envelope {
+.logo-color {
     color: #ddd;
 }
 
@@ -279,6 +289,8 @@ footer {
     }
 }
 .send-message {
+    font-size:medium;
+    font-weight: bold;
     background-color: #E0BB24;
     color: black;
 }
@@ -303,6 +315,7 @@ footer {
     border: 0;
 }
 
+
 @media only screen and (max-width:400px){
     .resp-container{
         overflow: hidden;
@@ -325,6 +338,18 @@ footer {
         height: 100%;
         border: 0;
     } 
+    
+    #copyright-text {
+        text-align: center;
+        color: white;
+        font-size: 14px;
+        padding-top: 25px;
+    }
+    #spider {
+        text-align: center;
+        color: white;
+        padding-top: 20px;
+    }
 
 }
 
@@ -377,6 +402,7 @@ col-xs-12 col-sm-12{
     color: #fff;
     font-size: 16px;
     text-decoration: none;
+    /* transition:3s ease-out ; */
 }
 
 .faq-trigger:hover {
@@ -387,4 +413,16 @@ col-xs-12 col-sm-12{
 
 .faq-trigger p {
     color: #000;
+}
+
+.navigation-dropdown {
+    transition: 3s ease-out;
+}
+/* .hide {
+    opacity: 0;
+    height: 0 !important;
+} */
+
+.space{
+    margin-top: 5px;
 }

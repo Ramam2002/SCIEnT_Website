@@ -1,87 +1,71 @@
+<div id="main-body-container">
+    <div class="container">
+        <div class = "row">
+          <div class = "col-lg-12 text-center">
+            <h1><span style="background-color: #f1f1f1;padding: 3px 10px 3px 10px; border-radius: 13px;">Members</span></h1>
+          </div> 
+        </div>
+      </div>
 
-<div class="container">
-	<div class = "row">
-		<div class = "col-lg-12 text-center">
-			<h1><span style="background-color: white;padding: 3px 10px 3px 10px;border-radius: 13px;">Your Project Idea!<span></h1>
-		</div> 
-	</div>
+      <a id="" href="#!/ProjectIdeas/teamPictures"><span class="down-arrow"><i class="fa fa-angle-double-down" style="font-size: 60px; color: black;"></i></span></a>
+
+
+      <!-- for styling the headMemebers check projects.css -->
+
+<div class="headMembers">
+
+  <div class="head-card">
+    <div class = "imgBx">
+      <img class="member-image" src = "./images/heads/GaneshBabu.jpeg">
+    </div>
+    <div class="content">
+      <h1>S. GANESH BABU</h1>
+      <p>Faculty head of SCIEnT Lab</p>
+    </div>  
+  </div>
+
+  <div class="head-card">
+    <div class = "imgBx">
+      <img class="member-image" src = "./images/heads/Viswa.jpeg">
+    </div>
+    <div class="content">
+      <h1>VISWA BHARATHAN</h1>
+      <p>Student head of SCIEnT Lab</p>
+
+      <!-- add https://www.linkedin.com/in/viswa-subramanian-487a52128/ -->
+    
+    </div> 
+  </div>
+
 </div>
 
-
-<div class="container">
-    <div class="row">
-        <form action="/sendProjectIdea" method="post" id="projectIdea" name="sendProjectIdea" validate>
-            <div class="control-group from-group">
-                <div class="controls">
-                        <label>Full Name: </label><br>
-                        <input type="text" name="name" id="name" class="form-control" required data-validation-required-message="Please enter your name." autocomplete="off"><br>
-                        <label >Phone Number: </label><br>
-                        <input type="tel" class="form-control" id="phNumber" name="phNumber" required data-validation-required-message="Please enter the phone number." autocomplete="off"><br>
-                        <label>Email: </label><br>
-                        <input type="email" class="form-control" id="email" name="email" required data-validation-required-message="Please enter the email address." autocomplete="off"><br>
-                        <label>Project Name: </label><br>
-                        <input type="text" id="projectTitle" class="form-control" name="projectTitle" required data-validation-required-message="Please enter the name of your project." autocomplete="off"><br>
-                        <label>Project Idea: </label><br>
-                        <textarea name="projectIdea" id="projectIdea" class="form-control" cols="30" rows="10" required data-validation-required-message="Enter the project idea." autocomplete="off"></textarea><br>
-                        <button type="submit" class="btn btn-warning send-message">Send Idea</button>
-                </div>
-            </div>
-        </form>
-        
-    </div>
-
-<!-- <div class = "container" id = "projectsSection">
-	<div class = "row">
- --> 
-
-
-
-
-<!-- Footer -->
-<!-- <div class="footer" class="container" id="projectsFooter">
-    <div class="row">
-        <div class="col-md-4">
-            <p>Copyright &copy; ScientLab website 2017</p>
+<!-- head Members -->
+    <section id="teamPictures" class="hcenter">
+        <!--allMembers Button-->
+        <div id="allMembersButtons" class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickAllPresentMembers()">Present Members</button>
+            <button type="button" class="btn btn-default btn-lg dark-button small-mobile" onclick="clickAllAlumni()">Alumni</button>
         </div>
-    	<div class="col-md-4">
-    		<img class="img-responsive" id="scient_logo_footer" src="images/scient-logo.png" height="130" width="130" />
-		</div>
-    	<div class="col-md-4">
-        	<img class="img-responsive" id="recal_logo_footer" src="images/recal.png" height="200" width="200" />
-    	</div>
-    </div>
-</div> -->
+        <br>
+        <!--present members batchButton-->	
+        <div id="batchButtons" class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default btn-lg dark-button small-mobile" onclick="clickAllPresentMembers()">All</button>
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickFourthYears()">2020-2021</button>
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickThirdYears()">2021-2022</button>
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickSecondYears()">2022-2023</button>
+        </div>
+        <!--Alumni batchButton-->
+        <div id="alumniButtons" class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default btn-lg dark-button small-mobile" onclick="clickAllAlumni()">All</button>
+            <!-- <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="click2020Alumni()">Alumni of 2020</button>
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="click2019Alumni()">Alumni of 2019</button>
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="click2018Alumni()">Alumni of 2018</button> -->
+        </div>	
+        <div id="allMembersContainer">
 
-<!-- <div class="footer" class="container" id="projectsFooter">
-    <div class="row">
-            <p class="copyright-text">Copyright &copy; ScientLab website 2017</p>
-            <img class="img-responsive recal_logo_footer" src="images/recal.png" height="75" width="182" />
-    </div>
-</div> -->
+        </div>
+    </section>
+</div>
 
-<!-- Footer -->
-<!-- <div class="footer" class="container">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-2">
-            <img class="img-responsive recal_logo_footer" src="images/recal.png" height="75" width="182" />
-            <p id="footer-text">An initiative of the class of '90</p>
-        </div>
-        <div class="col-md-2">
-            <ul class="list-unstyled list-inline list-social-icons">
-                <li class="contacts-fa">
-                    <a target="_blank" href="https://www.facebook.com/ScientNITT/"><i class="fa fa-facebook-square fa-3x" ></i></a>
-                </li>
-                <li class="contacts-fa">
-                    <a target="_blank" href="#!Contacts"><i class="fa fa-envelope fa-3x" ></i></a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-2">
-            <p id="spider">Made By Spider</p>
-            <img class="img-responsive spider-logo" src="images/spiderLogo.png" height="45" width="45" />
-            <p class="copyright-text">Copyright &copy; ScientLab website 2017</p>
-        </div>
-        <div class="col-md-3"></div>
-    </div>
-</div> -->
+<!-- Main Script -->
+<script src="js/members.js"></script>

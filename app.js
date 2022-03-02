@@ -9,6 +9,11 @@ var models = require("./models");
 var sequelize = require("sequelize");
 var Admins = models.Admins;
 
+// import React from "react";
+// import ReactDOM from "react-dom";
+
+
+
 /* all the routes for the application are declared here */
 var index = require("./routes/index");
 var register = require("./routes/register");
@@ -23,6 +28,12 @@ var resources = require("./routes/resources");
 var gallery = require("./routes/gallery");
 var eventsUpdates = require("./routes/eventsUpdates");
 var hallSummary = require("./routes/hallSummary");
+
+// members route
+
+// var members = require("./routes/members-new/new_members.js");
+
+//  end
 
 visitorCount = 0;
 
@@ -55,14 +66,32 @@ app.use("/", register);
 app.use("/", donations);
 app.use("/admin", admin);
 app.use("/admin", facilities);
+
+
+
 app.use("/admin", projects);
+
+// app.use("/admin", members);
+
+
 app.use("/admin", hallBooking);
 app.use("/admin", inventory);
+
+
+
 app.use("/admin", adminProjects);
+
+
 app.use("/admin", resources);
 app.use("/admin", gallery);
 app.use("/admin", eventsUpdates);
 app.use("/admin", hallSummary);
+
+// members
+
+// app.use("/admin", hallSummary);
+
+// .
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -88,19 +117,19 @@ models.sequelize.sync().then(function() {
 
 //Uncomment this block the first time you run to insert admin into DB. Comment it back after that
 
-// var adminName = "levelOneAdmin";
-// var adminPwd = "scientAdmin";
-// var salt = bcrypt.genSaltSync(1);
-// var hash = bcrypt.hashSync(adminPwd, salt);
-// adminPwd = hash;
-// var adminDetails = {
-//   adminName: adminName,
-//   password: adminPwd,
-//   adminLevel: "One"
-// };
-// Admins.sync({ force: true }).then(function() {
-//   return Admins.create(adminDetails);
-//   console.log("Demo level one admin added");
-// });
+var adminName = "levelOneAdmin";
+var adminPwd = "scientAdmin";
+var salt = bcrypt.genSaltSync(1);
+var hash = bcrypt.hashSync(adminPwd, salt);
+adminPwd = hash;
+var adminDetails = {
+ adminName: adminName,
+ password: adminPwd,
+ adminLevel: "One"
+};
+ Admins.sync({ force: true }).then(function() {
+ return Admins.create(adminDetails);
+ console.log("Demo level one admin added");
+});
 
 module.exports = app;

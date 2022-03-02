@@ -1,23 +1,609 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 text-center">
-            <h1><span style="background-color: white;padding: 3px 10px 3px 10px;border-radius: 13px;">Your Testimonial!<span></h1>
+            <h1><span style="background-color: #f1f1f1;padding: 3px 10px 3px 10px;border-radius: 13px;"><b>Testimonials</b><span></h1>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <form action="/submitTestimonial" method="POST" id="testimonial" name="sendTestimonial" validate>
-            <div class="control-group form-group">
-                <div class="controls">
-                    <label for="userName">Name: </label><br>
-                    <input type="text" name="name" id="userName" class="form-control" required data-validation-required-message="Please enter your name" autocomplete="off"><br>
-                    <label for="userReview">Review: </label><br>
-                    <textarea name="review" id="userReview" class="form-control" cols="30" rows="10" required data-validation-required-message="Please provide your review" autocapitalize="off"></textarea><br>
-                    <button id ="submitTestimonial" class="btn btn-warning send-message">Send</button>
-                </div>
+<!-- <div class = "arrow" style="position: absolute; top: 40%; left: 95%; transform: translate(-5%, -60%);">
+  <a href="#GiveYOURTestimonial">
+    <div class="scroll-down">
+      <span></span>
+      <span></span>
+      <span></span>
+      
+      <div class="dialog-scroll" style="opacity: 0;">Scroll for more</div>
+    </div>
+  </a>
+</div> -->
+
+<a id="" href="#!/Testimonials#GiveYOURTestimonial"><span class="down-arrow"><i class="fa fa-angle-double-down" style="font-size: 60px; color: black;"></i></span></a>
+
+<!-- Hard-coded Carousel with images, just alter the images later for any changes -->
+<div class="slider-container">
+    
+    <div class="drive-container">
+        <!-- <div class="col-md-4 col-xs-4 col-sm-4"> -->
+        <div class="drive-vid">
+            <!-- DC club -->
+            <div class="resp-container">
+                <iframe  class="resp-iframe" src="https://drive.google.com/file/d/1P9zYxpVvpYxbnnsMvKyAIPADAFW2dcLh/preview"></iframe>
+            </div>   
+        </div>
+
+        <div class="drive-vid">
+            <div class="resp-container">
+                <!-- PSI club -->
+                <iframe  class="resp-iframe" src="https://drive.google.com/file/d/1j3vy0ItnaUrQQ0nCFnAb7fsF36geuysH/preview"></iframe>
+            </div>   
+        </div>
+
+        <div class="drive-vid">
+            <div class="resp-container">
+                <!-- 3D club -->
+                <iframe  class="resp-iframe" src="https://drive.google.com/file/d/19TZ0h-BCzQJNxmmFz-A3nEU_-uCGEHAk/preview"></iframe>
+            </div>   
+        </div>
+    </div>
+
+    <div class="img-slider">
+
+            <div class="slide active">
+            <img src="./images/testimonials/modified/3D.png" alt="./images/testimonials/modified/RMI.png">
+            <div class="info">
+                <!-- <h2>Slide 01</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
             </div>
-        </form>
+            </div>
+
+            <div class="slide">
+            <img src="./images/testimonials/modified/180DC.png" alt="">
+            <div class="info">
+                <!-- <h2>Slide 02</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+            </div>
+            </div>
+
+            <div class="slide">
+            <img src="./images/testimonials/modified/PixelBug.png" alt="">
+            <div class="info">
+                <!-- <h2>Slide 03</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+            </div>
+            </div>
+
+            <div class="slide">
+            <img src="./images/testimonials/modified/PSI.png" alt="">
+            <div class="info">
+                <!-- <h2>Slide 04</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+            </div> 
+            </div>
+
+            <div class="slide">
+              <img src="./images/testimonials/modified/RMI.png" alt="">
+              <div class="info">
+                  <!-- <h2>Slide 05</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+            </div>
+          </div>
+
+        <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- need to add a good title, and positioning for "give your testimonial here!" thing -->
+<div class="container" id="GiveYOURTestimonial"  style="margin-top: 30px;">
+  <div class="row">
+      <div class="col-lg-4 text-center">
+        <h1 style="background-color: #41e621;border-radius: 7px; padding: 1px;">Submit a Testimonial!</h1>
+          <!-- <h1><span style="background-color: #41e621;padding: 3px 8px 3px 8px;border-radius: 10px;"><b>Submit a Testimonial!</b><span></h1> -->
+      </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top: 40px;">
+  <div class="row">
+      <form action="/submitTestimonial" method="POST" id="testimonial" name="sendTestimonial" validate>
+          <div class="control-group form-group">
+              <div class="controls">
+                  <label for="userName">Name: </label><br>
+                  <input type="text" name="name" id="userName" class="form-control" required data-validation-required-message="Please enter your name" autocomplete="off" <span style="background-color:#efffef;"></span> <br>
+                  <label for="userReview">Review: </label><br>
+                  <textarea name="review" id="userReview" class="form-control" cols="30" rows="10" required data-validation-required-message="Please provide your review" autocapitalize="off" <span style="background-color:#efffef;"></textarea><br>
+                  <button id ="submitTestimonial" class="btn btn-warning send-message"><b>Send</b></button>
+              </div>
+          </div>
+      </form>
+  </div>
+</div>
+
+<!--  CSS  -->
+  <style>
+  .scroll-down{
+    cursor: text;
+  }
+
+  .scroll-down:hover .dialog-scroll{
+      opacity: 1;
+    }
+  
+
+  .scroll-down span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid #3090FA;
+    border-right: 5px solid #3090FA;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: scroll 1.5s infinite;
+  }  
+
+  .scroll-down span:nth-child(2){
+    animation-delay: -0.15s;
+  }
+
+  .scroll-down span:nth-child(3){
+    animation-delay: -0.30s;
+  }
+
+  @keyframes scroll{
+    0%{
+      opacity: 1;
+      transform: rotate(45deg) translate(-15px, -15px);
+    }
+    50%{
+      opacity: 1️;
+    }
+    100%{
+      opacity: 0;
+      transform: rotate(45deg) translate(15px, 15px);
+    }
+  }
+
+  .slider-container{
+    position: relative;
+  }
+
+  .drive-container{
+    float: right;
+  }
+
+  .drive-vid{
+    padding: 5px;
+    width: 400px;
+    min-width: 320px;
+    margin: 10px;
+    background-color: mediumaquamarine;
+  }
+
+  .resp-iframe{
+      width: 100%;
+  }
+
+  .img-slider{
+    position: relative;
+    width: 800px;
+    height: 800px;
+    margin: 12px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #1D212B;
+  }
+  
+  .img-slider .slide{
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 0 50%);
+  }
+  
+  .img-slider .slide.active{
+    clip-path: circle(150% at 0 60%);
+    transition: 2s;
+    transition-property: clip-path;
+  }
+  
+  .img-slider .slide img{
+    padding: 5px;  
+    z-index: 1;
+    width: 100%;
+    height: 800px;
+    border-radius: 5px;
+  }
+  
+  .img-slider .slide .info{
+    position: absolute;
+    top: 0;
+    padding: 15px 30px;
+  }
+  
+  .img-slider .slide .info h2{
+    color: #fff;
+    font-size: 45px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+  
+  .img-slider .slide .info p{
+    color: #fff;
+    background: rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    width: 60%;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .img-slider .navigation{
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .img-slider .navigation .btn{
+    background: rgba(152, 215, 50, 0.900);
+    width: 12px;
+    height: 12px;
+    margin: 10px;
+    border-radius: 75%;
+    cursor: pointer;
+  }
+  
+  .img-slider .navigation .btn.active{
+    background: #15E;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  @media (max-width: 1240px){
+    .arrow{
+      display: none;
+    }
+
+    .drive-container{
+        float: none;
+        display: flex;
+    }
+
+    .drive-vid{
+        background-color: #222;
+        flex: 1;
+    }
+  }
+
+  @media (max-width: 1024px){
+    .drive-vid{
+        min-width: 280px;
+    }
+  }
+
+  @media (max-width: 840px){
+
+    .drive-container{
+        float: none;
+        display: flex;
+    }
+
+    .drive-vid{
+        background-color: #222;
+        min-width: 200px;
+        flex: 1;
+    }
+
+    .img-slider{
+      width: 600px;
+      height: 375px;
+      height: 600px;
+    }
+
+    .img-slider .slide img{
+        height: 600px;
+    }
+  
+    .img-slider .slide .info{
+      padding: 10px 25px;
+    }
+  
+    .img-slider .slide .info h2{
+      font-size: 35px;
+    }
+  
+    .img-slider .slide .info p{
+      width: 70%;
+      font-size: 15px;
+    }
+  
+    .img-slider .navigation{
+      bottom: -30px;
+    }
+  
+    .img-slider .navigation .btn{
+      width: 10px;
+      height: 10px;
+      margin: 8px;
+    }
+  }
+  
+  @media (max-width: 660px){
+
+    .drive-container{
+        margin-left: 0;
+        padding-left: 0;
+        float: none;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .drive-vid{
+        background-color: #222;
+        width: 450px;
+    }
+
+    .img-slider{
+      width: 450px;
+      /*height: 250px;*/
+      height: 450px;
+    }
+
+    .img-slider .slide img{
+        height: 450px;
+    }
+  
+    .img-slider .slide .info{
+      padding: 10px 20px;
+    }
+  
+    .img-slider .slide .info h2{
+      font-size: 30px;
+    }
+  
+    .img-slider .slide .info p{
+      width: 80%;
+      font-size: 13px;
+    }
+  
+    .img-slider .navigation{
+      bottom: -25px;
+    }
+  
+    .img-slider .navigation .btn{
+      width: 8px;
+      height: 8px;
+      margin: 6px;
+    }
+  }
+
+  @media (max-width: 520px){
+   
+    .drive-container{
+      float: none;
+      padding: 0;
+      margin-left: 5px;
+      margin-right: 0;
+  }
+
+  .drive-vid{
+      background-color: #222;
+      min-width: 300px;
+  }
+
+  .img-slider{
+    width: 360px;
+    /*height: 200px;*/
+    height: 360px;
+    margin-left: 5px;
+    margin-right: 0;
+  }
+
+  .img-slider .slide img{
+      height: 360px;
+  }
+
+  .img-slider .slide .info{
+    padding: 5px 10px;
+  }
+
+  .img-slider .slide .info h2{
+    font-size: 25px;
+  }
+
+  .img-slider .slide .info p{
+    width: 90%;
+    font-size: 11px;
+  }
+
+  .img-slider .navigation{
+    bottom: -25px;
+  } 
+  }
+  
+  @media (max-width: 430px){
+
+    .drive-container{
+        float: none;
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .drive-vid{
+        background-color: #222;
+        width: 120px;
+    }
+
+    .img-slider{
+      width: 260px;
+      height: 200px;
+      height: 260px;
+      padding: 0;
+      margin-left: 5px;
+      margin-right: 0;
+    }
+
+    .img-slider .slide img{
+        height: 260px;
+    }
+  
+    .img-slider .slide .info{
+      padding: 5px 10px;
+    }
+  
+    .img-slider .slide .info h2{
+      font-size: 25px;
+    }
+  
+    .img-slider .slide .info p{
+      width: 90%;
+      font-size: 11px;
+    }
+  
+    .img-slider .navigation{
+      bottom: -25px;
+    }
+  }
+</style>
+
+  <!-- JS for img slider -->
+  <script type="text/javascript">
+  var slides = document.querySelectorAll('.slide');
+  var btns = document.querySelectorAll('.btn');
+  let currentSlide = 1;
+
+  // Javascript for image slider manual navigation
+  var manualNav = function(manual){
+    slides.forEach((slide) => {
+      slide.classList.remove('active');
+
+      btns.forEach((btn) => {
+        btn.classList.remove('active');
+      });
+    });
+
+    slides[manual].classList.add('active');
+    btns[manual].classList.add('active');
+  }
+
+  btns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      manualNav(i);
+      currentSlide = i;
+    });
+  });
+
+  // Javascript for image slider autoplay navigation
+  var repeat = function(activeClass){
+    let active = document.getElementsByClassName('active');
+    let i = 1;
+
+    var repeater = () => {
+      setTimeout(function(){
+        [...active].forEach((activeSlide) => {
+          activeSlide.classList.remove('active');
+        });
+
+      slides[i].classList.add('active');
+      btns[i].classList.add('active');
+      i++;
+
+      if(slides.length == i){
+        i = 0;
+      }
+      if(i >= slides.length){
+        return;
+      }
+      repeater();
+    }, 10000);
+    }
+    repeater();
+  }
+  repeat();
+  </script>
+
+<!-- just a rough carousel -->
+<!-- <div class="container-slider">
+    <div class = "slider" id="slider">
+            <figure>
+                <img src="./images/nitt-logo.png" alt="">
+                <img src="./images/scient-logo.png" alt="">
+                <img src="./images/nitt-logo.png" alt="">
+                <img src="./images/scient-logo.png" alt="">
+                <img src="./images/nitt-logo.png" alt="">
+            </figure>
     </div>
 </div>
+
+<style>
+    .container-slider{
+        background: transparent;
+        margin: 25px 5px;
+    }
+
+    .slider{
+        overflow: hidden;
+    }
+
+    .slider figure{
+        position: relative;
+        width: 500%;
+        height: 400px;
+        margin: 0;
+        left: 0;
+        animation: 20s slider infinite;
+    }
+
+    .slider figure img{
+        width: 20%;
+        border-radius: 8px;
+        height: 390px;
+        float: left;
+    }
+
+    @keyframes slider{
+        0%{
+            left: 0%;
+        }
+        13%{
+            left: 0%;
+        }
+        16%{
+            left: -100%;
+        }
+        29%{
+            left: -100%;
+        }
+        32%{
+            left: -200%;
+        }
+        50%{
+            left:-200%;
+        }
+        53%{
+            left: -300%;
+        }
+        71%{
+            left: -300%;
+        }
+        74%{
+            left: -400%;
+        }
+        91%{
+            left: -400%;
+        }
+    }
+</style> -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+

@@ -1,0 +1,131 @@
+{
+   "1":[
+      
+      {
+         "title": "Minesweeper",
+         "club": "RMI",
+         "timespan": "March 2018",
+         "description": "UXO aims to achieve semi-autonomous humanitarian demining at minimal cost. The robot implements thermography for landmine detection and tree transplanter mechanism for demining.",
+         "img": "./images/projects/MRDP.gif",
+         "scientrole": "Fabrication"
+      },
+      {
+         "title": "Supernumery Fingers",
+         "club": "RMI",
+         "timespan": "March 2020",
+         "description": "SRF (Supernumerary Robotic Fingers) is a wearable robot, that augment the capabilities of human hand such that a variety of prehensile, bimanual and manipulation tasks can be performed single-handedly. Screen reader support enabled.",
+         "img": "./images/projects/SRF.png",
+         "scientrole": "Helped us with fabrication"
+      },
+      {
+         "title": "Precision Agriculture Bot",
+         "club": "RMI",
+         "timespan": "March 2020",
+         "description": "PAB (Precision Agriculture Bot) is an autonomous robot capable of containing the growth of weeds in a field. It uses Computer Vision to detect weeds among crops and then spray appropriate amounts of weedicides to inhibit it's growth",
+         "img": "./images/projects/PAB.jpg",
+         "scientrole": "Scient provided us with power tools which were necessary to build the robot."
+      },
+      {
+         "title": "PEPPER",
+         "club": "RMI",
+         "timespan": "May 2021",
+         "description": "A differential drive mobile robot that can perform SLAM (Simultaneous Localization and Mapping) and avoid obstacles in a room. Equipped with the Microsoft Kinect and powered by ROS, Project Pepper tries to emulate what Willow Garage's Turtlebot does, in a fraction of the cost. Screen reader support enabled.",
+         "img": "./images/projects/MRDP.gif",
+         "scientrole": "Fabrication"
+      }
+   ],
+
+   "2":[
+      {
+         "title": "e-Yantra",
+         "club": "3D",
+         "timespan": "Sep 2021- Mar 2022",
+         "description": "a robotics competition organized by the Ministry of Education and hosted at IIT Bombay.",
+         "img": "./images/projects/3D-1.jpg",
+         "scientrole": "room,wifi"
+      },
+      {
+         "title": "AL-VTOLA",
+         "club": "3D",
+         "timespan": "Oct 2021-Dec 2021",
+         "description": "A VTOL for the VTOL-UAV design competition conducted by IIT Bombay",
+         "img": "./images/projects/3D-2.jpg",
+         "scientrole": "room,wifi"
+      },
+      {
+         "title": "Flip Kart",
+         "club": "3D",
+         "timespan": "Dec 2021- Mar 2022",
+         "description": "an alumni project to solve warehouse package distribution problem.",
+         "img": "./images/projects/3D-3.jpg",
+         "scientrole": "Bot Fabrication tools, room"
+      },
+      {
+         "title": "Butterfly Fish",
+         "club": "3D",
+         "timespan": "Oct 2021-Mar 2022",
+         "description": "An unmanned designed for both marine and aerial operation for Sangam Competition under Defence and Industrial Technology",
+         "img": "./images/projects/3D-4.jpg",
+         "scientrole": "room, wifi"
+      },
+      {
+         "title": "Albatross",
+         "club": "3D",
+         "timespan": "Oct 2021-Mar 2022",
+         "description": "A glider designed specifically for fire detection and warning, for Sangam competition under Energy and Environment",
+         "img": "./images/projects/3D-5.jpg",
+         "scientrole": "room, wifi"
+      },
+      {
+         "title": "CNC",
+         "club": "3D",
+         "timespan": "Nov 2021- Jan 2022",
+         "description": "a self built CNC cutter.",
+         "img": "./images/projects/3D-6.jpg",
+         "scientrole": "Wood cutting tools, drilling machine, screwdrivers, metal cutters, "
+      }
+   ],
+
+   "3":[
+      {
+         "title": "All Terrain Vehicle for BAJA SAEINDIA 2022",
+         "club": "PSI",
+         "timespan": "October 2021 - February 2022",
+         "description": "The project involves the design, fabrication, and testing of an All-Terrain Vehicle for BAJA SAEINDIA 2022, a national-level inter-collegiate event. The 2022 prototype will be the first four-wheel drive ATV made by PSI Racing",
+         "img": "./images/projects/PSI-1.jpg",
+         "scientrole": "The Cutting and grinding wheels are used to profile our suspension arm revolutes and the lathe helps us turn various parts like the brass suspension bushings."
+      }
+   ],
+
+   "4":[
+      {
+         "title": "Court Liner",
+         "club": "Designers' Consortium",
+         "timespan": "Oct-2021",
+         "description": "Court liner is a bot that helps in drawing lines in various courts such as volley ball, badmiton with the least amount of effort from the user. The project was developed as a campus development initiative.",
+         "img": "./images/projects/DC-1.jpeg",
+         "scientrole": "Scient provided us with conferece room, to dscuss all of our ideas, wifi connection for researching and  machineries for fabrication of prototypes."
+      },
+      {
+         "title": "Elevator Sanitizor",
+         "club": "Designers' Consortium",
+         "timespan": "Oct-2021",
+         "description": "The project deals with effectively sanitizing the surfaces of the elevator and the air inside the elevator that tend to house the most amount of microbes. The projects was worked with as a campus developement initiative",
+         "img": "./images/projects/DC-2.jpeg",
+         "scientrole": "Scient provided us with conferece room, to dscuss all of our ideas, wifi connection for researching and  machineries for fabrication of prototypes."
+      },
+      {
+         "title": "Luggage Carrier",
+         "club": "Designers' Consortium",
+         "timespan": "Oct-2021",
+         "description": "Luggage carrier is a personal device that aids in students of the campus to carry their luggages with ease that attaches seamlessly onto variety of exsiting cycles in use in the college campus.",
+         "img": "./images/projects/DC-3.png",
+         "scientrole": "Scient provided us with conferece room, to dscuss all of our ideas, wifi connection for researching and  machineries for fabrication of prototypes."
+      }
+   ],
+
+   "5":[
+
+   ]
+
+}

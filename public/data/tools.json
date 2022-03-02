@@ -1,0 +1,1141 @@
+{
+    "1": [
+        {
+            "toolCategory": "",
+            "name": "Solar Charge Controller ",
+            "description": "A solar charge controller is a solar-powered voltage and current regulator. They are used in off-grid applications to regulate power input from PV arrays to deliver optimal power output to run electrical loads and charge batteries.",
+            "link": "https://www.google.com/",
+            "image": "/images/Tools/solarChargeController.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Lan Cable",
+            "description": "LAN cable is cable that connects to computers, network switches and then from the switch to a router, modem or dsl which powers your internet from a internet service provider. These devices when connected together with a wireless LAN, ethernet or networking cable form a LAN (Local Area Network).",
+            "link": "",
+            "image": "/images/Tools/lanCable.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Digital Thermometer",
+            "link": "",
+            "description": "Digital thermometers are temperature-sensing instruments that are easily portable, have permanent probes, and a convenient digital display. The way a digital thermometer works depends upon its type of sensor.",
+            "image": "/images/Tools/digitalThermometer.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Operational Amplifier(LM-357)",
+            "link": "",
+            "description": "The LM357 series consists of two independent, high gain, internally frequency compensated operational amplifiers which were designed specifically to operate from a single power supply over a wide range of voltages.",
+            "image": "/images/Tools/operationalAmplifier.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Resistor",
+            "link": "",
+            "description": "A resistor is a passive two-terminal electrical component that implements electrical resistance as a circuit element. Its primary function to limit the flow of electric current in the circuit. The resistor's ability to reduce the current is called resistance and is measured in units of ohms",
+            "image": "/images/Tools/resistor.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Capacitor",
+            "link": "",
+            "description": "A capacitor is an electronic component that stores and releases electricity in a circuit. It is a passive electronic component with two terminals.  It also passes alternating current without passing direct current. It comprises of two metal plates, which are separated by an insulator.",
+            "image": "/images/Tools/capacitor.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Inductor \n \n",
+            "link": "",
+            "description": "An inductor is a passive electrical component that opposes sudden changes in current. Inductors are also known as coils or chokes.       They are typically used as energy storage devices in switched-mode power devices to produce DC current. ",
+            "image": "/images/Tools/inductor.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Digital Signal Oscilloscope",
+            "link": "",
+            "description": "A digital storage oscilloscope (DSO) is an oscilloscope which stores and analyses the input signal digitally rather than using analog techniques.",
+            "image": "/images/Tools/digitalSignalOscilloscope.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Function Generator",
+            "link": "",
+            "description": "A function generator is usually a piece of electronic test equipment or software used to generate different types of electrical waveforms over a wide range of frequencies.",
+            "image": "/images/Tools/functionGenerator.jpg"
+        },
+        {
+            "toolCategory": "",
+            "link": "",
+            "name": "Desoldering Wick",
+            "description": "\nDesoldering braid or desoldering wick or solder Wick is a pre-fluxed copper braid that is used to remove solder, which allows components to be replaced and excess solder (e.g. bridging) to be removed.",
+            "image": "/images/Tools/desolderingWick.jpg"
+        },
+        {
+            "toolCategory": "",
+            "link": "",
+            "name": "Intel Edison",
+            "description": "The Intel Edison is a computer-on-module that was offered by Intel as a development system for wearable devices and IOT devices. The system was initially announced to be the same size & shape as an SD card & containing a dual-core Intel Quark x86 CPU at 400 MHz communicating via Bluetooth & Wi-Fi.",
+            "image": "/images/Tools/intelEdison.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Intel Galileo",
+            "link": "",
+            "description": "The Intel Galileo is the first Arduino Certified board that provides a mini PCI Express (mPCIe) slot. This allows you to connect standard mPCIe modules like Wi-Fi, Bluetooth, and SIM card adapters for cell phones. Synchronize data between modules using the boards-integrated Real Time Clock.",
+            "image": "/images/Tools/intelGalileo.jpg"
+        },
+        {
+            "toolCategory": "",
+            "link": "",
+            "name": "PCB Holder with Magnifying Glass",
+            "description": "A PCB Holder or PCB Stand is a tool to firmly hold the Printed Circuit Board of a mobile phone while soldering or repairing. It holds the PCB very strongly and doesn't allow it to move thus helping in repairing and soldering.",
+            "image": "/images/Tools/pCBHolderwithMagnifyingGlass.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "WiFi Module",
+            "link": "",
+            "description": "WiFi module, also known as serial to WIFI module, which belongs to the transmission layer of IoT. The function is to convert serial port or TTL level into embedded module which can conforming to WiFi wireless network communication standard, with built-in wireless network protocol IEEE802.",
+            "image": "/images/Tools/wifiModule.png"
+        },
+        {
+            "toolCategory": "",
+            "link": "",
+            "name": "RFID Module",
+            "description": "Radio-frequency identification uses electromagnetic fields to automatically identify and track tags attached to objects. RFID or Radio Frequency Identification system consists of two main components, a transponder attached to an object to be identified, and a Transceiver also known as interrogator/Reader.",
+            "image": "/images/Tools/rfidModule.jpg"
+        },
+        {
+            "toolCategory": "",
+            "link": "",
+            "name": "GPS modules",
+            "description": "GPS modules contain tiny processors and antennas that directly receive data sent by satellites through dedicated RF frequencies. From there, it'll receive timestamp from each visible satellites, along with other pieces of data.",
+            "image": "/images/Tools/gpsModule.png"
+        },
+        {
+            "toolCategory": "",
+            "link": "",
+            "name": "Ultrasonic Sensor",
+            "description": "Ultrasonic sensor is an instrument that measures the distance to an object using ultrasonic sound waves. It uses a transducer to send and receive ultrasonic pulses that relay back information about an object's proximity.",
+            "image": "/images/Tools/ultrasonicSensor.jpg"
+        },
+        {
+            "toolCategory": "",
+            "link": "",
+            "name": "Gyroscope Sensor",
+            "description": "Gyroscope sensor is a device that can measure and maintain the orientation and angular velocity of an object. These can measure the tilt and lateral orientation of the object whereas accelerometer can only measure the linear motion.",
+            "image": "/images/Tools/gyroscopeSensor.png"
+        },
+        {
+            "toolCategory": "",
+            "link": "",
+            "name": "LED display",
+            "description": "A LED display is a flat panel display that uses an array of light-emitting diodes as pixels for a video display. ",
+            "image": "/images/Tools/ledDisplay.webp"
+        },
+        {
+            "toolCategory": "",
+            "name": "Solder Paste",
+            "link": "",
+            "description": "Solder paste is a combination of a powder made up of metal solder particles and sticky flux that has the consistency of putty. The flux not only does its usual job of cleaning the soldering surfaces of impurities and oxidation, but it also provides a temporary adhesive that holds the surface mount components in place.",
+            "image": "/images/Tools/solderPaste.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Real Time Clock",
+            "link": "",
+            "description": "A real-time clock is an electronic device that measures the passage of time. Although the term often refers to the devices in personal computers, servers and embedded systems, RTCs are present in almost any electronic device which needs to keep accurate time of day.",
+            "image": "/images/Tools/realTimeClock.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Bluetooth Receiver",
+            "link": "",
+            "description": "A Bluetooth Receiver will turn a non-Bluetooth device such as a speaker, docking station, HiFi, headphones, AV receiver or car stereo, so that it can Receive information being streamed from a device that is already Bluetooth enabled.",
+            "image": "/images/Tools/bluetoothReciever.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Arduino Mega",
+            "link": "",
+            "description": "The Arduino Mega 2560 is a microcontroller board based on the ATmega2560. It has 54 digital I/P & O/P pins, 16 analog inputs, 4 UARTs, a 16 MHz crystal oscillator, a USB connection, a power jack, an ICSP header, and a reset button. It contains everything needed to support the microcontroller.",
+            "image": "/images/Tools/arduinoMega2560.jpg"
+        },
+        {
+            "toolCategory": "",
+            "link": "",
+            "name": " Screw Driver Set",
+            "description": " Screw Driver Set contains different types of screw drivers",
+            "image": "/images/Tools/screwDriverset.jpg"
+        },
+        {
+            "toolCategory": "",
+            "link": "",
+            "name": "Ethernet Switch",
+            "description": "Ethernet switch, the most common form of network switch, is a computer networking device used in Ethernet to connect various Ethernet devices. It connects devices together by using packet switching to receive, process, and forward data from one source device to another destination device.",
+            "image": "/images/Tools/ethernetSwitch.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "DisplayPort to HDMI Adapter",
+            "description": "DisplayPort to HDMI adapter is an indispensable companion for your laptop equipped with DisplayPort. Connect your computer to an HDTV for video & audio streaming to HD monitor/projector with this portable adapter & HDMI cable.",
+            "image": "/images/Tools/displaytoHDMI.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Arduino Cable",
+            "description": "Arduino Cable is a USB cable type A/B, used to connect Arduino Uno, Arduino Mega 2560, Arduino 101 or any board with the USB female A port of your computer.",
+            "image": "/images/Tools/arduinoCable.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "RS-232 Cable",
+            "description": "An RS-232 serial port is most often used by repair technicians to perform diagnostics and service updates. It may also be used to control a device when connected to a computer running a home automation system or Custom Integrated Audio/Video (A/V) system.",
+            "image": "/images/Tools/rs232Cable.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "GSM Module",
+            "description": "A GSM module is a chip or circuit that will be used to establish communication between a mobile device or a computing machine and a GSM system.",
+            "image": "/images/Tools/gsmModule.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "X-Bee module",
+            "description": "X-Bee modules are embedded solutions providing wireless end-point connectivity to devices. They use the IEEE 802.15.4 networking protocol for fast point-to-multipoint or peer-to-peer networking. They are designed for high-throughput applications requiring low latency & predictable communication timing.",
+            "image": "/images/Tools/xBeeModule.png"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Heavy duty batteries",
+            "description": "These are batteries which have much more capacity, much higher maximum current and more resistance to changes in operating conditions and vibrations. Suitable for high power consumption applications.",
+            "image": "/images/Tools/heavyDutyBatteries.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Lead acid Battery",
+            "description": "Lead acid batteries first type of rechargeable battery ever created. Compared to later types of rechargeable batteries, these batteries have the lowest energy density. It has the ability to supply high surge currents as the cells have a relatively large power:weight ratio. ",
+            "image": "/images/Tools/leadAcidBattery.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Heavy watt batteries",
+            "description": "Heavy watt batteries are batteries that can hold a lot of charge and hence supply power for a longer duration of time than normal batteries",
+            "image": "/images/Tools/heavyWattBattery.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Glue Gun",
+            "description": "Hot glue guns are portable devices that utilize and dispense hot melt adhesives-thermoplastics in the shape of tubular sticks.",
+            "image": "/images/Tools/glueGun.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Radio receiver",
+            "description": "Radio receiver or radio for short, is a device that receives radio waves in all frequencies and converts them into electrical signals",
+            "image": "/images/Tools/radioReciever.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Wire cutter",
+            "description": "It is a tool that is used to cut the wires. It is also used to scrap of the rubber covering over it.",
+            "image": "/images/Tools/wireCutters.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Bread Board",
+            "description": "A breadboard is a solderless device for temporary prototype with electronics and test circuit designs. Most electronic components in electronic circuits can be interconnected by inserting their leads or terminals into the holes and then making connections through wires where appropriate. ",
+            "image": "/images/Tools/breadBoard.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Jumper wires",
+            "description": "Jumper wires are simply wires that have connector pins at each end, allowing them to be used to connect two points to each other without soldering. Jumper wires are typically used with breadboards and other prototyping tools in order to make it easy to change a circuit as needed. ",
+            "image": "/images/Tools/jumperWire.webp"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Glue Sticks",
+            "description": "Glue sticks, is a form of thermoplastic adhesive that is commonly sold as solid cylindrical sticks of various diameters designed to be applied using a hot glue gun.",
+            "image": "/images/Tools/glueSticks.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Dremel motosaw compact scroll saw",
+            "description": "The Dremel Moto-Saw is a compact & easy-to-use scroll saw for making detailed cuts in different materials. With its range of different saw blades, the Moto-Saw can handle many different materials easily.",
+            "link": "https://www.dremeleurope.com/general/en/dremel%C2%AEmoto-saw-514-ocs-p/",
+            "image": "/images/Tools/dremelotosaw.jpg"
+        },
+
+
+
+        {
+            "toolCategory": "",
+            "name": "Fluke 106 Palm sized digital multimeter",
+            "description": "The Fluke 106 is a multimeter where the DC voltage range is in between 0 and 600V and AC voltage supply range are in between 600mV and 600V. The equipment has a count of 6000 digits as well.",
+            "link": "https://store.nowpurchase.com/product/fluke-multimeters-dmms-famil-flu15699mufl260517?ti=1",
+            "image": "/images/Tools/flukeDigitalMultimeter.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Nodemcu Lua Wifi IOT development board based",
+            "description": "An open-source firmware and development kit that helps you to prototype your IOT product within a few Lua script lines.",
+            "link": "https://robokits.co.in/iot-internet-of-things/nodemcu-lua-wifi-internet-of-things-esp8266-development-board-with-cp2102",
+            "image": "/images/Tools/NodemcuLuaWifiIOT.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "HC-05 Bluetooth module",
+            "description": "HC-05 Bluetooth Module is an easy to use Bluetooth SPP (Serial Port Protocol) module,\ndesigned for transparent wireless serial connection setup. Its communication is via serial\ncommunication which makes an easy way to interface with controller or PC. ",
+            "link": "https://www.gme.cz/data/attachments/dsh.772-148.1.pdf",
+            "image": "/images/Tools/HC05BluetoothModule.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Spark core with chip Antenna",
+            "description": "The Spark Core is an Arduino-compatible, Wi-Fi enabled, cloud-powered development platform that makes creating internet-connected hardware a breeze. It is a tiny Wi-Fi development board, open source, widely successful funded Kickstarter project.",
+            "link": "https://www.seeedstudio.com/Spark-Core-with-Chip-Antenna-p-1495.html",
+            "image": "/images/Tools/Spark.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "SKIL air blower 8600 (B00191BE7S)",
+            "description": "SKIL air blower 8600 can be used as a blower as well as for extraction. With the extraction setting you can vacuum up dirt and dust from shelves, inaccessible corners or your car interiors.",
+            "link": "https://www.snapdeal.com/product/skil-8600-blower-with-carbon/635527536539",
+            "image": "/images/Tools/skilAirBlower.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "SKIL  Bench Grinder 3000",
+            "description": "It is a multi-utility bench grinder that can be used to sharpen your kitchen knives, other sharp tools, to polish surfaces of the tools, to smoothen sand surfaces. The dimension & compact size also makes it easy to carry around.",
+            "link": "https://www.snapdeal.com/product/skil-by-bosch-bench-grinder/1724274801",
+            "image": "/images/Tools/Boschskilbenchgrinder.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Intel Edison kit for Arduino antenna",
+            "description": "The Intel® Edison kit for Arduino is a compact computing platform that's small by design so you can easily integrate it into projects.  It's primarily designed for \"IOT\" projects and is pretty powerful for its small size.",
+            "link": "https://www.seeedstudio.com/Intel-Edison-Kit-for-Arduino-p-2149.html",
+            "image": "/images/Tools/intelEdisonKit.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Solder wire 2 x 50 gms for soldering DIP",
+            "description": "Solder Wire or Soldering wire 50 gm is useful if you want to join components and wires, over your PCB. Complete your circuit and join electrically your components through this solder or soldering wire.",
+            "link": "https://info.mayeralloys.com/blog/a-short-guide-to-choosing-solder-wire",
+            "image": "/images/Tools/solderWire.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "0-25 mm Micrometer screw guage",
+            "description": "A micrometer screw gauge, is a device incorporating a calibrated screw widely used for accurate measurement of components in mechanical engineering and machining.",
+            "link": "https://thefactfactor.com/facts/pure_science/physics/use-of-micrometer-screw-gauge/7535/",
+            "image": "/images/Tools/screwGauge.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "MX - 20 HoTT Transmitter",
+            "description": "With 12 control functions, the mx-20 HoTT lets the advanced RC model builder to control nearly any model. The use of Graupner HoTT 2.4-GHz transmission technology ensures great functional reliability through bidirectional communication between transmitter and receiver.",
+            "link": "https://www.live-hobby.de/en/1-sorto/Graupner-MX-20-COMPUTER-SYSTEM-HoTT-12-channels-Transmitter-33124-16.html",
+            "image": "/images/Tools/GraupnerMX20.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Robomart Project starter kit for Arduino UNO  R3/Mega2560",
+            "description": "This a starter kit for Arduino UNO R3/Meg2560 which has all the necessary components for doing all kinds of DIY projects.",
+            "link": "https://www.amazon.in/Robomart-Project-Starter-Arduino-Mega2560/dp/B00QQ6Y3PK",
+            "image": "/images/Tools/RobomartProjectStarterKit.png"
+        },
+        {
+            "toolCategory": "",
+            "name": "Sim 908 GSM/GPS GSM & GPS Antenna",
+            "description": "SIM908 module is a complete Quad-Band GSM/GPRS module which combines GPS technology for satellite navigation. ",
+            "link": "https://www.indiamart.com/proddetail/sim908-gsm-gprs-gps-modem-7914408955.html",
+            "image": "/images/Tools/SIM908.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "GPS L80 (5 V DC)",
+            "description": "This is a GPS Receiver Kit based on L80 GPS Module, designed as compact size at the same time design standard also is followed. It is compact jack in type board, pins are available at side as well as edge, So you can jack in your application board.",
+            "link": "https://embsysstore.com/Wireless-modules-online-india/GPS-modules-online-india/gps-receiver-l80-with-uart-output-5v",
+            "image": "/images/Tools/gpsl80.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": " Ethernet LAN model network RJ45 SPI Arduino UNO 2560 AVR ARM pic",
+            "description": "This is a great module if you want to add an internet connection to your microcontroller projects. ",
+            "link": "https://www.amazon.in/Robodo-Electronics-Ethernet-Enc28J60-Network/dp/B00NA6GA2S",
+            "image": "/images/Tools/EthernetLAN.png"
+        },
+        {
+            "toolCategory": "",
+            "name": "Automatic wire cutter stripper crimping tool",
+            "description": "This is a 5 in 1 wire stripper tool with cutter and crimper. It can easily cut off copper, cable, coaxial, thermal and aluminum wire.",
+            "link": "https://www.amazon.in/EZ-Life-Self-Adjusting-Automatic-Multi-Tool/dp/B07DWDVX3C",
+            "image": "/images/Tools/crimper.png"
+        },
+        {
+            "toolCategory": "",
+            "name": "U1231A handheld digital multimeter",
+            "description": "The U1230 Series is built for continuity detection in dark and noisy environments. Its audible beep and flashing backlight display provides increased visual and audio alert to indicate continuity.",
+            "link": "https://www.keysight.com/us/en/assets/7018-02915/data-sheets/5990-7550.pdf",
+            "image": "/images/Tools/U1231A.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Universal digital multimeter test lead probe wire forHTC fluke",
+            "description": "This is a Universal test lead probe wire that is to be inserted in the HTC digital multi meters for taking electrical measurements.  ",
+            "link": "https://compare.buyhatke.com/price/multimeters-buyyart-new-2pcs-set-universal-test-lead-probe-wire-for-htc-digital-multimeter-red-black-8000-counts-price-in-india-hatke18126272",
+            "image": "/images/Tools/buyyart.webp"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Multimeter Bluetooth Module",
+            "description": "Bluetooth Multimeter is an intelligent peripheral of android phones, specially designed for engineers. Not only can it easily collects data but also communicate with phones via bluetooth. ",
+            "image": "/images/Tools/MultimeterBluetoothModule.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Nano DSO",
+            "description": "The DSO Nano V3 is a pocket-size handheld 32bit digital storage oscilloscope. An oscilloscope is mainly used to measure volts, the Oscilloscope can measure a variety of other signals like current, frequency etc.",
+            "image": "/images/Tools/NanoDSO.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Plug",
+            "description": "Plug is a device for making an electrical connection between an appliance and the mains, consisting of an insulated casing with metal pins that fit into holes in a socket.",
+            "image": "/images/Tools/plug.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Raspberry Pi 3",
+            "description": "The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch and Python.",
+            "image": "/images/Tools/RaspberryPi3.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Induction Pump ",
+            "description": "An Inductive pump is a magnetically regulated positive displacement pump used to pump liquids and gases. It is capable of handling many corrosive chemicals as well as solvents and gases.",
+            "image": "/images/Tools/inductionPump.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "GPRS Module",
+            "description": "A GSM module or a GPRS module is a chip or circuit that will be used to establish communication between a mobile device or a computing machine and a GSM or GPRS system. The modem (modulator-demodulator) is a critical part here.",
+            "image": "/images/Tools/gprs.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "DJI Mavic Mini Combo",
+            "description": "The Mavic Mini Fly Combo from DJI(company) is a compact drone that offers professional-quality results with no restrictions. The set comes with Propeller Guards, Propeller set, 3 Battery Packs, portable controller, and a charger. ",
+            "image": "/images/Tools/DJIMavicMiniCombo.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Relay",
+            "description": "The relay is the device that open or closes the contacts to cause the operation of the other electric control. It detects the intolerable or undesirable condition with an assigned area and gives the commands to the circuit breaker to disconnect the affected area. Thus protects the system from damage.",
+            "link": "https://circuitglobe.com/relay.html",
+            "image": "/images/Tools/relay.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Arduino nano",
+            "description": "The Arduino Nano is a small, complete, and breadboard-friendly board based on the ATmega328 (Arduino Nano 3.x). It has more or less the same functionality of the Arduino Duemilanove, but in a different package. It lacks only a DC power jack, and works with a Mini-B USB cable instead of a standard one. ",
+            "link": "https://www.arduino.cc/en/pmwiki.php?n=Main/ArduinoBoardNano",
+            "image": "/images/Tools/Arduinonano.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "AAA Batteries",
+            "description": "The AAA battery is a standard size of dry cell battery. One or more AAA batteries are commonly used in low-drain portable electronic devices. They are most often used in small electronic devices, such as TV remotes, MP3 players etc.  The batteries will last a long time, while still accomplishing their purpose. ",
+            "link": "https://www.webstaurantstore.com/guide/923/batteries-buying-guide.html",
+            "image": "/images/Tools/AAA.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "AC Adaptor (5V)",
+            "description": "An AC adapter is a type of external power supply. As shown in the image, an AC adapter is made up of a central unit which draws power from an AC outlet. It then converts the power to DC that's used by the computer, and a second cord that plugs into the appliance.",
+            "link": "https://www.computerhope.com/jargon/a/acadapte.htm",
+            "image": "/images/Tools/acadapter.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "HW battery (9W)",
+            "description": "9v batteries are used in many applications requiring a greater amount of power than other devices. A 9V battery, either disposable or rechargeable, is usually used in smoke alarms, smoke detectors, transistor radios, instrumentation devices, LCD displays, & other small portable appliances. ",
+            "link": "https://batteryspecialists.com.au/blogs/news/9v-batteries-the-quick-and-easy-guide-for-optimized-devices",
+            "image": "/images/Tools/camelion.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Digital Storage Oscilloscope",
+            "description": "A digital storage oscilloscope is an oscilloscope which stores and analyses the input signal digitally rather than using analog techniques. It is now the most common type of oscilloscope in use because of the advanced trigger, storage, display and measurement features. ",
+            "link": "https://en.wikipedia.org/wiki/Digital_storage_oscilloscope",
+            "image": "/images/Tools/digitalstorageoscilloscope.jpg"
+        }
+    ],
+
+
+
+
+
+
+    "2": [
+        
+        {
+            "toolCategory": "",
+            "name": "Sledgehammer 12 Lb",
+            "description": "A sledgehammer is a tool with a large, flat, often metal head, attached to a long handle. The long handle combined with a heavy head allows the sledgehammer to gather momentum during a swing and apply a large force compared to hammers designed to drive nails. ",
+            "link": "https://en.wikipedia.org/wiki/Sledgehammer",
+            "image": "/images/Tools/sledgeHammer12.jpg"
+        }, 
+        {
+            "toolCategory": "",
+            "name": "Tuff Screw Jack ",
+            "description": "A screw jack, is a type of jack that is operated by turning a leadscrew. It is commonly used to lift moderately and heavy weights, such as vehicles; to raise and lower the horizontal stabilizers.",
+            "link": "https://en.wikipedia.org/wiki/Jackscrew",
+            "image": "/images/Tools/TuffScrewJack.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Pneumatic torque gun",
+            "description": "Pneumatic Torque Gun is a user friendly power bolting solution which provides consistent high speed rotations for constant torque output during high torque bolting applications.",
+            "link": "https://geekayenterprises.co.in/pneumatic-torque-guns/",
+            "image": "/images/Tools/PneumaticTorqueGun.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Allen key set ",
+            "description": "This is a small handheld tool used for turning bolts and screws which have hexagonal sockets.",
+            "link": "https://www.moglix.com/blog/learn-about-various-types-of-allen-keys-and-their-use/",
+            "image": "/images/Tools/allenkeySet.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Jigsaw Machine",
+            "description": "A jigsaw is a saw which uses a reciprocating blade to cut irregular curves, such as stenciled designs, in wood, metal, or other materials. A jigsaw power tool is made up of an electric motor and a reciprocating saw blade.",
+            "link": "https://en.wikipedia.org/wiki/Jigsaw_(tool)",
+            "image": "/images/Tools/Jigsawmachine.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Hack saw frame ",
+            "description": "The hack saw frame holds a thin, wide blade between its spigots (clips) and a plastic or wood handle at one end. A hacksaw is a metal-framed saw used primarily for cutting plastic and metal pipes and other small household materials.",
+            "link": "https://www.theengineerspost.com/types-of-hacksaw-frame/",
+            "image": "/images/Tools/hacksawFrame.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Hacksaw blade low alloy",
+            "description": "Hacksaw blades are the ones that attached to the frame and used for cutting. Early blades were of carbon steel, now termed 'low alloy' blades, and were relatively soft and flexible.",
+            "link": "https://www.theengineerspost.com/types-of-hacksaw-frame/",
+            "image": "/images/Tools/hacksawBlade.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Cordless drill driver ",
+            "description": "A cordless drill driver is simply a power drill that works without a cord. You can use a cordless drill driver to drill holes on walls, assemble furniture, and woodworking.",
+            "link": "https://www.overstock.com/guides/top-5-uses-for-cordless-drills",
+            "image": "/images/Tools/Cordlessdrilldriver.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Gas cutting torch",
+            "description": "Gas cutting torch is a blowpipe by which metal is preheated with a flame and then oxidized rapidly and removed by a jet of oxygen issuing centrally through the preheating flame.\n",
+            "link": "https://en.wikipedia.org/wiki/Oxy-fuel_welding_and_cutting",
+            "image": "/images/Tools/gasCuttingTorch.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Centre punch",
+            "description": "used to mark the center of a point to show the center of a hole when drilling",
+            "link": "https://www.durable-tech.com/blog/how-to-use-a-spring-loaded-center-punch",
+            "image": "/images/Tools/centrePunch.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Stanley ball pein hammer",
+            "description": "The peening face is useful for rounding off edges of metal pins and fasteners, such as rivets. The ball face of the hammer can also be used to make gaskets for mating surfaces.",
+            "link": "https://en.wikipedia.org/wiki/Ball-peen_hammer",
+            "image": "/images/Tools/stanleyballpin.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "sledge hammer",
+            "description": "Sledgehammers are a large hammer with a metal, mallet-like head. Their handles are long, designed to be held with both hands.",
+            "link": "https://www.grainger.com/know-how/equipment-information/kh-types-of-hammers",
+            "image": "/images/Tools/sledgeHammer.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "smith bench vice",
+            "description": "a mechanical apparatus used to secure an object that is to be worked on.",
+            "link": "https://www.safetyandhealthmagazine.com/articles/15187-bench-vise-safety",
+            "image": "/images/Tools/Smithbenchvice.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "square file",
+            "description": "Square files are machinist's files that can be used in slots and key ways. They are also used for roughing (removing material quickly) when turning round drill holes into square slots.",
+            "link": "https://www.wonkeedonkeetools.co.uk/files/what-is-a-square-file#:~:text=Square%20files%20are%20machinist's%20files,a%20round%20hole%20with%20files",
+            "image": "/images/Tools/squareFile.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Impact drill machine 13 mm - Dewalt",
+            "description": "A drilling machine is used to form a hole of different sizes on a job, drilling is a metal removing process, by a drilling machine you can do drilling operation, reaming operation and boring operation.",
+            "link": "https://learnmechanical.com/drilling-machine/",
+            "image": "/images/Tools/dm.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "HSS drill bit ",
+            "description": "Drill bits are cutting tools used to remove material to create holes, almost always of circular cross-section. Available Sizes - 1mm, 2mm, 3mm, 3.5mm, 4mm, 4.5mm, 5mm, 5.5mm, 6mm, 6.5mm, 7mm, 7.5mm, 8mm, 9mm, 9.5mm, 10mm, 10.5mm, 11mm, 12mm, 14mm ",
+            "link": "https://en.wikipedia.org/wiki/Drill_bit",
+            "image": "/images/Tools/db.PNG"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Drilling machine stand",
+            "description": "The drill holder has a very firm grip and can be tightened around the grill. This provides the convenience of using any type of drill. This drill is easy to use and also highly reliable drills stand.",
+            "image": "/images/Tools/dms.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Double open end spanner set   ",
+            "description": "A one-piece wrench with a U-shaped opening that grips two opposite faces\n of the bolt or nut.  Double-ended, with a different-sized opening at \neach end. Availabe Sizes- (06 - 07),(08 - 09),(10 - 11),(12 - 13),(13 - 17),(14 - 15),(16 - 17),(18 - 19),(20 - 22).",
+            "link": "https://www.abmtools.com/product/double-open-end-spanner-carbon-steel/",
+            "image": "/images/Tools/doubleendspannerset.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Ring spanner set ",
+            "description": "This is a type of spanner with a handle that has a hole of a particular shape designed to grip a nut or bolt head in order to tight or lose them. Available sizes - (6-7)mm,(8-9)mm,(10-11)mm,(12-13)mm ,(13-17)mm,(14-15)mm,(16-17)mm,(18-19)mm,(20-22)mm,(21-23)mm,(24-27)mm,(30-32)mm",
+            "link": "https://www.theengineerspost.com/types-of-spanners/",
+            "image": "/images/Tools/rsset.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Pilot compresed air spray gun - type 64",
+            "description": "Spray gun, painting tool using compressed air from a nozzle to atomize a liquid into a controlled pattern.",
+            "link": "https://www.britannica.com/technology/spray-gun",
+            "image": "/images/Tools/pilotcompressedairspraygun.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Apron",
+            "description": "Wear protective clothing that resists physical and chemical hazards when exposure may occur. Lab coats are appropriate for minor chemical splashes and solids contamination, while plastic or rubber aprons are best for protection from corrosive or irritating liquids.",
+            "link": "https://ehs.princeton.edu/laboratory-research/laboratory-safety/ppe-the-lab/labcoats-and-aprons",
+            "image": "/images/Tools/apron.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Goggles",
+            "description": "Goggles, or safety glasses, are forms of protective eyewear that usually enclose or protect the area surrounding the eye in order to prevent particulates, water or chemicals from striking the eyes. They are used in chemistry laboratories and in woodworking.",
+            "link": "https://en.m.wikipedia.org/wiki/Goggles",
+            "image": "/images/Tools/goggles.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "cotton gloves knitted",
+            "description": "Cotton gloves are ideal for handling works of art that might be otherwise damaged or compromised by fingerprints, oil, or dirt. They allow you to move even the most delicate of materials without fear of harming them",
+            "link": "https://www.artnews.com/art-news/product-recommendations/best-cotton-gloves-1234574917/",
+            "image": "/images/Tools/cottonknittedgloves.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Rubber gloves",
+            "description": "A rubber glove is a glove made out of natural rubber or Synthetic rubber. Rubber gloves can be unsupported or supported. Its primary purpose is protection of the hands while performing tasks involving chemicals",
+            "link": "https://en.m.wikipedia.org/wiki/Rubber_glove",
+            "image": "/images/Tools/rubbergloves.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Helmet (Yellow colour)",
+            "description": "A helmet is a form of protective gear worn to protect the head. More specifically, a helmet complements the skull in protecting the human brain.",
+            "link": "https://en.m.wikipedia.org/wiki/Helmet",
+            "image": "/images/Tools/helmet.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Cut off disc",
+            "description": "Discs. Often cutting discs, also known as cut-off wheels, are made from a solid abrasive disc. These discs are often used for cutting metal; they are composed of an abrasive mix of grit and adhesive that is formed into a thin, rigid disc with fiber webbing running through it for strength.",
+            "link": "https://en.m.wikipedia.org/wiki/Disc_cutter",
+            "image": "/images/Tools/cutoffdisc.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Cut off wheel 14''",
+            "description": "A disc cutter is a specialised, often hand-held, power tool used for cutting hard materials, ceramic tile, metal, concrete, and stone for example.",
+            "link": "https://en.m.wikipedia.org/wiki/Disc_cutter",
+            "image": "/images/Tools/cutoffwheel14.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Horse King grinding disc 4''",
+            "description": "A grinding wheel is a wheel used for grinding. Grinding wheels are composed of abrasive compounds and are used for various grinding and abrasive machining operations. Such wheels are used in grinding machines.",
+            "link": "description :https://en.m.wikipedia.org/wiki/Grinding_wheel       Specifications: https://www.amazon.in/dp/B08QFJQYF4/ref=cm_sw_r_u_apa_glt_fabc_XYER3GVDJ6PKZB3KQG7T?_encoding=UTF8&psc=1  ",
+            "image": "/images/Tools/horsekinggrindingdisc.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Angle grinder",
+            "description": "An angle grinder, also known as a side grinder or disc grinder, is a handheld power tool used for grinding and polishing. Although developed originally as tools for rigid abrasive discs, the availability of an interchangeable power source has encouraged their use with a wide variety of cutters and attachments.",
+            "link": "https://en.m.wikipedia.org/wiki/Angle_grinder",
+            "image": "/images/Tools/handanglegrinder.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Round file rough 6\"",
+            "description": "Round files are machinist’s files and, just like half round files, they can be used for creating semicircular grooves, finishing and deburring concave surfaces.",
+            "link": "https://www.wonkeedonkeetools.co.uk/files/what-is-a-round-file",
+            "image": "/images/Tools/roundfile6.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Stanley - Tin snip 10\"",
+            "description": "Tinsnips are designed to cut and trim sheet metal and other thin yet tough materials. Sheet metal can come in a variety of shapes and sizes and so tin snips are useful for cutting the sheet metal to the desired measurements.",
+            "link": "https://www.wonkeedonkeetools.co.uk/tin-snips-and-aviation-snips/what-are-tin-snips-used-for",
+            "image": "/images/Tools/tinsnip.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Stanley - Cutting Pller 8 \"",
+            "description": "Diagonal cutting pliers are used for cutting wire and small pins in areas that cannot be reached by larger cutting tools. Because the cutting edges are diagonally offset about 15 degrees, these can cut objects flush with a surface.They are useful for cutting copper, iron, aluminium wire.",
+            "link": "https://en.wikipedia.org/wiki/Diagonal_pliers ",
+            "image": "/images/Tools/cuttingPlier.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Stanley - Hand Reveting Gun",
+            "description": "Hand riveter tools are generally designed for use with blind rivets only and work by pulling the rivet mandrel through the rivet body to expand and secure it. This drawing action is supplied by a locking jaw assembly.",
+            "link": "https://www.wise-geek.com/what-is-a-hand-riveter.htm",
+            "image": "/images/Tools/handrevertinggun.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Emery paper rough 120 girt",
+            "description": "Emery cloth is a fabric that is covered with a range of grades of abrasive material and is used for \"sanding\" down to either smooth a surface, remove deep scratches, remove an oxidised layer, or form a shape or angle.",
+            "link": "https://www.plasticpipeshop.co.uk/articles/Emery-Cloth-KB-Article.html",
+            "image": "/images/Tools/emery.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Picasso - Tyre pressure guage ",
+            "description": "Tyre pressure guage is a pressure gauge used to measure the pressure of tires on a vehicle. Since tires are rated for specific loads at certain pressure, it is important to keep the pressure of the tire at the optimal amount.",
+            "link": "https://en.wikipedia.org/wiki/Tire-pressure_gauge",
+            "image": "/images/Tools/picasso.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Round file rough 8, 10, 12\"",
+            "description": "Round files are machinist’s files and, just like half round files, they can be used for creating semicircular grooves, finishing and deburring concave surfaces. They are often used in jewellery making to create detailed patterns in bracelets.",
+            "link": "https://www.wonkeedonkeetools.co.uk/files/what-is-a-round-file",
+            "image": "/images/Tools/roundfilerough8.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Abrasive grinding disc (Carborundum)",
+            "description": "Carborundum rough grinding discs handle the most severe grinding applications from heavy stock removal to rough blending. Ideal for a variety of applications in metal fabrication, MRO and welding.",
+            "link": "https://www.carbo.com/en-us/rough-grinding-wheels",
+            "image": "/images/Tools/abrasivegrindingdisc.jpeg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Ball peen hammers",
+            "description": "A ball-peen or ball pein hammer, also known as a machinist's hammer, is a type of peening hammer used in metalworking. It has two heads, one flat and the other, called the peen, rounded. ",
+            "link": "https://en.wikipedia.org/wiki/Ball-peen_hammer",
+            "image": "/images/Tools/ballpeenhammer.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Blower",
+            "description": "It is widely used in various places for drying of paints, cleaning hard to reach areas, removing debris, removing snow, shed leaves, cleaning electronic appliances like computers, generators, refrigerators, air conditioners, music systems, coolers, etc.",
+            "link": "https://www.moglix.com/aeronox-500w-air-blower-an20/mp/msn2qreqc5takp",
+            "image": "/images/Tools/blower.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Chisel",
+            "description": "A chisel is a tool with a characteristically shaped cutting edge of blade on its end, for carving or cutting a hard material such as wood, stone, or metal by hand, struck with a mallet, or mechanical power.\nAvailable colors- Blue,Green",
+            "link": "https://en.wikipedia.org/wiki/Chisel",
+            "image": "/images/Tools/chisel.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Chuck key",
+            "description": "A chuck key or wrench is a tool that is made for the purpose of tightening or loosening the jaws of a chuck. A chuck is a type of clamp that is used to hold a cylinder object. On a lathe, it holds the rotating piece—whereas on a drill or mill, it holds the rotating tool. ",
+            "link": "https://www.strongholdsafety.com/lathe-safety-101-chuck-keys-wrenches",
+            "image": "/images/Tools/chuckkey.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Claw hammer",
+            "description": "A claw hammer is a tool primarily used for driving nails into, or pulling nails from, some other object. Generally, a claw hammer is associated with woodworking but is not limited to use with wood products.",
+            "link": "https://en.wikipedia.org/wiki/Claw_hammer",
+            "image": "/images/Tools/clawhammer.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Cutting torch",
+            "description": "A cutting torch head is used to cut materials. It is similar to a welding torch, but can be identified by the oxygen blast trigger or lever. When cutting, the metal is first heated by the flame until it is cherry red.",
+            "link": "https://en.wikipedia.org/wiki/Oxy-fuel_welding_and_cutting",
+            "image": "/images/Tools/cuttingtorch.jpeg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Dewalt - 12 V battery",
+            "description": "The 12V MAX* 3.0Ah Lithium Ion Battery provides additional runtime for our 12V MAX* tools, with 50% more capacity than the DCB122 2.0Ah battery. It includes the fuel gauge LED charge indicator, making it easy to check if your battery is ready for the job. ",
+            "link": "https://www.dewalt.com/products/accessories/batteries-and-chargers/batteries/12v-max-30ah-lithium-ion-battery/dcb124",
+            "image": "/images/Tools/12Vbattery.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Dewalt 10 mm VSR cordless adjustable clutch drill/driver(Portable drilling machine)",
+            "description": "It is a cordless adjustable Drilling machine with a 12 V battery which can be recharged for further use.",
+            "link": "https://www.amazon.in/Dewalt-DCD700C2-Li-ion-Cordless-Screwdriver/dp/B00ZPALSKQ",
+            "image": "/images/Tools/DewaltCIDD.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Dewalt battery charger",
+            "description": "This DCB100 12V MAX* - 20V MAX* Lithium Ion Battery Charger features quick charging and a LED indicator to display charging status, when to replace battery pack, and battery temperature. ",
+            "link": "https://www.dewalt.com/products/accessories/batteries-and-chargers/chargers/12v-max--20v-max-lithium-ion-battery-charger/dcb101",
+            "image": "/images/Tools/batterycharger.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Measuring tape",
+            "description": "A tape measure or measuring tape is a flexible ruler used to measure size or distance. It consists of a ribbon of cloth, plastic, fibre glass, or metal strip with linear-measurement markings. It is a common measuring tool.",
+            "link": "https://en.m.wikipedia.org/wiki/Tape_measure",
+            "image": "/images/Tools/measuringtape.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Liner for cutting tool",
+            "description": "An innovative cutter that allows only a single, top sheet to be cut. Ideal for cutting coupons, printed articles, and other tasks that require only a single, top sheet to be cut and the material beneath to be preserved.",
+            "link": "https://rjsign.com/LINER-CUTTING-TOOL.html",
+            "image": "/images/Tools/linerforcuttingtool.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Vernier Calliper",
+            "description": "Vernier caliper is used for making very accurate linear measurements. It utilizes two graduated scales: a main scale similar to that on a ruler & an especially graduated auxiliary scale, the vernier, that slides parallel to the main scale & enables readings to be made to a fraction of a division on the main scale.",
+            "link": "https://www.britannica.com/technology/vernier-caliper",
+            "image": "/images/Tools/verniercaliper.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Lathe cutting tool",
+            "description": "In a lathe machine work, different operations require different types of lathe cutting tools, according to the process of using the lathe cutting tools.",
+            "link": "https://www.theengineerspost.com/lathe-cutting-tools/",
+            "image": "/images/Tools/lathecuttingtool.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Hoze connection",
+            "description": "A hose coupling is a connector on the end of a hose to connect it with another hose or with a tap or a hose appliance, such as an irrigation sprinkler. It is usually made of steel, brass, stainless steel, aluminium or plastic.",
+            "link": "https://en.m.wikipedia.org/wiki/Hose_coupling",
+            "image": "/images/Tools/hozeconnection.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Weld shield",
+            "description": "A weld shield is a type of headgear used when performing certain types of welding to protect the eyes, face and neck from flash burn, ultraviolet light, sparks, infrared light, and heat. The glass blocks out harmful ultraviolet light and can cause “arc eye”.",
+            "link": "https://abrisatechnologies.com/wp-content/uploads/2014/03/Weld-Shield.pdf",
+            "image": "/images/Tools/Weldshield.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Jigsaw blade",
+            "description": "Jigsaw blades are ideal for cutting curves and complex shapes in wood . They also work well for making short crosscuts on a board and finishing inside corner cuts  that you start with a circular saw. Jigsaws are not good for making fast, long, straight cuts.",
+            "link": "https://www.familyhandyman.com/project/how-to-use-a-jigsaw/#:~:text=Jigsaws%20are%20ideal%20for%20cutting,Use%20a%20circular%20saw%20instead",
+            "image": "/images/Tools/jigsawblade.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Welding gloves",
+            "description": "Welding gloves are personal protective equipment that protect the hands of welders from the hazards of welding. They allow digit articulation while protecting the operator from electrical shock, extreme heat, & ultraviolet & infrared radiation, & also provide abrasion resistance & enhanced grip.",
+            "link": "https://www.globalspec.com/learnmore/manufacturing_process_equipment/safety_personal_protective_equipment/welding_gloves",
+            "image": "/images/Tools/WeldingGloves.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Welding rods set",
+            "description": "The welding rod has an outer flux coating which protects the metal from damage, stabilizes the arc, and improves the weld. When joining two pieces of metal together, welding rods are used to create an electric arc. The two metals heat and melt, fusing together in a stronger bond.",
+            "link": "http://www.tataagrico.com/blog-post/welding-electrodes-find-out-about-its-types-and-usage/",
+            "image": "/images/Tools/Weldingrods.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Weld glass",
+            "description": "Welding glasses is a kind of PPE used by the welders to provide protection to their eyes from heat, intense ultraviolet or infrared light and flying debris during welding and cutting operations. If these are not used, it may lead to a severe burn of the cornea known as Photokeratitis or welder’s flash.",
+            "link": "https://www.safeopedia.com/definition/1030/welding-glasses",
+            "image": "/images/Tools/WeldGlass.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Wood cutting disc",
+            "description": "Wood cutting discs are round circular saw blades that are designed to cut various types of wood, including lumber, plywood, softwood, hardwood, panels and laminates. They can be used in various applications, depending on the type of wood you are cutting.",
+            "link": "https://www.toolbarn.com/buyers-guides/woodworking-circular-saw-blades-guide/?__cf_chl_captcha_tk__=pmd_63413ec5e72cafdc8861dd40b68374060f10d04c-1626865737-0-gqNtZGzNAuKjcnBszQjO",
+            "image": "/images/Tools/WoodCuttingdisc.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Wood drill bit",
+            "description": "Wood drill bits are used for rapid drilling through various types of wood with little force needed. Drill bits are cutting tools used to remove material to create holes, almost always of circular cross-section. They come in different sizes like 4mm, 5mm, 6mm, 8mm, 10mm, etc. ",
+            "link": "https://www.homedepot.com/c/ab/types-of-drill-bits/9ba683603be9fa5395fab9026af9044",
+            "image": "/images/Tools/wooddrillbit.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Benchvise",
+            "description": "A bench vise is a mechanical apparatus used to secure an object that is to be worked on. It features two parallel jaws as part of the design where one of the jaws is fixed & the other movable by a screw, a lever, or a cam.The device is widely used in the mechanical & woodworking industries.",
+            "link": "https://www.britannica.com/technology/vise",
+            "image": "/images/Tools/Benchvise.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Chop saw",
+            "description": "The chop saw is a motorized woodworking power tool designed to accurately and precisely complete square and angled cuts in wood. It works by spinning a circular steel saw blade at high speed. The blade cuts through the wood, laid on the support table, when you push the handle downward. ",
+            "link": "https://www.familyhandyman.com/article/what-is-a-chop-saw/",
+            "image": "/images/Tools/Chopsaw.PNG"
+        },
+        {
+            "name": "Lathe",
+            "description": "A lathe is a machining tool that is used primarily for shaping metal or wood. It is a machine tool that rotates a workpiece about an axis of rotation to perform various operations as well as giving the workpiece desired shape and size.",
+            "link": "https://www.ametals.com/post/what-is-a-lathe-and-how-does-it-work",
+            "image": "/images/Tools/lathe.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Radial drilling machine",
+            "description": "Radial Drilling Machine is used to drill the holes in the given radial distance when the component size is larger in terms of height with respect to the work table.",
+            "link": "https://mechanicalenotes.com/radial-drilling-machine/",
+            "image": "/images/Tools/RadialDrillingMachine.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Solar panel",
+            "description": "Solar panels are those devices which are used to absorb the sun's rays and convert them into electricity or heat. A solar panel is actually a collection of solar cells, which can be used to generate electricity through photovoltaic effect. These cells are arranged in a grid-like pattern on the surface of solar panels. ",
+            "link": "https://economictimes.indiatimes.com/definition/solar-panel",
+            "image": "/images/Tools/Solarpanel.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Inverter welding machine ARC",
+            "description": "An inverter welding machine is a relatively new and innovative type of welder that has a host of advantages when compared with the conventional welders that most of us are accustomed to. It converts alternate current to a lower usable voltage output.",
+            "link": "http://hongkyweldingmachine.com/inverter-arc-welding-machine/",
+            "image": "/images/Tools/Inverterweldingmachine.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "MetroQ Digital soldering",
+            "description": "The Soldering & De-soldering Station is a high performance and multi-function station for electronic product research, production and rework. The soldering iron and the de-soldering gun tool are controlled automatically by two micro-processors. ",
+            "image": "/images/Tools/digitalSoldering.PNG"
+        },
+        {
+            "toolCategory": "",
+            "name": "Plummer Blocks",
+            "description": "Plummer block housings can be used with high-capacity spherical roller bearings or self-aligning ball bearings. ",
+            "link": "https://www.nsk.com/products/bearingunit/plummer/index.html",
+            "image": "/images/Tools/plummerblock.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Polishing Disk",
+            "description": "To polish a workpiece, a manufacturing company may use a wheel that's covered with an abrasive disc. The loose abrasive on the disc essentially removes superficial material and imperfections, thereby creating a smoother surface.",
+            "link": "https://monroeengineering.com/blog/whats-the-difference-between-buffing-and-polishing/",
+            "image": "/images/Tools/polishingdisc.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Portable angle cutter",
+            "description": "An angle grinder, also known as a side grinder or disc grinder, is a handheld power tool used for grinding (abrasive cutting) and polishing",
+            "link": "https://en.wikipedia.org/wiki/Angle_grinder#:~:text=An%20angle%20grinder%2C%20also%20known,(abrasive%20cutting)%20and%20polishing.&text=Angle%20grinders%20can%20be%20powered%20by%20an%20electric%20motor%20or%20compressed%20air.",
+            "image": "/images/Tools/portableanglecutter.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Spanner",
+            "description": "A tool with a shaped opening or jaws for gripping and turning a nut or bolt.",
+            "link": "http://www.tataagrico.com/blog-post/10-things-you-need-to-know-about-combination-spanners/",
+            "image": "/images/Tools/spanner.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Meter scale ",
+            "description": "A meter scale is a device used to measure length. The scale that measures a meter (m), is divided into 100 centimeters (cm) and each centimeter is further divided into millimeters (mm).",
+            "link": "https://www.tactivity.in/Guide/DIY+Metre+Scale/789",
+            "image": "/images/Tools/meterscale.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Ring Spanner",
+            "description": "A spanner in which the jaws form a ring with internal serrations which fit completely around a nut, usable in confined spaces.",
+            "link": "https://www.wonkeedonkeetools.co.uk/spanners/what-is-a-ring-spanner",
+            "image": "/images/Tools/ringspanner.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Gloves ",
+            "description": "A glove is a garment covering the hand and protects it from injuries.",
+            "link": "https://www.mcrsafety.com/en/ppe/welding-protection/gloves/welding",
+            "image": "/images/Tools/gloves.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Files",
+            "description": "A tool used to remove fine amounts of material from a workpiece.",
+            "image": "/images/Tools/files.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "drill bit",
+            "description": "These are cutting tools used to remove material to create holes, almost always of circular cross-section",
+            "image": "/images/Tools/drillbit.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "spirit level",
+            "description": "An instrument designed to indicate whether a surface is horizontal (level) or vertical (plumb).",
+            "image": "/images/Tools/spiritlevel.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "screw jack",
+            "description": "They can be used to push, pull, tension, lock, unlock, tilt, pivot, roll, slide and lift or lower loads, anything from a few kilos to thousands of tonnes.",
+            "image": "/images/Tools/screwjack.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "hacksaw blades",
+            "description": "A fine-toothed saw, originally and mainly made for cutting metal",
+            "image": "/images/Tools/hacksawblades.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "wood drill",
+            "description": "A tool used for drilling holes in wood.",
+            "link": "https://www.klium.com/blog/the-right-wood-drill-for-every-job/",
+            "image": "/images/Tools/wooddrill.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Oil",
+            "description": "Used for lubrication of mechanical components.",
+            "link": "https://energyeducation.ca/encyclopedia/Lubricating_oil#:~:text=Lubricating%20oil%2C%20sometimes%20simply%20called,motor%20oil%20and%20transmission%20fluid",
+            "image": "/images/Tools/oil.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Diamond blade",
+            "description": "The tool used for cutting stone, concrete, asphalt, bricks, coal balls, glass, and ceramics",
+            "link": "https://www.virginiaabrasives.com/flooring-resources?p=blog-diamond-blades-uses-and-applications",
+            "image": "/images/Tools/diamondblades.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "sandpapers",
+            "description": "A material in the form of a sheet used to remove material from surfaces, either to make them smoother.",
+            "link": "https://en.m.wikipedia.org/wiki/Sandpaper",
+            "image": "/images/Tools/sandpapers.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Plier",
+            "description": "Pliers are multi-purpose hand tools that feature opposing jaws for gripping, bending, and cutting purposes. ",
+            "link": "https://www.merriam-webster.com/dictionary/piler",
+            "image": "/images/Tools/plier.jpg"
+        },
+        {
+            "toolCategory": "",
+            "name": "Flap discs ",
+            "description": "Flap discs are used to conform and shape metal. They have densely layered abrasive cloth flaps that can shape certain metals while leaving a finished look. They are most commonly used in welding, machining, heavy-duty equipment, industrial maintenance, agriculture and food production.",
+            "link": "https://blog.kimballmidwest.com/when-to-use-a-flap-disc-or-flap-wheel",
+            "image": "/images/Tools/flapdisc.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Electronic weighing scale",
+            "description": " Electronic weighing scale is a device used to measure mass or weight. It works with the use of a strain gauge load cell.",
+            "image": "/images/Tools/ews.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Earmuffs",
+            "description": "Earmuffs are clothing accessories or PPE designed to cover a person's ears for hearing protection or for warmth. They consist of a thermoplastic or metal head-band, that fits over the top or back of the head, and a cushion or cup at each end, to cover the external ears",
+            "image": "/images/Tools/earmuff.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Hammer",
+            "description": "Hammers are used for general carpentry, framing, nail pulling, cabinet making, assembling furniture, upholstering, finishing, riveting, bending or shaping metal, striking masonry drill and steel chisels, and so on.",
+            "image": "/images/Tools/hammer.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Mallet",
+            "description": "A mallet is a hammer used to strike an object without damaging it. They are typically lightweight and made from solid wood, rubber, or leather. A mallet is a block on a handle, which is usually used for driving chisels. The head on a rubber mallet is made of rubber.",
+            "image": "/images/Tools/mallet.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Respiratory mask",
+            "description": "A respiratory mask is designed to protect the wearer from inhaling airborne contaminants such as dusts, fumes, vapors, and infectious agents. It is worn while using welding machines etc",
+            "image": "/images/Tools/respiratorymask.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Impact wrench",
+            "description": "An impact wrench is a socket wrench power tool designed to deliver high torque output with minimal exertion by the user, by storing energy in a rotating mass, then delivering it suddenly to the output shaft. It was invented by Robert H. Pott of Evansville, Indiana. ",
+            "image": "/images/Tools/impactwrench.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Angle cutter",
+            "description": "An angle cutter, also known as a side grinder or disc grinder, is a handheld power tool used for grinding and polishing. It can be used to grind metal and cut tile, stucco and pavers, rout out mortar, plus they can sand, polish and sharpen.",
+            "image": "/images/Tools/anglecutter.jpg"
+        },
+        {
+            "link": "",
+            "toolCategory": "",
+            "name": "Dremmel motorsaw blade-set",
+            "description": "The Dremel Moto-Saw is a compact and easy-to-use scroll saw for making detailed cuts in different materials. ",
+            "image": "/images/Tools/dremmelmotorsawbladeset.jpg"
+        }    
+    ]
+}

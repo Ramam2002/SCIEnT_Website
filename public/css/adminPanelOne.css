@@ -102,9 +102,10 @@ body {
 }
 
 #addAdminForm, #addResourcesForm, #addGalleryImageForm, #changePasswordForm, #addProjectForm{
-    background-color: white;
+    background-color: #3f3932;
     border-radius: 20px;
     padding: 15px;
+    color: aliceblue;
 }
 #infoList {
     overflow-y: auto;

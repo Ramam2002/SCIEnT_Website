@@ -4,7 +4,7 @@ This is the official website for SCIEnT Lab NITT.
 ## Getting Started
 Clone this project to your local system using the following command on your terminal .
   ```
-  $ git clone https://gitlab.com/spider-webdev/scientlab.git
+  $ git clone https://github.com/SCIEnT-NITT/SCIEnT_Website.git
   ```
 ### Prerequisites
   * Install NodeJS and npm  

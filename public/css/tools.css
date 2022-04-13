@@ -226,24 +226,21 @@ footer a,footer a:hover{
     position: relative;
     max-width: 300px;
     min-width: 260px;
-    height: 203px;
+    height: 303px;
     margin: 30px 13px;
     padding: 20px 10px;
     background: #E0BB24;
     flex-direction: column;
     box-shadow: 0 5px 5px rgba(0,0,0,0.5);
-    transition: 0.4s ease-in-out;
-}
-
-.card-container .card:hover{
-    height: 465px;
+    transition: 0.2s ease-in-out;
 }
 
 .card-container .card .imgBx{
     position: relative;
     width: 242px;
     height: 260px;
-    top: -50px;
+    top: -40px;
+    margin-bottom: 10px;
     z-index: 1;
 }
 
@@ -256,24 +253,22 @@ footer a,footer a:hover{
 .card-container .card .content{
     position: relative;
     text-align: center;
-    margin-top: -140px;
+    margin-top: -110px;
     color: #232;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.5s ease-in;
-}
-
-.card-container .card .content .card-btn{
-    text-decoration: none;
-    background-color: #faf;
-    color: #121;
-}
-
-.card-container .card:hover .content{
-    visibility: visible;
     opacity: 1;
-    margin-top: -120px;
-    transition-delay: 0.2s;
+    transition: 0.1s;
+}
+
+.card-container .card .content h2{
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.card-container .card:hover{
+    opacity: 1;
+    transform: scale(0.95);
+    box-shadow: #DCDCDC 2px 2px 12px 2px;
 }
 
 /* new card END */

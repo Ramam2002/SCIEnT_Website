@@ -1,20 +1,199 @@
 <div id="main-body-container">
+  <br>
     <div class="container">
         <div class = "row">
           <div class = "col-lg-12 text-center">
-            <h1><span style="background-color: #f1f1f1;padding: 3px 10px 3px 10px; border-radius: 13px;">Members</span></h1>
+            <h1><span style="background-color:#f1f1f1; padding: 3px 10px 3px 10px; border-radius: 13px;">Members</span></h1>
           </div> 
         </div>
-      </div>
+    </div>
 
       <a id="" href="#!/ProjectIdeas/teamPictures"><span class="down-arrow"><i class="fa fa-angle-double-down" style="font-size: 60px; color: black;"></i></span></a>
 
 
       <!-- for styling the headMemebers check projects.css -->
+      <br><br>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Open Sans:400,600,800');
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+input,
+p,
+a {
+    font-family: "Open Sans";
+    margin: 0px;
+}
 
-<div class="headMembers">
+a,
+a:hover,
+a:focus {
+    color: inherit;
+}
 
-  <div class="head-card">
+body {
+    background-color: white;
+}
+
+.container-fluid,
+.container {
+    max-width: 1200px;
+}
+
+.card-container {
+    padding: 100px 0px;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+}
+
+.profile-card-1 {
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    background-image: url(../img/profile-bg-1.jpg);
+    background-position: center;
+    padding-top: 100px;
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto;
+    cursor: pointer;
+    max-width: 300px;
+}
+
+.profile-card-1 .profile-content {
+    position: relative;
+    background-color: #FFF;
+    padding: 70px 20px 20px 20px;
+    text-align: center;
+}
+
+.profile-card-1 .profile-img {
+    position: absolute;
+    height: 100px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+    top: -50px;
+    transition: all 0.25s linear;
+    transform-style: preserve-3d;
+}
+
+.profile-card-1 .profile-img img {
+    height: 100px;
+    margin: auto;
+    border-radius: 50%;
+    border: 5px solid #FFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card-1 .profile-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #021830;
+}
+
+.profile-card-1 .profile-address {
+    color: #777;
+    font-size: 12px;
+    margin: 0px 0px 15px 0px;
+}
+
+.profile-card-1 .profile-description {
+    font-size: 13px;
+    padding: 5px 10px;
+    color: #777;
+}
+
+.profile-card-1 .profile-icons .fa {
+    margin: 5px;
+    color: #777;
+}
+
+.profile-card-1:hover {
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card-1:hover .profile-img {
+    transform: rotateY(180deg);
+}
+
+.profile-card-2 {
+    max-height: 180px;
+    max-width: 180px;
+    background-color: #FFF;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.2s ease-in-out;
+}
+
+.profile-card-2 img {
+  /* width: 100%; */
+  /* height: 100%; */
+  transition: all linear 0.25s;
+}
+
+.profile-card-2 .profile-name {
+    position: absolute;
+    left: 30px;
+    bottom: 70px;
+    font-size: 30px;
+    color: #FFF;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    transition: all linear 0.25s;
+}
+
+.profile-card-2 .profile-icons {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    color: #FFF;
+    transition: all linear 0.25s;
+}
+
+.profile-card-2 .profile-username {
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+    color: aliceblue;
+    font-size: 13px;
+    transition: all linear 0.25s;
+}
+
+.profile-card-2:hover {
+  transform: scale(0.95);
+  filter: saturate(160%);
+  box-shadow: 2px #021830;
+  border: 2px 2px 12px 2px #1a2344;
+}
+
+.profile-card-2 .profile-icons .fa {
+    margin: 5px;
+}
+
+.profile-card-2:hover .profile-name {
+    bottom: 80px;
+}
+
+.profile-card-2:hover .profile-username {
+    bottom: 60px;
+}
+
+.profile-card-2:hover .profile-icons {
+    right: 40px;
+}
+</style>
+
+  <!-- <div class="head-card">
     <div class = "imgBx">
       <img class="member-image" src = "./images/heads/GaneshBabu.jpeg">
     </div>
@@ -32,27 +211,37 @@
       <h1>VISWA BHARATHAN</h1>
       <p>Student head of SCIEnT Lab</p>
 
-      <!-- add https://www.linkedin.com/in/viswa-subramanian-487a52128/ -->
+       add https://www.linkedin.com/in/viswa-subramanian-487a52128/ -->
     
     </div> 
-  </div>
+  </div> 
 
 </div>
-
+<br>
 <!-- head Members -->
     <section id="teamPictures" class="hcenter">
         <!--allMembers Button-->
         <div id="allMembersButtons" class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickAllPresentMembers()">Present Members</button>
-            <button type="button" class="btn btn-default btn-lg dark-button small-mobile" onclick="clickAllAlumni()">Alumni</button>
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickAllPresentMembers()">1990 Alumnus</button>
+            <!-- <button type="button" class="btn btn-default btn-lg dark-button small-mobile" onclick="clickAllAlumni()">Alumni</button> -->
         </div>
+        <div id="allMembersButtons" class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickAllPresentMembers()">Present Members</button>
+            <!-- <button type="button" class="btn btn-default btn-lg dark-button small-mobile" onclick="clickAllAlumni()">Alumni</button> -->
+        </div>
+        <div id="allMembersButtons" class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickHeads()">SCIEnT Admin</button>
+            <!-- <button type="button" class="btn btn-default btn-lg dark-button small-mobile" onclick="clickAllAlumni()">Alumni</button> -->
+        </div>
+
+
         <br>
         <!--present members batchButton-->	
         <div id="batchButtons" class="btn-group" role="group" aria-label="...">
             <button type="button" class="btn btn-default btn-lg dark-button small-mobile" onclick="clickAllPresentMembers()">All</button>
-            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickFourthYears()">2020-2021</button>
-            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickThirdYears()">2021-2022</button>
-            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickSecondYears()">2022-2023</button>
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickFourthYears()">2018-2022</button>
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickThirdYears()">2019-2023</button>
+            <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="clickSecondYears()">2020-2024</button>
         </div>
         <!--Alumni batchButton-->
         <div id="alumniButtons" class="btn-group" role="group" aria-label="...">
@@ -62,7 +251,6 @@
             <button type="button" class="btn btn-default btn-lg dark-button large-mobile" onclick="click2018Alumni()">Alumni of 2018</button> -->
         </div>	
         <div id="allMembersContainer">
-
         </div>
     </section>
 </div>

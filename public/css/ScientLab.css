@@ -72,7 +72,7 @@ html {
     }
 }
 .contents {
-    background-image: url("../images/bg.jpg");
+    /* background-image: url("../images/bg.jpg"); */
     background-repeat: repeat;
     background-size: cover;
     min-height: 55vh;
@@ -145,6 +145,13 @@ header.carousel .fill {
     margin-top: 45px;
     font-family: 'Karla', sans-serif;
 }
+
+.whatWeOffer
+{
+    /* margin-top: 4px; */
+    font-family: 'Karla', sans-serif;
+}
+
 .lead {
     margin-top: 30px;
 }
@@ -237,7 +244,7 @@ footer {
     /* text-align: center; */
     color: white;
     font-size: 14px;
-    padding-top: 25px;
+    padding-top: 10px;
 }
 
 /*.scient_logo_footer {
@@ -256,7 +263,7 @@ footer {
 #footer-text {
     color: white;
     font-size: 14px;
-    /*padding-top: 30px;*/
+    padding-top: 20px;
     text-align: center;
 }
 #spider {
@@ -343,7 +350,7 @@ footer {
         text-align: center;
         color: white;
         font-size: 14px;
-        padding-top: 25px;
+        padding-top: 10px;
     }
     #spider {
         text-align: center;

@@ -53,18 +53,159 @@
 
   "2022" : [
     {
-      "img": "",
-      "name": "Second year",
+      "img": "/images/Team-2022/akilanboopathy.jpg",
+      "name": "Akilan B",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/ANAGHDUTTA.jpg",
+      "name": "Anagh Dutta",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/ArullMuruganS.jpg",
+      "name": "Arull Murugan S",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/AryanPatil.jpg",
+      "name": "Aryan Arun Patil",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/DivyanshuGupta.jpeg",
+      "name": "Divyanshu Gupta",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/HariharanP.jpg",
+      "name": "Hariharan P",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/Kaarthik.jpg",
+      "name": "Kaarthik Shankar",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/kaavin.png",
+      "name": "Kaavin A K",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/KaranSundaram.jpg",
+      "name": "Karan Sundaram",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/MohammedKaif.jpg",
+      "name": "Mohammed Kaif",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/PavaniPaduchuri.jpg",
+      "name": "Pavani Paduchuri",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/RevanthSPK.jpg",
+      "name": "Revanth S.P.K",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/SaatvikSankarram.jpg",
+      "name": "Saatvik Sankar",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/SiddheshVaze.jpg",
+      "name": "Siddhesh Vaze",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/SoikatDas.jpg",
+      "name": "Soikat Das",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/SoorajSubramaniam.jpg",
+      "name": "Sooraj Subramaniam",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/VISHWESHSINGH.jpg",
+      "name": "Vishwesh Singh",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/YashAgnihotri.jpg",
+      "name": "Yashvardhan Agnihotri",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/Deeraj.jpeg",
+      "name": "Deeraj",
+      "github_url": "",
+      "additional_url": "",
+      "linkedin_url": ""
+    },
+    {
+      "img": "/images/Team-2022/Fahmida.jpeg",
+      "name": "Fahmida Hiba Fathima",
       "github_url": "",
       "additional_url": "",
       "linkedin_url": ""
     }
+
   ],
 
 
 
 
   "2020" : [
+    {
+      "img": "/images/Team-2020/Viswa.jpeg",
+      "name": "Viswa Bharathan",
+      "github_url": "",
+      "linkedin_url": "https://www.linkedin.com/in/viswa-subramanian-487a52128/",
+      "additional_url": ""
+    },
     {
       "img": "/images/Team-2020/Abhinash.jpg",
       "name": "Abhinash",
@@ -93,7 +234,7 @@
       "additional_url": ""
     },
     {
-      "img": "/images/Team-2020/SaravanaKumarS.jpeg",
+      "img": "/images/Team-2020/SaravanaKumarS.jpg",
       "name": "Saravana Kumar S",
       "github_url": "",
       "linkedin_url": "",
@@ -169,7 +310,7 @@
       "additional_url": ""
     },
     {
-      "img": "/images/Team-2021/IniyanT.jpeg",
+      "img": "/images/Team-2021/IniyanT.jpg",
       "name": "Iniyan T",
       "github_url": "",
       "linkedin_url": "https://www.linkedin.com/in/iniyan-t-b317b0190",
@@ -190,7 +331,7 @@
       "additional_url": ""
     },
     {
-      "img": "/images/Team-2021/Mohammed.jpeg",
+      "img": "/images/Team-2021/Mohammed.jpg",
       "name": "Mohammed Abubakr Siddique",
       "github_url": "",
       "linkedin_url": "https://www.linkedin.com/in/mohammed-abubakr-14003218a",
@@ -302,7 +443,7 @@
       "additional_url": ""
     },
     {
-      "img": "/images/Team-2021/VivekVardhanVarkala.jpeg",
+      "img": "/images/Team-2021/VivekVardhanVarkala.jpg",
       "name": "Vivek Vardhan Varkala",
       "github_url": "",
       "linkedin_url": "https://www.linkedin.com/in/vivek-varkala-b7136b189",

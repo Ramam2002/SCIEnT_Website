@@ -118,7 +118,10 @@ $("#alumniButtons button").on("click", function() {
    $(this).addClass("active-batch");
 });
 
-
+function clickHeads(){
+    $("#batchButtons").css("display", "none");
+    $('#allMembersContainer').html('<div class="headMembers"style="background-color:#f1f1f1;""> <div class="container"> <div class="row"> <div class="col-md-6"> <div class="profile-card-2"> <img src="./images/heads/Dr. A. K. Bakthavatsalam.jpeg" alt="" class="img img-responsive"> </div> <div style="text-align: center;"> <div class="profile-name">Dr. A. K. Bakthavatsalam.jpeg</div> <div class="profile-username"> Faculty Advisor, SCIEnT</div> <!-- <div class="profile-icons"><a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a></div> --> </div> </div> <div class="col-md-6"> <div class="profile-card-2"> <img src="./images/heads/GaneshBabu.jpeg" alt="" class="img img-responsive"> </div> <div style="text-align: center;"> <div class="profile-name">S.GANESH BABU</div> <div class="profile-username"> Manager, SCIEnT </div> </div> </div> </div> </div> </div>"');
+}
 // Event Listeners
 function clickAllPresentMembers() {
     $('#allMembersContainer').html(members['fourthYears']+members['thirdYears']

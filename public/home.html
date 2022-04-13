@@ -69,34 +69,48 @@
     </div>   
   </div>
 
-  <div class="col-sm-12 col-xs-12 col-md-5 main-slide upcoming">
-    <div class="carousel  slide event" data-ride="carousel" data-interval="2000"  id="event-carousel">
-                
-      <ol class="carousel-indicators"  >
-          <li data-target="#event-carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#event-carousel" ng-repeat="x in ongoingEvents" ng-if="x.startDate > today" data-slide-to="{{$index +1 }}"></li>
-      </ol>
-                
-      <div class="carousel-inner" >
-        <div class="item slides active">         
-          <div class="hero">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-sm-12 col-xs-12 col-md-5 main-slide upcoming">
+  <div class="carousel slide event" data-ride="carousel" data-interval="2000"  id="event-carousel">          
+    <ol class="carousel-indicators"  >
+        <li data-target="#event-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#event-carousel" data-slide-to="1"></li>
+        <li data-target="#event-carousel" data-slide-to="2"></li>
+    </ol>         
+    <div class="carousel-inner" >
+      <div class="item slides active">         
+        <div class="hero">
+          <hgroup>
+            <strong>Upcoming Events </strong>
+          </hgroup>
+        </div>
+      </div>
+      <div class="item slides"  ng-repeat="x in ongoingEvents" ng-if="x.startDate>today">
+        <div class="hero">
             <hgroup>
-              <strong>Upcoming Events </strong>
+              <strong> {{x.EventsDetails}}</strong>
+                <br>
+                <span>{{x.startTime+', '+x.startDateFormatted}} to {{x.endTime +', '+x.endDateFormatted}}</span>
             </hgroup>
-          </div>
-        </div>
-        <div class="item slides"  ng-repeat="x in ongoingEvents" ng-if="x.startDate>today">
-            <div class="hero">
-              <hgroup>
-                  <strong> {{x.EventsDetails}}</strong>
-                  <br>
-                  <span>{{x.startTime+', '+x.startDateFormatted}} to {{x.endTime +', '+x.endDateFormatted}}</span>
-              </hgroup>
-            </div>                    
-        </div>
+          </div>                    
       </div>
     </div>
   </div>
+</div>
+
+
 </div>
    
 <section id="about" class="about">
@@ -104,7 +118,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2><span style="border-bottom: 4px solid #000;"><b>ABOUT US</b></span></h2>
-                <p class="lead">SCIEnT is a multi-disciplinary innovation centre, providing opportunities to students to delve into the ever expanding world of technology, and discover, hands on, the incredible scope for innovation that the world offers today. The lab allows students to explore and experiment with technology, without having to deal with the fear and cost of failure. At SCIEnT, students are offered a multitude of tools, machines, consumables and services, and a space in which to work, learn and grow.
+                <p class="lead"><b>SCIEnT</b> is a multi-disciplinary innovation centre, providing opportunities to students to delve into the ever expanding world of technology, and discover, hands on, the incredible scope for innovation that the world offers today. The lab allows students to explore and experiment with technology, without having to deal with the fear and cost of failure. At <b>SCIEnT</b> , students are offered a multitude of tools, machines, consumables and services, and a space in which to work, learn and grow.
                 </p>
             </div>
         </div>
@@ -112,6 +126,21 @@
     </div>
     <!-- /.container -->
 </section>
+
+<section id="whatWeOffer" class="whatWeOffer">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2><span style="border-bottom: 4px solid #000;"><b>WHAT WE OFFER</b></span></h2>
+              <p class="lead">The Facilities offered by <b>SCIEnT</b>  can be accessed by students to different extents, based on their requirenments. Students who belong to technical clubs, who wish to do <b>CLASS PROJECTS</b> , or who simply wish to <b>EXPERIMENT</b>  in one particular area have the option of simply accessing the tools and machines offered by <b>SCIEnT</b> . Students who wish to complete and <b>ENTIRE PROJECT</b>  within <b>SCIEnT</b> , sourcing their tools, consumables, machines and services from the lab, can register their projects with the lab. This allows them to procure any materials or services that they would require from the lab itself, eliminating the need that exists now to personally take on the expenses associated with advanced manufacturing processes. This encourages them to <b>INNOVATE THE CONSTRAINTS</b> posed by time, convenience and funds. For students interested in <b>CONVERTING THEIR PROJECT INTO A BUSINESS VENTURE</b>.<b>SCIEnT</b> is backed by a strong alumini network, who, with certain projects, could step up to provide the first round of angel funding.
+              </p>
+          </div>
+      </div>
+      <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="bootstrap.js"></script>
 </body>

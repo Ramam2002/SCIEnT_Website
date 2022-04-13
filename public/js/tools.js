@@ -23,9 +23,7 @@ function getHTMLString(tool) {
             <img class="member-image" src = "${tool.image}">
         </div>
         <div class = "content">
-            <h2>${tool.name} </h2>
-            <p>${tool.description}</p>
-            <a href="${tool.link}" target="_blank"><button class="card-btn">Read More</button></a>
+            <h2>${tool.name} </h2></button>
         </div>
     </div>`;
     

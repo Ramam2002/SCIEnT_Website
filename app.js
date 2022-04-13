@@ -22,6 +22,7 @@ var facilities = require("./routes/facilities");
 var projects = require("./routes/projects");
 var hallBooking = require("./routes/hallBooking");
 var donations = require("./routes/donations");
+var funds = require("./routes/funds");
 var inventory = require("./routes/inventory");
 var adminProjects = require("./routes/adminProjects");
 var resources = require("./routes/resources");
@@ -64,6 +65,7 @@ app.use(
 );
 app.use("/", register);
 app.use("/", donations);
+// app.use("/", funds);
 app.use("/admin", admin);
 app.use("/admin", facilities);
 
@@ -92,7 +94,6 @@ app.use("/admin", hallSummary);
 // app.use("/admin", hallSummary);
 
 // .
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error("Not Found");

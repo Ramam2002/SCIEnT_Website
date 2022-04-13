@@ -172,10 +172,15 @@
 
   .slider-container{
     position: relative;
+    display: flex;
+    flex-direction: row-reverse;
   }
 
   .drive-container{
-    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .drive-vid{
@@ -285,7 +290,7 @@
 
   @media (max-width: 1024px){
     .drive-vid{
-        min-width: 280px;
+        width: 300px;
     }
   }
 
